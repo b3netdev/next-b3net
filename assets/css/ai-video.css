@@ -1,0 +1,192 @@
+
+
+.email-market-top{
+    background-image: url(https://www.b3net.com/wp-content/themes/b3net/assets/images/email-top-bg.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: bottom center;
+    padding: 140px 20px 50px;
+    text-align: center;
+}
+.email-btm-form input,.email-btm-form textarea {
+    display: block;
+    border: 1px solid #27499f;
+    color: #ffffff;
+    height: 45px;
+    box-shadow: none;
+    width: 100%;
+    border-radius: 4px;
+    padding: 8px 15px;
+    background-color: #edeff2;
+    outline: none;
+}
+input.wpcf7-form-control.has-spinner.wpcf7-submit.btn.btn-primary {
+    width: 250px;
+    margin: 0 auto;
+}
+.video-container-part{
+    border-radius: 10px;
+    overflow: hidden;
+}
+.xftzJg {
+    padding: 0 !important;
+}
+.shadow-lg {
+    box-shadow: 0 1rem 3rem rgb(149 144 144 / 18%) !important;
+}
+.email-btm-form {
+    background: #f9f9f9;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(153, 153, 153, 0.1);
+}
+
+.email-content-9 h2 {
+    font-size: 32px;
+    color: #2b2a2a;
+    margin-bottom: 20px;
+    padding: 0 60px;
+}
+
+/* label {
+    font-weight: 400;
+    font-size: 14px;
+}
+
+.form-label span {
+    color: red;
+} */
+
+.form-control {
+    border-radius: 5px;
+    padding: 10px;
+    font-size: 14px;
+}
+
+textarea.form-control {
+    resize: vertical;
+    height: 100px;
+}
+
+.btn-primary {
+    background-color: #e67600;
+    color: white;
+    font-size: 16px;
+    padding: 12px 25px;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+    border: none;
+    width: 160px;
+}
+
+
+.btn:hover {
+    color: #fff;
+    transform: scale(1.0); 
+    background-color: #3c5da400;
+    border: none;  
+    outline: none;
+  }
+  .btn.btn-primary:hover {
+    color: #fff;
+    transform: scale(1.0); 
+    background-color: #3c5da400;
+    border: none;
+    outline: none;
+   
+  }
+
+
+
+  .xftzJg {
+    padding: 0 !important;
+    margin: 0 !important;
+}
+
+
+
+
+  button, input, textarea, select {
+    outline: none !important;
+    box-shadow: none !important;
+}
+
+button:focus, input:focus, textarea:focus, select:focus {
+    outline: none !important;
+    box-shadow: none !important;
+    border: 1px solid #27499f;
+}
+
+.btn-primary:hover {
+    background-color: #d45a00;
+}
+
+.text-center {
+    text-align: center;
+}
+
+/* p {
+    margin-top: 10px;
+    font-size: 16px;
+} */
+/* 
+ .btn-primary {
+    border: 2px solid transparent;
+}
+
+button.btn {
+    padding: 16px 45px;
+    color: white;
+} */
+.btn:hover {
+    color: #fff;
+    transform: scale(1.05); 
+    background-color: #3c5da400;
+    border: 1px solid #3c5da400;
+}
+
+
+.email-market-top h3 {
+    color: #fff;
+    font-weight: 600;
+    font-size: 36px;
+    max-width: 600px;
+    margin: auto auto 35px;
+}
+
+
+@media (max-width: 767px) {
+    .email-content-9 h2 {      
+        padding: 0 10px;
+        font-size: 27px;
+    }
+.video-container-part  .xftzJg {
+        padding: 0px 10px !important;
+    }
+    .email-market-top{
+        padding: 105px 0px 30px;
+    }
+}
+
+@media (max-width: 575px) {
+    .email-content-9 h2 {      
+        padding: 0px;
+        font-size: 24px;
+    }
+    .email-btm-form {
+        padding: 10px;
+    }
+    .email-market-top{
+        padding: 80px 0px 30px;
+    }
+    .email-market-top h3{
+        font-size: 24px;
+    }
+}
+
+@media (max-width: 410px) {
+    .email-content-9 h2 {      
+        padding: 0px;
+        font-size: 20px;
+    }
+}
