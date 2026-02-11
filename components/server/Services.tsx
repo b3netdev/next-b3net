@@ -1,9 +1,9 @@
 import React from "react";
 import Link from "next/link";
 
-import Analytics from "../assets/images/analyics.png";
-import Statergy from "../assets/images/statergy.png";
-import DataEngneering from "../assets/images/data-engineering.png";
+import Analytics from "../../assets/images/analyics.png";
+import Statergy from "../../assets/images/statergy.png";
+import DataEngneering from "../../assets/images/data-engineering.png";
 import Image from "next/image";
 
 const Services = () => {

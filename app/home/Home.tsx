@@ -1,14 +1,14 @@
 import Image from "next/image";
 import Link from "next/link";
 
-import HomeNav from "@/components/HomeNav";
-import Services from "@/components/Services";
-// import AiModel from "@/components/AiModel";
-// import PortFolio from "@/components/PortFolio";
-// import Testimonial from "@/components/Testimonial";
-// import Expertice from "@/components/Expertice";
-// import CaseStudy from "@/components/CaseStudy";
-// import Contact from "@/components/Contact";
+import HomeNav from "@/components/client/HomeNav";
+import Services from "@/components/server/Services";
+import AiModel from "@/components/server/AiModel";
+import PortFolio from "@/components/server/PortFolioHome";
+import Testimonial from "@/components/server/Testimonial";
+import Expertise from "@/components/server/Expertise";
+import CaseStudy from "@/components/server/CaseStudy";
+import Contact from "@/components/client/Contact";
 
 import { ArrowRight } from "lucide-react";
 
@@ -168,13 +168,13 @@ export default function Home() {
             </div>
 
             <section id="services"><Services /></section>
-            {/*
             <section id="ai-integration-model"><AiModel /></section>
             <section id="portfolio"><PortFolio /></section>
             <section id="testimonials"><Testimonial /></section>
-            <section id="expertise-service"><Expertice /></section>
+            <section id="expertise-service"><Expertise /></section>
             <section id="case-studies"><CaseStudy /></section>
-            <section id="contact"><Contact /></section> */}
+            <section id="contact"><Contact /></section>
+
         </main>
     );
 }

@@ -1,7 +1,6 @@
-import "bootstrap/dist/css/bootstrap.min.css";
-
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import "@fortawesome/fontawesome-free/css/all.min.css";
+import "bootstrap/dist/css/bootstrap.min.css";
 import "./globals.css";
 
 import "../assets/css/style.css";
@@ -10,18 +9,15 @@ import "../assets/css/footer.css";
 import "../assets/css/new-style.css";
 import "../assets/css/caseStudy-inner.css";
 import "../assets/css/fade-down.css";
-
-
-
-
-const geistSans = Geist({
-  variable: "--font-geist-sans",
+import Navbar from "@/components/client/Navcontainer";
+import { Poppins } from "next/font/google";
+import Providers from "@/redux/Provider";
+import Footer from "@/components/server/Footer";
+const poppins = Poppins({
   subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
+  weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"],
+  style: ["normal", "italic"],
+  display: "swap",
 });
 
 export const metadata: Metadata = {
@@ -31,15 +27,17 @@ export const metadata: Metadata = {
 
 export default function RootLayout({
   children,
-}: Readonly<{
+}: {
   children: React.ReactNode;
-}>) {
+}) {
   return (
     <html lang="en">
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
-        {children}
+      <body className={poppins.className}>
+        <Providers>
+          <Navbar />
+          {children}
+          <Footer />
+        </Providers>
       </body>
     </html>
   );
