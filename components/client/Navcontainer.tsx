@@ -17,6 +17,7 @@ type MenuChild = {
     title: string;
     url: string;
     object_id?: number;
+    page:any
 };
 
 type MenuItem = {
@@ -234,8 +235,8 @@ export default function Navbar() {
                     )}
 
                     {/* React Router state -> query */}
-                    <Link href={`/${pathUrl}`}
-                        state={{ id: data.object_id }}
+                    <Link href={`wesolve/${data?.page?.slug}`}
+                        
                     >{data.title}</Link>
                 </span>
             </div>
@@ -247,7 +248,7 @@ export default function Navbar() {
         return (
             <div className="aboutSubMenu WesolveBox" key={data.id}>
                 <span className="about-item">
-                    <Link href={`/wesolve/${slug}`}
+                    <Link href={`/wesolve/${data?.page?.slug}`}
                     onClick={() => HandleNavigate(data.object_id!)}
                     >{data.title}</Link>
                 </span>
