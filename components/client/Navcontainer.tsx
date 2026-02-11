@@ -3,6 +3,8 @@
 import React, { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import { useAppDispatch, useAppSelector } from "@/redux/hooks";
+import { useRouter } from "next/router";
+import { setId } from "@/redux/slicers/idSlicer";
 
 
 import { menulist, serviceMegaMenuColumns } from "../../helper/Menulist";
@@ -61,6 +63,7 @@ export default function Navbar() {
     const [wesolveHover, setWesolveHover] = useState(false);
     const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
     const dispatch = useAppDispatch();
+    // const router = useRouter()
 
     const [isSticky, setIsSticky] = useState(false);
     const navRef = useRef<HTMLDivElement | null>(null);
@@ -94,6 +97,13 @@ export default function Navbar() {
 
 
 
+    const HandleNavigate = (id:number) =>{
+        dispatch(setId(id))
+        
+    }
+
+
+
     const ServiceMenuGroup = ({ group }: { group: ServiceMegaMenuGroup }) => {
         return (
             <div className="menu-inner-col">
@@ -114,7 +124,10 @@ export default function Navbar() {
                                 style={{ color: "#3b58a2 ", fontSize: "8px" }}
                             ></i>
 
-                            <Link href={item.to} className="service-menu-link">
+                            <Link href={item.to} 
+                            className="service-menu-link"
+                            onClick={() => HandleNavigate(item.state?.id)}
+                            >
                                 {item.label}
                             </Link>
                         </span>
@@ -221,7 +234,9 @@ export default function Navbar() {
                     )}
 
                     {/* React Router state -> query */}
-                    <Link href={`/${pathUrl}?id=${data.object_id ?? ""}`}>{data.title}</Link>
+                    <Link href={`/${pathUrl}`}
+                        state={{ id: data.object_id }}
+                    >{data.title}</Link>
                 </span>
             </div>
         );
@@ -232,7 +247,9 @@ export default function Navbar() {
         return (
             <div className="aboutSubMenu WesolveBox" key={data.id}>
                 <span className="about-item">
-                    <Link href={`/wesolve/${slug}?id=${data.object_id ?? ""}`}>{data.title}</Link>
+                    <Link href={`/wesolve/${slug}`}
+                    onClick={() => HandleNavigate(data.object_id!)}
+                    >{data.title}</Link>
                 </span>
             </div>
         );
@@ -290,7 +307,8 @@ export default function Navbar() {
                                         >
                                             <span style={{ opacity: "1", color: labelColor }}>
                                                 <Link
-                                                    href={`/about-company.html?pageId=12476`}
+                                                    href={`${item?.page?.slug}`}
+                                                    onClick={()=>HandleNavigate(item?.object_id)}
                                                     className="nav-link"
                                                 >
                                                     {item.title}
@@ -322,7 +340,7 @@ export default function Navbar() {
                                         >
                                             <span style={{ opacity: "1", color: labelColor }}>
                                                 <Link
-                                                    href={`/${pathUrl}${item.object_id ? `?id=${item.object_id}` : ""}`}
+                                                    href={`${item?.page?.slug}`}
                                                     className="nav-link"
                                                     style={{ color: labelColor }}
                                                 >
@@ -349,9 +367,9 @@ export default function Navbar() {
                                             onMouseLeave={() => setWesolveHover(false)}
                                         >
                                             <span style={{ opacity: "1", color: labelColor }}>
-                                                <Link href={`/${pathUrl}`} className="nav-link" style={{ color: labelColor }}>
+                                                {/* <Link href={`/${pathUrl}`} className="nav-link" style={{ color: labelColor }}> */}
                                                     {item.title}
-                                                </Link>
+                                                {/* </Link> */}
                                             </span>
 
                                             <span>
@@ -374,7 +392,7 @@ export default function Navbar() {
                                     <li key={item.id} className="has-children position-relative">
                                         <span style={{ opacity: "1", color: labelColor }}>
                                             <Link
-                                                href={`${toPath}${item.object_id ? `?id=${item.object_id}` : ""}`}
+                                                href={`${item?.page?.slug}`}
                                                 className="nav-link"
                                                 style={{ color: labelColor }}
                                             >
@@ -388,7 +406,7 @@ export default function Navbar() {
                             return (
                                 <li key={item.id} style={{ color: labelColor }}>
                                     <Link
-                                        href={`/${pathUrl}${item.object_id ? `?id=${item.object_id}` : ""}`}
+                                        href={`${item?.page?.slug == "home"? "/":item?.page?.slug}`}
                                         className="nav-link"
                                         style={{ color: labelColor }}
                                     >

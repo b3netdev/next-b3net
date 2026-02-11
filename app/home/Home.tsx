@@ -41,8 +41,8 @@ export default function Home() {
                         <span className="btn_label" data-text="Get Your Free Audit">
                             Get Your Free Audit
                         </span>
-                        <span className="rotate-90">
-                            <ArrowRight />
+                        <span className="btn_icon">
+                            <i className="fa-solid fa-arrow-right"></i>
                         </span>
                     </a>
                 </div>
