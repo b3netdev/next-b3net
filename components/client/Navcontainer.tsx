@@ -235,7 +235,7 @@ export default function Navbar() {
                     )}
 
                     {/* React Router state -> query */}
-                    <Link href={`/wesolve/${data?.page?.slug}`}
+                    <Link href={`/about-company/${ data?.page?.slug !== "about-company"? data?.page?.slug : ''}`}
                         
                     >{data.title}</Link>
                 </span>

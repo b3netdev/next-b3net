@@ -2434,7 +2434,7 @@ export const menulist = [
                     "title": "Featured Clients",
                     "content": "",
                     "excerpt": "",
-                    "slug": "featured-clients-html",
+                    "slug": "featured-clients",
                     "status": "publish",
                     "meta": {
                         "_edit_lock": "1767684452:1",
