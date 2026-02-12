@@ -235,7 +235,7 @@ export default function Navbar() {
                     )}
 
                     {/* React Router state -> query */}
-                    <Link href={`wesolve/${data?.page?.slug}`}
+                    <Link href={`/wesolve/${data?.page?.slug}`}
                         
                     >{data.title}</Link>
                 </span>
@@ -308,7 +308,7 @@ export default function Navbar() {
                                         >
                                             <span style={{ opacity: "1", color: labelColor }}>
                                                 <Link
-                                                    href={`${item?.page?.slug}`}
+                                                    href={`/${item?.page?.slug}`}
                                                     onClick={()=>HandleNavigate(item?.object_id)}
                                                     className="nav-link"
                                                 >
@@ -393,7 +393,7 @@ export default function Navbar() {
                                     <li key={item.id} className="has-children position-relative">
                                         <span style={{ opacity: "1", color: labelColor }}>
                                             <Link
-                                                href={`${item?.page?.slug}`}
+                                                href={`/${item?.page?.slug}`}
                                                 className="nav-link"
                                                 style={{ color: labelColor }}
                                             >
@@ -407,7 +407,7 @@ export default function Navbar() {
                             return (
                                 <li key={item.id} style={{ color: labelColor }}>
                                     <Link
-                                        href={`${item?.page?.slug == "home"? "/":item?.page?.slug}`}
+                                        href={`/${item?.page?.slug == "home"? "/":item?.page?.slug}`}
                                         className="nav-link"
                                         style={{ color: labelColor }}
                                     >
