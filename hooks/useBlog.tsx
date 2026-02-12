@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { AxiosResponse } from "axios";
-import axios from "@/api/axios";
+import api from "@/api/axios";
 
 
 export interface WPTitle {
@@ -48,7 +48,7 @@ const useBlog = () => {
 
   const getBlogCategories = async (): Promise<WPCategory[]> => {
     try {
-      const res: AxiosResponse<WPCategory[]> = await axios.get("wp/v2/categories");
+      const res: AxiosResponse<WPCategory[]> = await api.get("wp/v2/categories");
       console.log(res,"BLOG")
       return res.data;
     } catch (error) {
@@ -63,7 +63,7 @@ const useBlog = () => {
       const axiosParams =
         params instanceof URLSearchParams ? Object.fromEntries(params) : params;
 
-      const res: AxiosResponse<WPPost[]> = await axios.get("wp/v2/posts", {
+      const res: AxiosResponse<WPPost[]> = await api.get("wp/v2/posts", {
         params: axiosParams,
       });
 
@@ -80,7 +80,7 @@ const useBlog = () => {
     setLoading(true);
     try {
       // Prefer passing _embed via params instead of building query in URL
-      const res: AxiosResponse<WPPost> = await axios.get(`wp/v2/posts/${id}`, {
+      const res: AxiosResponse<WPPost> = await api.get(`wp/v2/posts/${id}`, {
         params: { _embed: 1 },
       });
 
@@ -99,7 +99,7 @@ const useBlog = () => {
   ): Promise<WPPost[]> => {
     setLoading(true);
     try {
-      const res: AxiosResponse<WPPost[]> = await axios.get("wp/v2/posts", {
+      const res: AxiosResponse<WPPost[]> = await api.get("wp/v2/posts", {
         params: {
           categories: categoryId,
           exclude: postID,
@@ -120,7 +120,7 @@ const useBlog = () => {
   const authorDetails = async (id: number | string): Promise<WPUser> => {
     setLoading(true);
     try {
-      const res: AxiosResponse<WPUser> = await axios.get(`wp/v2/users/${id}`);
+      const res: AxiosResponse<WPUser> = await api.get(`wp/v2/users/${id}`);
       return res.data;
     } catch (error) {
       throw error;
