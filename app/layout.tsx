@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import "@fortawesome/fontawesome-free/css/all.min.css";
 import "bootstrap/dist/css/bootstrap.min.css";
+import BootstrapClient from "./BootstrapClient";
 import "./globals.css";
 
 import "../assets/css/style.css";
@@ -35,6 +36,7 @@ export default function RootLayout({
       <body className={poppins.className}>
         <Providers>
           <Navbar />
+          <BootstrapClient />
           {children}
           <Footer />
         </Providers>

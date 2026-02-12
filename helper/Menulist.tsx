@@ -6,8 +6,9 @@ import menuList5 from "../assets/images/menu-list-icon-5.png";
 
 type ServiceMegaMenuItem = {
     label: string;
-    to: string;
+    to?: string;
     state?: Record<string, any>;
+    slug?: string
   };
   
   type ServiceMegaMenuGroup = {
@@ -6078,16 +6079,16 @@ export const serviceMegaMenuColumns: ServiceMegaMenuColumn[] = [
           listType: "dot",
           dotSize: 10,
           items: [
-            { label: "Web Design", to: "/services/web-design-services.html?id=12131" },
-            { label: "Web Development", to: "/services/web-development-agency.html?id=13010" },
-            { label: "Ecommerce", to: "/services/ecommerce-web-development-service.html?id=12171" },
-            { label: "WordPress", to: "/services/wordpress-development-company.html?id=12146" },
-            { label: "Website Maintenance", to: "/services/website-maintenance-services-dallas.html?id=12174" },
-            { label: "Magento Web Design", to: "/services/magento-ecommerce-development.html?id=12743" },
-            { label: "Woocommerce", to: "/services/woocommerce-development-company.html?id=12699" },
-            { label: "Opencart Development", to: "/services/opencart-website-development-service.html?id=12048" },
-            { label: "Shopify Development", to: "/services/shopify-store-development-servce.html?id=12048" },
-            { label: "Laravel Development", to: "/services/laravel-development-company.html?id=12736" },
+            { label: "Web Design", slug: "web-design-services" },
+            { label: "Web Development", slug: "web-development-service-2" },
+            { label: "Ecommerce", slug: "ecommerce-web-development-service" },
+            { label: "WordPress", slug: "wordpress-development-company" },
+            { label: "Website Maintenance", slug: "website-maintenance-services-dallas" },
+            { label: "Magento Web Design", slug: "magento-ecommerce-development" },
+            { label: "Woocommerce", slug: "woocommerce-development-company" },
+            { label: "Opencart Development", slug: "opencart-website-development-service" },
+            { label: "Shopify Development", slug: "shopify-store-development-servce" },
+            { label: "Laravel Development", slug: "laravel-development-company" },
           ],
         },
         {
@@ -6096,9 +6097,9 @@ export const serviceMegaMenuColumns: ServiceMegaMenuColumn[] = [
           listType: "dot",
           dotSize: 10,
           items: [
-            { label: "iOS Development", to: "/services/iphone-app-development-services.html?id=12288" },
-            { label: "Android Development", to: "/services/android-app-development.html?id=12421" },
-            { label: "PhoneGap Development", to: "/services/phonegap-hypbrid-app-development.html?id=12706" },
+            { label: "iOS Development", slug: "/services/iphone-app-development-services.html?id=12288" },
+            { label: "Android Development", slug: "/services/android-app-development.html?id=12421" },
+            { label: "PhoneGap Development", slug: "/services/phonegap-hypbrid-app-development.html?id=12706" },
           ],
         },
       ],

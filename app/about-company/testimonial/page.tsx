@@ -2,6 +2,7 @@ import React from 'react'
 import { GetPageData } from '@/lib/getdata'
 import ContactFooter from '@/components/server/ContactFooter';
 import TestimonialsClientsSlider from './TestimonialSliders';
+
 const Testimonial = async () => {
 
     const data = await GetPageData("testimonial", "page");

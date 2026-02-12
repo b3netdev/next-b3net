@@ -20,7 +20,7 @@ export default async function AboutUsPage({ params }: PageProps) {
 
   return (
     <div className="about-page portfolio-page">
-      {/* ✅ Everything static can stay server-rendered */}
+      
       <div className="port-landing-wrap gpp">
         <div className="banner-img">
           <img

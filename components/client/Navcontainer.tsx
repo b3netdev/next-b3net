@@ -39,8 +39,9 @@ type RootState = {
 
 type ServiceMegaMenuItem = {
     label: string;
-    to: string;
+    to?: string;
     state?: Record<string, any>;
+    slug:string
 };
 
 type ServiceMegaMenuGroup = {
@@ -125,9 +126,9 @@ export default function Navbar() {
                                 style={{ color: "#3b58a2 ", fontSize: "8px" }}
                             ></i>
 
-                            <Link href={item.to} 
+                            <Link href={`/services/${item?.slug}`} 
                             className="service-menu-link"
-                            onClick={() => HandleNavigate(item.state?.id)}
+                            // onClick={() => HandleNavigate(item.state?.id)}
                             >
                                 {item.label}
                             </Link>
