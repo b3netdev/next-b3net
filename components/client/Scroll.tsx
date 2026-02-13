@@ -29,9 +29,9 @@ const Scroll: React.FC<ScrollLinkWrapperProps> = ({
       offset={offset}
       className={className}
     >
-      <span style={{ cursor: "pointer", display: "inline-block" }}>
+   
         {children}
-      </span>
+
     </Link>
   );
 };

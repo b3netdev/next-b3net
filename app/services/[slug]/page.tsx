@@ -35,6 +35,7 @@ const ServiceSubpage = async ({ params }: { params: { slug: string } }) => {
                             <span className="btn btn-orange">
                                 <Scroll
                                     to="contact-form"
+                                     className="btn btn-orange"
                                     
                                 >
                                 <span className="btn_label_1">
@@ -183,7 +184,7 @@ const ServiceSubpage = async ({ params }: { params: { slug: string } }) => {
                                             <div className="mt-4">
                                                 <Scroll
                                                     to="contact-form"
-
+                                                     className="btn btn-orange"
                                                 >
                                                     <span className="btn_label_1">
                                                         {
