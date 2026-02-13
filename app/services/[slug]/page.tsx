@@ -5,6 +5,7 @@ import ServiceContact from "./ServiceContact";
 import Link from "next/link";
 import ServiceContact1 from "./ServiceContact1";
 import FrequentQuestion from "./FrequentQuestion";
+import Scroll from "@/components/client/Scroll";
 
 const ServiceSubpage = async ({ params }: { params: { slug: string } }) => {
     const { slug } = await params;
@@ -12,7 +13,7 @@ const ServiceSubpage = async ({ params }: { params: { slug: string } }) => {
     const data = await GetPageData(slug, "page");
 
     const pageData = data?.page ?? data;
-    console.log(pageData)
+    console.log(pageData, "PAGE DATA")
 
     return (
         <main className="page_content services-design-page">
@@ -32,17 +33,14 @@ const ServiceSubpage = async ({ params }: { params: { slug: string } }) => {
                         />
                         <div className="mt-4">
                             <span className="btn btn-orange">
-                                {/* <Link
+                                <Scroll
                                     to="contact-form"
-                                    smooth="easeInOutQuart"
-                                    duration={100}
-                                    offset={-80}
-                                    className="btn btn-orange"
-                                > */}
+                                    
+                                >
                                 <span className="btn_label_1">
                                     {pageData?.acf?.data?.banner_call_to_action?.title}
                                 </span>
-                                {/* </Link> */}
+                                </Scroll>
                                 <span className="btn_icon">
                                     <i className="fa-solid fa-arrow-right"></i>
                                 </span>
@@ -183,12 +181,9 @@ const ServiceSubpage = async ({ params }: { params: { slug: string } }) => {
                                             />
 
                                             <div className="mt-4">
-                                                {/* <Link
+                                                <Scroll
                                                     to="contact-form"
-                                                    smooth="easeInOutQuart"
-                                                    duration={100}
-                                                    offset={-80}
-                                                    className="btn btn-orange"
+
                                                 >
                                                     <span className="btn_label_1">
                                                         {
@@ -199,7 +194,7 @@ const ServiceSubpage = async ({ params }: { params: { slug: string } }) => {
                                                     <span className="btn_icon">
                                                         <i className="fa-solid fa-arrow-right"></i>
                                                     </span>
-                                                </Link> */}
+                                                </Scroll>
                                             </div>
                                         </div>
                                     </div>
@@ -279,7 +274,7 @@ const ServiceSubpage = async ({ params }: { params: { slug: string } }) => {
                                 {pageData?.acf?.data?.service_page_section_6_testimonial?.map(
                                     (data: any, index: any) => {
                                         return (
-                                            <div className="item">
+                                            <div className="item" key={index}>
                                                 <div className=" border-testi">
                                                     <div className="testimonial-wrapper lazyloaded">
                                                         <div className="quote-icon">
@@ -339,7 +334,10 @@ const ServiceSubpage = async ({ params }: { params: { slug: string } }) => {
                 </div>
             )}
             <ServiceContact />
-           <FrequentQuestion pageData={pageData} />
+            {
+                pageData?.acf?.data?.faq_repeater &&
+                <FrequentQuestion pageData={pageData} />
+            }
         </main>
     );
 };

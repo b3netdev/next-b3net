@@ -1,43 +1,55 @@
 "use client";
 
+import { useEffect, useMemo, useState } from "react";
+
 const FrequentQuestion = ({ pageData }: { pageData: any }) => {
+  const faqs = useMemo(() => pageData?.acf?.data?.faq_repeater ?? [], [pageData]);
+
+  const [activeIndex, setActiveIndex] = useState<number | null>(null);
+
+
+  useEffect(() => {
+    if (faqs.length) setActiveIndex(0);
+  }, [faqs.length]);
+
+  const toggle = (index: number) => {
+    setActiveIndex((prev) => (prev === index ? null : index));
+  };
+
   return (
-    <div>
-      <div className="container my-5">
-        <h2 className="text-center mb-4">Frequently Asked Questions</h2>
+    <div className="container my-5">
+      <h2 className="text-center mb-4">Frequently Asked Questions</h2>
 
-        <div className="accordion new-accor-item" id="faqAccordion">
-          {pageData?.acf?.data?.faq_repeater?.map((item: any, index: number) => {
-            const headingId = `faqHeading${index + 1}`;
-            const collapseId = `faqCollapse${index + 1}`;
+      <div className="accordion" id="faqAccordion">
+        {faqs.map((item: any, index: number) => {
+          const headingId = `faqHeading${index}`;
+          const collapseId = `faqCollapse${index}`;
+          const isOpen = activeIndex === index;
 
-            return (
-              <div className="accordion-item" key={headingId}>
-                <h2 className="accordion-header" id={headingId}>
+          return (
+            <div className="accordion-item" key={headingId}>
+              <div className="flex  justify-between bg-amber-200">
+                <div className="accordion-header" id={headingId}>
                   <button
-                    className={`accordion-button ${index !== 0 ? "collapsed" : ""}`}
+                    className={`accordion-button ${!isOpen ? "collapsed" : ""}`}
                     type="button"
-                    data-bs-toggle="collapse"
-                    data-bs-target={`#${collapseId}`}
-                    aria-expanded={index === 0 ? "true" : "false"}
+                    onClick={() => toggle(index)}
+                    aria-expanded={isOpen}
                     aria-controls={collapseId}
                   >
-                    {item.question}
-                    <i className="fa-solid fa-chevron-down faq-icon"></i>
+                    {item?.question}
                   </button>
-                </h2>
-                <div
-                  id={collapseId}
-                  className={`accordion-collapse collapse ${index === 0 ? "show" : ""}`}
-                  aria-labelledby={headingId}
-                  data-bs-parent="#faqAccordion"
-                >
-                  <div className="accordion-body">{item.answer}</div>
                 </div>
+               
               </div>
-            );
-          })}
-        </div>
+              {isOpen && (
+                <div id={collapseId} className="accordion-collapse">
+                  <div className="accordion-body">{item?.answer}</div>
+                </div>
+              )}
+            </div>
+          );
+        })}
       </div>
     </div>
   );
