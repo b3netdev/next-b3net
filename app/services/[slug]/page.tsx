@@ -35,12 +35,12 @@ const ServiceSubpage = async ({ params }: { params: { slug: string } }) => {
                             <span className="btn btn-orange">
                                 <Scroll
                                     to="contact-form"
-                                     className="btn btn-orange"
-                                    
+                                    className="btn btn-orange"
+
                                 >
-                                <span className="btn_label_1">
-                                    {pageData?.acf?.data?.banner_call_to_action?.title}
-                                </span>
+                                    <span className="btn_label_1">
+                                        {pageData?.acf?.data?.banner_call_to_action?.title}
+                                    </span>
                                 </Scroll>
                                 <span className="btn_icon">
                                     <i className="fa-solid fa-arrow-right"></i>
@@ -146,7 +146,7 @@ const ServiceSubpage = async ({ params }: { params: { slug: string } }) => {
                                                     <p className="card-text py-3">
                                                         <span
                                                             dangerouslySetInnerHTML={{
-                                                                __html: item.description,
+                                                                __html: item?.description,
                                                             }}
                                                         ></span>
                                                     </p>
@@ -184,7 +184,7 @@ const ServiceSubpage = async ({ params }: { params: { slug: string } }) => {
                                             <div className="mt-4">
                                                 <Scroll
                                                     to="contact-form"
-                                                     className="btn btn-orange"
+                                                    className="btn btn-orange"
                                                 >
                                                     <span className="btn_label_1">
                                                         {
@@ -286,10 +286,12 @@ const ServiceSubpage = async ({ params }: { params: { slug: string } }) => {
                                                         </div>
 
                                                         <p style={{ fontWeight: "500" }}>
-                                                            {/* {data?.excerpt
-                                                                .replace(/\[\s*&hellip;\s*\]/gi, "")
-                                                                .replace(/\[\s*…\s*\]/gi, "...")
-                                                                .replace(/&hellip;/gi, "...")} */}
+                                                            {data?.excerpt
+                                                                ? data.excerpt
+                                                                    .replace(/\[\s*&hellip;\s*\]/gi, "")
+                                                                    .replace(/\[\s*…\s*\]/gi, "...")
+                                                                    .replace(/&hellip;/gi, "...")
+                                                                : ""}
                                                             <a> Read More</a>
                                                         </p>
 
