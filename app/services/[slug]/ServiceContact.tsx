@@ -15,7 +15,7 @@ type FormValues = {
   message: string;
 };
 
-const ServiceContact: React.FC = () => {
+const ServiceContact: React.FC<{ title?: string }> = ({ title = "Request a FREE Consultation" }) => {
   const formik = useFormik<FormValues>({
     initialValues: {
       firstName: "",
@@ -67,7 +67,7 @@ const ServiceContact: React.FC = () => {
         <div className="container">
           <div className="common-form shadow-1 bg-white p-3 p-sm-5">
             <div className="heading5 mb-3 mb-md-5 text-center">
-              <h2>Request a FREE Consultation</h2>
+              <h2>{title}</h2>
             </div>
 
             <div role="form" className="wpcf7" id="wpcf7-f12129-o3" lang="en-US" dir="ltr">

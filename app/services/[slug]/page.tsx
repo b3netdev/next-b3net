@@ -50,6 +50,31 @@ const ServiceSubpage = async ({ params }: { params: { slug: string } }) => {
                     </div>
                 </div>
             </div>
+            {
+                pageData?.acf?.data?.common_section_content_1 && ( 
+ <section className="section-second sec-pad pb-0">
+                <div className="container nitro-offscreen">
+                  <div className="row dallasSeo-sec align-items-center">
+                    <div className="col-lg-6 left-column">
+                    	<div
+                        dangerouslySetInnerHTML={{__html: pageData?.acf?.data?.common_section_content_1 || ""}}
+                        />
+                      
+                    </div>
+                    <div className="col-lg-6 right-column text-center">
+                      <img src={pageData?.acf?.data?.common_section_image_1} className="img-fluid" alt="Data Cleansing Image" />
+                    </div>
+                  </div>
+                </div>
+              </section>
+                )
+                
+            }
+
+             
+               {
+                pageData?.acf?.data?.services_page_section_2_heading &&
+               
 
             <div className="dallas-seo-agency">
                 <div className="container">
@@ -62,7 +87,7 @@ const ServiceSubpage = async ({ params }: { params: { slug: string } }) => {
                                 <div
                                     dangerouslySetInnerHTML={{
                                         __html:
-                                            pageData?.acf?.data?.services_page_section_2_description,
+                                            pageData?.acf?.data?.services_page_section_2_description || "",
                                     }}
                                 />
                                 <Link
@@ -105,6 +130,111 @@ const ServiceSubpage = async ({ params }: { params: { slug: string } }) => {
                     </div>
                 </div>
             </div>
+            
+}
+
+
+
+{pageData?.acf?.data?.common_repeater_heading_1 && (
+    <div className="wp-services-include-sec sec-pad pb-0 nitro-offscreen my-5 py-0 my-sm-5 py-sm-5">
+                <div className="container">
+                  <div className="services-wrap">
+                    <div className="heading-blocks text-center mb-5">
+                      <h2 className="sec-heading-blue">
+                      	{pageData?.acf?.data?.common_repeater_heading_1}                  
+                      </h2>
+                    </div>
+                    <div className="row gy-4 justify-content-center">
+                        {
+                            pageData?.acf?.data?.common_repeater_1?.map((item: any, index: any) => {
+                                return(
+                                     <div className=" col-sm-6 col-md-4  col-lg-3 dataCleansing-blocks" key={index}>
+                        <div className="include-services-imgwrap text-center mb-3">
+                          <img src={item?.logo} className="img-fluid" alt="Data Quality Audit" />
+                        </div>
+                        <div className="include-services-desc text-center">
+                          <h4 style={{color: "#F9764A"}}>{item?.title}</h4>
+                          <p></p>
+                        </div>
+                      </div>
+                                )
+                            })
+                        }
+                                   
+                              
+                                  
+              
+                    </div>
+                  </div>
+                </div>
+              </div>
+)}
+{
+    pageData?.acf?.data?.common_section_content_2 && (
+
+         <section className="section-second sec-pad pb-0">
+                <div className="container nitro-offscreen">
+                  <div className="row dallasSeo-sec align-items-center">
+                    <div className="col-lg-6 left-column">
+                    	<div 
+                        
+                        dangerouslySetInnerHTML={{__html: pageData?.acf?.data?.common_section_content_2 || ""}}
+                        />
+                     
+                    </div>
+                    <div className="col-lg-6 right-column text-center">
+                      <img src="https://2026.b3net.info/b3net-com/wp-content/uploads/2024/06/Why-B3NET-3.jpg" className="img-fluid" alt="Data Cleansing Image" />
+                    </div>
+                  </div>
+                </div>
+              </section>
+    )
+}
+
+{
+    pageData?.acf?.data?.common_repeater_heading_4 && (
+
+        <div className="wp-services-include-sec sec-pad pb-0 nitro-offscreen my-5 py-0 my-sm-5 py-sm-5">
+                <div className="container">
+                  <div className="services-wrap">
+                    <div className="heading-blocks text-center mb-5">
+                      <h2 className="sec-heading-blue">
+                       {pageData?.acf?.data?.common_repeater_heading_4}                     </h2>
+                    </div>
+                    <div className="row g-4 justify-content-between">
+                        {
+                            pageData?.acf?.data?.common_repeater_4?.map((item:any,index:any)=>{
+                                return(
+                                     <div className="col-sm-6 col-md-4 col-lg-3 dataCleansing-blocks" key={index}>
+                        <div className="include-services-imgwrap text-center mb-3">
+                          <img src={item?.logo} className="img-fluid" alt="Data Quality Audit" />
+                        </div>
+                        <div className="include-services-desc text-center">
+                          <h4 style={{color: "#F9764A"}}>{item?.title}</h4>
+                          <p></p>
+                        </div>
+                      </div>
+                                )
+                            })
+
+                                   
+                            
+                        }
+                                          
+                                    
+                                      
+              
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+    )
+}
+
+
+
+    
 
             {pageData?.acf?.data?.services_page_section_9_additional_section ? (
                 <div className="additional_content">
@@ -284,7 +414,9 @@ const ServiceSubpage = async ({ params }: { params: { slug: string } }) => {
                     </div>
                 </div>
             )}
-            <ServiceContact />
+            <ServiceContact
+            title={pageData?.acf?.data?.service_page_section_8_title || "Request a FREE Consultation"}
+            />
             {
                 pageData?.acf?.data?.faq_repeater &&
                 <FrequentQuestion pageData={pageData} />

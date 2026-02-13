@@ -10,6 +10,7 @@ type Props = {
 
 const ServiceSlider: React.FC<Props> = ({ pageData }) => {
   const cards = pageData?.acf?.data?.service_page_section_7_card ?? [];
+  if(!cards.length) return null;
   return (
     <div>
          
