@@ -76,11 +76,11 @@ const useBlog = () => {
     }
   };
 
-  const getBlogdetail = async (id: number | string): Promise<WPPost> => {
+  const getBlogdetail = async (slug:string) => {
     setLoading(true);
     try {
-      // Prefer passing _embed via params instead of building query in URL
-      const res: AxiosResponse<WPPost> = await api.get(`wp/v2/posts/${id}`, {
+     
+      const res: any = await api.get(`wp/v2/posts/${slug}`, {
         params: { _embed: 1 },
       });
 
