@@ -425,7 +425,7 @@ export default function Navbar() {
                         <li>
                             <div className="d-none d-sm-block">
                                 <Link
-                                    href="/requestforproposal.html"
+                                    href="/proposal"
                                     className="btn btn-outline-light new-btnn"
                                     style={
                                         !isSticky

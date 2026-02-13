@@ -13,7 +13,7 @@ const ServiceSubpage = async ({ params }: { params: { slug: string } }) => {
     const data = await GetPageData(slug, "page");
 
     const pageData = data?.page ?? data;
-    console.log(pageData, "PAGE DATA")
+
 
     return (
         <main className="page_content services-design-page">
