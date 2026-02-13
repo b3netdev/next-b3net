@@ -8,7 +8,7 @@ const usePortfolio = () => {
     const getportfolioCategories = async () => {
         setCategoryLoading(true);
         try {
-            const res = await api.get("wp/v2/portfolio_category");
+            const res = await api.get("/wp-json/wp/v2/portfolio_category");
             return res.data;
         } catch (error) {
             console.error("Failed to fetch blog categories:", error);
@@ -21,7 +21,7 @@ const usePortfolio = () => {
     const getportfolioItems = async (params: any) => {
         setLoading(true);
         try {
-            const res = await api.get("wp/v2/portfolio", {
+            const res = await api.get("/wp-json/wp/v2/portfolio", {
                 params: Object.fromEntries(params),
             });
             return res.data;
@@ -33,10 +33,10 @@ const usePortfolio = () => {
         }
     };
 
-    const getportfoliodetail = async (id:any) => {
+    const getportfoliodetail = async (id: any) => {
         setLoading(true);
         try {
-            const res = await api.get(`wp/v2/portfolio/${id}`);
+            const res = await api.get(`/wp-json/wp/v2/portfolio/${id}`);
             return res.data;
         } catch (error) {
             console.error("Failed to fetch blog detail:", error);
@@ -49,7 +49,7 @@ const usePortfolio = () => {
     const getRelatedProjects = async (categoryId: string, projectId: string) => {
         setLoading(true);
         try {
-            const res = await api.get("wp/v2/portfolio", {
+            const res = await api.get("/wp-json/wp/v2/portfolio", {
                 params: {
                     categories: categoryId,
                     exclude: projectId,

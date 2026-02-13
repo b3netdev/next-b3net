@@ -20,6 +20,7 @@ const Scroll: React.FC<ScrollLinkWrapperProps> = ({
   offset = -80,
   duration = 500,
   smooth = true,
+  key = 1
 }) => {
   return (
     <Link
@@ -31,8 +32,8 @@ const Scroll: React.FC<ScrollLinkWrapperProps> = ({
       offset={offset}
       className={className}
     >
-   
-        {children}
+
+      {children}
 
     </Link>
   );

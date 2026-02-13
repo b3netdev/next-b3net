@@ -17,7 +17,7 @@ type MenuChild = {
     title: string;
     url: string;
     object_id?: number;
-    page:any
+    page: any
 };
 
 type MenuItem = {
@@ -41,7 +41,7 @@ type ServiceMegaMenuItem = {
     label: string;
     to?: string;
     state?: Record<string, any>;
-    slug:string
+    slug: string
 };
 
 type ServiceMegaMenuGroup = {
@@ -99,9 +99,9 @@ export default function Navbar() {
 
 
 
-    const HandleNavigate = (id:number) =>{
+    const HandleNavigate = (id: number) => {
         dispatch(setId(id))
-        
+
     }
 
 
@@ -126,8 +126,8 @@ export default function Navbar() {
                                 style={{ color: "#3b58a2 ", fontSize: "8px" }}
                             ></i>
 
-                            <Link href={`/services/${item?.slug}`} 
-                            className="service-menu-link"
+                            <Link href={`/services/${item?.slug}`}
+                                className="service-menu-link"
                             // onClick={() => HandleNavigate(item.state?.id)}
                             >
                                 {item.label}
@@ -236,8 +236,8 @@ export default function Navbar() {
                     )}
 
                     {/* React Router state -> query */}
-                    <Link href={`/about-company/${ data?.page?.slug !== "about-company"? data?.page?.slug : ''}`}
-                        
+                    <Link href={`/about-company/${data?.page?.slug !== "about-company" ? data?.page?.slug : ''}`}
+
                     >{data.title}</Link>
                 </span>
             </div>
@@ -250,7 +250,7 @@ export default function Navbar() {
             <div className="aboutSubMenu WesolveBox" key={data.id}>
                 <span className="about-item">
                     <Link href={`/wesolve/${data?.page?.slug}`}
-                    onClick={() => HandleNavigate(data.object_id!)}
+                        onClick={() => HandleNavigate(data.object_id!)}
                     >{data.title}</Link>
                 </span>
             </div>
@@ -310,7 +310,7 @@ export default function Navbar() {
                                             <span style={{ opacity: "1", color: labelColor }}>
                                                 <Link
                                                     href={`/${item?.page?.slug}`}
-                                                    onClick={()=>HandleNavigate(item?.object_id)}
+                                                    onClick={() => HandleNavigate(item?.object_id)}
                                                     className="nav-link"
                                                 >
                                                     {item.title}
@@ -370,7 +370,7 @@ export default function Navbar() {
                                         >
                                             <span style={{ opacity: "1", color: labelColor }}>
                                                 {/* <Link href={`/${pathUrl}`} className="nav-link" style={{ color: labelColor }}> */}
-                                                    {item.title}
+                                                {item.title}
                                                 {/* </Link> */}
                                             </span>
 
@@ -408,7 +408,7 @@ export default function Navbar() {
                             return (
                                 <li key={item.id} style={{ color: labelColor }}>
                                     <Link
-                                        href={`/${item?.page?.slug == "home"? "/":item?.page?.slug}`}
+                                        href={`/${item?.page?.slug == "home" ? "/" : item?.page?.slug}`}
                                         className="nav-link"
                                         style={{ color: labelColor }}
                                     >

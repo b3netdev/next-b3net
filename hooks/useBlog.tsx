@@ -48,8 +48,8 @@ const useBlog = () => {
 
   const getBlogCategories = async (): Promise<WPCategory[]> => {
     try {
-      const res: AxiosResponse<WPCategory[]> = await api.get("wp/v2/categories");
-      console.log(res,"BLOG")
+      const res: AxiosResponse<WPCategory[]> = await api.get("/wp-json/wp/v2/categories");
+      console.log(res, "BLOG")
       return res.data;
     } catch (error) {
       console.error("Failed to fetch header menu:", error);
@@ -63,7 +63,7 @@ const useBlog = () => {
       const axiosParams =
         params instanceof URLSearchParams ? Object.fromEntries(params) : params;
 
-      const res: AxiosResponse<WPPost[]> = await api.get("wp/v2/posts", {
+      const res: AxiosResponse<WPPost[]> = await api.get("/wp-json/wp/v2/posts", {
         params: axiosParams,
       });
 
@@ -76,11 +76,11 @@ const useBlog = () => {
     }
   };
 
-  const getBlogdetail = async (slug:string) => {
+  const getBlogdetail = async (slug: string) => {
     setLoading(true);
     try {
-     
-      const res: any = await api.get(`wp/v2/posts/${slug}`, {
+
+      const res: any = await api.get(`/wp-json/wp/v2/posts/${slug}`, {
         params: { _embed: 1 },
       });
 
@@ -99,7 +99,7 @@ const useBlog = () => {
   ): Promise<WPPost[]> => {
     setLoading(true);
     try {
-      const res: AxiosResponse<WPPost[]> = await api.get("wp/v2/posts", {
+      const res: AxiosResponse<WPPost[]> = await api.get("/wp-json/wp/v2/posts", {
         params: {
           categories: categoryId,
           exclude: postID,
@@ -120,7 +120,7 @@ const useBlog = () => {
   const authorDetails = async (id: number | string): Promise<WPUser> => {
     setLoading(true);
     try {
-      const res: AxiosResponse<WPUser> = await api.get(`wp/v2/users/${id}`);
+      const res: AxiosResponse<WPUser> = await api.get(`/wp-json/wp/v2/users/${id}`);
       return res.data;
     } catch (error) {
       throw error;
