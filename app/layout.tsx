@@ -3,6 +3,8 @@ import "@fortawesome/fontawesome-free/css/all.min.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import BootstrapClient from "./BootstrapClient";
 import "./globals.css";
+import "swiper/css";
+
 
 import "../assets/css/style.css";
 import "../assets/css/webslidemenu.css";

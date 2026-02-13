@@ -588,7 +588,7 @@ const Testimonial = async () => {
                                                 width="320"
                                                 height="200"
                                                 frameBorder="0"
-                                                allowFullScreen="allowFullScreen"
+                                                allowFullScreen={true}
                                             ></iframe>
                                         </p>
                                         <a href="https://www.youtube.com/watch?v=video3">
@@ -616,7 +616,7 @@ const Testimonial = async () => {
                                                 width="320"
                                                 height="200"
                                                 frameBorder="0"
-                                                allowFullScreen="allowFullScreen"
+                                                allowFullScreen={true}
                                             >
                                                 <span
                                                     data-mce-type="bookmark"
@@ -659,7 +659,7 @@ const Testimonial = async () => {
                                                 frameBorder="0"
                                                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                                                 referrerPolicy="strict-origin-when-cross-origin"
-                                                allowFullScreen
+                                                allowFullScreen={true}
                                             ></iframe>
                                         </p>
                                         <a href="https://www.youtube.com/watch?v=video3">
@@ -687,7 +687,7 @@ const Testimonial = async () => {
                                                 width="320"
                                                 height="200"
                                                 frameBorder="0"
-                                                allowFullScreen="allowFullScreen"
+                                                allowFullScreen={true}
                                             >
                                                 <span
                                                     data-mce-type="bookmark"
@@ -728,7 +728,7 @@ const Testimonial = async () => {
                                                 width="320"
                                                 height="200"
                                                 frameBorder="0"
-                                                allowFullScreen="allowFullScreen"
+                                                allowFullScreen={true}
                                             >
                                                 <span
                                                     data-mce-type="bookmark"
@@ -769,7 +769,7 @@ const Testimonial = async () => {
                                                 width="320"
                                                 height="200"
                                                 frameBorder="0"
-                                                allowFullScreen="allowFullScreen"
+                                                allowFullScreen={true}
                                             >
                                                 <span
                                                     data-mce-type="bookmark"

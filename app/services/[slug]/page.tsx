@@ -6,7 +6,7 @@ import Link from "next/link";
 import ServiceContact1 from "./ServiceContact1";
 import FrequentQuestion from "./FrequentQuestion";
 import Scroll from "@/components/client/Scroll";
-
+import Workslider from "./Workslider";
 const ServiceSubpage = async ({ params }: { params: { slug: string } }) => {
     const { slug } = await params;
     console.log(slug, "SLUG")
@@ -211,54 +211,7 @@ const ServiceSubpage = async ({ params }: { params: { slug: string } }) => {
                 </div>
             )}
 
-            {/* {pageData?.acf?.data?.service_page_section_5_images && (
-                <div className="our-work outerwrap py-2 py-sm-5">
-                    <div className="our-work-section sec-pad lazyloaded">
-                        <div className="container">
-                            <div className="heading-blocks text-center mb-5">
-                                <h2 className="sec-heading">
-                                    {pageData?.acf?.data?.service_page_section_5_title}
-                                </h2>
-                                <p>{pageData?.acf?.data?.service_page_section_5_description}</p>
-                            </div>
-                            <div className="new-slider-1 owl-carousel owl-theme">
-                                <Swiper
-                                    modules={[Autoplay]}
-                                    slidesPerView={4}
-                                    spaceBetween={36}
-                                    loop={true}
-                                    speed={4000}
-                                    autoplay={{
-                                        delay: 1000,
-                                        disableOnInteraction: false,
-                                    }}
-                                    grabCursor={true}
-                                    style={{ width: "100%", maxWidth: "100vw" }}
-                                >
-                                    {pageData?.acf?.data?.service_page_section_5_images?.map(
-                                        (item, index) => (
-                                            <SwiperSlide key={index}>
-                                                <div className="item">
-                                                    <img src={item.image} alt="" />
-                                                </div>
-                                            </SwiperSlide>
-                                        )
-                                    )}
-                                </Swiper>
-                            </div>
-                            <div className="mt-5 text-center">
-                                <a
-                                    className="btn btn-orange"
-                                    target=""
-                                    href="https://www.b3net.com/portfolio.html"
-                                >
-                                    <span className="btn_label_1">Discover More</span>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            )} */}
+           <Workslider pageData={pageData} />
 
             {pageData?.acf?.data?.service_page_section_6_title && (
                 <div className="client-testimonials outerwrap">
@@ -286,12 +239,7 @@ const ServiceSubpage = async ({ params }: { params: { slug: string } }) => {
                                                         </div>
 
                                                         <p style={{ fontWeight: "500" }}>
-                                                            {data?.excerpt
-                                                                ? data.excerpt
-                                                                    .replace(/\[\s*&hellip;\s*\]/gi, "")
-                                                                    .replace(/\[\s*…\s*\]/gi, "...")
-                                                                    .replace(/&hellip;/gi, "...")
-                                                                : ""}
+                                                            {data?.post_content}
                                                             <a> Read More</a>
                                                         </p>
 

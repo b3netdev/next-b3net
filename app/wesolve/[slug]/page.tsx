@@ -20,7 +20,7 @@ export default async function BlogDetail({ params }: { params: { slug: string } 
     const relatedPosts = await GetRelatedPost(pageData?.categories, pageData?.id)
     console.log(relatedPosts, "RELATED")
 
-    // const relatedPosts = [
+
     //     {
     //         id: 1,
     //         date: "08 Feb 2013",
