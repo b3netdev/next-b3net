@@ -80,7 +80,7 @@ const useBlog = () => {
     setLoading(true);
     try {
 
-      const res: any = await api.get(`/wp-json/wp/v2/posts/${slug}`, {
+      const res: any = await api.get(`/wp-json/custom/v1/content/${slug}`, {
         params: { _embed: 1 },
       });
 
@@ -95,14 +95,14 @@ const useBlog = () => {
 
   const getRelatedPosts = async (
     categoryId: number | string,
-    postID: number | string
+    id: number | string
   ): Promise<WPPost[]> => {
     setLoading(true);
     try {
-      const res: AxiosResponse<WPPost[]> = await api.get("/wp-json/wp/v2/posts", {
+      const res: any = await api.get("/wp-json/wp/v2/posts", {
         params: {
           categories: categoryId,
-          exclude: postID,
+          exclude: id,
           per_page: 3,
           page: 1,
         },

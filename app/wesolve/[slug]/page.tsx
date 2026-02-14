@@ -18,40 +18,9 @@ export default async function BlogDetail({ params }: { params: { slug: string } 
     const author = pageData?.author;
     const authorSlug = author?.name?.split(" ")?.[0]?.toLowerCase();
     const relatedPosts = await GetRelatedPost(pageData?.categories, pageData?.id)
-    console.log(relatedPosts, "RELATED")
 
 
-    //     {
-    //         id: 1,
-    //         date: "08 Feb 2013",
-    //         img: "https://www.b3net.com/wp-content/themes/b3net/assets/images/default-image.png",
-    //         imgAlt: "Default Image",
-    //         title: "Employ Parallax Scrolling to Engage Your Visitors",
-    //         excerpt:
-    //             "You do not need to lose your night’s sleep if you have not heard about Parallax scrolling technique. Parallax scrolling...",
-    //         url: "https://www.b3net.com/employ-parallax-scrolling-to-engage-your-visitors/",
-    //     },
-    //     {
-    //         id: 2,
-    //         date: "22 Feb 2023",
-    //         img: "https://www.b3net.com/wp-content/uploads/2023/02/Web-Design-Principles.jpg",
-    //         imgAlt: "Web design principles",
-    //         title: "8 Essential Web Design Principles For Any Website",
-    //         excerpt:
-    //             "Table of Contents Essential Web Design Principles Wrap Up Watch how B3NET can help your business grow...",
-    //         url: "https://www.b3net.com/8-essential-web-design-principles-for-any-website/",
-    //     },
-    //     {
-    //         id: 3,
-    //         date: "03 Nov 2023",
-    //         img: "https://www.b3net.com/wp-content/uploads/2023/11/Insurance-Agency-Website-Design-1.png",
-    //         imgAlt: "Insurance agency website design",
-    //         title: "What Your Insurance Agency Website Design Must Have?",
-    //         excerpt:
-    //             "In the age of digital technology, insurance consumers have moved toward a more digital way of conducting business...",
-    //         url: "https://www.b3net.com/insurance-agency-website-design/",
-    //     },
-    // ];
+
 
     return (
         <main className="page_content">

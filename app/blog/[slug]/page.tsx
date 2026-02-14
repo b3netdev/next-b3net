@@ -4,7 +4,7 @@ import React, { useEffect, useState } from "react";
 import useBlog from "../../../hooks/useBlog";
 
 import { useAppDispatch } from "@/redux/hooks";
-import { setStickyNavMenu   } from "@/redux/slicers/menuSlicer";
+import { setStickyNavMenu } from "@/redux/slicers/menuSlicer";
 import ContactFooter from "@/components/server/ContactFooter";
 // import { Link as ScrollL } from "react-scroll";
 import { useParams } from "next/navigation";
@@ -12,15 +12,15 @@ import Link from "next/link";
 import Scroll from "@/components/client/Scroll";
 
 const BlogDetail = () => {
-      const params = useParams();
+  const params = useParams();
   const slug = params?.slug as string;
 
   const { getBlogdetail, getRelatedPosts } = useBlog();
   const [pageData, setPageData] = useState<any>({});
-  const [relatedpost, setRelatedPost] = useState([]);
+  const [relatedpost, setRelatedPost] = useState<any>([]);
 
   const dispatch = useAppDispatch();
-  const [sideNav, setSidenav] = useState([]);
+  const [sideNav, setSidenav] = useState<any>([]);
   const [contentData, setContentData] = useState("");
 
 
@@ -42,25 +42,25 @@ const BlogDetail = () => {
     getblogData();
   }, [slug]);
 
-//   useEffect(() => {
-//     const fetchRelatedPosts = async () => {
-//       if (!categoryId) return;
+  useEffect(() => {
+    const fetchRelatedPosts = async () => {
+      if (!pageData?.categories) return;
 
-//       const data = await getRelatedPosts();
-//       setRelatedPost(data);
-//     };
-//     fetchRelatedPosts();
-//   }, [categoryId, id]);
+      const data = await getRelatedPosts(pageData?.categories, pageData?.id);
+      setRelatedPost(data);
+    };
+    fetchRelatedPosts();
+  }, [pageData]);
 
   function extractH2AndInjectIds() {
-    const html = pageData?.content?.rendered || "";
+    const html = pageData?.content || "";
     if (!html) return;
 
     const parser = new DOMParser();
     const doc = parser.parseFromString(html, "text/html");
 
     const h2Elements = doc.querySelectorAll("h2");
-    const headings = [];
+    const headings: any = [];
 
     h2Elements.forEach((h2, index) => {
       const id = `h2-${index}`;
@@ -80,7 +80,7 @@ const BlogDetail = () => {
     extractH2AndInjectIds();
   }, [pageData]);
 
-  const HandleGotoBlogDetail = (id) => {
+  const HandleGotoBlogDetail = (id: any) => {
     // navigate(`/blog/${id}`, {
     //   state: { id: id, category: categoryId },
     // });
@@ -108,7 +108,11 @@ const BlogDetail = () => {
                   </h4>
 
                   <h4>
-                    <span>May 21, 2025 </span> | Sarah Clark
+                    <span>{new Date(pageData?.date).toLocaleDateString("en-US", {
+                      year: "numeric",
+                      month: "long",
+                      day: "numeric",
+                    })} </span> | {pageData?.author?.name}
                   </h4>
 
                   <div className="icones"></div>
@@ -131,9 +135,9 @@ const BlogDetail = () => {
                     <div className="toc-text">
                       <h3>Table of Contents</h3>
                     </div>
-                    <div className="navListMenu" style={{padding:0}}> 
-                      {sideNav?.map((item, index) => (
-                        <div className="blogSidenavitemBox">
+                    <div className="navListMenu" style={{ padding: 0 }}>
+                      {sideNav?.map((item: any, index: any) => (
+                        <div className="blogSidenavitemBox" key={index}>
                           <Scroll
                             key={item.id || index}
                             to={item.id}
@@ -230,17 +234,17 @@ const BlogDetail = () => {
 
                 <div className="author-section">
                   <Link
-                  href={"/"}
-                    // to={`/author/${pageData?._embedded?.author?.[0]?.slug}`}
-                    // state={{ id: pageData?._embedded?.author?.[0]?.id }}
+                    href={"/"}
+                  // to={`/author/${pageData?._embedded?.author?.[0]?.slug}`}
+                  // state={{ id: pageData?._embedded?.author?.[0]?.id }}
                   >
                     <img
-                      src={pageData?._embedded?.author?.[0]?.mpp_avatar?.[96]}
-                      alt="Sarah Clark"
+                      src={pageData?.author?.avatar_urls?.[96]}
+                      alt={pageData?.author?.name}
                     />
                     <div>
-                      <h3>{pageData?._embedded?.author?.[0]?.name}</h3>
-                      <p>{pageData?._embedded?.author?.[0]?.description}</p>
+                      <h3>{pageData?.author?.name}</h3>
+                      <p>{pageData?.author?.description}</p>
                     </div>
                   </Link>
                 </div>
@@ -256,7 +260,7 @@ const BlogDetail = () => {
               <h2 className="text-center mb-4 mb-lg-5">RELATED POST</h2>
               <div className="row gy-4">
                 <div className="relatedpostcontainer">
-                  {relatedpost?.map((data, index) => {
+                  {relatedpost?.map((data: any, index: any) => {
                     return (
                       <div
                         className="card-parts-1"
@@ -285,9 +289,9 @@ const BlogDetail = () => {
                               </div>
                             </div>
 
-                            <Link 
-                            href="/"
-                            className="card-title mb-2 card-text-a">
+                            <Link
+                              href="/"
+                              className="card-title mb-2 card-text-a">
                               {data?.title?.rendered}
                             </Link>
 
@@ -298,8 +302,8 @@ const BlogDetail = () => {
                             />
 
                             <Link
-                            href={"/"}
-                            className="d-flex align-items-center gap-2 clr-blk">
+                              href={"/"}
+                              className="d-flex align-items-center gap-2 clr-blk">
                               READ MORE{" "}
                               <i className="fa-solid fa-arrow-right-long"></i>
                             </Link>
