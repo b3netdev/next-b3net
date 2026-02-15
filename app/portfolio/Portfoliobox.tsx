@@ -25,7 +25,7 @@ export default function Portfoliobox() {
   const [portfolioItems, setPortfolioItems] = useState<PortfolioItem[]>([]);
   const [pagenumber, setPageNumber] = useState<number>(1);
   const [loading, setLoading] = useState<boolean>(false);
-  const {getportfolioCategories,getportfolioItems} = usePortfolio()
+  const { getportfolioCategories, getportfolioItems } = usePortfolio()
   // Load categories
   useEffect(() => {
     (async () => {
@@ -93,53 +93,53 @@ export default function Portfoliobox() {
           <div className="row gy-4" id="jar1">
             {loading
               ? Array.from({ length: 6 }).map((_, index) => (
-                  <div
-                    className="col-lg-4 col-sm-6 bg-hover content1"
-                    key={`sk-${index}`}
-                  >
-                    <div className="portfolio-list">
-                      <div className="image reveal">
-                        <Skeleton variant="rectangular" width="100%" height={220} />
-                      </div>
+                <div
+                  className="col-lg-4 col-sm-6 bg-hover content1"
+                  key={`sk-${index}`}
+                >
+                  <div className="portfolio-list">
+                    <div className="image reveal">
+                      <Skeleton variant="rectangular" width="100%" height={220} />
+                    </div>
 
-                      <div className="portfolio-details">
-                        <div className="d-flex align-items-center justify-content-between">
-                          <Skeleton variant="text" width="70%" height={28} />
-                          <Skeleton variant="circular" width={18} height={18} />
-                        </div>
+                    <div className="portfolio-details">
+                      <div className="d-flex align-items-center justify-content-between">
+                        <Skeleton variant="text" width="70%" height={28} />
+                        <Skeleton variant="circular" width={18} height={18} />
                       </div>
                     </div>
                   </div>
-                ))
+                </div>
+              ))
               : portfolioItems.map((item) => (
-                  <div className="col-lg-4 col-sm-6 bg-hover content1" key={item.id}>
-                    <div className="portfolio-list">
-                      <div className="image reveal">
-                        <Link href={`/portfolio/${item.slug}`}>
-                          <img src={item.featured_media_url || ""} alt="" />
-                        </Link>
-                      </div>
+                <div className="col-lg-4 col-sm-6 bg-hover content1" key={item.id}>
+                  <div className="portfolio-list">
+                    <div className="image reveal">
+                      <Link href={`/portfolio/${item.slug}`}>
+                        <img src={item.featured_media_url || ""} alt="" />
+                      </Link>
+                    </div>
 
-                      <div className="portfolio-details">
-                        <Link
-                          href={`/portfolio/${item.slug}`}
-                          className="d-flex align-items-center justify-content-between"
-                        >
-                          {item?.title?.rendered ?? ""}
-                          <span>
-                            <i
-                              className="fa-solid fa-arrow-right"
-                              style={{
-                                transform: "rotate(-45deg)",
-                                display: "inline-block",
-                              }}
-                            />
-                          </span>
-                        </Link>
-                      </div>
+                    <div className="portfolio-details">
+                      <Link
+                        href={`/portfolio/${item.id}`}
+                        className="d-flex align-items-center justify-content-between"
+                      >
+                        {item?.title?.rendered ?? ""}
+                        <span>
+                          <i
+                            className="fa-solid fa-arrow-right"
+                            style={{
+                              transform: "rotate(-45deg)",
+                              display: "inline-block",
+                            }}
+                          />
+                        </span>
+                      </Link>
                     </div>
                   </div>
-                ))}
+                </div>
+              ))}
           </div>
         </div>
 

@@ -16,7 +16,7 @@ export async function GetPageData(slug: string, type: string) {
 }
 
 
-export async function GetRelatedPost(categoryId: any, id: number) {
+export async function GetRelatedPost(categoryId: any, id: number | string) {
   //console.log(categoryId,"CATEGORY_ID")
   const data = await fetcher(`/wp-json/wp/v2/posts`, {
     params: {
@@ -41,3 +41,30 @@ export async function GetAuthorData(slug: any) {
   // console.log(data,'tesrttt');
   return Array.isArray(data) ? data ?? null : data ?? null;
 }
+
+
+
+export const getportfoliodetail = async (id: any) => {
+
+  const data = await fetcher(`/wp-json/wp/v2/portfolio/${id}`,
+    {
+      revalidate: 60,
+    }
+  );
+  return Array.isArray(data) ? data ?? null : data ?? null;
+
+};
+
+
+export const getPortFloioRelatedPost = async (categoryId: any, projectId: any) => {
+
+  const data = await fetcher("/wp-json/wp/v2/portfolio", {
+    params: {
+      categories: categoryId,
+      exclude: projectId,
+      per_page: 4,
+      page: 1,
+    },
+  });
+  return Array.isArray(data) ? data ?? null : data ?? null;
+};

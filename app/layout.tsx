@@ -35,14 +35,14 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body >
-        <Providers>
-          <Navbar />
-          <BootstrapClient />
-          {children}
-          <Footer />
-        </Providers>
-      </body>
+
+      <Providers>
+        <Navbar />
+        <BootstrapClient />
+        {children}
+        <Footer />
+      </Providers>
+
     </html>
   );
 }
