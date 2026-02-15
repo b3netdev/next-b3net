@@ -117,10 +117,10 @@ const useBlog = () => {
     }
   };
 
-  const authorDetails = async (id: number | string): Promise<WPUser> => {
+  const authorDetails = async (slug: number | string): Promise<WPUser> => {
     setLoading(true);
     try {
-      const res: AxiosResponse<WPUser> = await api.get(`/wp-json/wp/v2/users/${id}`);
+      const res: any = await api.get(`/wp-json/wp/v2/users/${slug}`);
       return res.data;
     } catch (error) {
       throw error;
@@ -128,6 +128,8 @@ const useBlog = () => {
       setLoading(false);
     }
   };
+
+
 
   return {
     getBlogCategories,

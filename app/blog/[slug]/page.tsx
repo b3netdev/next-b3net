@@ -234,9 +234,7 @@ const BlogDetail = () => {
 
                 <div className="author-section">
                   <Link
-                    href={"/"}
-                  // to={`/author/${pageData?._embedded?.author?.[0]?.slug}`}
-                  // state={{ id: pageData?._embedded?.author?.[0]?.id }}
+                    href={`/author/${pageData?.author?.id}/${pageData?.categories}`}
                   >
                     <img
                       src={pageData?.author?.avatar_urls?.[96]}
@@ -290,7 +288,7 @@ const BlogDetail = () => {
                             </div>
 
                             <Link
-                              href="/"
+                              href={`/blog/${data?.slug}`}
                               className="card-title mb-2 card-text-a">
                               {data?.title?.rendered}
                             </Link>
@@ -302,7 +300,7 @@ const BlogDetail = () => {
                             />
 
                             <Link
-                              href={"/"}
+                              href={`/blog/${data?.slug}`}
                               className="d-flex align-items-center gap-2 clr-blk">
                               READ MORE{" "}
                               <i className="fa-solid fa-arrow-right-long"></i>

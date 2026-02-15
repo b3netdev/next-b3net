@@ -11,7 +11,7 @@ export default async function BlogDetail({ params }: { params: { slug: string } 
     // const h = headers();
 
     const pageData = await GetPageData(slug, "post");
-    console.log(pageData, "PAGE DATA")
+
 
 
 

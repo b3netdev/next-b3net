@@ -342,7 +342,7 @@ export default function Navbar() {
                                         >
                                             <span style={{ opacity: "1", color: labelColor }}>
                                                 <Link
-                                                    href={`${item?.page?.slug}`}
+                                                    href={`/${item?.page?.slug}`}
                                                     className="nav-link"
                                                     style={{ color: labelColor }}
                                                 >

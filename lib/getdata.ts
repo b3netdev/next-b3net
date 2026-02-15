@@ -31,3 +31,13 @@ export async function GetRelatedPost(categoryId: any, id: number) {
   // console.log(data,'tesrttt');
   return Array.isArray(data) ? data ?? null : data ?? null;
 }
+
+
+export async function GetAuthorData(slug: any) {
+  //console.log(categoryId,"CATEGORY_ID")
+  const data = await fetcher(`/wp-json/wp/v2/users/${slug}`, {
+    revalidate: 60,
+  });
+  // console.log(data,'tesrttt');
+  return Array.isArray(data) ? data ?? null : data ?? null;
+}
