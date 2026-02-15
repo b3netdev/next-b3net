@@ -15,7 +15,7 @@ const Services = async () => {
 
     const pageData = await GetPageData("services", "page")
 
-    console.log(pageData, "PAGE CDATA")
+    // console.log(pageData, "PAGE CDATA")
 
 
 
@@ -168,13 +168,18 @@ const Services = async () => {
                             </h2>
                             <p>{pageData?.acf?.data?.service_page_section_7_title}</p>
                         </div>
-
                         <div className="ServiceKeyChanges">
                             {pageData?.acf?.data?.service_page_section_7_card?.map(
                                 (item: any, index: any) => {
+
                                     const slug = item?.cta?.url
-                                        ? item?.cta?.url?.replace(/\/$/, "").split("/").pop()
+                                        ? item?.cta?.url.replace(/\/$/, "").split("/").pop()
                                         : "";
+
+                                    const url =
+                                        item?.page_info == 13074
+                                            ? `${13074}`
+                                            : "";
 
                                     return (
                                         <div
@@ -184,37 +189,39 @@ const Services = async () => {
                                         >
                                             <div className="card-parts-1 card-parts-2">
                                                 <div className="card">
+
                                                     <img
                                                         src={item?.image}
                                                         className="card-img-top"
                                                         alt="..."
                                                     />
+
                                                     <div className="card-body heading5 p-4">
-                                                        <h4 className="card-title mb-2">{item?.title}</h4>
+
+                                                        <h4 className="card-title mb-2">
+                                                            {item?.title}
+                                                        </h4>
+
                                                         <p className="card-text">
                                                             {item?.description}
                                                         </p>
 
                                                         <div className="mt-4">
                                                             <Link
+                                                                href={`/casestudy/${url}`}
                                                                 className="btn btn-orange"
-                                                                href={`/services/${item?.page_info == 13074
-                                                                    ? "casestudies"
-                                                                    : item?.page_info == 13037
-                                                                        ? "casestudies1"
-                                                                        : "casestudies2"
-                                                                    }/${slug}`}
-
-
                                                             >
                                                                 <span className="btn_label_1">
                                                                     {item?.cta?.title}
                                                                 </span>
+
                                                                 <span className="btn_icon">
                                                                     <i className="fa-solid fa-arrow-right"></i>
                                                                 </span>
+
                                                             </Link>
                                                         </div>
+
                                                     </div>
                                                 </div>
                                             </div>
@@ -223,6 +230,7 @@ const Services = async () => {
                                 }
                             )}
                         </div>
+
                     </div>
                 </div>
             </div>
