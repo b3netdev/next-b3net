@@ -1,5 +1,6 @@
 import { getportfoliodetail, getPortFloioRelatedPost } from "@/lib/getdata";
 import Link from "next/link";
+import Contact from "@/components/client/Contact";
 const page = async ({ params }: { params: { slug: string } }) => {
     const { slug } = await params
     const pageData = await getportfoliodetail(slug)
@@ -254,7 +255,7 @@ const page = async ({ params }: { params: { slug: string } }) => {
                             </div>
                         </div>
                     </div>
-                    {/* <Contact data={true} /> */}
+                    <Contact data={true} />
                 </section>
             </div>
         </main>

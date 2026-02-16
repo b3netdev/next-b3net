@@ -15,7 +15,7 @@ const Services = async () => {
 
     const pageData = await GetPageData("services", "page")
 
-    // console.log(pageData, "PAGE CDATA")
+    console.log(pageData, "PAGE CDATA")
 
 
 
@@ -172,14 +172,9 @@ const Services = async () => {
                             {pageData?.acf?.data?.service_page_section_7_card?.map(
                                 (item: any, index: any) => {
 
-                                    const slug = item?.cta?.url
-                                        ? item?.cta?.url.replace(/\/$/, "").split("/").pop()
-                                        : "";
+                                   
 
-                                    const url =
-                                        item?.page_info == 13074
-                                            ? `${13074}`
-                                            : "";
+                                   
 
                                     return (
                                         <div
@@ -208,7 +203,7 @@ const Services = async () => {
 
                                                         <div className="mt-4">
                                                             <Link
-                                                                href={`/casestudy/${url}`}
+                                                                href={`/casestudy/${item?.page_info}`}
                                                                 className="btn btn-orange"
                                                             >
                                                                 <span className="btn_label_1">

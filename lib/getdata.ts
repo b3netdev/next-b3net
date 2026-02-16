@@ -9,9 +9,6 @@ export async function GetPageData(slug: string, type: string) {
 
   });
 
-
-
-
   return Array.isArray(data) ? data?.[0] ?? null : data ?? null;
 }
 
@@ -66,5 +63,15 @@ export const getPortFloioRelatedPost = async (categoryId: any, projectId: any) =
       page: 1,
     },
   });
+  return Array.isArray(data) ? data ?? null : data ?? null;
+};
+
+export const getcaseStudiesData = async (id:number) => {
+
+  const data = await fetcher(`wp-json/custom/v1/page/${id}`, 
+    {
+      revalidate: 60,
+    }
+  );
   return Array.isArray(data) ? data ?? null : data ?? null;
 };

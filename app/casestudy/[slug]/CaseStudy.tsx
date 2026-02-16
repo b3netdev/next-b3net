@@ -1,17 +1,17 @@
-import React from "react";
-import { GetPageData } from "@/lib/getdata";
+import { getcaseStudiesData } from "@/lib/getdata";
 import Link from "next/link";
+import ServiceContact from "@/app/services/[slug]/ServiceContact";
+import ContactFooter from "@/components/server/ContactFooter";
 
 
-// import ContactFooter from "../../../../common/ContactFooter";
-// import "../../../../assets/css/caseStudy-inner-3.css"
-// import { CaseStudyContact } from "./CaseStudyContact";
 
-const CaseStudy = async (slug: any) => {
-    console.log(slug, "SLUg")
 
-    const pageData = await GetPageData(slug.slug, "page")
-    console.log(pageData, "PAGE DATA")
+const CaseStudy = async ({ slug }: any) => {
+
+
+    const data = await getcaseStudiesData(slug)
+    const pageData = data?.page
+
 
 
 
@@ -31,7 +31,7 @@ const CaseStudy = async (slug: any) => {
                                         {pageData?.acf?.data?.case_study_number_repeater?.map(
                                             (data: any, index: any) => {
                                                 return (
-                                                    <div className="organic-block">
+                                                    <div className="organic-block" key={index}>
                                                         <h4>
                                                             <span className="count" data-target="176" style={{ color: "#35d1bd" }}>
                                                                 {data?.number}
@@ -53,8 +53,8 @@ const CaseStudy = async (slug: any) => {
                                         className="attachment-full size-full wp-post-image"
                                         alt=""
                                         decoding="async"
-                                        fetchpriority="high"
-                                        srcset="https://b3net.com/wp-content/uploads/2023/07/viage-banner-img.png 810w, https://b3net.com/wp-content/uploads/2023/07/viage-banner-img-300x261.png 300w, https://b3net.com/wp-content/uploads/2023/07/viage-banner-img-768x669.png 768w"
+                                        fetchPriority="high"
+                                        srcSet="https://b3net.com/wp-content/uploads/2023/07/viage-banner-img.png 810w, https://b3net.com/wp-content/uploads/2023/07/viage-banner-img-300x261.png 300w, https://b3net.com/wp-content/uploads/2023/07/viage-banner-img-768x669.png 768w"
                                         sizes="(max-width: 810px) 100vw, 810px"
                                     />{" "}
                                 </div>
@@ -166,7 +166,7 @@ const CaseStudy = async (slug: any) => {
 
                             <p></p>
                             <p style={{ textAlign: "center" }}>
-                                <div
+                                <span
                                     dangerouslySetInnerHTML={{
                                         __html: pageData?.acf?.data?.third_section_bottom_content,
                                     }}
@@ -189,7 +189,7 @@ const CaseStudy = async (slug: any) => {
                             {pageData?.acf?.data?.fourth_section_content_repeater?.map(
                                 (data: any, index: any) => {
                                     return (
-                                        <div className="step-process first-step">
+                                        <div className="step-process first-step" key={index}>
                                             <div
                                                 className="d-flex"
                                                 dangerouslySetInnerHTML={{ __html: data?.content }}
@@ -229,7 +229,7 @@ const CaseStudy = async (slug: any) => {
                             {pageData?.custom_fields?.fifth_section_image_repeater?.map(
                                 (data: any, index: any) => {
                                     return (
-                                        <div className="seo-block-1">
+                                        <div className="seo-block-1" key={index}>
                                             <p>{data?.content}</p>
                                             <img src={data?.image?.url} />
                                         </div>
@@ -284,12 +284,13 @@ const CaseStudy = async (slug: any) => {
                         <div className="case-sec-ttl">
                             <h2>Request For Quote</h2>
                         </div>
-                        {/* <CaseStudyContact /> */}
-                        {/* <ContactFooter /> */}
+                        <ServiceContact showTitle={false}  />
+                        <ContactFooter />
                     </div>
                 </section>
             </div>
         </main>
+
     );
 };
 

@@ -82,9 +82,9 @@ const CaseStudy = () => {
         </div>
 
         <div className="case-studies-slider owl-carousel owl-theme d-flex">
-          {caseStudiesData.map((item, index) => {
+          {caseStudiesData.map((item:any, index:any) => {
             const slug = new URL(item.link).pathname.split("/").pop()!.replace(".html", "");
-            const href = `${item.path}${slug}`;
+            const href = `/casestudy/${item.id}`; 
 
             return (
               <div className="item" key={index}>

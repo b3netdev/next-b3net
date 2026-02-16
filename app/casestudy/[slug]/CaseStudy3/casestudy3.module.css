@@ -1,0 +1,458 @@
+.casebannerSection {
+    background-image: url("https://www.b3net.com/wp-content/themes/b3net/assets/images/banner-img.png");
+    background-repeat: no-repeat;
+    padding: 100px 0;
+    padding-top: 140px;
+    font-family: 'Poppins', serif;
+}
+
+.organicBlock p{
+    color: white;
+
+}
+
+.bannerCaption p:nth-of-type(2) {
+  color: white;
+  }
+
+  .summingdesc{
+    color: white;
+    font-weight: 400;
+}
+
+  
+.casebannerWrap {
+    display: flex;
+    color: #fff;
+    justify-content: space-between;
+    align-items: end;
+}
+
+.bannerCaption {
+    padding: 0 90px 0 0;
+    width: 55%;
+}
+
+.bnrImg {
+    width: 30%;
+}
+
+.bnrImg img {
+    border: 7px solid rgba(37, 183, 124, 0.2);
+    border-radius: 20px;
+}
+
+.bnrImg p {
+    text-align: center;
+}
+
+.bnrImg p a {
+    font-family: 'Poppins', serif;
+    font-weight: 300;
+    color: #fff;
+}
+
+.bannerCaption h1 {
+    color: #fff;
+    font-size: 42px;
+    font-weight: 700;
+    margin: 0 0 15px;
+}
+
+.bannerCaption p {
+    font-size: 18px;
+    font-weight: 400;
+    margin: 0 0 22px 0;
+    line-height: 22px;
+}
+
+.threeBlocks {
+    display: flex;
+    padding-top: 15px;
+}
+
+.organicBlock {
+    border-left: 2px solid #25b77c;
+    padding-right: 28px;
+    padding-left: 15px;
+}
+
+.organicBlock h4 {
+    color: #fff;
+    font-size: 50px;
+    font-weight: 900;
+    margin: 0;
+    line-height: 44px;
+}
+
+.organicBlock p {
+    font-size: 13px;
+    margin: 0;
+}
+
+.caseSecTtl h2 {
+    color: #25b77c;
+    text-align: center;
+    font-size: 30px;
+    width: 60%;
+    margin: 0 auto 30px;
+    text-transform: initial;
+}
+
+.hireUsSection {
+    max-width: 60%;
+    background-image: url(/images/hire-us-bg.png);
+    background-repeat: no-repeat;
+    padding: 70px 30px;
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    align-items: center;
+    background-position: bottom center;
+    border-radius: 10px;
+    box-shadow: 0 9px 10px rgba(0, 0, 0, 0.2);
+    margin: 0 auto;
+    position: relative;
+    z-index: 99;
+    margin-bottom: -120px;
+}
+
+.secPad {
+    padding: 60px 0;
+}
+
+.sectitl h2 {
+    color: white;
+}
+
+.hireLeft p {
+    color: white;
+}
+
+.ddBg {
+    background-color: #25b77c;
+    padding-top: 100px;
+    padding-bottom: 100px;
+}
+
+.caseSecTtl.lColor h2 {
+    color: #fff;
+}
+
+.marketCol.beforeMarket h3 {
+    color: #fff;
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+}
+
+.secPad.ddBg.remarkableTransformation p {
+    color: white;
+}
+
+.marketCircle {
+    width: 180px;
+    height: 180px;
+    background: #fff;
+    border-radius: 50%;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    margin: 0 0 35px 0;
+    box-shadow: 0 9px 5px rgba(0, 0, 0, 0.2);
+}
+
+.marketCount {
+    font-size: 50px;
+    color: #f37b01;
+    font-weight: 700;
+    margin: 0 0 6px 0;
+    line-height: 36px;
+}
+
+.marketVisitors {
+    font-size: 18px;
+    color: #000000;
+    font-family: "Lato-Heavy";
+}
+
+.marketMonth,
+.marketYear {
+    font-size: 14px;
+    color: #000000;
+    font-family: "Lato-MediumItalic";
+}
+
+.marketCol.beforeMarket.colMd4.colSm6 {
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.caseSecTtl.newTtl {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.caseSecTtl.newTtl h2 {
+    color: white;
+    margin: 0;
+    padding: 50px 0;
+    text-align: center;
+}
+
+.dBg {
+    background-color: #25b77c;
+}
+
+.secPad.dBg.summingUp {
+    color: white;
+}
+
+
+
+.inputcol .inputControl {
+    display: block;
+    width: 100%;
+    height: 40px;
+    margin-bottom: 10px;
+    padding: 9px 10px;
+    font-size: 16px;
+    color: #999;
+    border: 1px solid #a8a8a8;
+    background: none;
+    transition: all 0.3s ease-in-out;
+    box-shadow: none;
+    border-radius: 5px;
+}
+
+.inputcol .textareaControl {
+    display: block;
+    width: 100%;
+    height: 120px;
+    margin-bottom: 10px;
+    padding: 9px 10px;
+    font-size: 16px;
+    color: #999;
+    border: 1px solid #a8a8a8;
+    background: none;
+    transition: all 0.3s ease-in-out;
+    box-shadow: none;
+    border-radius: 5px;
+}
+
+.inputsblocks label {
+    color: #18a26a;
+    font-size: 16px;
+    margin: 0 0 10px 0;
+    font-weight: 700;
+}
+
+.ownerQuote p {
+    position: relative;
+    padding: 15px 22px;
+}
+
+.ownerName {
+    font-family: "Lato-Medium";
+    color: #fff;
+    text-align: right;
+    font-size: 16px;
+    position: relative;
+    font-weight: 400;
+}
+
+.ownerName span{
+    color: white;
+    font-weight: 400;
+}
+
+.ownerDesc {
+    text-align: right;
+    color: #fff;
+    font-size: 16px;
+    font-weight: 300;
+    font-family: 'Poppins', serif;
+}
+
+.ownerName:before {
+    content: '';
+    position: absolute;
+    display: inline-block;
+    width: 62px;
+    height: 1px;
+    background: #fff;
+    right: 127px;
+    top: 50%;
+    transform: translate(0%, -50%);
+    font-family: 'Poppins', serif;
+}
+
+.summingUp p:last-child {
+    text-align: center;
+    
+}
+
+.ownerQuote p:before {
+    content: '';
+    background-image: url(/images/qoute-start.png);
+    background-repeat: no-repeat;
+    position: absolute;
+    left: 0px;
+    top: 11px;
+    width: 20px;
+    height: 18px;
+    font-family: 'Poppins', serif;
+}
+
+.ownerQuote {
+    padding: 0 4rem;
+    text-align: center;
+    margin: 20px 0 30px;
+}
+
+.quoteEnd:after {
+    content: '';
+    background-image: url(/images/qoute-end.png);
+    background-repeat: no-repeat;
+    position: absolute;
+    right: -0px;
+    bottom: 10px;
+    width: 20px;
+    height: 18px;
+}
+
+.hireusBtn {
+    min-width: 200px;
+    margin-left: 15px;
+
+}
+
+@media (max-width:1399px) {
+
+    .bannerCaption h1 {
+        font-size: 34px;
+    }
+
+    .sectitl h2 {
+        color: white;
+        font-size: 25px;
+    }
+
+    .hireusBtn {
+        min-width: 167px;
+        margin-left: 15px;
+        padding: 15px 5px;
+    }
+}
+
+@media (max-width:1199px) {
+
+    .bannerCaption {
+        padding: 0 10px 0 0;
+    }
+
+    .caseSecTtl h2 {
+        width: 80%;
+    }
+}
+
+@media (max-width:991px) {
+
+    .bannerCaption h1 {
+        font-size: 26px;
+    }
+
+    .secPad {
+        padding: 40px 0;
+    }
+
+    .ddBg {
+        padding-top: 165px;
+    }
+
+    .hireUsSection {
+        display: block;
+        text-align: center;
+    }
+
+    .hireusBtn {
+        margin: 0;
+        margin-top: 20px;
+    }
+
+    .hireUsSection {
+        max-width: 80%;
+    }
+
+    .marketCount {
+        font-size: 40px;
+    }
+
+    .marketCircle {
+        width: 148px;
+        height: 148px;
+    }
+}
+
+@media (max-width:768px) {
+
+    .casebannerWrap {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .bannerCaption {
+        width: 100%;
+        margin: 0 0 20px 0;
+    }
+
+    .caseSecTtl h2 {
+        width: 60%;
+    }
+
+    .secPad {
+        padding: 90px 0;
+    }
+
+    .bannerCaption h1 {
+        font-size: 28px;
+    }
+
+    .organicBlock h4 {
+        font-size: 40px;
+    }
+
+    .casebannerSection {
+        padding: 50px 0;
+        padding-top: 110px;
+    }
+
+    .organicBlock p {
+        font-size: 12px;
+        line-height: 15px;
+    }
+
+    .bnrImg {
+        width: 38%;
+        margin-top: 20px;
+    }
+}
+
+.Container{
+    padding:100px 60px 60px 60px;
+}
+
+.MarketingOutput{
+    /* background-color: #000000; */
+    padding: 60px;
+}
+.marketCircleContainer{
+    display: flex;
+    flex-direction: row;
+}

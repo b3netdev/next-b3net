@@ -14,8 +14,13 @@ type FormValues = {
   companyWebsite: string;
   message: string;
 };
+type ServiceContactProps = {
+  title?: string;
+  showTitle?: boolean;
+};
 
-const ServiceContact: React.FC<{ title?: string }> = ({ title = "Request a FREE Consultation" }) => {
+const ServiceContact: React.FC<ServiceContactProps> = ({ title = "Request a FREE Consultation", showTitle = true,
+}) => {
   const formik = useFormik<FormValues>({
     initialValues: {
       firstName: "",
@@ -67,7 +72,10 @@ const ServiceContact: React.FC<{ title?: string }> = ({ title = "Request a FREE 
         <div className="container">
           <div className="common-form shadow-1 bg-white p-3 p-sm-5">
             <div className="heading5 mb-3 mb-md-5 text-center">
-              <h2>{title}</h2>
+              {
+                showTitle &&
+                <h2>{title}</h2>
+              }
             </div>
 
             <div role="form" className="wpcf7" id="wpcf7-f12129-o3" lang="en-US" dir="ltr">
