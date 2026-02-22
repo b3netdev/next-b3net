@@ -3,6 +3,20 @@ import CaseStudy1 from "./CaseStudy1";
 import CaseStudy2 from "./CaseStudy2/CaseStudy2";
 import CaseStudy3 from "./CaseStudy3/CaseStudy3";
 
+
+const idList = [
+    13074,
+    13037,
+    13121,
+    12949
+]
+export async function generateStaticParams() {
+
+    return idList.map((item) => ({
+        slug: item.toString(),
+    }));
+
+}
 const Page = async ({ params }: { params: { slug: any } }) => {
     const { slug } = await params;
     console.log(slug, "SLUG")
@@ -18,8 +32,8 @@ const Page = async ({ params }: { params: { slug: any } }) => {
             ) :
                 slug == 12949 ? (
                     <CaseStudy3 slug={slug} />
-                ) 
-                :null
+                )
+                    : null
             }
         </>
     );
