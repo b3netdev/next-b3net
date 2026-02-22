@@ -18,7 +18,7 @@ export async function generateStaticParams() {
 }
 const ServiceSubpage = async ({ params }: { params: { slug: string } }) => {
     const { slug } = await params;
-    console.log(slug, "SLUG")
+
     const data = await GetPageData(slug, "page");
 
     const pageData = data?.page ?? data;

@@ -1,14 +1,36 @@
 import Link from "next/link";
-import { notFound } from "next/navigation";
 import { GetPageData, GetRelatedPost } from "@/lib/getdata";
 import NewsletterForm from "./NewsletterForm";
-import { headers } from "next/headers";
+import ShowNav from "@/components/client/ShowNav";
 
+
+
+const sluglist = [
+    {
+        slug: "website-not-generating-leads-how-to-fix-it",
+    },
+    {
+        slug: "7-reasons-why-your-website-is-not-showing-up-how-to-fix-it",
+    },
+    {
+        slug: "9-reasons-why-my-website-traffic-not-converting",
+    },
+    {
+        slug: "why-is-your-website-not-making-sales-and-how-to-fix-it",
+    },
+]
+
+export async function generateStaticParams() {
+
+    return sluglist.map((item) => ({
+        slug: item.slug,
+    }));
+
+}
 
 export default async function BlogDetail({ params }: { params: { slug: string } }) {
 
     const { slug } = await params;
-    // const h = headers();
 
     const pageData = await GetPageData(slug, "post");
 
@@ -24,6 +46,7 @@ export default async function BlogDetail({ params }: { params: { slug: string } 
 
     return (
         <main className="page_content">
+            <ShowNav />
             <div className="portfolio-detail portfoli-padd portfolio-page-1 blog-details">
                 <div className="port-landing-wrap details-page-1">
                     <div className="menu-design"></div>
