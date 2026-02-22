@@ -11,7 +11,7 @@ import ExpertIcon1 from "../../assets/images/expert-icon-1.png";
 import ExpertIcon2 from "../../assets/images/expert-icon-2.png";
 import Why from "../../assets/images/why-image.jpg";
 import ExpertIcon3 from "../../assets/images/expert-icon-3.png";
-
+import CaseStudiesSlider from "../client/CaseStudySlider";
 import Process from "../client/Process";
 import TechStacks from "../client/TechStacks";
 
@@ -67,7 +67,7 @@ const CaseStudy = () => {
 
   return (
     <>
-      <div className="case-studies-service sp pb-0 new-gap" id="case-studies">
+      <div className="case-studies-service pt-5 mb-4  new-gap" id="case-studies">
         <div className="container">
           <div className="row mb-4 mb-md-5">
             <div className="col-lg-12 text-center">
@@ -81,38 +81,10 @@ const CaseStudy = () => {
           </div>
         </div>
 
-        <div className="case-studies-slider owl-carousel owl-theme d-flex">
-          {caseStudiesData.map((item:any, index:any) => {
-            const slug = new URL(item.link).pathname.split("/").pop()!.replace(".html", "");
-            const href = `/casestudy/${item.id}`; 
+        <div className="case-studies-slider owl-carousel owl-theme d-flex justify-between">
 
-            return (
-              <div className="item" key={index}>
-                <div className="portfolio-list">
-                  <div className="image image-anime reveal">
-                    <div className="case-studier-image">
-                      <Image src={item.img} alt="" />
-                    </div>
+          <CaseStudiesSlider data={caseStudiesData} />
 
-                    <div className="solutions-hover-box">
-                      <div className="solution-hover text-center">
-                        {/* Next.js Link (server component safe). No router "state" in Next. */}
-                        <Link href={href}>
-                          <div className="up-icon">
-                            <Image src={Upgrade} alt="" />
-                          </div>
-                          <h3>{item.title}</h3>
-                          <div className="percent">{item.percent}</div>
-                          <p style={{ color: "white" }}>{item.desc}</p>
-                        </Link>
-                      </div>
-                    </div>
-
-                  </div>
-                </div>
-              </div>
-            );
-          })}
         </div>
       </div>
 
