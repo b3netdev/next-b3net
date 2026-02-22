@@ -11,8 +11,8 @@ export default async function Portfolio() {
 
 
 
-  const pageData = await GetPageData("portfolio","page");
-  console.log(pageData,"PAGE DATA")
+  const pageData = await GetPageData("portfolio", "page");
+
 
 
   if (!pageData) notFound();
@@ -53,10 +53,10 @@ export default async function Portfolio() {
           </div>
         </div>
 
-        
+
         <Portfoliobox />
 
-       
+
 
         <div className="expertise-service sp pb-0 new-gap mt-5">
           <div className="container">

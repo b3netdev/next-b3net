@@ -12,15 +12,15 @@ export default async function AboutUsPage({ params }: PageProps) {
 
 
   const data = await GetPageData("about-company", "page");
-  console.log(data,"DATA")
 
-  const pageData = data?.page ?? data; 
+
+  const pageData = data?.page ?? data;
 
   if (!pageData) notFound();
 
   return (
     <div className="about-page portfolio-page">
-      
+
       <div className="port-landing-wrap gpp">
         <div className="banner-img">
           <img

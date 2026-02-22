@@ -13,17 +13,16 @@ import AiSlider from "./AiSlider";
 
 const AiIntregation = async ({ params }: { params: { slug: string } }) => {
 
-     const data = await GetPageData("ai-integration", "page");
-     const pageData = data?.page ?? data;
-     console.log(pageData, "PAGE DATA")
+  const data = await GetPageData("ai-integration", "page");
+  const pageData = data?.page ?? data;
 
 
-  
+
 
   return (
     <main className="page_content">
       <div className="ai-integration-page ai-landing-wrap">
-        <AiSlider  />
+        <AiSlider />
         {/* rest of your page unchanged */}
         <div className="ai-col-1">
           <div className="container">
@@ -389,7 +388,7 @@ const AiIntregation = async ({ params }: { params: { slug: string } }) => {
             </div>
           </div>
         </div>
-        <Contact/>
+        <Contact />
       </div>
     </main>
   );

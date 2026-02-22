@@ -25,7 +25,7 @@ export async function GetRelatedPost(categoryId: any, id: number | string) {
     revalidate: 60,
 
   });
-  // console.log(data,'tesrttt');
+
   return Array.isArray(data) ? data ?? null : data ?? null;
 }
 
@@ -35,7 +35,7 @@ export async function GetAuthorData(slug: any) {
   const data = await fetcher(`/wp-json/wp/v2/users/${slug}`, {
     revalidate: 60,
   });
-  // console.log(data,'tesrttt');
+
   return Array.isArray(data) ? data ?? null : data ?? null;
 }
 
@@ -66,9 +66,9 @@ export const getPortFloioRelatedPost = async (categoryId: any, projectId: any) =
   return Array.isArray(data) ? data ?? null : data ?? null;
 };
 
-export const getcaseStudiesData = async (id:number) => {
+export const getcaseStudiesData = async (id: number) => {
 
-  const data = await fetcher(`wp-json/custom/v1/page/${id}`, 
+  const data = await fetcher(`wp-json/custom/v1/page/${id}`,
     {
       revalidate: 60,
     }

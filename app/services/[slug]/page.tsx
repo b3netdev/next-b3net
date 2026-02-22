@@ -7,6 +7,15 @@ import ServiceContact1 from "./ServiceContact1";
 import FrequentQuestion from "./FrequentQuestion";
 import Scroll from "@/components/client/Scroll";
 import Workslider from "./Workslider";
+import { sluglist } from "@/helper/Menulist";
+
+export async function generateStaticParams() {
+
+    return sluglist.map((item) => ({
+        slug: item.slug,
+    }));
+
+}
 const ServiceSubpage = async ({ params }: { params: { slug: string } }) => {
     const { slug } = await params;
     console.log(slug, "SLUG")
@@ -28,7 +37,7 @@ const ServiceSubpage = async ({ params }: { params: { slug: string } }) => {
                         <h1>{pageData?.acf?.data?.banner_heading}</h1>
                         <div
                             dangerouslySetInnerHTML={{
-                                __html: pageData?.acf?.data?.banner_description,
+                                __html: pageData?.acf?.data?.banner_description || "",
                             }}
                         />
                         <div className="mt-4">
@@ -51,229 +60,229 @@ const ServiceSubpage = async ({ params }: { params: { slug: string } }) => {
                 </div>
             </div>
             {
-                pageData?.acf?.data?.common_section_content_1 && ( 
- <section className="section-second sec-pad pb-0">
-                <div className="container nitro-offscreen">
-                  <div className="row dallasSeo-sec align-items-center">
-                    <div className="col-lg-6 left-column">
-                    	<div
-                        dangerouslySetInnerHTML={{__html: pageData?.acf?.data?.common_section_content_1 || ""}}
-                        />
-                      
-                    </div>
-                    <div className="col-lg-6 right-column text-center">
-                      <img src={pageData?.acf?.data?.common_section_image_1} className="img-fluid" alt="Data Cleansing Image" />
-                    </div>
-                  </div>
-                </div>
-              </section>
+                pageData?.acf?.data?.common_section_content_1 && (
+                    <section className="section-second sec-pad pb-0">
+                        <div className="container nitro-offscreen">
+                            <div className="row dallasSeo-sec align-items-center">
+                                <div className="col-lg-6 left-column">
+                                    <div
+                                        dangerouslySetInnerHTML={{ __html: pageData?.acf?.data?.common_section_content_1 || "" }}
+                                    />
+
+                                </div>
+                                <div className="col-lg-6 right-column text-center">
+                                    <img src={pageData?.acf?.data?.common_section_image_1} className="img-fluid" alt="Data Cleansing Image" />
+                                </div>
+                            </div>
+                        </div>
+                    </section>
                 )
-                
+
             }
 
-             
-               {
+
+            {
                 pageData?.acf?.data?.services_page_section_2_heading &&
-               
 
-            <div className="dallas-seo-agency">
-                <div className="container">
-                    <div className="dallasSeo-sec">
-                        <div className="row gy-4">
-                            <div className="col-lg-6">
-                                <h2 className="sec-heading border-btom">
-                                    {pageData?.acf?.data?.services_page_section_2_heading}
-                                </h2>
-                                <div
-                                    dangerouslySetInnerHTML={{
-                                        __html:
-                                            pageData?.acf?.data?.services_page_section_2_description || "",
-                                    }}
-                                />
-                                <Link
-                                    href={`/contact`}
-                                    className="get-intouch-btn nitro-offscreen">
-                                    Get in Touch{" "}
-                                    <span className="btn_icon">
-                                        <i className="fa-solid fa-arrow-right"></i>
-                                    </span>{" "}
-                                </Link>
-                            </div>
-                            <div className="col-lg-6" id="request-proposal">
-                                <div className="form-part">
-                                    <div className="heading-blocks">
-                                        <h3 className="blue-heading font-color-bl text-center">
-                                            Request a Free Proposal
-                                        </h3>
-                                    </div>
 
+                <div className="dallas-seo-agency">
+                    <div className="container">
+                        <div className="dallasSeo-sec">
+                            <div className="row gy-4">
+                                <div className="col-lg-6">
+                                    <h2 className="sec-heading border-btom">
+                                        {pageData?.acf?.data?.services_page_section_2_heading}
+                                    </h2>
                                     <div
-                                        role="form"
-                                        className="wpcf7"
-                                        id="wpcf7-f12066-o2"
-                                        lang="en-US"
-                                        dir="ltr"
-                                    >
-                                        <div className="screen-reader-response">
-                                            <p
-                                                role="status"
-                                                aria-live="polite"
-                                                aria-atomic="true"
-                                            ></p>{" "}
-                                            <ul></ul>
+                                        dangerouslySetInnerHTML={{
+                                            __html:
+                                                pageData?.acf?.data?.services_page_section_2_description || "",
+                                        }}
+                                    />
+                                    <Link
+                                        href={`/contact`}
+                                        className="get-intouch-btn nitro-offscreen">
+                                        Get in Touch{" "}
+                                        <span className="btn_icon">
+                                            <i className="fa-solid fa-arrow-right"></i>
+                                        </span>{" "}
+                                    </Link>
+                                </div>
+                                <div className="col-lg-6" id="request-proposal">
+                                    <div className="form-part">
+                                        <div className="heading-blocks">
+                                            <h3 className="blue-heading font-color-bl text-center">
+                                                Request a Free Proposal
+                                            </h3>
                                         </div>
-                                        <ServiceContact1 />
+
+                                        <div
+                                            role="form"
+                                            className="wpcf7"
+                                            id="wpcf7-f12066-o2"
+                                            lang="en-US"
+                                            dir="ltr"
+                                        >
+                                            <div className="screen-reader-response">
+                                                <p
+                                                    role="status"
+                                                    aria-live="polite"
+                                                    aria-atomic="true"
+                                                ></p>{" "}
+                                                <ul></ul>
+                                            </div>
+                                            <ServiceContact1 />
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
-            
-}
+
+            }
 
 
 
-{pageData?.acf?.data?.common_repeater_heading_1 && (
-    <div className="wp-services-include-sec sec-pad pb-0 nitro-offscreen my-5 py-0 my-sm-5 py-sm-5">
-                <div className="container">
-                  <div className="services-wrap">
-                    <div className="heading-blocks text-center mb-5">
-                      <h2 className="sec-heading-blue">
-                      	{pageData?.acf?.data?.common_repeater_heading_1}                  
-                      </h2>
-                    </div>
-                    <div className="row gy-4 justify-content-center">
-                        {
-                            pageData?.acf?.data?.common_repeater_1?.map((item: any, index: any) => {
-                                return(
-                                     <div className=" col-sm-6 col-md-4  col-lg-3 dataCleansing-blocks" key={index}>
-                        <div className="include-services-imgwrap text-center mb-3">
-                          <img src={item?.logo} className="img-fluid" alt="Data Quality Audit" />
+            {pageData?.acf?.data?.common_repeater_heading_1 && (
+                <div className="wp-services-include-sec sec-pad pb-0 nitro-offscreen my-5 py-0 my-sm-5 py-sm-5">
+                    <div className="container">
+                        <div className="services-wrap">
+                            <div className="heading-blocks text-center mb-5">
+                                <h2 className="sec-heading-blue">
+                                    {pageData?.acf?.data?.common_repeater_heading_1}
+                                </h2>
+                            </div>
+                            <div className="row gy-4 justify-content-center">
+                                {
+                                    pageData?.acf?.data?.common_repeater_1?.map((item: any, index: any) => {
+                                        return (
+                                            <div className=" col-sm-6 col-md-4  col-lg-3 dataCleansing-blocks" key={index}>
+                                                <div className="include-services-imgwrap text-center mb-3">
+                                                    <img src={item?.logo} className="img-fluid" alt="Data Quality Audit" />
+                                                </div>
+                                                <div className="include-services-desc text-center">
+                                                    <h4 style={{ color: "#F9764A" }}>{item?.title}</h4>
+                                                    <p>{item?.content}</p>
+                                                </div>
+                                            </div>
+                                        )
+                                    })
+                                }
+
+
+
+
+                            </div>
                         </div>
-                        <div className="include-services-desc text-center">
-                          <h4 style={{color: "#F9764A"}}>{item?.title}</h4>
-                          <p>{item?.content}</p>
+                    </div>
+                </div>
+            )}
+
+
+            {
+                pageData?.acf?.data?.unique_section_image_title && (
+                    <section className="tech-stacks-sec sec-pad nitro-offscreen my-5 py-0 my-sm-5 py-sm-5">
+                        <div className="container">
+                            <div className="row dallasSeo-sec align-items-center">
+
+
+                                <div className="col-md-6 left-column text-center mb-4 mb-md-0">
+                                    <div className="imgwrap">
+                                        <img src={pageData?.acf?.data?.unique_section_image} className="img-fluid" alt="Data Health Insight" />
+                                    </div>
+                                    <p className="img-desc mt-3">
+                                        {pageData?.acf?.data?.unique_section_image_title}                      </p>
+                                </div>
+
+
+                                <div className="col-md-6 right-column">
+                                    <h3 className="sec-heading mb-4"></h3>
+                                    <div className="tech-stacks-lists d-flex flex-wrap gap-2">
+                                        <div className="row">
+                                            {pageData?.acf?.data?.unique_section_content_repeater?.map(
+                                                (item: any, index: number) => (
+                                                    <div className="col-sm-6 mb-3" key={index}>
+                                                        <div className="techlist-btn btn btn-outline-primary w-100 p-4">
+                                                            {item?.text}
+                                                        </div>
+                                                    </div>
+                                                )
+                                            )}
+                                        </div>
+
+                                    </div>
+                                </div>
+
+                            </div>
                         </div>
-                      </div>
-                                )
-                            })
-                        }
-                                   
-                              
-                                  
-              
-                    </div>
-                  </div>
-                </div>
-              </div>
-)}
+                    </section>
+                )
+            }
 
 
-{
-    pageData?.acf?.data?.unique_section_image_title &&(
-<section className="tech-stacks-sec sec-pad nitro-offscreen my-5 py-0 my-sm-5 py-sm-5">
-                <div className="container">
-                  <div className="row dallasSeo-sec align-items-center">
-                    
-                    
-                    <div className="col-md-6 left-column text-center mb-4 mb-md-0">
-                      <div className="imgwrap">
-                        <img src={pageData?.acf?.data?.unique_section_image}className="img-fluid" alt="Data Health Insight" />
-                      </div>
-                      <p className="img-desc mt-3">
-                        {pageData?.acf?.data?.unique_section_image_title}                      </p>
-                    </div>
-              
-                  
-                    <div className="col-md-6 right-column">
-                      <h3 className="sec-heading mb-4"></h3>
-                      <div className="tech-stacks-lists d-flex flex-wrap gap-2">
-                       <div className="row">
-  {pageData?.acf?.data?.unique_section_content_repeater?.map(
-    (item: any, index: number) => (
-      <div className="col-sm-6 mb-3" key={index}>
-        <div className="techlist-btn btn btn-outline-primary w-100 p-4">
-          {item?.text}
-        </div>
-      </div>
-    )
-  )}
-</div>
+            {
+                pageData?.acf?.data?.common_section_content_2 && (
 
-                      </div>
-                    </div>
-              
-                  </div>
-                </div>
-              </section>
-    )
-}
+                    <section className="section-second sec-pad pb-0">
+                        <div className="container nitro-offscreen">
+                            <div className="row dallasSeo-sec align-items-center">
+                                <div className="col-lg-6 left-column">
+                                    <div
 
-   
-{
-    pageData?.acf?.data?.common_section_content_2 && (
+                                        dangerouslySetInnerHTML={{ __html: pageData?.acf?.data?.common_section_content_2 || "" }}
+                                    />
 
-         <section className="section-second sec-pad pb-0">
-                <div className="container nitro-offscreen">
-                  <div className="row dallasSeo-sec align-items-center">
-                    <div className="col-lg-6 left-column">
-                    	<div 
-                        
-                        dangerouslySetInnerHTML={{__html: pageData?.acf?.data?.common_section_content_2 || ""}}
-                        />
-                     
-                    </div>
-                    <div className="col-lg-6 right-column text-center">
-                      <img src="https://2026.b3net.info/b3net-com/wp-content/uploads/2024/06/Why-B3NET-3.jpg" className="img-fluid" alt="Data Cleansing Image" />
-                    </div>
-                  </div>
-                </div>
-              </section>
-    )
-}
-
-{
-    pageData?.acf?.data?.common_repeater_heading_4 && (
-
-        <div className="wp-services-include-sec sec-pad pb-0 nitro-offscreen my-5 py-0 my-sm-5 py-sm-5">
-                <div className="container">
-                  <div className="services-wrap">
-                    <div className="heading-blocks text-center mb-5">
-                      <h2 className="sec-heading-blue">
-                       {pageData?.acf?.data?.common_repeater_heading_4}                     </h2>
-                    </div>
-                    <div className="row g-4 justify-content-between">
-                        {
-                            pageData?.acf?.data?.common_repeater_4?.map((item:any,index:any)=>{
-                                return(
-                                     <div className="col-sm-6 col-md-4 col-lg-3 dataCleansing-blocks" key={index}>
-                        <div className="include-services-imgwrap text-center mb-3">
-                          <img src={item?.logo} className="img-fluid" alt="Data Quality Audit" />
+                                </div>
+                                <div className="col-lg-6 right-column text-center">
+                                    <img src="https://2026.b3net.info/b3net-com/wp-content/uploads/2024/06/Why-B3NET-3.jpg" className="img-fluid" alt="Data Cleansing Image" />
+                                </div>
+                            </div>
                         </div>
-                        <div className="include-services-desc text-center">
-                          <h4 style={{color: "#F9764A"}}>{item?.title}</h4>
-                          <p></p>
+                    </section>
+                )
+            }
+
+            {
+                pageData?.acf?.data?.common_repeater_heading_4 && (
+
+                    <div className="wp-services-include-sec sec-pad pb-0 nitro-offscreen my-5 py-0 my-sm-5 py-sm-5">
+                        <div className="container">
+                            <div className="services-wrap">
+                                <div className="heading-blocks text-center mb-5">
+                                    <h2 className="sec-heading-blue">
+                                        {pageData?.acf?.data?.common_repeater_heading_4}                     </h2>
+                                </div>
+                                <div className="row g-4 justify-content-between">
+                                    {
+                                        pageData?.acf?.data?.common_repeater_4?.map((item: any, index: any) => {
+                                            return (
+                                                <div className="col-sm-6 col-md-4 col-lg-3 dataCleansing-blocks" key={index}>
+                                                    <div className="include-services-imgwrap text-center mb-3">
+                                                        <img src={item?.logo} className="img-fluid" alt="Data Quality Audit" />
+                                                    </div>
+                                                    <div className="include-services-desc text-center">
+                                                        <h4 style={{ color: "#F9764A" }}>{item?.title}</h4>
+                                                        <p></p>
+                                                    </div>
+                                                </div>
+                                            )
+                                        })
+
+                                    }
+                                </div>
+                            </div>
                         </div>
-                      </div>
-                                )
-                            })
-   
-                        }
                     </div>
-                  </div>
-                </div>
-              </div>
 
-    )
-}
+                )
+            }
 
 
 
 
 
-    
+
 
             {pageData?.acf?.data?.services_page_section_9_additional_section ? (
                 <div className="additional_content">
@@ -284,7 +293,7 @@ const ServiceSubpage = async ({ params }: { params: { slug: string } }) => {
                                     dangerouslySetInnerHTML={{
                                         __html:
                                             pageData?.acf?.data
-                                                ?.services_page_section_9_additional_section,
+                                                ?.services_page_section_9_additional_section || " ",
                                     }}
                                 />
                             </div>
@@ -293,56 +302,56 @@ const ServiceSubpage = async ({ params }: { params: { slug: string } }) => {
                 </div>
             ) : null}
 
-{
-    pageData?.acf?.data?.common_section_content_2 &&(
+            {
+                pageData?.acf?.data?.common_section_content_2 && (
 
-             <section className="section-second sec-pad pb-0">
-                <div className="container nitro-offscreen">
-                  <div className="row dallasSeo-sec align-items-center">
-                    <div className="col-lg-6 left-column">
-                    	<div 
-                        dangerouslySetInnerHTML={{__html:pageData?.acf?.data?.common_section_content_2 || ""}}
-                        
-                        />
-<div className="data-dashboarding">
-<ul>
-<li>PowerBI</li>
-<li>Tableau</li>
-<li>OBIEE</li>
-</ul>
-</div>
-                     
-                    </div>
-                    <div className="col-lg-6 right-column text-center">
-                      <img src={pageData?.acf?.data?.common_section_image_2} className="img-fluid" alt="Data Cleansing Image" />
-                    </div>
-                  </div>
-                </div>
-              </section>
-    )
-}
+                    <section className="section-second sec-pad pb-0">
+                        <div className="container nitro-offscreen">
+                            <div className="row dallasSeo-sec align-items-center">
+                                <div className="col-lg-6 left-column">
+                                    <div
+                                        dangerouslySetInnerHTML={{ __html: pageData?.acf?.data?.common_section_content_2 || "" }}
 
-{
-    pageData?.acf?.data?.common_section_content_3 &&(
-<section className="section-second sec-pad pb-0">
-                <div className="container nitro-offscreen">
-                  <div className="row dallasSeo-sec align-items-center">
-                    <div className="col-lg-6 left-column">
-                    	<div 
-                        dangerouslySetInnerHTML={{__html:pageData?.acf?.data?.common_section_content_3}}
-                        />
+                                    />
+                                    <div className="data-dashboarding">
+                                        <ul>
+                                            <li>PowerBI</li>
+                                            <li>Tableau</li>
+                                            <li>OBIEE</li>
+                                        </ul>
+                                    </div>
+
+                                </div>
+                                <div className="col-lg-6 right-column text-center">
+                                    <img src={pageData?.acf?.data?.common_section_image_2} className="img-fluid" alt="Data Cleansing Image" />
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                )
+            }
+
+            {
+                pageData?.acf?.data?.common_section_content_3 && (
+                    <section className="section-second sec-pad pb-0">
+                        <div className="container nitro-offscreen">
+                            <div className="row dallasSeo-sec align-items-center">
+                                <div className="col-lg-6 left-column">
+                                    <div
+                                        dangerouslySetInnerHTML={{ __html: pageData?.acf?.data?.common_section_content_3 || " " }}
+                                    />
 
 
-                     
-                    </div>
-                    <div className="col-lg-6 right-column text-center">
-                      <img src={pageData?.acf?.data?.common_section_image_3} className="img-fluid" alt="Data Cleansing Image" />
-                    </div>
-                  </div>
-                </div>
-              </section>
-    )
-}
+
+                                </div>
+                                <div className="col-lg-6 right-column text-center">
+                                    <img src={pageData?.acf?.data?.common_section_image_3} className="img-fluid" alt="Data Cleansing Image" />
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                )
+            }
 
 
 
@@ -369,7 +378,7 @@ const ServiceSubpage = async ({ params }: { params: { slug: string } }) => {
                                                     <p className="card-text py-3">
                                                         <span
                                                             dangerouslySetInnerHTML={{
-                                                                __html: item?.description,
+                                                                __html: item?.description || " ",
                                                             }}
                                                         ></span>
                                                     </p>
@@ -386,46 +395,46 @@ const ServiceSubpage = async ({ params }: { params: { slug: string } }) => {
 
 
 
-{
-    pageData?.acf?.data?.common_repeater_2 && (
-<div className="wp-services-include-sec sec-pad pb-0 nitro-offscreen my-5 py-0 my-sm-5 py-sm-5">
-                <div className="container">
-                  <div className="services-wrap">
-                    <div className="heading-blocks text-center mb-5">
-                      <h2 className="sec-heading-blue">
-                        HERE’S WHAT YOU CAN EXPECT FROM OUR CUSTOMER SEGMENTATION SERVICES:                      </h2>
-                    </div>
-                    <div className="row g-4 justify-content-between">
-                        {
-                            pageData?.acf?.data?.common_repeater_2?.map((data:any,index:any) => {
-                                return(
-<div className=" col-sm-6 col-md-4  col-lg-2 dataCleansing-blocks">
-                        <div className="include-services-imgwrap text-center mb-3">
-                          <img src={data?.logo} className="img-fluid" alt="Data Quality Audit" />
-                        </div>
-                        <div className="include-services-desc text-center">
-                          <h4 style={{color:'#FB6C47'}}>{data?.title}</h4>
-                          <p>{data?.content}.
-</p>
-                        </div>
-                      </div>
-                                )
-                            }
-                        )
-                        }
-                                    
-                                         
-                                         
-                                            
-              
-                    </div>
-                  </div>
-                </div>
-              </div>
-    )
-}
+            {
+                pageData?.acf?.data?.common_repeater_2 && (
+                    <div className="wp-services-include-sec sec-pad pb-0 nitro-offscreen my-5 py-0 my-sm-5 py-sm-5">
+                        <div className="container">
+                            <div className="services-wrap">
+                                <div className="heading-blocks text-center mb-5">
+                                    <h2 className="sec-heading-blue">
+                                        HERE’S WHAT YOU CAN EXPECT FROM OUR CUSTOMER SEGMENTATION SERVICES:                      </h2>
+                                </div>
+                                <div className="row g-4 justify-content-between">
+                                    {
+                                        pageData?.acf?.data?.common_repeater_2?.map((data: any, index: any) => {
+                                            return (
+                                                <div className=" col-sm-6 col-md-4  col-lg-2 dataCleansing-blocks">
+                                                    <div className="include-services-imgwrap text-center mb-3">
+                                                        <img src={data?.logo} className="img-fluid" alt="Data Quality Audit" />
+                                                    </div>
+                                                    <div className="include-services-desc text-center">
+                                                        <h4 style={{ color: '#FB6C47' }}>{data?.title}</h4>
+                                                        <p>{data?.content}.
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                            )
+                                        }
+                                        )
+                                    }
 
-  
+
+
+
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                )
+            }
+
+
 
             {pageData?.acf?.data?.services_page_section_4_title && (
                 <div className="outerwrap-1">
@@ -444,7 +453,7 @@ const ServiceSubpage = async ({ params }: { params: { slug: string } }) => {
                                                 dangerouslySetInnerHTML={{
                                                     __html:
                                                         pageData?.acf?.data
-                                                            ?.services_page_section_4_description,
+                                                            ?.services_page_section_4_description || " ",
                                                 }}
                                             />
 
@@ -478,7 +487,7 @@ const ServiceSubpage = async ({ params }: { params: { slug: string } }) => {
                 </div>
             )}
 
-           <Workslider pageData={pageData} />
+            <Workslider pageData={pageData} />
 
             {pageData?.acf?.data?.service_page_section_6_title && (
                 <div className="client-testimonials outerwrap">
@@ -552,7 +561,7 @@ const ServiceSubpage = async ({ params }: { params: { slug: string } }) => {
                 </div>
             )}
             <ServiceContact
-            title={pageData?.acf?.data?.service_page_section_8_title || "Request a FREE Consultation"}
+                title={pageData?.acf?.data?.service_page_section_8_title || "Request a FREE Consultation"}
             />
             {
                 pageData?.acf?.data?.faq_repeater &&

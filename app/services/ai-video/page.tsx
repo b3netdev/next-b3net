@@ -4,13 +4,13 @@ import ContactUsForm from "@/app/contact/Contactusform";
 import Contact from "@/components/client/Contact";
 
 import { GetPageData } from "@/lib/getdata";
-const Aivideo =async () => {
-  
- const data = await GetPageData("ai-video", "page");
-     const pageData = data?.page ?? data;
-     console.log(pageData, "PAGE DATA")
+const Aivideo = async () => {
 
- 
+  const data = await GetPageData("ai-video", "page");
+  const pageData = data?.page ?? data;
+
+
+
   return (
     <section className="email-col py-md-5 py-3">
       <div className="container">
@@ -27,15 +27,15 @@ const Aivideo =async () => {
             <div className="heading5 mb-3 mb-md-5 text-center">
               <h2>Revolutionize Your Product Sales with AI-Driven Video Marketing! Start Now!</h2>
             </div>
-            
-              <Contact 
+
+            <Contact
               data={true}
-              />
-          
+            />
+
           </div>
         </div>
       </div>
-      
+
     </section>
   );
 };

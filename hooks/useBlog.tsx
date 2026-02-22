@@ -49,7 +49,7 @@ const useBlog = () => {
   const getBlogCategories = async (): Promise<WPCategory[]> => {
     try {
       const res: AxiosResponse<WPCategory[]> = await api.get("/wp-json/wp/v2/categories");
-      console.log(res, "BLOG")
+
       return res.data;
     } catch (error) {
       console.error("Failed to fetch header menu:", error);

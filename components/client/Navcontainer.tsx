@@ -106,7 +106,7 @@ export default function Navbar() {
 
 
 
-    const ServiceMenuGroup = ({ group }: { group: ServiceMegaMenuGroup }) => {
+    const ServiceMenuGroup = ({ group }: { group: any }) => {
         return (
             <div className="menu-inner-col">
                 <h4>
@@ -114,7 +114,7 @@ export default function Navbar() {
                 </h4>
 
                 <div className="d-flex flex-column gap-0">
-                    {group.items.map((item, idx) => (
+                    {group.items.map((item: any, idx: any) => (
                         <span
                             key={idx}
                             className="d-flex align-items-center service-menu-item gap-2 ms-4"
@@ -212,15 +212,11 @@ export default function Navbar() {
         );
     };
 
-    const gepath = (url?: string) => {
-        if (!url || url === "#") return "";
-        if (url.startsWith("http")) return new URL(url).pathname.split("/").pop() || "";
-        return url.split("/").pop() || "";
-    };
 
-    const AboutSubmenu = ({ data }: { data: MenuChild }) => {
+
+    const AboutSubmenu = ({ data }: { data: any }) => {
         const url = data.url;
-        const pathUrl = new URL(url).pathname.split("/").pop() || "";
+
 
         return (
             <div className="aboutSubMenu" key={data.id}>
@@ -244,7 +240,7 @@ export default function Navbar() {
         );
     };
 
-    const WesolveSubMenu = ({ data }: { data: MenuChild }) => {
+    const WesolveSubMenu = ({ data }: { data: any }) => {
         const slug = new URL(data.url).pathname.split("/").filter(Boolean).pop() || "";
         return (
             <div className="aboutSubMenu WesolveBox" key={data.id}>
@@ -294,9 +290,6 @@ export default function Navbar() {
                             const isServices = item.title === "Services";
                             const isWeSolve = item.title === "We Solve";
 
-                            const raw = (item.url ?? item.path ?? "#") as string;
-                            const pathUrl = gepath(raw);
-                            const toPath = raw.startsWith("http") ? new URL(raw).pathname : raw;
 
                             if (item.children?.length) {
                                 if (isAbout) {
@@ -325,8 +318,8 @@ export default function Navbar() {
                                             </span>
 
                                             <div className={`submenu-anim ${aboutHover ? "open" : ""}`}>
-                                                {item.children.map((data) => (
-                                                    <AboutSubmenu key={data.id} data={data} />
+                                                {item.children.map((data, index) => (
+                                                    <AboutSubmenu key={index} data={data} />
                                                 ))}
                                             </div>
                                         </li>
@@ -382,8 +375,8 @@ export default function Navbar() {
                                             </span>
 
                                             <div className={`submenu-anim ${wesolveHover ? "open" : ""}`}>
-                                                {item.children.map((subData) => (
-                                                    <WesolveSubMenu key={subData.id} data={subData} />
+                                                {item.children.map((subData, index) => (
+                                                    <WesolveSubMenu key={index} data={subData} />
                                                 ))}
                                             </div>
                                         </li>

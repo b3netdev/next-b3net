@@ -98,7 +98,13 @@ const Services = () => {
                                     <div className="portfolio-list">
                                         <div className="image image-anime reveal reveal-move">
                                             <Link href={item.link || "#"}>
-                                                <img src={item.img} alt="" />
+                                                <Image
+                                                    src={item.img}
+                                                    alt=""
+                                                    width={400}
+                                                    height={300}
+                                                    className="w-full h-auto"
+                                                />
                                             </Link>
 
                                             <div className="solutions-hover-box">

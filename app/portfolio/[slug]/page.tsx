@@ -5,7 +5,7 @@ const page = async ({ params }: { params: { slug: string } }) => {
     const { slug } = await params
     const pageData = await getportfoliodetail(slug)
     const relatedpost = await getPortFloioRelatedPost(pageData?.portfolio_category, slug)
-    console.log(relatedpost, "PAGE DATA")
+
 
     const expertiseData = [
         {

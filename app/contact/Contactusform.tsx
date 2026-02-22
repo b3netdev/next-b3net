@@ -28,7 +28,7 @@ export default function ContactUsForm() {
     },
     validationSchema,
     onSubmit: async (values) => {
-      console.log("Contact Form Data:", values);
+
 
       // ✅ TODO: submit to API route / CF7 endpoint here
       // await fetch("/api/contact", { method: "POST", body: JSON.stringify(values) })

@@ -45,18 +45,32 @@ const servicesList: ServiceItem[] = [
 
 const validationSchema: Yup.ObjectSchema<ContactFormValues> = Yup.object({
   firstName: Yup.string().required("First name is required"),
-  lastName: Yup.string().required("Last name is required"),
-  phone: Yup.string().required("Phone number is required"),
-  email: Yup.string().email("Invalid email").required("Email is required"),
-  cname: Yup.string().required("Company name is required"),
-  cwebsite: Yup.string().url("Enter a valid URL").required("Website is required"),
-  message: Yup.string().required("Message is required"),
-  services: Yup.array().of(Yup.string().required()).min(1, "Please select at least one service"),
-});
 
+  lastName: Yup.string().required("Last name is required"),
+
+  phone: Yup.string().required("Phone number is required"),
+
+  email: Yup.string()
+    .email("Invalid email")
+    .required("Email is required"),
+
+  cname: Yup.string().required("Company name is required"),
+
+  cwebsite: Yup.string()
+    .url("Enter a valid URL")
+    .required("Website is required"),
+
+  message: Yup.string().required("Message is required"),
+
+  services: Yup.array()
+    .of(Yup.string().required())
+    .min(1, "Please select at least one service")
+    .required()
+    .defined(), // ⭐ FIX
+});
 const Contact: React.FC<ContactProps> = ({ data = false }) => {
   const [selectService, setSelectService] = useState<string[]>([]);
-//   const { submitcontact } = useForm();
+  //   const { submitcontact } = useForm();
   const router = useRouter();
 
   const formik = useFormik<ContactFormValues>({
@@ -87,11 +101,11 @@ const Contact: React.FC<ContactProps> = ({ data = false }) => {
         formData.append("services[]", service);
       });
 
-    //   const res: any = await submitcontact(formData, 12634);
+      //   const res: any = await submitcontact(formData, 12634);
 
-    //   if (res?.status === "mail_sent") {
-    //     router.push("/thank-you.html");
-    //   }
+      //   if (res?.status === "mail_sent") {
+      //     router.push("/thank-you.html");
+      //   }
     },
   });
 
