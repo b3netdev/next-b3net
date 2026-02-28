@@ -14,6 +14,7 @@ import Scroll from "@/components/client/Scroll";
 const BlogDetail = () => {
   const params = useParams();
   const slug = params?.slug as string;
+  console.log(slug, "SLUG")
 
   const { getBlogdetail, getRelatedPosts } = useBlog();
   const [pageData, setPageData] = useState<any>({});
@@ -22,6 +23,10 @@ const BlogDetail = () => {
   const dispatch = useAppDispatch();
   const [sideNav, setSidenav] = useState<any>([]);
   const [contentData, setContentData] = useState("");
+
+
+
+
 
 
   useEffect(() => {

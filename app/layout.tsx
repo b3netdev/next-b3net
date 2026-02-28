@@ -5,7 +5,6 @@ import "swiper/css";
 
 import BootstrapClient from "./BootstrapClient";
 import "./globals.css";
-
 import "../assets/css/style.css";
 import "../assets/css/webslidemenu.css";
 import "../assets/css/footer.css";
@@ -14,6 +13,7 @@ import "../assets/css/caseStudy-inner.css";
 import "../assets/css/caseStudy-inner-3.css";
 import "../assets/css/caseStudy-inner-2.css";
 import "../assets/css/fade-down.css";
+// import "../assets/js/main.js";
 
 import Navbar from "@/components/client/Navcontainer";
 import Providers from "@/redux/Provider";

@@ -6751,6 +6751,7 @@ div {
   display: flex;
   margin-top: 50px;
   width: 100%;
+  flex-wrap: wrap;
   justify-content: center;
   gap: 1em;
   /* background-color: #007aeb; */
@@ -6794,6 +6795,11 @@ div {
   padding: 5px;
   cursor: pointer;
   border: 1px solid rgba(0, 0, 0, 0.152);
+}
+
+.prev {
+  padding: 15px 19px;
+  width: 50;
 }
 
 .blogcontainer {

@@ -1,5 +1,7 @@
 @import "tailwindcss";
 
+
+
 :root {
   /* --background: #ffffff; */
 
@@ -12,7 +14,7 @@
 
 @media (prefers-color-scheme: dark) {
   :root {
- 
+
     --foreground: rgba(255, 255, 255, 0.87);
   }
 }
@@ -30,4 +32,25 @@ body {
   line-height: 1.5;
   font-weight: 400;
   overflow-x: hidden;
+}
+
+/* Make sure this is in app/globals.css */
+
+.blog-banner-slide .swiper-pagination {
+  bottom: -2px !important;
+}
+
+.blog-banner-slide .swiper-pagination-bullet {
+  width: 28px;
+  height: 5px;
+  background: #ccc !important;
+  opacity: 1;
+  border-radius: 20px;
+  transition: all 0.3s ease;
+}
+
+.blog-banner-slide .swiper-pagination-bullet-active {
+  background: #ff6600 !important;
+  width: 48px;
+  border-radius: 20px;
 }

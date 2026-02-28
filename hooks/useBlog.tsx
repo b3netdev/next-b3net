@@ -57,14 +57,12 @@ const useBlog = () => {
     }
   };
 
-  const getBlogItems = async (params: BlogItemsParams): Promise<WPPost[]> => {
+  const getBlogItems = async (params: any): Promise<WPPost[]> => {
     setLoading(true);
     try {
-      const axiosParams =
-        params instanceof URLSearchParams ? Object.fromEntries(params) : params;
 
       const res: AxiosResponse<WPPost[]> = await api.get("/wp-json/wp/v2/posts", {
-        params: axiosParams,
+        params: params,
       });
 
       return res.data;
