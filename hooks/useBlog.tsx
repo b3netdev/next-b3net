@@ -74,11 +74,11 @@ const useBlog = () => {
     }
   };
 
-  const getBlogdetail = async (slug: string) => {
+  const getBlogdetail = async (id: any) => {
     setLoading(true);
     try {
 
-      const res: any = await api.get(`/wp-json/custom/v1/content/${slug}`, {
+      const res: any = await api.get(`/wp-json/wp/v2/posts/${id}`, {
         params: { _embed: 1 },
       });
 

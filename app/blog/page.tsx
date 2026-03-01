@@ -6,7 +6,7 @@ import BlogClient from "./BlogClient";
 
 export default async function BlogPage() {
   const pagedata = await GetPageData("blog", "page")
-  console.log(pagedata, "Blog page Data")
+
 
 
   return (

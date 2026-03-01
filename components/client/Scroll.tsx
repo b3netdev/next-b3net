@@ -10,7 +10,7 @@ type ScrollLinkWrapperProps = {
   offset?: number;
   duration?: number;
   smooth?: boolean;
-  key?: string | number;
+  key?: any;
 };
 
 const Scroll: React.FC<ScrollLinkWrapperProps> = ({
@@ -18,14 +18,13 @@ const Scroll: React.FC<ScrollLinkWrapperProps> = ({
   children,
   className,
   offset = -80,
-  duration = 500,
+  duration = 100,
   smooth = true,
-  key = 1
+  key
 }) => {
   return (
     <Link
       to={to}
-      key={key}
       spy={false}
       smooth={smooth}
       duration={duration}

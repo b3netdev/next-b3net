@@ -13,8 +13,8 @@ import Scroll from "@/components/client/Scroll";
 
 const BlogDetail = () => {
   const params = useParams();
-  const slug = params?.slug as string;
-  console.log(slug, "SLUG")
+  const id = params?.id
+  console.log(id, "SLUG")
 
   const { getBlogdetail, getRelatedPosts } = useBlog();
   const [pageData, setPageData] = useState<any>({});
@@ -23,6 +23,17 @@ const BlogDetail = () => {
   const dispatch = useAppDispatch();
   const [sideNav, setSidenav] = useState<any>([]);
   const [contentData, setContentData] = useState("");
+  const [formattedDate, setFormattedDate] = useState("");
+  useEffect(() => {
+    if (pageData?.date) {
+      const formatted = new Date(pageData.date).toLocaleDateString("en-US", {
+        year: "numeric",
+        month: "long",
+        day: "numeric",
+      });
+      setFormattedDate(formatted);
+    }
+  }, [pageData?.date]);
 
 
 
@@ -39,13 +50,13 @@ const BlogDetail = () => {
 
   useEffect(() => {
     const getblogData = async () => {
-      if (!slug) return;
-      const data = await getBlogdetail(slug);
+      if (!id) return;
+      const data = await getBlogdetail(id);
       setPageData(data);
     };
 
     getblogData();
-  }, [slug]);
+  }, [id]);
 
   useEffect(() => {
     const fetchRelatedPosts = async () => {
@@ -58,7 +69,7 @@ const BlogDetail = () => {
   }, [pageData]);
 
   function extractH2AndInjectIds() {
-    const html = pageData?.content || "";
+    const html = pageData?.content?.rendered;
     if (!html) return;
 
     const parser = new DOMParser();
@@ -113,11 +124,7 @@ const BlogDetail = () => {
                   </h4>
 
                   <h4>
-                    <span>{new Date(pageData?.date).toLocaleDateString("en-US", {
-                      year: "numeric",
-                      month: "long",
-                      day: "numeric",
-                    })} </span> | {pageData?.author?.name}
+                    <span>{formattedDate}</span> | {pageData?.author?.name}
                   </h4>
 
                   <div className="icones"></div>
@@ -140,13 +147,13 @@ const BlogDetail = () => {
                     <div className="toc-text">
                       <h3>Table of Contents</h3>
                     </div>
-                    <div className="navListMenu" style={{ padding: 0 }}>
+                    <div className="navListMenu" >
                       {sideNav?.map((item: any, index: any) => (
                         <div className="blogSidenavitemBox" key={index}>
                           <Scroll
-                            key={item.id || index}
+                            key={index}
                             to={item.id}
-                            className="blogSidenavitem"
+                            className="blogSidenavitem p-2"
                           >
                             {item.text}
                           </Scroll>
@@ -293,7 +300,7 @@ const BlogDetail = () => {
                             </div>
 
                             <Link
-                              href={`/blog/${data?.slug}`}
+                              href={`/blog/${data?.id}`}
                               className="card-title mb-2 card-text-a">
                               {data?.title?.rendered}
                             </Link>
@@ -305,7 +312,7 @@ const BlogDetail = () => {
                             />
 
                             <Link
-                              href={`/blog/${data?.slug}`}
+                              href={`/blog/${data?.id}`}
                               className="d-flex align-items-center gap-2 clr-blk">
                               READ MORE{" "}
                               <i className="fa-solid fa-arrow-right-long"></i>
