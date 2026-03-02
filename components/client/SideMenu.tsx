@@ -149,7 +149,7 @@ export default function SideMenu({
                                             </div>
                                         ) : (
                                             <Link
-                                                href={`/${item?.page?.slug}`}
+                                                href={`/${item?.page?.slug !== "home" ?item?.page?.slug :'' }`}
                                                 className="sideMenuLink"
                                                 onClick={onClose}
                                             >
