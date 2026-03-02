@@ -46,8 +46,7 @@ export default function Portfoliobox() {
   useEffect(() => {
     if (!selectTab?.id) return;
 
-    (async () => {
-      setLoading(true);
+    (async () => { setLoading(true);
       try {
         const params = new URLSearchParams({
           categories: String(selectTab.id),

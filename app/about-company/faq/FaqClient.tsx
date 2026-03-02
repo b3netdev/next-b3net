@@ -1,37 +1,86 @@
 "use client";
 
-import React from "react";
+import React, { useState, useRef } from "react";
 import Skeleton from "@mui/material/Skeleton";
 import Stack from "@mui/material/Stack";
 import ContactFooter from "@/components/server/ContactFooter";
 
 type Props = {
   pageData: any;
-  // optionally allow forcing skeleton while you test:
   loading?: boolean;
 };
 
-export default function FaqClient({ pageData, loading = false }: Props) {
-  const FaqSkeletonItem = () => (
+function AccordionItem({
+  question,
+  answer,
+  id,
+}: {
+  question: string;
+  answer: string;
+  id: string;
+}) {
+  const [open, setOpen] = useState(false);
+  const contentRef = useRef<HTMLDivElement>(null);
+
+  return (
     <div className="accordion-item">
-      <div className="accordion-header">
-        <div className="accordion-button" style={{ display: "block" }}>
-          <Stack spacing={1}>
-            <Skeleton variant="text" height={28} width="85%" />
-            <Skeleton variant="text" height={18} width="55%" />
-          </Stack>
-        </div>
-      </div>
-      <div className="accordion-body">
-        <Stack spacing={0.8}>
-          <Skeleton variant="text" height={18} width="95%" />
-          <Skeleton variant="text" height={18} width="90%" />
-          <Skeleton variant="text" height={18} width="70%" />
-        </Stack>
+      <h2 className="accordion-header" id={`heading-${id}`}>
+        <button
+          className={`accordion-button${open ? "" : " collapsed"}`}
+          type="button"
+          onClick={() => setOpen((prev) => !prev)}
+          aria-expanded={open}
+          aria-controls={`collapse-${id}`}
+        >
+          {/* Animated chevron icon using Tailwind */}
+          <i
+            className={`fa-solid fa-chevron-down icon transition-transform duration-300 ease-in-out ${
+              open ? "rotate-180" : "rotate-0"
+            }`}
+          ></i>
+          <span className="text">{question}</span>
+        </button>
+      </h2>
+
+      {/*
+        Animation strategy: transition max-height from 0 to a large value.
+        overflow-hidden ensures content is clipped when closed.
+        transition-all + duration-300 + ease-in-out gives the smooth slide effect.
+      */}
+      <div
+        id={`collapse-${id}`}
+        aria-labelledby={`heading-${id}`}
+        className={`overflow-hidden transition-all duration-300 ease-in-out ${
+          open ? "max-h-[1000px] opacity-100" : "max-h-0 opacity-0"
+        }`}
+      >
+        <div className="accordion-body">{answer}</div>
       </div>
     </div>
   );
+}
 
+const FaqSkeletonItem = () => (
+  <div className="accordion-item">
+    <div className="accordion-header">
+      <div className="accordion-button" style={{ display: "block" }}>
+        <Stack spacing={1}>
+          <Skeleton variant="text" height={28} width="85%" />
+          <Skeleton variant="text" height={18} width="55%" />
+        </Stack>
+      </div>
+    </div>
+    <div className="accordion-body">
+      <Stack spacing={0.8}>
+        <Skeleton variant="text" height={18} width="95%" />
+        <Skeleton variant="text" height={18} width="90%" />
+        <Skeleton variant="text" height={18} width="70%" />
+      </Stack>
+    </div>
+  </div>
+);
+
+export default function FaqClient({ pageData, loading = false }: Props) {
   return (
     <>
       <div className="accordian-part">
@@ -39,84 +88,36 @@ export default function FaqClient({ pageData, loading = false }: Props) {
           <div className="container">
             <div className="accordion" id="faqAccordion">
               <div className="row">
+                {/* LEFT column */}
                 <div className="col-md-6 pe-md-4">
-                  {loading ? (
-                    Array.from({ length: 8 }).map((_, i) => (
-                      <FaqSkeletonItem key={`left-skel-${i}`} />
-                    ))
-                  ) : (
-                    pageData?.acf?.data?.faq_left?.map((data: any, index: number) => {
-                      const headingId = `heading-left-${index}`;
-                      const collapseId = `collapse-left-${index}`;
-
-                      return (
-                        <div className="accordion-item" key={index}>
-                          <h2 className="accordion-header" id={headingId}>
-                            <button
-                              className="accordion-button"
-                              type="button"
-                              data-bs-toggle="collapse"
-                              data-bs-target={`#${collapseId}`}
-                              aria-expanded="true"
-                              aria-controls={collapseId}
-                            >
-                              <i className="fa-solid fa-minus icon"></i>
-                              <span className="text">{data?.question}</span>
-                            </button>
-                          </h2>
-
-                          <div
-                            id={collapseId}
-                            className="accordion-collapse collapse"
-                            aria-labelledby={headingId}
-                            data-bs-parent="#faqAccordion"
-                          >
-                            <div className="accordion-body">{data?.answer}</div>
-                          </div>
-                        </div>
-                      );
-                    })
-                  )}
+                  {loading
+                    ? Array.from({ length: 8 }).map((_, i) => (
+                        <FaqSkeletonItem key={`left-skel-${i}`} />
+                      ))
+                    : pageData?.acf?.data?.faq_left?.map((item: any, index: number) => (
+                        <AccordionItem
+                          key={`left-${index}`}
+                          id={`left-${index}`}
+                          question={item?.question}
+                          answer={item?.answer}
+                        />
+                      ))}
                 </div>
 
+                {/* RIGHT column */}
                 <div className="col-md-6">
-                  {loading ? (
-                    Array.from({ length: 8 }).map((_, i) => (
-                      <FaqSkeletonItem key={`right-skel-${i}`} />
-                    ))
-                  ) : (
-                    pageData?.acf?.data?.Faq_Right?.map((data: any, index: number) => {
-                      const headingId = `heading-right-${index}`;
-                      const collapseId = `collapse-right-${index}`;
-
-                      return (
-                        <div className="accordion-item" key={index}>
-                          <h2 className="accordion-header" id={headingId}>
-                            <button
-                              className="accordion-button"
-                              type="button"
-                              data-bs-toggle="collapse"
-                              data-bs-target={`#${collapseId}`}
-                              aria-expanded="false"
-                              aria-controls={collapseId}
-                            >
-                              <i className="fa-solid fa-minus icon"></i>
-                              <span className="text">{data?.question}</span>
-                            </button>
-                          </h2>
-
-                          <div
-                            id={collapseId}
-                            className="accordion-collapse collapse"
-                            aria-labelledby={headingId}
-                            data-bs-parent="#faqAccordion"
-                          >
-                            <div className="accordion-body">{data?.answer}</div>
-                          </div>
-                        </div>
-                      );
-                    })
-                  )}
+                  {loading
+                    ? Array.from({ length: 8 }).map((_, i) => (
+                        <FaqSkeletonItem key={`right-skel-${i}`} />
+                      ))
+                    : pageData?.acf?.data?.Faq_Right?.map((item: any, index: number) => (
+                        <AccordionItem
+                          key={`right-${index}`}
+                          id={`right-${index}`}
+                          question={item?.question}
+                          answer={item?.answer}
+                        />
+                      ))}
                 </div>
               </div>
             </div>
@@ -133,30 +134,28 @@ export default function FaqClient({ pageData, loading = false }: Props) {
             </h2>
 
             <div className="row gy-4">
-              {loading ? (
-                Array.from({ length: 6 }).map((_, i) => (
-                  <div className="col-md-6 col-lg-4" key={`video-skel-${i}`}>
-                    <div className="video-card text-center">
-                      <div className="video-thumbnail">
-                        <Skeleton variant="rounded" height={190} />
-                      </div>
-                      <div style={{ marginTop: 10 }}>
-                        <Skeleton variant="text" height={22} width="70%" />
-                      </div>
-                    </div>
-                  </div>
-                ))
-              ) : (
-                pageData?.acf?.data?.video_repeater?.map((video: any, index: number) => (
-                  <div className="col-md-6 col-lg-4" key={index}>
-                    <div className="video-card text-center">
-                      <div className="video-thumbnail">
-                        <div dangerouslySetInnerHTML={{ __html: video?.video_link ?? "" }} />
+              {loading
+                ? Array.from({ length: 6 }).map((_, i) => (
+                    <div className="col-md-6 col-lg-4" key={`video-skel-${i}`}>
+                      <div className="video-card text-center">
+                        <div className="video-thumbnail">
+                          <Skeleton variant="rounded" height={190} />
+                        </div>
+                        <div style={{ marginTop: 10 }}>
+                          <Skeleton variant="text" height={22} width="70%" />
+                        </div>
                       </div>
                     </div>
-                  </div>
-                ))
-              )}
+                  ))
+                : pageData?.acf?.data?.video_repeater?.map((video: any, index: number) => (
+                    <div className="col-md-6 col-lg-4" key={index}>
+                      <div className="video-card text-center">
+                        <div className="video-thumbnail">
+                          <div dangerouslySetInnerHTML={{ __html: video?.video_link ?? "" }} />
+                        </div>
+                      </div>
+                    </div>
+                  ))}
             </div>
           </div>
         </div>
