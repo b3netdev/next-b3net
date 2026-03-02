@@ -449,7 +449,7 @@ export const serviceMegaMenuColumns: ServiceMegaMenuColumn[] = [
     },
 ];
 
-export const sluglist = [
+    export const sluglist = [
     { slug: "web-design-services" },
     { slug: "web-development-service-2" },
     { slug: "ecommerce-web-development-service" },

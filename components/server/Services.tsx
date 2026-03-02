@@ -7,70 +7,74 @@ import DataEngneering from "../../assets/images/data-engineering.png";
 import Image from "next/image";
 
 const Services = () => {
-    const portfolioItems = [
+
+ 
+
+     const solutionsList = [
         {
-            title: (
-                <>
-                    AI Empowered <br /> Website Design & Development
-                </>
-            ),
-            img: "https://www.b3net.com/wp-content/uploads/2025/12/expertise-img-1.webp",
-            desc: "Smart, AI-driven websites that enhance user experience, automate tasks, and drive business growth.",
-            link: null,
+          title: "Website Design & Development",
+          description: "High-conversion to generate leads",
+          image: "https://b3net.com/wp-content/uploads/2026/02/Website-Design-Development.webp",
+          link: "https://b3net.com/texas/dallas-web-development-agency.html",
+          slug:"web-design-services"
         },
         {
-            title: "AI-Driven Marketing",
-            img: "https://www.b3net.com/wp-content/uploads/2025/12/expertise-img-2.webp",
-            desc: "Leverage AI to analyze data, personalize campaigns, and optimize marketing strategies for higher engagement and conversions.",
-            link: null,
+          title: "Digital Marketing & Demand Generation",
+          description: "Attract, engage, and convert consistently",
+          image: "https://b3net.com/wp-content/uploads/2026/02/Digital-Marketing-Demand-Generation.webp",
+          link: "https://b3net.com/digital-marketing-agency-services.html",
+          slug:""
         },
         {
-            title: "AI-Powered Search Engine Optimization (SEO)",
-            img: "https://www.b3net.com/wp-content/uploads/2025/12/expertise-img-3.webp",
-            desc: "Advanced AI tools boost rankings, optimize content, and enhance visibility with data-driven SEO strategies for lasting results.",
-            link: "/seo-services",
+          title: "Search Engine & Answer Engine Optimization (SEO/AEO)",
+          description: "Increase visibility on Google, ChatGPT",
+          image: "https://b3net.com/wp-content/uploads/2026/02/SEO-AEO.webp",
+          link: "https://b3net.com/seo-services.html",
+          slug:""
         },
         {
-            title: (
-                <>
-                    AI-Powered <br /> Social Media Marketing
-                </>
-            ),
-            img: "https://www.b3net.com/wp-content/uploads/2025/12/expertise-img-4.webp",
-            desc: "AI-driven insights and automation maximize engagement, reach, and conversions across social media platforms.",
-            link: null,
+          title: "Social Media Marketing",
+          description: "Turn attention into engagement",
+          image: "https://b3net.com/wp-content/uploads/2026/02/Social-Media-Marketing.webp",
+          link: "https://b3net.com/social-media-marketing-services.html",
+          slug:"social-media-marketing-service"
         },
         {
-            title: "Pay-Per-Click Advertising (PPC)",
-            img: "https://www.b3net.com/wp-content/uploads/2025/12/expertise-img-5.webp",
-            desc: "Targeted PPC campaigns with AI optimization to maximize ROI, drive traffic, and convert leads efficiently.",
-            link: "/ppc-services",
+          title: "Pay-Per-Click Advertising (PPC)",
+          description: "Capture high-intent demand and track ROI with precision.",
+          image: "https://b3net.com/wp-content/uploads/2026/02/Pay-Per-Click-Advertising.webp",
+          link: "https://b3net.com/ppc-management-services.html",
+          slug:"ppc-management"
         },
         {
-            title: "Custom Web Applications",
-            img: "https://www.b3net.com/wp-content/uploads/2025/12/expertise-img-6.webp",
-            desc: "Tailor-made web apps designed to streamline operations, enhance user experience, and scale your business seamlessly.",
-            link: "/custom-web-apps",
+          title: "Custom Web & Mobile Applications",
+          description: "Build scalable tools. Streamline operations and growth",
+          image: "https://b3net.com/wp-content/uploads/2026/02/Custom-Web-Mobile-Applications.webp",
+          link: "https://b3net.com/custom-web-application-development.html",
+          slug:""
         },
         {
-            title: "Data Engineering and Analytics",
-            img: DataEngneering,
-            desc: "Design and deploy modern data pipelines that move fast, scale effortlessly, and empower your team with reliable, analytics-ready data.",
-            link: "https://www.b3net.com/data-engineering-services.html",
+          title: "Data Engineering & Analytics",
+          description: "Clean data pipelines. Power smarter decisions",
+          image: "https://b3net.com/wp-content/uploads/2026/02/Data-Engineering-Analytics.webp",
+          link: "https://www.b3net.com/data-engineering-services.html",
+          slug:""
         },
         {
-            title: "Data Strategy and Governance",
-            img: Statergy,
-            desc: "Build a rock-solid foundation for your data—align your data strategy with business goals while ensuring security, quality, and compliance.",
-            link: "https://www.b3net.com/data-governance.html",
+          title: "Data Strategy & Governance",
+          description: "Structured data. Secure and scale",
+          image: "https://b3net.com/wp-content/uploads/2026/02/Data-Strategy-Governance.webp",
+          link: "https://www.b3net.com/data-governance.html",
+          slug:"data-governance"
         },
         {
-            title: "Data Analytics and Insights",
-            img: Analytics,
-            desc: "Transform raw data into powerful stories—discover trends, predict outcomes, and make confident decisions backed by real-time insights.",
-            link: "https://www.b3net.com/data-solutions.html",
+          title: "Analytics & Business Insights",
+          description: "Transform data into clear, actionable growth insights",
+          image: "https://b3net.com/wp-content/uploads/2026/02/Analytics-Business-Insights.webp",
+          link: "https://www.b3net.com/data-solutions.html",
+          slug:""
         },
-    ];
+      ];
 
     return (
         <div className="service home-services new-gap">
@@ -93,13 +97,13 @@ const Services = () => {
 
                     <div className="portfolio-sec-images solutions-list-images">
                         <div className="row align-items-center">
-                            {portfolioItems.map((item, index) => (
+                            {solutionsList?.map((item, index) => (
                                 <div className="col-lg-4 col-md-6 col-sm-12" key={index}>
                                     <div className="portfolio-list">
                                         <div className="image image-anime reveal reveal-move">
-                                            <Link href={item.link || "#"}>
-                                                <Image
-                                                    src={item.img}
+                                            <Link href={`/services/${item?.slug}`}>
+                                                <img
+                                                    src={item.image}
                                                     alt=""
                                                     width={400}
                                                     height={300}
@@ -111,9 +115,9 @@ const Services = () => {
                                                 <h4>{item.title}</h4>
 
                                                 <div className="solution-hover">
-                                                    <p style={{ color: "white" }}>{item.desc}</p>
+                                                    <p style={{ color: "white" }}>{item.description}</p>
 
-                                                    <Link href={item.link || "#"}>
+                                                    <Link href={`/services/${item?.slug}`}>
                                                         Read More
                                                         <i className="fa-solid fa-arrow-right"></i>
                                                     </Link>
