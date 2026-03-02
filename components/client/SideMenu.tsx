@@ -149,8 +149,7 @@ export default function SideMenu({
                                             </div>
                                         ) : (
                                             <Link
-                                                href={"/"}
-                                                // href={toPath(item.url ?? item.path)}
+                                                href={`/${item?.page?.slug}`}
                                                 className="sideMenuLink"
                                                 onClick={onClose}
                                             >

@@ -230,7 +230,7 @@ export default function Navbar() {
                         <i className="fa-solid fa-users-viewfinder"></i>
                     )}
 
-                    {/* React Router state -> query */}
+                    
                     <Link href={`/about-company/${data?.page?.slug !== "about-company" ? data?.page?.slug : ''}`}
 
                     >{data.title}</Link>

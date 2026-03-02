@@ -10,7 +10,7 @@ export default async function BlogPage() {
 
 
   return (
-    <main className="page_content">
+    <main className="page_content blogContainer">
       <div className="portfolio-page blog ">
         <div className="port-landing-wrap gpp">
           <div className="banner-img">
