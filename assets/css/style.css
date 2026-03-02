@@ -6920,20 +6920,19 @@ div {
 
 
 /* MAIN WRAPPER */
-.service-submenu-vertical {
+.service-side-vertical {
   display: flex;
   flex-direction: column;
   gap: 40px;
   min-height: 100vh;
   overflow-y: auto;
-
   height: 500px;
 }
 
 
 
 /* SERVICE GROUP WRAPPER */
-.service-groups-wrapper {
+.service-sidemenu-wrapper {
   display: flex;
   flex-direction: column;
   gap: 25px;
@@ -6949,15 +6948,3 @@ div {
   gap: 8px;
 }
 
-
-.service-menu-link {
-  text-decoration: none;
-  margin-top: 10px;
-  font-size: 18px;
-  transition: all 0.2s ease;
-}
-
-.service-menu-link:hover {
-  color: #3b58a2;
-  transform: translateX(4px);
-}

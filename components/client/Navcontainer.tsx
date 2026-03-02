@@ -127,7 +127,7 @@ export default function Navbar() {
 
                             <Link href={`/services/${item?.slug}`}
                                 className="service-menu-link"
-                            // onClick={() => HandleNavigate(item.state?.id)}
+                            
                             >
                                 {item.label}
                             </Link>

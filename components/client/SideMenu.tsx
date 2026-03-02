@@ -85,7 +85,7 @@ export default function SideMenu({
                             ></i>
 
                             <Link href={`/services/${item?.slug}`}
-                                className="service-menu-link"
+                                className="service-sub-menu-link text-black"
                                 onClick={onClose}
                             >
                                 {item.label}
@@ -98,8 +98,8 @@ export default function SideMenu({
     };
     const ServiceSubMenu = () => {
         return (
-            <div className="service-submenu-vertical">
-                <div className="service-groups-wrapper">
+            <div className="service-side-vertical ">
+                <div className="service-sidemenu-wrapper">
                     {serviceMegaMenuColumns?.map((col: any, colIdx: any) => (
                         <div key={colIdx} className="service-column-vertical">
                             {col.groups.map((group: any, gIdx: any) => (
