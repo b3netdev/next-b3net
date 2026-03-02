@@ -5782,6 +5782,13 @@ li {
   }
   .logo_img {}
 
+  .about-page{
+    margin-top: -100px;
+  }
+   .about-page .banner-caption h1{
+    font-size: 15px !important;
+    padding-top: 9px !important;
+  }
 
   .NavHeading.nav-floating.nav-top {
     background: transparent !important;
