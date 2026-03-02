@@ -5832,6 +5832,7 @@ li {
 /* Overlay */
 .sideMenuOverlay {
   position: fixed;
+  
   inset: 0;
   background: rgba(0, 0, 0, 0.45);
   opacity: 0;
@@ -5850,6 +5851,7 @@ li {
   position: fixed;
   top: 0;
   left: 0;
+  margin-top: -20px;
   height: 100vh;
   width: min(360px, 90vw);
   background: #ffffff;
@@ -5857,6 +5859,7 @@ li {
   transition: transform 280ms ease;
   z-index: 9999;
   display: flex;
+  height: 100vh;
   flex-direction: column;
   box-shadow: 10px 0 30px rgba(0, 0, 0, 0.18);
 }
@@ -5888,9 +5891,10 @@ li {
 
 /* Nav */
 .sideMenuNav {
-  padding: 10px 10px 0;
+  padding: 50px 10px 0;
   overflow: auto;
   flex: 1;
+  margin-top: -30px !important;
 }
 
 .sideMenuList {
