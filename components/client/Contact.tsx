@@ -5,9 +5,11 @@ import { useFormik, FormikErrors } from "formik";
 import * as Yup from "yup";
 import { ArrowRight } from "lucide-react";
 import { useRouter } from "next/navigation";
+import { useForm } from "@/hooks/useForm";
 
 import ContactFooter from "../server/ContactFooter";
 // import { useForm } from "../../hooks/useForm";
+
 
 type ContactProps = {
   data?: boolean;
@@ -70,7 +72,7 @@ const validationSchema: Yup.ObjectSchema<ContactFormValues> = Yup.object({
 });
 const Contact: React.FC<ContactProps> = ({ data = false }) => {
   const [selectService, setSelectService] = useState<string[]>([]);
-  //   const { submitcontact } = useForm();
+  const { submitcontact, error, loading } = useForm()
   const router = useRouter();
 
   const formik = useFormik<ContactFormValues>({
@@ -100,12 +102,10 @@ const Contact: React.FC<ContactProps> = ({ data = false }) => {
       values.services.forEach((service) => {
         formData.append("services[]", service);
       });
-
-      //   const res: any = await submitcontact(formData, 12634);
-
-      //   if (res?.status === "mail_sent") {
-      //     router.push("/thank-you.html");
-      //   }
+        const res: any = await submitcontact(formData, 12634);
+        if (res?.status === "mail_sent") {
+          router.push("/thankyou");
+        }
     },
   });
 
