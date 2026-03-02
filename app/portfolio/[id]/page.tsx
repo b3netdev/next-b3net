@@ -1,10 +1,11 @@
 import { getportfoliodetail, getPortFloioRelatedPost } from "@/lib/getdata";
 import Link from "next/link";
 import Contact from "@/components/client/Contact";
-const page = async ({ params }: { params: { slug: string } }) => {
-    const { slug } = await params
-    const pageData = await getportfoliodetail(slug)
-    const relatedpost = await getPortFloioRelatedPost(pageData?.portfolio_category, slug)
+import ShowNav from "@/components/client/ShowNav";
+const page = async ({ params }: { params: { id: any} }) => {
+    const { id } = await params
+    const pageData = await getportfoliodetail(id)
+    const relatedpost = await getPortFloioRelatedPost(pageData?.portfolio_category, id)
 
 
     const expertiseData = [
@@ -60,6 +61,7 @@ const page = async ({ params }: { params: { slug: string } }) => {
 
     return (
         <main className="page_content">
+            <ShowNav />
             <div className="portfolio-detail portfoli-padd portfolio-page-1">
                 <div className="port-landing-wrap details-page">
                     <div className="menu-design"></div>
@@ -211,17 +213,17 @@ const page = async ({ params }: { params: { slug: string } }) => {
                                 <div className="col-lg-4 col-md-6 p-0" key={index}>
                                     <div className="portfolio-list">
                                         <div className="image image-anime reveal">
-                                            <a href={item.link}>
+                                            <Link href="/proposal">
                                                 <img src={item.image} alt={item.title} />
-                                            </a>
+                                            </Link>
 
                                             <div className="solutions-hover-box">
                                                 <h3>{item.title}</h3>
 
-                                                <div className="solution-hover">
-                                                    <p>{item.description}</p>
-
-                                                    <Link href={item.link}>
+                                                <div className="solution-hover ">
+                                                    <p className="font-extrabold text-white" > {item.description}</p>
+ 
+                                                    <Link href="/proposal">
                                                         Request A Quote
                                                         <i className="fa-solid fa-arrow-right"></i>
                                                     </Link>
