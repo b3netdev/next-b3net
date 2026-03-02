@@ -12,7 +12,7 @@
 
             <>
                 <header>
-                    <main className="page_content">
+                    <main className="page_content faqWrapper">
                         <div className="portfolio-page faq-page">
                             <div className="port-landing-wrap gpp">
                                 <div className="banner-img">

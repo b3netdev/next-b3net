@@ -2,7 +2,7 @@
 
 export default function FeaturedClients() {
     return (
-        <>
+        <div className="feature-clientWrapper">
             <div className="seo-landing-wrap"
                 style={{
                     backgroundImage:
@@ -237,6 +237,6 @@ export default function FeaturedClients() {
                 </div>
             </div>
 
-        </>
+        </div>
     );
 };

@@ -23,7 +23,7 @@ const ContactFooter = () => {
             data-aos="fade-left"
             data-aos-duration="1000"
           >
-            <Link className="btn btn-white" href="/requestforproposal.html">
+            <Link className="btn btn-white" href="/proposal">
               <span className="btn_label" data-text="Start Now">
                 Start Now
               </span>

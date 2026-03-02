@@ -269,7 +269,7 @@ export default function Navbar() {
                 >
                     <div className="site_logo">
                         <Link className="site_link" href="/">
-                            {/* keeping <img> to not change structure */}
+                            
                             <img
                                 src="https://www.b3net.com/wp-content/uploads/2025/06/logo-2.png"
                                 alt="logo"

@@ -10,7 +10,7 @@ const Testimonial = async () => {
 
     const pageData = data?.page ?? data;
     return (
-        <main className="page_content">
+        <main className="page_content testimonialcontainer">
             <div className="portfolio-page testimonials">
                 <div className="port-landing-wrap gpp">
                     <div className="banner-img">
