@@ -249,7 +249,7 @@ export default function BlogClient() {
                           <Skeleton
                             variant="rectangular"
                             height={300}
-                            width={450}
+                            width={350}
                             animation="wave"
                           />
                           <div className="card-body heading5">
