@@ -25,7 +25,7 @@ const ServiceSubpage = async ({ params }: { params: { slug: string } }) => {
 
 
     return (
-        <main className="page_content services-design-page">
+        <main className="page_content services-design-page ">
             <div
                 className="seo-landing-wrap"
                 style={{

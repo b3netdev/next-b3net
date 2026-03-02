@@ -10,7 +10,7 @@ import Expertise from "@/components/server/Expertise";
 import CaseStudy from "@/components/server/CaseStudy";
 import Contact from "@/components/client/Contact";
 
-import { ArrowRight } from "lucide-react";
+
 
 export default function Home() {
     return (
