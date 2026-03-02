@@ -6913,3 +6913,51 @@ div {
   margin-top: 5px;
   padding-top: 10px;
 }
+
+
+
+/* Side nav */
+
+
+/* MAIN WRAPPER */
+.service-submenu-vertical {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  min-height: 100vh;
+  overflow-y: auto;
+
+  height: 500px;
+}
+
+
+
+/* SERVICE GROUP WRAPPER */
+.service-groups-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+}
+
+/* EACH GROUP */
+.menu-inner-col h4 {
+  font-size: 20px;
+  font-weight: 600;
+  margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+
+.service-menu-link {
+  text-decoration: none;
+  margin-top: 10px;
+  font-size: 18px;
+  transition: all 0.2s ease;
+}
+
+.service-menu-link:hover {
+  color: #3b58a2;
+  transform: translateX(4px);
+}

@@ -8,9 +8,8 @@ import { setId } from "@/redux/slicers/idSlicer";
 
 
 import { menulist, serviceMegaMenuColumns } from "../../helper/Menulist";
+import SideMenu from "./SideMenu";
 
-// import SideMenu from "./SideMenu";
-// import { setHeaderMenu } from "../../../redux/slicers/menuSlicer";
 
 type MenuChild = {
     id: number;
@@ -456,12 +455,12 @@ export default function Navbar() {
                 </div>
             )}
 
-            {/* <SideMenu
-        open={mobileMenuOpen}
-        onClose={() => setMobileMenuOpen(false)}
-        serviceMegaMenuColumns={serviceMegaMenuColumns}
-        menu={menulist}
-      /> */}
+            <SideMenu
+                open={mobileMenuOpen}
+                onClose={() => setMobileMenuOpen(false)}
+                serviceMegaMenuColumns={serviceMegaMenuColumns}
+                menu={menulist}
+            />
         </div>
     );
 }

@@ -6,7 +6,7 @@ const Thankyou = () => {
     return (
         <main className="page_content">
             <ShowNav />
-            <section className="error-page thank-you-page text-center">
+            <section className="error-page thank-you-page text-center h-full mt-50">
                 <div className="container">
                     <h1>Thank You!</h1>
                     <h2>Your submission has been received.</h2>
