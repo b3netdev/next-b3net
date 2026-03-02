@@ -5558,7 +5558,7 @@ li {
 
 
 
-/* ===== Sticky Navbar Effect (ADD ONLY) ===== */
+
 
 
 .NavHeading.nav-floating {
@@ -5743,7 +5743,7 @@ li {
   }
 
   .NavHeading.nav-sticky {
-    display: none !important;
+    /* display: none !important; */
   }
 
   .NavMenuContainer {
@@ -5802,6 +5802,9 @@ li {
   }
   .faqWrapper{
     margin-top: -100px !important;
+  }
+  .wesolveSub{
+    margin-top: -10px !important;
   }
 
   .NavHeading.nav-floating.nav-top {

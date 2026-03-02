@@ -45,7 +45,7 @@ export default async function BlogDetail({ params }: { params: { slug: string } 
 
 
     return (
-        <main className="page_content">
+        <main className="page_content wesolveSub">
             <ShowNav />
             <div className="portfolio-detail portfoli-padd portfolio-page-1 blog-details">
                 <div className="port-landing-wrap details-page-1">
