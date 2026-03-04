@@ -6,7 +6,7 @@ const Testimonial = () => {
   return (
     <div className="testimonial-page-sec sp new-gap" id="testimonials">
       <div className="container">
-        <div style={{ display: "flex", flexDirection: "row" }}>
+        <div style={{ display: "flex", flexDirection: "row" }} className="flex-wrap">
           <div className="col-lg-6 pe-lg-5">
             <div className="heheading-big-uppercase ading-title pe-lg-5">
               <p className="title">Testimonials</p>
