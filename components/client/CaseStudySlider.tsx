@@ -18,7 +18,7 @@ export default function CaseStudiesSlider({ data }: Props) {
         <div className="w-full">
 
             <Swiper
-                spaceBetween={24}
+                spaceBetween={0}
                 slidesPerView={4}
                 autoplay
                 breakpoints={{
@@ -26,10 +26,10 @@ export default function CaseStudiesSlider({ data }: Props) {
                         slidesPerView: 1,
                     },
                     640: {
-                        slidesPerView: 3,
+                        slidesPerView: 2,
                     },
                     1024: {
-                        slidesPerView: 4,
+                        slidesPerView: 3,
                     },
                     1280: {
                         slidesPerView: 4,
@@ -41,18 +41,22 @@ export default function CaseStudiesSlider({ data }: Props) {
                     const href = `/casestudy/${item.id}`;
 
                     return (
-                        <SwiperSlide key={index}>
-
-                            <div className="item size-100" key={index}>
-                                <div className="portfolio-list">
-                                    <div className="image image-anime reveal">
-                                        <div className="case-studier-image">
-                                            <Image src={item.img} alt="" />
+                        <SwiperSlide key={index} className="w-full">
+                            <div className="item w-full h-full">
+                                <div className="portfolio-list w-full">
+                                    <div className="image image-anime reveal w-full">
+                                        <div className="case-studier-image w-full">
+                                            <Image
+                                                src={item.img}
+                                                alt=""
+                                                className="w-full h-auto"
+                                                width={600}
+                                                height={400}
+                                            />
                                         </div>
 
                                         <div className="solutions-hover-box">
                                             <div className="solution-hover text-center">
-
                                                 <Link href={href}>
                                                     <div className="up-icon">
                                                         <Image src={Upgrade} alt="" />
@@ -63,11 +67,9 @@ export default function CaseStudiesSlider({ data }: Props) {
                                                 </Link>
                                             </div>
                                         </div>
-
                                     </div>
                                 </div>
                             </div>
-
                         </SwiperSlide>
                     );
 
