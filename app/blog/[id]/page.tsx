@@ -10,6 +10,8 @@ import ContactFooter from "@/components/server/ContactFooter";
 import { useParams } from "next/navigation";
 import Link from "next/link";
 import Scroll from "@/components/client/Scroll";
+import { useFormik } from "formik";
+import * as Yup from "yup";
 
 const BlogDetail = () => {
   const params = useParams();
@@ -24,6 +26,33 @@ const BlogDetail = () => {
   const [sideNav, setSidenav] = useState<any>([]);
   const [contentData, setContentData] = useState("");
   const [formattedDate, setFormattedDate] = useState("");
+  const formik = useFormik({
+    initialValues: {
+      name: "",
+      email: "",
+      phone: "",
+    },
+    validationSchema: Yup.object({
+      name: Yup.string()
+        .trim()
+        .min(2, "Name must be at least 2 characters")
+        .required("Name is required"),
+      email: Yup.string()
+        .trim()
+        .email("Enter a valid email address")
+        .required("Email is required"),
+      phone: Yup.string()
+        .trim()
+        .matches(/^[0-9+\-() ]{7,20}$/, "Enter a valid phone number")
+        .required("Phone number is required"),
+    }),
+    onSubmit: (values) => {
+      
+      console.log("Form Values:", values);
+    },
+  });
+
+
   useEffect(() => {
     if (pageData?.date) {
       const formatted = new Date(pageData.date).toLocaleDateString("en-US", {
@@ -166,29 +195,55 @@ const BlogDetail = () => {
                   <div className="newsletter-blog">
                     <h3>Join Our Newsletter</h3>
 
-                    <form>
+                    <form onSubmit={formik.handleSubmit} noValidate>
                       <div className="input-group-icon">
                         <i className="fa-solid fa-circle-user"></i>
-                        <input type="text" placeholder="Name" />
+                        <input
+                          type="text"
+                          placeholder="Name"
+                          name="name"
+                          value={formik.values.name}
+                          onChange={formik.handleChange}
+                          onBlur={formik.handleBlur}
+                        />
                       </div>
+                      {formik.touched.name && formik.errors.name ? (
+                        <small className="text-danger d-block mt-1">{formik.errors.name}</small>
+                      ) : null}
 
                       <div className="input-group-icon">
                         <i className="fa-solid fa-envelope"></i>
-                        <input type="email" placeholder="Email Address" />
+                        <input
+                          type="email"
+                          placeholder="Email Address"
+                          name="email"
+                          value={formik.values.email}
+                          onChange={formik.handleChange}
+                          onBlur={formik.handleBlur}
+                        />
                       </div>
+                      {formik.touched.email && formik.errors.email ? (
+                        <small className="text-danger d-block mt-1">{formik.errors.email}</small>
+                      ) : null}
 
                       <div className="input-group-icon">
                         <i className="fa-solid fa-phone"></i>
-                        <input type="tel" placeholder="Phone Number" />
+                        <input
+                          type="tel"
+                          placeholder="Phone Number"
+                          name="phone"
+                          value={formik.values.phone}
+                          onChange={formik.handleChange}
+                          onBlur={formik.handleBlur}
+                        />
                       </div>
+                      {formik.touched.phone && formik.errors.phone ? (
+                        <small className="text-danger d-block mt-1">{formik.errors.phone}</small>
+                      ) : null}
 
                       <div className="mb-0 text-end pt-md-4">
-                        <button
-                          type="submit"
-                          className="btn btn-primary orange-1"
-                        >
-                          SUBMIT NOW{" "}
-                          <i className="fa-solid fa-arrow-right-long"></i>
+                        <button type="submit" className="btn btn-primary orange-1">
+                          SUBMIT NOW <i className="fa-solid fa-arrow-right-long"></i>
                         </button>
                       </div>
                     </form>
