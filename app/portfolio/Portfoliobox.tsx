@@ -46,7 +46,8 @@ export default function Portfoliobox() {
   useEffect(() => {
     if (!selectTab?.id) return;
 
-    (async () => { setLoading(true);
+    (async () => {
+      setLoading(true);
       try {
         const params = new URLSearchParams({
           categories: String(selectTab.id),
@@ -114,7 +115,9 @@ export default function Portfoliobox() {
                 <div className="col-lg-4 col-sm-6 bg-hover content1" key={item.id}>
                   <div className="portfolio-list">
                     <div className="image reveal">
-                      <Link href={`/portfolio/${item.slug}`}>
+                      <Link
+                        href={`/portfolio/${item.id}`}
+                      >
                         <img src={item.featured_media_url || ""} alt="" />
                       </Link>
                     </div>
@@ -141,24 +144,6 @@ export default function Portfoliobox() {
               ))}
           </div>
         </div>
-
-        {/* Pagination */}
-        {/* {!!selectTab?.count && selectTab.count > 6 && (
-          <div className="paginationContainer">
-            {Array.from(
-              { length: Math.ceil(selectTab.count / 6) || 0 },
-              (_, index) => (
-                <div
-                  key={index}
-                  className={pagenumber === index + 1 ? "paginationactive" : "paginationbox"}
-                  onClick={() => HandleSelectnumbox(index + 1)}
-                >
-                  {index + 1}
-                </div>
-              )
-            )}
-          </div>
-        )} */}
 
         {selectTab?.count! > 6 && (
           <div className="paginationContainer">
