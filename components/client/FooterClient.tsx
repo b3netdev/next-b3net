@@ -29,7 +29,7 @@ function LocationColumns({ columns }: { columns: FooterLocationItem[][] }) {
   };
 
   return (
-    <div className="row d-flc-2">
+    <div className="row d-flex-2">
       {columns.map((col, cIdx) => (
         <div className={colClassByCount(columns.length)} key={cIdx}>
           <ul id="locationList">
@@ -132,7 +132,7 @@ function ExploreList({ items }: { items: FooterExploreItem[] }) {
                 display: "flex",
                 justifyContent: "center",
                 alignItems: "center",
-                gap:"10px",
+                gap: "10px",
               }}
             >
               <i className="fa-solid fa-caret-right"></i>
@@ -159,7 +159,7 @@ export default function FooterClient({ footerData }: Props) {
               <h3>Serving Your Location</h3>
             </div>
 
-            
+
             <div
               className="accordion accordion-flush footer-accordian d-md-none"
               id="accordionFlushExample"
@@ -187,10 +187,10 @@ export default function FooterClient({ footerData }: Props) {
 
                     <div
                       id={collapseId}
-                      className={`accordion-collapse collapse ${open ? "show" : ""}`}
+                      className={`accordion-collapse collapse ${open ? "show" : ""} bg-amber-700`}
                       style={{ display: open ? "block" : "none" }}
                     >
-                      <div className="accordion-body">
+                      {/* <div className="accordion-body">
                         <div className="footer-col">
                           <div className="top-footer new-footer">
                             <div className="container">
@@ -203,6 +203,11 @@ export default function FooterClient({ footerData }: Props) {
                               </div>
                             </div>
                           </div>
+                        </div>
+                      </div> */}
+                      <div className="accordion-body p-0 bg-amber-200">
+                        <div className="menu-list">
+                          <LocationColumns columns={loc.columns} />
                         </div>
                       </div>
                     </div>
@@ -282,7 +287,7 @@ export default function FooterClient({ footerData }: Props) {
               </div>
             </div>
 
-      
+
             <div className="row mt-4 mt-lg-5">
               <div className="col-md-9">
                 <div className="row">
@@ -331,7 +336,7 @@ export default function FooterClient({ footerData }: Props) {
               </div>
             </div>
 
-          
+
           </div>
         </div>
       </div>
