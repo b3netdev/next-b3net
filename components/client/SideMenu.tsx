@@ -168,9 +168,9 @@ export default function SideMenu({
                                                     <ServiceSubMenu />
                                                 }
                                                 <ul className="sideMenuSubList">
-                                                    {item.children.map((child: any) => (
+                                                    {item.children.map((child: any,index:any) => (
 
-                                                        <li key={child.id} className="sideMenuSubItem">
+                                                        <li key={index} className="sideMenuSubItem">
                                                             {child.parent_id == 13477 &&
                                                                 (child.id == 13477 ? (
                                                                     <i className="fa-solid fa-bullhorn"></i>

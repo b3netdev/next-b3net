@@ -174,7 +174,6 @@ export default function Home() {
             <section id="expertise-service"><Expertise /></section>
             <section id="case-studies"><CaseStudy /></section>
             <section id="contact"><Contact /></section>
-
         </main>
     );
 }
