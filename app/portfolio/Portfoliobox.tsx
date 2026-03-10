@@ -41,6 +41,11 @@ export default function Portfoliobox() {
       }
     })();
   }, []);
+  
+  useEffect(()=>{
+    console.log(selectTab,"SELCT TAB")
+    console.log(selectTab?.count,"SELCT TAB COUNT")
+  },[selectTab])
 
   // Load items when tab/page changes
   useEffect(() => {
@@ -50,7 +55,7 @@ export default function Portfoliobox() {
       setLoading(true);
       try {
         const params = new URLSearchParams({
-          categories: String(selectTab.id),
+          portfolio_category: String(selectTab.id),
           per_page: "6",
           page: String(pagenumber),
         });
