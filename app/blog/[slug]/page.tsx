@@ -306,7 +306,7 @@ const BlogDetail = () => {
                     href={`/author/${authordata?.id}/${pageData?.categories}`}
                   >
                     <img
-                      src={authordata?.avatar_urls?.[96]}
+                      src={authordata?.mpp_avatar?.[96]}
                       alt={authordata?.name}
                     />
                     <div>
