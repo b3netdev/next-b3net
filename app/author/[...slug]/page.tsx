@@ -9,7 +9,7 @@ import ShowNav from "@/components/client/ShowNav";
 export default async function Author({ params }: { params: { slug: string } }) {
 
     const { slug } = await params;
-    console.log(slug)
+    console.log(slug, "Slug in Author")
 
     const authorData: any = await GetAuthorData(slug[0])
     // const relatedpost: any = await GetRelatedPost(slug[1], authorData?.id)

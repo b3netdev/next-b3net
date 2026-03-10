@@ -357,14 +357,14 @@ const BlogDetail = () => {
                             </div>
 
                             <Link
-                              href={`/blog/${data?.id}`}
+                              href={`/blog/${data?.slug}`}
                               className="card-title mb-2 card-text-a">
                               {data?.title?.rendered}
                             </Link>
 
                             <div
                               dangerouslySetInnerHTML={{
-                                __html: data?.excerpt?.rendered,
+                                __html: data?.excerpt?.rendered || " ",
                               }}
                             />
 
