@@ -272,7 +272,7 @@ export default function BlogClient() {
                     <div className="col-lg-4 col-sm-6 col-12 content1 blogItem" key={index}>
                       <div className="card-parts-1">
                         <div className="card">
-                          <Link href={`/blog/${post?.id}`}>
+                          <Link href={`/blog/${post?.slug}`}>
                             <img
                               src={post?.featured_image_url || ""}
                               className="card-img-top"
@@ -288,7 +288,7 @@ export default function BlogClient() {
                               </div>
                             </div>
 
-                            <Link href={`/blog/${post?.id}`}
+                            <Link href={`/blog/${post?.slug}`}
                               className="card-title mb-2 card-text-Link"
                             >
                               {post?.title?.rendered}
@@ -298,7 +298,7 @@ export default function BlogClient() {
                               dangerouslySetInnerHTML={{ __html: post?.excerpt?.rendered }}
                             />
 
-                            <Link href={`/blog/${post?.id}`}
+                            <Link href={`/blog/${post?.slug}`}
                               className="d-flex align-items-center gap-2 clr-blk"
                             >
                               READ MORE

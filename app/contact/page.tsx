@@ -1,5 +1,6 @@
 import React from "react";
 import ContactUsForm from "./Contactusform";
+import ContactFooter from "@/components/server/ContactFooter";
 
 type SubOffice = {
   title: string;
@@ -149,6 +150,7 @@ export default function ContactUs() {
           </div>
         </div>
       </div>
+      <ContactFooter/>
     </div>
   );
 }

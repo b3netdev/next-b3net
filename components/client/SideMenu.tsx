@@ -18,8 +18,6 @@ export default function SideMenu({
 }: Props) {
     const [openMap, setOpenMap] = useState<any>({});
     const drawerRef = useRef<any>(null);
-
-    console.log(serviceMegaMenuColumns, "SerVice MegaMenu Collumn")
     useEffect(() => {
         const onKeyDown = (e: any) => {
             if (e.key === "Escape") onClose?.();

@@ -15,12 +15,13 @@ import * as Yup from "yup";
 
 const BlogDetail = () => {
   const params = useParams();
-  const id = params?.id
-  console.log(id, "SLUG")
+  const slug = params?.slug
+  console.log(slug, "SLUG")
 
   const { getBlogdetail, getRelatedPosts } = useBlog();
   const [pageData, setPageData] = useState<any>({});
   const [relatedpost, setRelatedPost] = useState<any>([]);
+  const [authordata , setAuthorData ] = useState<any>()
 
   const dispatch = useAppDispatch();
   const [sideNav, setSidenav] = useState<any>([]);
@@ -79,15 +80,17 @@ const BlogDetail = () => {
 
   useEffect(() => {
     const getblogData = async () => {
-      if (!id) return;
-      const data = await getBlogdetail(id);
-      setPageData(data);
+      if (!slug) return;
+      const data = await getBlogdetail(slug);
+      setPageData(data[0]);
     };
 
     getblogData();
-  }, [id]);
+  }, [slug]);
 
   useEffect(() => {
+    console.log(pageData)
+    setAuthorData(pageData?._embedded?.author[0])
     const fetchRelatedPosts = async () => {
       if (!pageData?.categories) return;
 
@@ -153,7 +156,7 @@ const BlogDetail = () => {
                   </h4>
 
                   <h4>
-                    <span>{formattedDate}</span> | {pageData?.author?.name}
+                    <span>{formattedDate}</span> | {authordata?.name}
                   </h4>
 
                   <div className="icones"></div>
@@ -301,15 +304,15 @@ const BlogDetail = () => {
 
                 <div className="author-section">
                   <Link
-                    href={`/author/${pageData?.author?.id}/${pageData?.categories}`}
+                    href={`/author/${authordata?.id}/${pageData?.categories}`}
                   >
                     <img
-                      src={pageData?.author?.avatar_urls?.[96]}
-                      alt={pageData?.author?.name}
+                      src={authordata?.avatar_urls?.[96]}
+                      alt={authordata?.name}
                     />
                     <div>
-                      <h3>{pageData?.author?.name}</h3>
-                      <p>{pageData?.author?.description}</p>
+                      <h3>{authordata?.name}</h3>
+                      <p>{authordata?.description}</p>
                     </div>
                   </Link>
                 </div>
