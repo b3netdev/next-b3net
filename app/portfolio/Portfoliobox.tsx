@@ -26,7 +26,7 @@ export default function Portfoliobox() {
   const [pagenumber, setPageNumber] = useState<number>(1);
   const [loading, setLoading] = useState<boolean>(false);
   const { getportfolioCategories, getportfolioItems } = usePortfolio()
-  // Load categories
+  
   useEffect(() => {
     (async () => {
       setLoading(true);
@@ -47,7 +47,7 @@ export default function Portfoliobox() {
     console.log(selectTab?.count,"SELCT TAB COUNT")
   },[selectTab])
 
-  // Load items when tab/page changes
+
   useEffect(() => {
     if (!selectTab?.id) return;
 
