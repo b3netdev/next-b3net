@@ -16,7 +16,6 @@ import * as Yup from "yup";
 const BlogDetail = () => {
   const params = useParams();
   const slug = params?.slug
-  console.log(slug, "SLUG")
 
   const { getBlogdetail, getRelatedPosts } = useBlog();
   const [pageData, setPageData] = useState<any>({});

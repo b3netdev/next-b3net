@@ -41,14 +41,14 @@ export async function GetAuthorData(slug: any) {
 
 
 
-export const getportfoliodetail = async (id: any) => {
+export const getportfoliodetail = async (slug:string) => {
 
-  const data = await fetcher(`/wp-json/wp/v2/portfolio/${id}`,
+  const data = await fetcher(`/wp-json/wp/v2/portfolio?slug=${slug}&_embed`,
     {
       revalidate: 60,
     }
   );
-  return Array.isArray(data) ? data ?? null : data ?? null;
+  return Array.isArray(data) ? data[0] ?? null : data[0] ?? null;
 
 };
 
@@ -61,6 +61,7 @@ export const getPortFloioRelatedPost = async (categoryId: any, projectId: any) =
       exclude: projectId,
       per_page: 4,
       page: 1,
+      _embed: true,
     },
   });
   return Array.isArray(data) ? data ?? null : data ?? null;

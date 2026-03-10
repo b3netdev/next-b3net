@@ -2,11 +2,13 @@ import { getportfoliodetail, getPortFloioRelatedPost } from "@/lib/getdata";
 import Link from "next/link";
 import Contact from "@/components/client/Contact";
 import ShowNav from "@/components/client/ShowNav";
-const page = async ({ params }: { params: { id: any} }) => {
-    const { id } = await params
-    const pageData = await getportfoliodetail(id)
-    const relatedpost = await getPortFloioRelatedPost(pageData?.portfolio_category, id)
-
+const page = async ({ params }: { params: { slug: any} }) => {
+    const { slug } = await params
+    
+    const pageData = await getportfoliodetail(slug)
+    const relatedpost = await getPortFloioRelatedPost(pageData?.portfolio_category, pageData?.id)
+    
+    console.log(relatedpost,"Related Post")
 
     const expertiseData = [
         {
@@ -115,7 +117,7 @@ const page = async ({ params }: { params: { id: any} }) => {
                                 <div className="heading5 services-flexiable-width  ">
                                     <div
                                         dangerouslySetInnerHTML={{
-                                            __html: pageData?.content?.rendered,
+                                            __html: pageData?.content?.rendered || "",
                                         }}
                                     />
 
@@ -153,10 +155,7 @@ const page = async ({ params }: { params: { id: any} }) => {
                                         <div className="portfolio-list h-100">
                                             <div className="image reveal">
                                                 <Link
-                                                    href={`/portfolio/${item?.id}`}
-                                                    // state={{ id: item?.id, categoryId }}
-                                                    // href={item?.link || "#"}
-
+                                                    href={`/portfolio/${item?.slug}`}
                                                     className="d-block">
                                                     <img
                                                         src={item?.featured_media_url || item?.image || ""}
@@ -168,8 +167,8 @@ const page = async ({ params }: { params: { id: any} }) => {
 
                                             <div className="portfolio-details d-flex align-items-center justify-content-between py-4 px-3">
                                                 <Link
-                                                    href={`/portfolio/${item?.id}`}
-                                                    // state={{ id: item?.id, categoryId }}
+                                                    href={`/portfolio/${item?.slug}`}
+                                                 
                                                     className="text-truncate"
                                                     style={{ maxWidth: "calc(100% - 28px)" }}
                                                 >

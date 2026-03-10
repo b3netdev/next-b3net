@@ -116,7 +116,7 @@ export default function Portfoliobox() {
                   <div className="portfolio-list">
                     <div className="image reveal">
                       <Link
-                        href={`/portfolio/${item.id}`}
+                        href={`/portfolio/${item?.slug}`}
                       >
                         <img src={item.featured_media_url || ""} alt="" />
                       </Link>
@@ -124,7 +124,7 @@ export default function Portfoliobox() {
 
                     <div className="portfolio-details">
                       <Link
-                        href={`/portfolio/${item.id}`}
+                        href={`/portfolio/${item?.slug}`}
                         className="d-flex align-items-center justify-content-between"
                       >
                         {item?.title?.rendered ?? ""}
