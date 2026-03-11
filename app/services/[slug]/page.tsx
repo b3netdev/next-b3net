@@ -8,6 +8,7 @@ import FrequentQuestion from "./FrequentQuestion";
 import Scroll from "@/components/client/Scroll";
 import Workslider from "./Workslider";
 import { sluglist } from "@/helper/Menulist";
+import { BASE_URL } from "@/lib/url";
 
 export async function generateStaticParams() {
 
@@ -235,7 +236,9 @@ const ServiceSubpage = async ({ params }: { params: { slug: string } }) => {
 
                                 </div>
                                 <div className="col-lg-6 right-column text-center">
-                                    <img src="https://2026.b3net.info/b3net-com/wp-content/uploads/2024/06/Why-B3NET-3.jpg" className="img-fluid" alt="Data Cleansing Image" />
+                                    <img
+                                     src={`${BASE_URL}/wp-content/uploads/2024/06/Why-B3NET-3.jpg`}
+                                     className="img-fluid" alt="Data Cleansing Image" />
                                 </div>
                             </div>
                         </div>

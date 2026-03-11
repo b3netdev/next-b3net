@@ -3,6 +3,7 @@ import Link from "next/link";
 import { GetPageData } from "@/lib/getdata";
 import BlogheroBanner from "@/assets/images/blog-hero-banner.jpg";
 import BlogClient from "./BlogClient";
+import { BASE_URL } from "@/lib/url";
 
 export default async function BlogPage() {
   const pagedata = await GetPageData("blog", "page")
@@ -14,7 +15,7 @@ export default async function BlogPage() {
       <div className="portfolio-page blog ">
         <div className="port-landing-wrap gpp">
           <div className="banner-img">
-            <img src="https://b3net.com/wp-content/themes/b3net/assets/images/blog-hero-banner.jpg" alt="" />
+          <img src={`${BASE_URL}/wp-content/themes/b3net/assets/images/blog-hero-banner.jpg`} alt="" />
             <div className="container">
               <div className="banner-caption">
                 <h1>Web Design & <br />

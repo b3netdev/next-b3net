@@ -2,6 +2,7 @@ import { getcaseStudiesData } from "@/lib/getdata";
 import Link from "next/link";
 import ServiceContact from "@/app/services/[slug]/ServiceContact";
 import ContactFooter from "@/components/server/ContactFooter";
+import { BASE_URL } from "@/lib/url";
 
 
 
@@ -49,12 +50,12 @@ const CaseStudy = async ({ slug }: any) => {
                                     <img
                                         width="810"
                                         height="706"
-                                        src="https://b3net.com/wp-content/uploads/2023/07/viage-banner-img.png"
+                                        src={`${BASE_URL}/wp-content/uploads/2023/07/viage-banner-img.png`}
                                         className="attachment-full size-full wp-post-image"
                                         alt=""
                                         decoding="async"
                                         fetchPriority="high"
-                                        srcSet="https://b3net.com/wp-content/uploads/2023/07/viage-banner-img.png 810w, https://b3net.com/wp-content/uploads/2023/07/viage-banner-img-300x261.png 300w, https://b3net.com/wp-content/uploads/2023/07/viage-banner-img-768x669.png 768w"
+                                        srcSet={`${BASE_URL}/wp-content/uploads/2023/07/viage-banner-img.png 810w, ${BASE_URL}/wp-content/uploads/2023/07/viage-banner-img-300x261.png 300w, ${BASE_URL}/wp-content/uploads/2023/07/viage-banner-img-768x669.png 768w`}
                                         sizes="(max-width: 810px) 100vw, 810px"
                                     />{" "}
                                 </div>
@@ -104,7 +105,7 @@ const CaseStudy = async ({ slug }: any) => {
                         <div className="our-client-sec">
                             <div className="two-blocks f-block">
                                 <div className="client-imgwrap">
-                                    <img src="https://b3net.com/wp-content/uploads/2023/07/hear-from-client.png" />
+                                <img src={`${BASE_URL}/wp-content/uploads/2023/07/hear-from-client.png`} />
                                     <div className="play-btn">
                                         <img src="https://www.b3net.com/old-site-2025/wp-content/themes/perfecti/case-3-assets/images/play-icon.png" />
                                     </div>

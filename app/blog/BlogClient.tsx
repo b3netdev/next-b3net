@@ -14,6 +14,7 @@ import "swiper/css/pagination";
 import Skeleton from "@mui/material/Skeleton";
 
 import useBlog from "@/hooks/useBlog";
+import { BASE_URL } from "@/lib/url";
 
 type TabItem = {
   id: any;
@@ -124,38 +125,38 @@ export default function BlogClient() {
       category: "Popular Reads",
       title: "Designing Intelligence: How AI Is Transforming Digital Design, Navigation, and Experience in the Internet Age",
       excerpt: "From Pretty Pages to Intelligent Journeys In the early days of the internet, website design was little more than digital...",
-      image: "https://b3net.com/wp-content/uploads/2026/02/Designing-Intelligence.jpg",
-      url: "https://b3net.com/how-ai-is-transforming-digital-design-navigation-and-experience/"
+      image: `${BASE_URL}/wp-content/uploads/2026/02/Designing-Intelligence.jpg`,
+      url: `${BASE_URL}/how-ai-is-transforming-digital-design-navigation-and-experience/`
     },
     {
       category: "Popular Reads",
       title: "CRM, AI, and the Future of Intelligent Customer Experience",
       excerpt: "A New Era of Customer Relationships Customer Relationship Management (CRM) has always been about one thing—building and nurturing meaningful relationships...",
-      image: "https://b3net.com/wp-content/uploads/2026/01/CRM-AI.jpg",
-      url: "https://b3net.com/crm-ai-and-the-future-of-intelligent-customer-experience/"
+      image: `${BASE_URL}/wp-content/uploads/2026/01/CRM-AI.jpg`,
+      url: `${BASE_URL}/crm-ai-and-the-future-of-intelligent-customer-experience/`
     },
     {
       category: "Popular Reads",
       title: "Dark Mode in Web Design: The Complete UX & Implementation Guide",
       excerpt: "View this. It's late at night, the lights are dim, you pick up your phone to open Link website, and...",
-      image: "https://b3net.com/wp-content/uploads/2026/01/Dark-Mode-in-Web-Design.png",
-      url: "https://b3net.com/the-complete-ux-implementation-guide-to-dark-mode-in-web-design/"
+      image: `${BASE_URL}/wp-content/uploads/2026/01/Dark-Mode-in-Web-Design.png`,
+      url: `${BASE_URL}/the-complete-ux-implementation-guide-to-dark-mode-in-web-design/`
     },
     {
       category: "Popular Reads",
       title: "The Role of Branding in E-commerce Web Design: Building Brand Trust to Drive Sales",
       excerpt: "Most of us prefer shopping online, and to be Link bit precise around 33% of the world population shops online....",
-      image: "https://b3net.com/wp-content/uploads/2026/01/Brand-Trust-to-Drive-Sales.jpg",
-      url: "https://b3net.com/the-role-of-branding-in-e-commerce-web-design/"
+      image: `${BASE_URL}/wp-content/uploads/2026/01/Brand-Trust-to-Drive-Sales.jpg`,
+      url: `${BASE_URL}/the-role-of-branding-in-e-commerce-web-design/`
     },
     {
       category: "Popular Reads",
       title: "Content Marketing in the Age of AI: Why the Human Edge Still Wins",
       excerpt: "A Shift We Can’t Ignore Every decade in marketing has its buzzword. In the 2000s, it was SEO. In the...",
-      image: "https://b3net.com/wp-content/uploads/2026/01/Content-Marketing-in-the-Age-of-AI.jpg",
-      url: "https://b3net.com/content-marketing-in-the-age-of-ai-why-the-human-edge-still-wins/"
+      image: `${BASE_URL}/wp-content/uploads/2026/01/Content-Marketing-in-the-Age-of-AI.jpg`,
+      url: `${BASE_URL}/content-marketing-in-the-age-of-ai-why-the-human-edge-still-wins/`
     }
-  ]
+  ];
 
   const showNoData = !loading && blogItems?.length === 0;
 

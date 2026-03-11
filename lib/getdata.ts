@@ -31,8 +31,7 @@ export async function GetRelatedPost(categoryId: any, id: number | string) {
 
 
 export async function GetAuthorData(slug: any) {
-  //console.log(categoryId,"CATEGORY_ID")
-  const data = await fetcher(`/wp-json/wp/v2/users/${slug}`, {
+  const data = await fetcher(`/wp-json/wp/v2/users?slug=${slug}`, {
     revalidate: 60,
   });
 

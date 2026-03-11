@@ -139,21 +139,14 @@ const BlogDetail = () => {
         {/* Landing */}
         <div className="port-landing-wrap details-page-1">
           <div className="menu-design"></div>
-
           <div className="banner-img">
             <div className="container">
               <div className="row gy-4 d-flex align-items-center justify-content-center">
                 <div className="col-md-6 pe-md-5">
                   <img src={pageData?.featured_image_url} alt="" />
                 </div>
-
                 <div className="col-md-6 mt-4 mt-md-0">
                   <h1>{pageData?.title?.rendered}</h1>
-
-                  <h4>
-                    <span> </span> | | <i className="fa-solid fa-comment"></i>
-                  </h4>
-
                   <h4>
                     <span>{formattedDate}</span> | {authordata?.name}
                   </h4>
@@ -303,7 +296,7 @@ const BlogDetail = () => {
 
                 <div className="author-section">
                   <Link
-                    href={`/author/${authordata?.id}/${pageData?.categories}`}
+                    href={`/author/${authordata?.slug}`}
                   >
                     <img
                       src={authordata?.mpp_avatar?.[96]}
@@ -369,7 +362,7 @@ const BlogDetail = () => {
                             />
 
                             <Link
-                              href={`/blog/${data?.id}`}
+                              href={`/blog/${data?.slug}`}
                               className="d-flex align-items-center gap-2 clr-blk">
                               READ MORE{" "}
                               <i className="fa-solid fa-arrow-right-long"></i>
