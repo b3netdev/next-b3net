@@ -2754,6 +2754,7 @@ body:has(.page_banner_section + .intro_about_section) .page_banner_section {
   padding: 3px 22px 4px;
   border-radius: 60px;
   margin-right: 2px;
+  font-size: 20px;
 }
 
 .custom-tabs1 .nav-tabs .nav-link.active,
@@ -2761,6 +2762,7 @@ body:has(.page_banner_section + .intro_about_section) .page_banner_section {
   color: #fff;
   background-color: #ff4f02;
   border-color: #ff4f02;
+  font-size: 20px;
 }
 
 .contact-sec {
