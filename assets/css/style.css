@@ -2377,10 +2377,9 @@ body:has(.page_banner_section + .intro_about_section) .page_banner_section {
 .solutions-list-images .portfolio-list {
   transition: all 0.5s;
   border-radius: 15px;
-  padding: 10px;
   transition: all 0.5s;
   border-radius: 15px;
-  padding: 10px;
+  /* padding: 10px; */
 }
 
 .solutions-hover-box {
@@ -3947,7 +3946,7 @@ p.form-submit input#submit {
   }
 
   .portfolio-list {
-    margin-top: 20px;
+    /* margin-top: 20px; */
   }
 
   .case-studies-slider .owl-nav button.owl-prev {
