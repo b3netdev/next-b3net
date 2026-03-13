@@ -757,3 +757,206 @@ export type FooterLink = {
   
     successImg: "https://www.b3net.com/wp-content/themes/b3net/assets/images/success-img.png",
   };
+  export const footerData1: any = {
+    locations: [
+      {
+        id: "usa",
+        label: "USA",
+        columns: [
+          [
+            {
+              title: "Addison",
+              links: [
+                { label: "Addison Website Design Development", slug: "addison-website-design-development" },
+                { label: "Digital Marketing Addison", slug: "digital-marketing-addison" },
+              ],
+            },
+            {
+              title: "Albuquerque",
+              links: [
+                { label: "Website Design Albuquerque", slug: "website-design-albuquerque" },
+              ],
+            },
+            {
+              title: "Allen",
+              links: [
+                { label: "Allen Website Design Development", slug: "allen-website-design-development" },
+                { label: "Digital Marketing Allen TX", slug: "digital-marketing-allen-tx" },
+              ],
+            },
+            {
+              title: "Arlington",
+              links: [
+                { label: "Arlington Web Design", slug: "arlington-web-design" },
+                { label: "Digital Marketing Arlington", slug: "digital-marketing-arlington" },
+              ],
+            },
+            {
+              title: "Austin",
+              links: [
+                { label: "Austin Website Design Development", slug: "austin-website-design-development" },
+                { label: "Digital Marketing Austin", slug: "digital-marketing-austin" },
+              ],
+            },
+            {
+              title: "Carrollton",
+              links: [
+                { label: "Carrollton Website Design Development", slug: "carrollton-website-design-development" },
+                { label: "Digital Marketing Carrollton", slug: "digital-marketing-carrollton" },
+              ],
+            },
+            {
+              title: "Cedar Hill",
+              links: [
+                { label: "Cedar Hill Website Design & Development", slug: "cedar-hill-website-design-development" },
+                { label: "Digital Marketing Cedar Hill TX", slug: "digital-marketing-cedar-hill-tx" },
+              ],
+            },
+          ],
+  
+          [
+            {
+              title: "Coppell",
+              links: [
+                { label: "Coppell Website Design & Development", slug: "coppell-website-design-development" },
+                { label: "Digital Marketing Coppell TX", slug: "digital-marketing-coppell-tx" },
+              ],
+            },
+            {
+              title: "Dallas",
+              links: [
+                { label: "Dallas Digital Marketing Company", slug: "dallas-digital-marketing-company" },
+                { label: "Dallas PPC Management Company", slug: "dallas-ppc-management-company" },
+                { label: "Dallas SEO Internet Marketing Service", slug: "dallas-seo-internet-marketing-service" },
+                { label: "Dallas Web Development Agency", slug: "dallas-web-development-agency" },
+                { label: "Digital Marketing Agency Dallas Fort Worth", slug: "digital-marketing-agency-dallas-fort-worth" },
+                { label: "Local SEO Agency Dallas", slug: "local-seo-agency-dallas" },
+                { label: "Social Media Marketing Agency Dallas", slug: "social-media-marketing-agency-dallas" },
+                { label: "Website Maintenance Services Dallas", slug: "website-maintenance-services-dallas" },
+              ],
+            },
+            {
+              title: "Farmers Branch",
+              links: [
+                { label: "Digital Marketing Farmers Branch TX", slug: "digital-marketing-farmers-branch-tx" },
+                { label: "Farmers Branch Website Design & Development", slug: "farmers-branch-website-design-development" },
+              ],
+            },
+            {
+              title: "Fort Worth",
+              links: [
+                { label: "Digital Marketing Fort Worth", slug: "digital-marketing-fort-worth" },
+                { label: "Website Design Fort Worth", slug: "website-design-fort-worth" },
+              ],
+            },
+          ],
+        ],
+      },
+  
+      {
+        id: "australia",
+        label: "Australia",
+        columns: [[{ title: "Coming Soon...", links: [] }]],
+      },
+  
+      {
+        id: "new-Zealand",
+        label: "New Zealand",
+        columns: [
+          [
+            {
+              title: "Web Design & Development",
+              links: [
+                { label: "Web Design Auckland", slug: "web-design-auckland" },
+                { label: "Web Design Wellington", slug: "web-design-wellington" },
+                { label: "Web Design Christchurch", slug: "web-design-christchurch" },
+              ],
+            },
+            {
+              title: "SEO and PPC",
+              links: [
+                { label: "SEO PPC Services Auckland", slug: "seo-ppc-services-auckland" },
+                { label: "SEO PPC Services Wellington", slug: "seo-ppc-services-wellington" },
+                { label: "SEO PPC Services Christchurch", slug: "seo-ppc-services-christchurch" },
+              ],
+            },
+            {
+              title: "Data Goveranance & Solutions",
+              links: [
+                { label: "Data Governance Solutions", slug: "data-governance-solutions" },
+              ],
+            },
+          ],
+        ],
+      },
+  
+      {
+        id: "india",
+        label: "India",
+        columns: [[{ title: "Coming Soon...", links: [] }]],
+      },
+    ],
+  
+    explore: [
+      {
+        title: "Web Design & Development",
+        links: [
+          { label: "Web Design", slug: "web-design-services" },
+          { label: "Web Development", slug: "web-development-agency" },
+          { label: "Ecommerce", slug: "ecommerce-web-development-service" },
+          { label: "WordPress", slug: "wordpress-development-company" },
+          { label: "Website Maintenance", slug: "website-maintenance-services-dallas" },
+          { label: "Magento Web Design", slug: "magento-ecommerce-development" },
+          { label: "Woocommerce", slug: "woocommerce-development-company" },
+          { label: "Opencart Development", slug: "opencart-website-development-service" },
+          { label: "Shopify Development", slug: "shopify-store-development-servce" },
+          { label: "Laravel Development", slug: "laravel-development-company" },
+        ],
+      },
+  
+      {
+        title: "AI-Powered Digital Marketing",
+        links: [
+          { label: "SEO", slug: "seo-services" },
+          { label: "Local Search Marketing", slug: "local-search-marketing-services" },
+          { label: "PPC Management", slug: "ppc-management-services" },
+          { label: "Social Media Marketing", slug: "social-media-marketing-services" },
+          { label: "Content Marketing", slug: "content-marketing-services" },
+          { label: "Email Marketing", slug: "email-marketing-services-company" },
+          { label: "App Store Optimization", slug: "app-store-optimization" },
+          { label: "Online Reputation Management", slug: "online-reputation-management" },
+          { label: "Zoho Consultant", slug: "zoho-crm-consultant-integration-service" },
+          { label: "Go High Level Consultant", slug: "gohighlevel-expert-services" },
+          { label: "Amazon Consultant", slug: "amazon-sales-consultant" },
+        ],
+      },
+  
+      { title: "FAQ", slug: "faq" },
+      { title: "Testimonials", slug: "testimonial" },
+      { title: "Blog", slug: "blog" },
+      { title: "Contact Us", slug: "contact" },
+    ],
+  
+    socials: [
+      { icon: "fa-linkedin-in", slug: "b3net-inc" },
+      { icon: "fa-youtube", slug: "UCkmWVQDZdVSfYRUPXTDPOrA" },
+      { icon: "fa-instagram", slug: "b3netinc" },
+      { icon: "fa-x-twitter", slug: "b3net" },
+      { icon: "fa-facebook-f", slug: "B3NET" },
+    ],
+  
+    partners: [
+      {
+        img: "zoho.png",
+        slug: "find-partner-profile",
+        alt: "Zoho",
+      },
+      {
+        img: "google-authorised.png",
+        slug: "",
+        alt: "Google Authorised",
+      },
+    ],
+  
+    successImg: "success-img.png",
+  };
