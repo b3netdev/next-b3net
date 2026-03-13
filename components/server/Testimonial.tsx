@@ -1,6 +1,7 @@
 import React from "react";
 import Link from "next/link";
 import TestimonoalCard from "../client/TestimonialSlider";
+import { BASE_URL } from "@/lib/url";
 
 const Testimonial = () => {
   return (
@@ -38,7 +39,7 @@ const Testimonial = () => {
         <div className="space20"></div>
       </div>
 
-      {/* ✅ ONLY slider is client */}
+
       <TestimonoalCard />
 
       <div className="space30"></div>
@@ -50,7 +51,7 @@ const Testimonial = () => {
             <div className="col-6 col-sm-4 col-md-3 col-lg-2 col-xl-2 xtra-space">
               <a target="_blank" rel="noreferrer">
                 <img
-                  src="https://www.b3net.com/wp-content/uploads/2025/03/forbes.webp"
+                  src={`${BASE_URL}/wp-content/uploads/2025/03/forbes.webp`}
                   alt="Forbes"
                 />
               </a>
@@ -59,7 +60,7 @@ const Testimonial = () => {
             <div className="col-6 col-sm-4 col-md-3 col-lg-2 col-xl-2 xtra-space">
               <a target="_blank" rel="noreferrer">
                 <img
-                  src="https://www.b3net.com/wp-content/uploads/2025/03/social-media-today.webp"
+                  src={`${BASE_URL}/wp-content/uploads/2025/03/social-media-today.webp`}
                   alt="Social Media Today"
                 />
               </a>
@@ -68,7 +69,7 @@ const Testimonial = () => {
             <div className="col-6 col-sm-4 col-md-3 col-lg-2 col-xl-2 xtra-space">
               <a target="_blank" rel="noreferrer">
                 <img
-                  src="https://www.b3net.com/wp-content/uploads/2025/03/whats-up-orange-county.webp"
+                  src={`${BASE_URL}/wp-content/uploads/2025/03/whats-up-orange-county.webp`}
                   alt="What's Up Orange County"
                 />
               </a>
@@ -77,7 +78,7 @@ const Testimonial = () => {
             <div className="col-6 col-sm-4 col-md-3 col-lg-2 col-xl-2 xtra-space">
               <a target="_blank" rel="noreferrer">
                 <img
-                  src="https://www.b3net.com/wp-content/uploads/2025/03/time-warner-cable.webp"
+                  src={`${BASE_URL}/wp-content/uploads/2025/03/time-warner-cable.webp`}
                   alt="Time Warner Cable"
                 />
               </a>
@@ -86,7 +87,7 @@ const Testimonial = () => {
             <div className="col-6 col-sm-4 col-md-3 col-lg-2 col-xl-2 xtra-space">
               <a target="_blank" rel="noreferrer">
                 <img
-                  src="https://www.b3net.com/wp-content/uploads/2025/03/b2c.webp"
+                  src={`${BASE_URL}/wp-content/uploads/2025/03/b2c.webp`}
                   alt="B2C"
                 />
               </a>
@@ -95,7 +96,7 @@ const Testimonial = () => {
             <div className="col-6 col-sm-4 col-md-3 col-lg-2 col-xl-2 xtra-space">
               <a target="_blank" rel="noreferrer">
                 <img
-                  src="https://www.b3net.com/wp-content/uploads/2025/03/small-business-trends.webp"
+                  src={`${BASE_URL}/wp-content/uploads/2025/03/small-business-trends.webp`}
                   alt="Small Business Trends"
                 />
               </a>
@@ -104,7 +105,7 @@ const Testimonial = () => {
             <div className="col-6 col-sm-4 col-md-3 col-lg-2 col-xl-2 xtra-space">
               <a target="_blank" rel="noreferrer">
                 <img
-                  src="https://www.b3net.com/wp-content/uploads/2025/03/wikipedia.webp"
+                  src={`${BASE_URL}/wp-content/uploads/2025/03/wikipedia.webp`}
                   alt="Wikipedia"
                 />
               </a>
@@ -113,7 +114,7 @@ const Testimonial = () => {
             <div className="col-6 col-sm-4 col-md-3 col-lg-2 col-xl-2 xtra-space">
               <a target="_blank" rel="noreferrer">
                 <img
-                  src="https://www.b3net.com/wp-content/uploads/2025/03/tweak-your-biz.webp"
+                  src={`${BASE_URL}/wp-content/uploads/2025/03/tweak-your-biz.webp`}
                   alt="Tweak Your Biz"
                 />
               </a>
@@ -122,7 +123,7 @@ const Testimonial = () => {
             <div className="col-6 col-sm-4 col-md-3 col-lg-2 col-xl-2 xtra-space">
               <a target="_blank" rel="noreferrer">
                 <img
-                  src="https://www.b3net.com/wp-content/uploads/2025/03/small-biz-club.webp"
+                  src={`${BASE_URL}/wp-content/uploads/2025/03/small-biz-club.webp`}
                   alt="Small Biz Club"
                 />
               </a>
@@ -131,7 +132,7 @@ const Testimonial = () => {
             <div className="col-6 col-sm-4 col-md-3 col-lg-2 col-xl-2 xtra-space">
               <a target="_blank" rel="noreferrer">
                 <img
-                  src="https://www.b3net.com/wp-content/uploads/2025/03/cox.webp"
+                  src={`${BASE_URL}/wp-content/uploads/2025/03/cox.webp`}
                   alt="Cox"
                 />
               </a>

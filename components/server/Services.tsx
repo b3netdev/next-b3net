@@ -5,77 +5,77 @@ import Analytics from "../../assets/images/analyics.png";
 import Statergy from "../../assets/images/statergy.png";
 import DataEngneering from "../../assets/images/data-engineering.png";
 import Image from "next/image";
+import { BASE_URL } from "@/lib/url";
 
 const Services = () => {
 
  
 
-     const solutionsList = [
+    const solutionsList = [
         {
           title: "Website Design & Development",
           description: "High-conversion to generate leads",
-          image: "https://b3net.com/wp-content/uploads/2026/02/Website-Design-Development.webp",
-          link: "https://b3net.com/texas/dallas-web-development-agency.html",
-          slug:"web-design-services"
+          image: `${BASE_URL}/wp-content/uploads/2026/02/Website-Design-Development.webp`,
+          link: `${BASE_URL}/texas/dallas-web-development-agency.html`,
+          slug: "web-design-services"
         },
         {
           title: "Digital Marketing & Demand Generation",
           description: "Attract, engage, and convert consistently",
-          image: "https://b3net.com/wp-content/uploads/2026/02/Digital-Marketing-Demand-Generation.webp",
-          link: "https://b3net.com/digital-marketing-agency-services.html",
-          slug:""
+          image: `${BASE_URL}/wp-content/uploads/2026/02/Digital-Marketing-Demand-Generation.webp`,
+          link: `${BASE_URL}/digital-marketing-agency-services.html`,
+          slug: ""
         },
         {
           title: "Search Engine & Answer Engine Optimization (SEO/AEO)",
           description: "Increase visibility on Google, ChatGPT",
-          image: "https://b3net.com/wp-content/uploads/2026/02/SEO-AEO.webp",
-          link: "https://b3net.com/seo-services.html",
-          slug:""
+          image: `${BASE_URL}/wp-content/uploads/2026/02/SEO-AEO.webp`,
+          link: `${BASE_URL}/seo-services.html`,
+          slug: ""
         },
         {
           title: "Social Media Marketing",
           description: "Turn attention into engagement",
-          image: "https://b3net.com/wp-content/uploads/2026/02/Social-Media-Marketing.webp",
-          link: "https://b3net.com/social-media-marketing-services.html",
-          slug:"social-media-marketing-service"
+          image: `${BASE_URL}/wp-content/uploads/2026/02/Social-Media-Marketing.webp`,
+          link: `${BASE_URL}/social-media-marketing-services.html`,
+          slug: "social-media-marketing-service"
         },
         {
           title: "Pay-Per-Click Advertising (PPC)",
           description: "Capture high-intent demand and track ROI with precision.",
-          image: "https://b3net.com/wp-content/uploads/2026/02/Pay-Per-Click-Advertising.webp",
-          link: "https://b3net.com/ppc-management-services.html",
-          slug:"ppc-management"
+          image: `${BASE_URL}/wp-content/uploads/2026/02/Pay-Per-Click-Advertising.webp`,
+          link: `${BASE_URL}/ppc-management-services.html`,
+          slug: "ppc-management"
         },
         {
           title: "Custom Web & Mobile Applications",
           description: "Build scalable tools. Streamline operations and growth",
-          image: "https://b3net.com/wp-content/uploads/2026/02/Custom-Web-Mobile-Applications.webp",
-          link: "https://b3net.com/custom-web-application-development.html",
-          slug:""
+          image: `${BASE_URL}/wp-content/uploads/2026/02/Custom-Web-Mobile-Applications.webp`,
+          link: `${BASE_URL}/custom-web-application-development.html`,
+          slug: ""
         },
         {
           title: "Data Engineering & Analytics",
           description: "Clean data pipelines. Power smarter decisions",
-          image: "https://b3net.com/wp-content/uploads/2026/02/Data-Engineering-Analytics.webp",
-          link: "https://www.b3net.com/data-engineering-services.html",
-          slug:""
+          image: `${BASE_URL}/wp-content/uploads/2026/02/Data-Engineering-Analytics.webp`,
+          link: `${BASE_URL}/data-engineering-services.html`,
+          slug: ""
         },
         {
           title: "Data Strategy & Governance",
           description: "Structured data. Secure and scale",
-          image: "https://b3net.com/wp-content/uploads/2026/02/Data-Strategy-Governance.webp",
-          link: "https://www.b3net.com/data-governance.html",
-          slug:"data-governance"
+          image: `${BASE_URL}/wp-content/uploads/2026/02/Data-Strategy-Governance.webp`,
+          link: `${BASE_URL}/data-governance.html`,
+          slug: "data-governance"
         },
         {
           title: "Analytics & Business Insights",
           description: "Transform data into clear, actionable growth insights",
-          image: "https://b3net.com/wp-content/uploads/2026/02/Analytics-Business-Insights.webp",
-          link: "https://www.b3net.com/data-solutions.html",
-          slug:""
+          image: `${BASE_URL}/wp-content/uploads/2026/02/Analytics-Business-Insights.webp`,
+          link: `${BASE_URL}/data-solutions.html`,
+          slug: ""
         },
       ];
-
     return (
         <div className="service home-services new-gap">
             <div

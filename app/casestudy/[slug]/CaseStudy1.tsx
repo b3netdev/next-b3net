@@ -261,7 +261,7 @@ const CaseStudy1 = async ({ slug }: any) => {
               />
 
               <Link
-                href="https://www.b3net.com/request-for-proposal.html"
+                href="/proposal"
                 className="get-result-btn btn btn-primary"
               >
                 Get Results <i className="fa-solid fa-arrow-right"></i>

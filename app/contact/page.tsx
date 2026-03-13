@@ -1,6 +1,7 @@
 import React from "react";
 import ContactUsForm from "./Contactusform";
 import ContactFooter from "@/components/server/ContactFooter";
+import { BASE_URL } from "@/lib/url";
 
 type SubOffice = {
   title: string;
@@ -65,7 +66,7 @@ export default function ContactUs() {
       <div className="port-landing-wrap gpp">
         <div className="banner-img">
           <img
-            src="https://www.b3net.com/wp-content/uploads/2025/10/contact-banner-1.webp"
+            src={`${BASE_URL}/wp-content/uploads/2025/10/contact-banner-1.webp`}
             alt=""
           />
           <div className="container">
@@ -107,14 +108,14 @@ export default function ContactUs() {
                 <div className="chat-box">
                   <div className="chat-box-img">
                     <img
-                      src="https://www.b3net.com/wp-content/uploads/2025/12/chatbox-img.webp"
+                      src={`${BASE_URL}/wp-content/uploads/2025/12/chatbox-img.webp`}
                       alt=""
                     />
                   </div>
                   <div className="chat-box-text">
                     <div className="icon-img">
                       <img
-                        src="https://www.b3net.com/wp-content/uploads/2025/06/message-img.png"
+                        src={`${BASE_URL}/wp-content/uploads/2025/06/message-img.png`}
                         alt=""
                       />
                     </div>
@@ -143,14 +144,14 @@ export default function ContactUs() {
             {/* Logo */}
             <div className="contct-img my-5 my-md-5">
               <img
-                src="https://www.b3net.com/wp-content/uploads/2025/06/logo-2.png"
+                src={`${BASE_URL}/wp-content/uploads/2025/06/logo-2.png`}
                 alt=""
               />
             </div>
           </div>
         </div>
       </div>
-      <ContactFooter/>
+      <ContactFooter />
     </div>
   );
 }

@@ -2,6 +2,7 @@
 
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Pagination, Navigation, Autoplay, Mousewheel } from "swiper/modules";
+import { BASE_URL } from "@/lib/url";
 
 
 
@@ -13,17 +14,17 @@ export default function AiSlider({ carouselData }: AiCarouselProps) {
   const defaultCarouselData = [
     {
       type: "video",
-      src: "https://www.b3net.com/wp-content/uploads/2025/03/open-ai.webm",
+      src: `${BASE_URL}/wp-content/uploads/2025/03/open-ai.webm`,
       mime: "video/webm",
     },
     {
       type: "video",
-      src: "https://www.b3net.com/wp-content/uploads/2025/03/ai-banner-video.webm",
+      src: `${BASE_URL}/wp-content/uploads/2025/03/ai-banner-video.webm`,
       mime: "video/webm",
     },
     {
       type: "image",
-      src: "https://www.b3net.com/wp-content/uploads/2025/03/banner-1.jpg",
+      src: `${BASE_URL}/wp-content/uploads/2025/03/banner-1.jpg`,
       alt: "AI-Driven Digital Transformation",
       caption: {
         h2: "AI-Driven Digital TRANSFORMATION",

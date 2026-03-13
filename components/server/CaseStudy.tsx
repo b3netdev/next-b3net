@@ -14,6 +14,7 @@ import ExpertIcon3 from "../../assets/images/expert-icon-3.png";
 import CaseStudiesSlider from "../client/CaseStudySlider";
 import Process from "../client/Process";
 import TechStacks from "../client/TechStacks";
+import { BASE_URL } from "@/lib/url";
 
 type CaseStudyItem = {
   img: StaticImageData;
@@ -29,7 +30,7 @@ const CaseStudy = () => {
   const caseStudiesData: CaseStudyItem[] = [
     {
       img: CaseStudies,
-      link: "https://www.b3net.com/case-study-mattress-company-website-digital-marketing.html",
+      link: `${BASE_URL}/case-study-mattress-company-website-digital-marketing.html`,
       title: "Mattress Manufacturing Company",
       percent: "95%",
       desc: "Increase in Average Website Visitors",
@@ -38,7 +39,7 @@ const CaseStudy = () => {
     },
     {
       img: CaseStudies4,
-      link: "https://www.b3net.com/case-study-tech-hardware-service-web-design-digital-marketing.html",
+      link: `${BASE_URL}/case-study-tech-hardware-service-web-design-digital-marketing.html`,
       title: "Viage Solutions",
       percent: "370%",
       desc: "Increase in Average Monthly Sale",
@@ -47,7 +48,7 @@ const CaseStudy = () => {
     },
     {
       img: CaseStudies3,
-      link: "https://www.b3net.com/case-study-automobile-parts-website-design-seo.html",
+      link: `${BASE_URL}/case-study-automobile-parts-website-design-seo.html`,
       title: "Motorcycle Parts Manufacturer",
       percent: "275%",
       desc: "Increase In Average Monthly Sales",
@@ -56,7 +57,7 @@ const CaseStudy = () => {
     },
     {
       img: CaseStudies5,
-      link: "https://www.b3net.com/case-study-tree-care-service-web-design-digital-marketing.html",
+      link: `${BASE_URL}/case-study-tree-care-service-web-design-digital-marketing.html`,
       title: "Tree Care Company",
       percent: "103%",
       desc: "Increase In Average Monthly Sales",
@@ -64,7 +65,6 @@ const CaseStudy = () => {
       id: 12949,
     },
   ];
-
   return (
     <>
       <div className="case-studies-service pt-5 mb-4  new-gap" id="case-studies">
@@ -115,7 +115,7 @@ const CaseStudy = () => {
                 {/* Keeping your existing remote image exactly */}
                 <img
                   id="dynamicImage"
-                  src="https://www.b3net.com/wp-content/uploads/2025/12/why-image.webp"
+                  src={`${BASE_URL}/wp-content/uploads/2025/12/why-image.webp`}
                   className="fixed-image img-fluid"
                   alt="Dynamic Image"
                 />

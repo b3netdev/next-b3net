@@ -4,6 +4,7 @@ import { GetPageData } from "@/lib/getdata";
 import Link from "next/link";
 import ServiceContact from "./[slug]/ServiceContact";
 import Workslider from "./[slug]/Workslider";
+import { BASE_URL } from "@/lib/url";
 // import "swiper/css";
 // import "swiper/css/navigation";
 // import usePage from "../../../hooks/usePage";
@@ -129,7 +130,7 @@ const Services = async () => {
                                         <div className="testimonial-wrapper lazyloaded">
                                             <div className="quote-icon">
                                                 <img
-                                                    src="https://www.b3net.com/wp-content/themes/perfecti/assets/seo-assets/images/tetimonial-quote-icon.png"
+                                                    src={`${BASE_URL}/wp-content/themes/perfecti/assets/seo-assets/images/tetimonial-quote-icon.png`}
                                                     alt="quotes"
                                                 />
                                             </div>

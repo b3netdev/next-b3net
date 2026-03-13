@@ -9,6 +9,7 @@ import Testimonial from "@/components/server/Testimonial";
 import Expertise from "@/components/server/Expertise";
 import CaseStudy from "@/components/server/CaseStudy";
 import Contact from "@/components/client/Contact";
+import { BASE_URL } from "@/lib/url";
 
 
 
@@ -18,7 +19,7 @@ export default function Home() {
             {/* HERO */}
             <div className="video-container">
                 <Image
-                    src="https://www.b3net.com/wp-content/uploads/2025/10/B3NET-bg-image.webp"
+                    src={`${BASE_URL}/wp-content/uploads/2025/10/B3NET-bg-image.webp`}
                     alt="Background"
                     fill
                     priority
@@ -81,7 +82,7 @@ export default function Home() {
                             <div className="d-flex align-items-center">
                                 <div className="rating-logo pe-3 goodsfirms">
                                     <Image
-                                        src="https://www.b3net.com/wp-content/uploads/2025/11/goodfirms-logo.png"
+                                        src={`${BASE_URL}/wp-content/uploads/2025/11/goodfirms-logo.png`}
                                         alt="GoodFirms"
                                         width={60}
                                         height={60}
@@ -121,7 +122,7 @@ export default function Home() {
                     <div className="row">
                         <div className="col-lg-4 col-md-6 mb-4">
                             <Image
-                                src="https://www.b3net.com/wp-content/uploads/2025/12/ai-image.webp"
+                                src={`${BASE_URL}/wp-content/uploads/2025/12/ai-image.webp`}
                                 alt="AI"
                                 width={500}
                                 height={400}

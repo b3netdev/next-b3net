@@ -2,6 +2,7 @@ import Link from "next/link";
 import { GetPageData, GetRelatedPost } from "@/lib/getdata";
 import NewsletterForm from "./NewsletterForm";
 import ShowNav from "@/components/client/ShowNav";
+import { BASE_URL } from "@/lib/url";
 
 
 
@@ -56,7 +57,7 @@ export default async function BlogDetail({ params }: { params: { slug: string } 
                             <div className="row gy-4 d-flex align-items-center justify-content-center">
                                 <div className="col-md-6 pe-md-5">
                                     <img
-                                        src="https://www.b3net.com/wp-content/uploads/2023/07/B3NET-Blog-Banner-11.jpg"
+                                        src={`${BASE_URL}/wp-content/uploads/2023/07/B3NET-Blog-Banner-11.jpg`}
                                         alt=""
                                     />
                                 </div>
@@ -185,7 +186,7 @@ export default async function BlogDetail({ params }: { params: { slug: string } 
                                                                 </div>
                                                             </div>
 
-                                                            <a
+                                                            <Link
                                                                 href={post.url}
                                                                 className="card-title mb-2 card-text-a"
                                                                 style={{ color: "#3b58a2" }}
@@ -193,7 +194,7 @@ export default async function BlogDetail({ params }: { params: { slug: string } 
                                                                 rel="noreferrer"
                                                             >
                                                                 {post.title?.rendered}
-                                                            </a>
+                                                            </Link>
 
                                                             <div
                                                                 dangerouslySetInnerHTML={{ __html: post?.excerpt?.rendered }}

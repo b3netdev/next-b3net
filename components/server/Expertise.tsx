@@ -22,37 +22,37 @@ const Expertise: React.FC = () => {
       title: "Real Estate",
       img: Expertise1,
       desc: "SEO-driven websites for realtors, brokers, and property managers to attract buyers, sellers, and investors effortlessly.",
-      link: "#",
+      link: "/proposal",
     },
     {
       title: "Financial Services",
       img: Expertise2,
       desc: "Custom web solutions for insurance agencies, notaries, and financial institutions to enhance credibility and client acquisition.",
-      link: "#",
+      link: "/proposal",
     },
     {
       title: "Medical & Healthcare",
       img: Expertise3,
       desc: "HIPAA-compliant, fast, and SEO-friendly websites for clinics, hospitals, and healthcare providers to improve patient engagement.",
-      link: "#",
+      link: "/proposal",
     },
     {
       title: "Small Businesses",
       img: Expertise4,
       desc: "Affordable, high-performing websites designed to help small businesses grow, attract customers, and increase online visibility.",
-      link: "#",
+      link: "/proposal",
     },
     {
       title: "Automotive",
       img: Expertise5,
       desc: "Custom automotive websites with SEO and e-commerce features to help dealerships, repair shops, and auto parts businesses thrive.",
-      link: "#",
+      link: "/proposal",
     },
     {
       title: "Professional Service",
       img: Expertise6,
       desc: "Sleek, conversion-focused websites for lawyers, consultants, and agencies to showcase expertise and attract more clients.",
-      link: "#",
+      link: "/proposal",
     },
   ];
 

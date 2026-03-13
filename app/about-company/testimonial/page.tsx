@@ -2,6 +2,8 @@ import React from 'react'
 import { GetPageData } from '@/lib/getdata'
 import ContactFooter from '@/components/server/ContactFooter';
 import TestimonialsClientsSlider from './TestimonialSliders';
+import { BASE_URL } from '@/lib/url';
+import Link from 'next/link';
 
 const Testimonial = async () => {
 
@@ -15,7 +17,7 @@ const Testimonial = async () => {
                 <div className="port-landing-wrap gpp">
                     <div className="banner-img">
                         <img
-                            src="https://www.b3net.com/wp-content/uploads/2025/12/testimonials-banner.webp"
+                            src={`${BASE_URL}/wp-content/uploads/2025/12/testimonials-banner.webp`}
                             alt=""
                         />
                         <div className="container">
@@ -35,7 +37,7 @@ const Testimonial = async () => {
                             <nav aria-label="breadcrumb ">
                                 <ol className="breadcrumb d-flex align-items-center ">
                                     <li className="breadcrumb-item">
-                                        <a href="https://www.b3net.com">Home</a>
+                                        <Link href="/">Home</Link>
                                     </li>
                                     <li className="breadcrumb-item active" aria-current="page">
                                         Testimonial
@@ -55,7 +57,7 @@ const Testimonial = async () => {
                                     <div className="testimonial-card">
                                         <div className="testimonial-header">
                                             <img
-                                                src="https://www.b3net.com/wp-content/uploads/2018/05/cynthia.jpg"
+                                                src={`${BASE_URL}/wp-content/uploads/2018/05/cynthia.jpg`}
                                                 alt="Cindy Jacobs"
                                             />
                                             <div className="info">
@@ -90,7 +92,7 @@ const Testimonial = async () => {
                                     <div className="testimonial-card">
                                         <div className="testimonial-header">
                                             <img
-                                                src="https://www.b3net.com/wp-content/uploads/2017/04/cabinetdiy.jpg"
+                                                src={`${BASE_URL}/wp-content/uploads/2017/04/cabinetdiy.jpg`}
                                                 alt="Cindy Jacobs"
                                             />
                                             <div className="info">
@@ -122,7 +124,7 @@ const Testimonial = async () => {
                                     <div className="testimonial-card">
                                         <div className="testimonial-header">
                                             <img
-                                                src="https://www.b3net.com/wp-content/uploads/2017/02/james-cameron.jpeg"
+                                                src={`${BASE_URL}/wp-content/uploads/2017/02/james-cameron.jpeg`}
                                                 alt="Cindy Jacobs"
                                             />
                                             <div className="info">
@@ -149,7 +151,7 @@ const Testimonial = async () => {
                                     <div className="testimonial-card">
                                         <div className="testimonial-header">
                                             <img
-                                                src="https://www.b3net.com/wp-content/uploads/2017/02/Joe-Patera.jpg"
+                                                src={`${BASE_URL}/wp-content/uploads/2017/02/Joe-Patera.jpg`}
                                                 alt="Cindy Jacobs"
                                             />
                                             <div className="info">
@@ -174,7 +176,7 @@ const Testimonial = async () => {
                                     <div className="testimonial-card">
                                         <div className="testimonial-header">
                                             <img
-                                                src="https://www.b3net.com/wp-content/uploads/2017/02/Perry-Allison.jpg"
+                                                src={`${BASE_URL}/wp-content/uploads/2017/02/Perry-Allison.jpg`}
                                                 alt="Cindy Jacobs"
                                             />
                                             <div className="info">
@@ -196,7 +198,7 @@ const Testimonial = async () => {
                                     <div className="testimonial-card">
                                         <div className="testimonial-header">
                                             <img
-                                                src="https://www.b3net.com/wp-content/uploads/2017/01/Heidi-Leger.jpg"
+                                                src={`${BASE_URL}/wp-content/uploads/2017/01/Heidi-Leger.jpg`}
                                                 alt="Cindy Jacobs"
                                             />
                                             <div className="info">
@@ -222,7 +224,7 @@ const Testimonial = async () => {
                                     <div className="testimonial-card">
                                         <div className="testimonial-header">
                                             <img
-                                                src="https://www.b3net.com/wp-content/uploads/2016/12/Cedric-Duhamel.jpg"
+                                                src={`${BASE_URL}/wp-content/uploads/2016/12/Cedric-Duhamel.jpg`}
                                                 alt="Cindy Jacobs"
                                             />
                                             <div className="info">
@@ -248,7 +250,7 @@ const Testimonial = async () => {
                                     <div className="testimonial-card">
                                         <div className="testimonial-header">
                                             <img
-                                                src="https://www.b3net.com/wp-content/uploads/2015/06/Bob-Burnet.png"
+                                                src={`${BASE_URL}/wp-content/uploads/2015/06/Bob-Burnet.png`}
                                                 alt="Cindy Jacobs"
                                             />
                                             <div className="info">
@@ -270,7 +272,7 @@ const Testimonial = async () => {
                                     <div className="testimonial-card">
                                         <div className="testimonial-header">
                                             <img
-                                                src="https://www.b3net.com/wp-content/uploads/2015/06/Lisa-Burnett.png"
+                                                src={`${BASE_URL}/wp-content/uploads/2015/06/Lisa-Burnett.png`}
                                                 alt="Cindy Jacobs"
                                             />
                                             <div className="info">
@@ -292,7 +294,7 @@ const Testimonial = async () => {
                                     <div className="testimonial-card">
                                         <div className="testimonial-header">
                                             <img
-                                                src="https://www.b3net.com/wp-content/uploads/2016/08/steve.jpg"
+                                                src={`${BASE_URL}/wp-content/uploads/2016/08/steve.jpg`}
                                                 alt="Cindy Jacobs"
                                             />
                                             <div className="info">
@@ -318,7 +320,7 @@ const Testimonial = async () => {
                                     <div className="testimonial-card">
                                         <div className="testimonial-header">
                                             <img
-                                                src="https://www.b3net.com/wp-content/uploads/2015/06/Lucy-Rodriguez-Watson.png"
+                                                src={`${BASE_URL}/wp-content/uploads/2015/06/Lucy-Rodriguez-Watson.png`}
                                                 alt="Cindy Jacobs"
                                             />
                                             <div className="info">
@@ -340,7 +342,7 @@ const Testimonial = async () => {
                                     <div className="testimonial-card">
                                         <div className="testimonial-header">
                                             <img
-                                                src="https://www.b3net.com/wp-content/uploads/2015/06/James-Gerald-LeBloch-.png"
+                                                src={`${BASE_URL}/wp-content/uploads/2015/06/James-Gerald-LeBloch-.png`}
                                                 alt="Cindy Jacobs"
                                             />
                                             <div className="info">
@@ -362,7 +364,7 @@ const Testimonial = async () => {
                                     <div className="testimonial-card">
                                         <div className="testimonial-header">
                                             <img
-                                                src="https://www.b3net.com/wp-content/uploads/2015/06/Servet-Hasan.png"
+                                                src={`${BASE_URL}/wp-content/uploads/2015/06/Servet-Hasan.png`}
                                                 alt="Cindy Jacobs"
                                             />
                                             <div className="info">
@@ -384,7 +386,7 @@ const Testimonial = async () => {
                                     <div className="testimonial-card">
                                         <div className="testimonial-header">
                                             <img
-                                                src="https://www.b3net.com/wp-content/uploads/2015/06/Tracy-Hamilton.png"
+                                                src={`${BASE_URL}/wp-content/uploads/2015/06/Tracy-Hamilton.png`}
                                                 alt="Cindy Jacobs"
                                             />
                                             <div className="info">
@@ -406,7 +408,7 @@ const Testimonial = async () => {
                                     <div className="testimonial-card">
                                         <div className="testimonial-header">
                                             <img
-                                                src="https://www.b3net.com/wp-content/uploads/2015/06/Maryl-Gladstone.png"
+                                                src={`${BASE_URL}/wp-content/uploads/2015/06/Maryl-Gladstone.png`}
                                                 alt="Cindy Jacobs"
                                             />
                                             <div className="info">
@@ -427,7 +429,7 @@ const Testimonial = async () => {
                                     <div className="testimonial-card">
                                         <div className="testimonial-header">
                                             <img
-                                                src="https://www.b3net.com/wp-content/uploads/2015/06/Dr.-Marc-Spitz.png"
+                                                src={`${BASE_URL}/wp-content/uploads/2015/06/Dr.-Marc-Spitz.png`}
                                                 alt="Cindy Jacobs"
                                             />
                                             <div className="info">
@@ -448,7 +450,7 @@ const Testimonial = async () => {
                                     <div className="testimonial-card">
                                         <div className="testimonial-header">
                                             <img
-                                                src="https://www.b3net.com/wp-content/uploads/2015/06/David-Schnieder.png"
+                                                src={`${BASE_URL}/wp-content/uploads/2015/06/David-Schnieder.png`}
                                                 alt="Cindy Jacobs"
                                             />
                                             <div className="info">
@@ -470,7 +472,7 @@ const Testimonial = async () => {
                                     <div className="testimonial-card">
                                         <div className="testimonial-header">
                                             <img
-                                                src="https://www.b3net.com/wp-content/uploads/2015/06/David-Tran.png"
+                                                src={`${BASE_URL}/wp-content/uploads/2015/06/David-Tran.png`}
                                                 alt="Cindy Jacobs"
                                             />
                                             <div className="info">
@@ -493,7 +495,7 @@ const Testimonial = async () => {
                                     <div className="testimonial-card">
                                         <div className="testimonial-header">
                                             <img
-                                                src="https://www.b3net.com/wp-content/uploads/2015/06/PatrickMcNamee.png"
+                                                src={`${BASE_URL}/wp-content/uploads/2015/06/PatrickMcNamee.png`}
                                                 alt="Cindy Jacobs"
                                             />
                                             <div className="info">
@@ -518,7 +520,7 @@ const Testimonial = async () => {
                                     <div className="testimonial-card">
                                         <div className="testimonial-header">
                                             <img
-                                                src="https://www.b3net.com/wp-content/uploads/2015/06/gina.png"
+                                                src={`${BASE_URL}/wp-content/uploads/2015/06/gina.png`}
                                                 alt="Cindy Jacobs"
                                             />
                                             <div className="info">
@@ -541,7 +543,7 @@ const Testimonial = async () => {
                                     <div className="testimonial-card">
                                         <div className="testimonial-header">
                                             <img
-                                                src="https://www.b3net.com/wp-content/uploads/2016/08/Cindy-Jacobs.jpg"
+                                                src={`${BASE_URL}/wp-content/uploads/2016/08/Cindy-Jacobs.jpg`}
                                                 alt="Cindy Jacobs"
                                             />
                                             <div className="info">

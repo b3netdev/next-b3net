@@ -14,6 +14,7 @@ import CaseStudies4 from "@/assets/images/case-studies-img-4.jpg";
 import CaseStudies3 from "@/assets/images/case-studies-img-3.jpg";
 import CaseStudies5 from "@/assets/images/case-studies-img-5.jpg";
 import Upgrade from "@/assets/images/up-grade-icon.png";
+import { BASE_URL } from "@/lib/url";
 
 type Props = {
   pageData: any;
@@ -58,7 +59,7 @@ export default function AboutUsClient({ pageData }: Props) {
       designation: "Broker Associate, REALTOR, SRES",
       company: "Evergreen Realty, HomeSmart",
       image:
-        "https://www.b3net.com/wp-content/uploads/2015/06/PatrickMcNamee.png",
+        BASE_URL + "/wp-content/uploads/2015/06/PatrickMcNamee.png",
       rating: 5,
       message:
         "It was a pleasure working with B3NET on my new custom blog on the WordPress platform. I am very pleased with the result!",
@@ -69,7 +70,7 @@ export default function AboutUsClient({ pageData }: Props) {
       designation: "Founder",
       company: "American Real Estate and Mortgage School",
       image:
-        "https://www.b3net.com/wp-content/uploads/2015/06/David-Schnieder.png",
+        BASE_URL + "/wp-content/uploads/2015/06/David-Schnieder.png",
       rating: 5,
       message:
         "No matter how much complex applications had in our project, B3NET team implemented all those smoothly. B3NET is indeed Orange County’s #1 web development firm.",
@@ -79,7 +80,7 @@ export default function AboutUsClient({ pageData }: Props) {
       name: "Gina B",
       designation: "CEO",
       company: "Encore Staffing",
-      image: "https://www.b3net.com/wp-content/uploads/2015/06/gina.png",
+      image: BASE_URL + "/wp-content/uploads/2015/06/gina.png",
       rating: 5,
       message:
         "B3NET INC. did our website and they were very good, professional and a great value. I have already recommended them to other businesses.",
@@ -89,7 +90,7 @@ export default function AboutUsClient({ pageData }: Props) {
       name: "Gina B",
       designation: "CEO",
       company: "Encore Staffing",
-      image: "https://www.b3net.com/wp-content/uploads/2015/06/gina.png",
+      image: BASE_URL + "/wp-content/uploads/2015/06/gina.png",
       rating: 5,
       message:
         "B3NET INC. did our website and they were very good, professional and a great value. I have already recommended them to other businesses.",
@@ -99,16 +100,17 @@ export default function AboutUsClient({ pageData }: Props) {
       name: "Gina B",
       designation: "CEO",
       company: "Encore Staffing",
-      image: "https://www.b3net.com/wp-content/uploads/2015/06/gina.png",
+      image: BASE_URL + "/wp-content/uploads/2015/06/gina.png",
       rating: 5,
       message:
         "B3NET INC. did our website and they were very good, professional and a great value. I have already recommended them to other businesses.",
     },
   ];
+  
   const caseStudiesData = [
     {
       img: CaseStudies,
-      link: "https://www.b3net.com/case-study-mattress-company-website-digital-marketing.html",
+      link: BASE_URL + "/case-study-mattress-company-website-digital-marketing.html",
       title: "Mattress Manufacturing Company",
       percent: "95%",
       desc: "Increase in Average Website Visitors",
@@ -117,7 +119,7 @@ export default function AboutUsClient({ pageData }: Props) {
     },
     {
       img: CaseStudies4,
-      link: "https://www.b3net.com/case-study-tech-hardware-service-web-design-digital-marketing.html",
+      link: BASE_URL + "/case-study-tech-hardware-service-web-design-digital-marketing.html",
       title: "Viage Solutions",
       percent: "370%",
       desc: "Increase in Average Monthly Sale",
@@ -126,7 +128,7 @@ export default function AboutUsClient({ pageData }: Props) {
     },
     {
       img: CaseStudies3,
-      link: "https://www.b3net.com/case-study-automobile-parts-website-design-seo.html",
+      link: BASE_URL + "/case-study-automobile-parts-website-design-seo.html",
       title: "Motorcycle Parts Manufacturer",
       percent: "275%",
       desc: "Increase In Average Monthly Sales",
@@ -135,7 +137,7 @@ export default function AboutUsClient({ pageData }: Props) {
     },
     {
       img: CaseStudies5,
-      link: "https://www.b3net.com/case-study-tree-care-service-web-design-digital-marketing.html",
+      link: BASE_URL + "/case-study-tree-care-service-web-design-digital-marketing.html",
       title: "Tree Care Company",
       percent: "103%",
       desc: "Increase In Average Monthly Sales",

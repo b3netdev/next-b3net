@@ -1,5 +1,6 @@
 import React from "react";
 import Link from "next/link";
+import { BASE_URL } from "@/lib/url";
 
 type PortfolioItem = {
   title: string;
@@ -16,39 +17,39 @@ type TileProps = {
 const PortFolio: React.FC = () => {
   const items: PortfolioItem[] = [
     {
-      title: "Bio dddddSleep Concept",
-      img: "https://www.b3net.com/wp-content/uploads/2025/12/expertise-img-1.webp",
-      href: "#",
+      title: "Bio Sleep Concept",
+      img: `${BASE_URL}/wp-content/uploads/2025/12/expertise-img-1.webp`,
+      href: "/portfolio/bio-sleep-concept-magento",
       size: "big",
     },
     {
       title: "Arc Levers",
-      img: "https://www.b3net.com/wp-content/uploads/2025/12/expertise-img-2.webp",
-      href: "#",
+      img: `${BASE_URL}/wp-content/uploads/2025/12/expertise-img-2.webp`,
+      href: "/portfolio/arc-levers",
       size: "small",
     },
     {
       title: "Arrendaria",
-      img: "https://www.b3net.com/wp-content/uploads/2025/12/expertise-img-3.webp",
-      href: "#",
+      img: `${BASE_URL}/wp-content/uploads/2025/12/expertise-img-3.webp`,
+      href: "/portfolio/arrendaria-real-estate-service",
       size: "small",
     },
     {
       title: "Tim Henson’s Unique Lighting",
-      img: "https://www.b3net.com/wp-content/uploads/2025/12/expertise-img-4.webp",
-      href: "#",
+      img: `${BASE_URL}/wp-content/uploads/2025/12/expertise-img-4.webp`,
+      href: "/portfolio/tim-hensons-unique-lighting-wordpress",
       size: "big",
     },
     {
       title: "The Fifth OC",
-      img: "https://www.b3net.com/wp-content/uploads/2025/12/expertise-img-5.webp",
-      href: "#",
+      img: `${BASE_URL}/wp-content/uploads/2025/12/expertise-img-5.webp`,
+      href: "/portfolio/the-fifth-oc-wordpress",
       size: "big",
     },
     {
       title: "Maya Stone",
-      img: "https://www.b3net.com/wp-content/uploads/2025/12/expertise-img-6.webp",
-      href: "#",
+      img: `${BASE_URL}/wp-content/uploads/2025/12/expertise-img-6.webp`,
+      href: "/portfolio/maya-stone-inc-wordpress",
       size: "small",
     },
   ];
@@ -69,17 +70,17 @@ const PortFolio: React.FC = () => {
           item.featured ? ({ ["--bs-aspect-ratio" as any]: "140%" } as any) : undefined
         }
       >
-        <a href={item.href}>
+        <Link href={item.href}>
           <img
             src={item.img}
             alt=""
             className="w-100 h-100 object-fit-cover rounded-4"
           />
-        </a>
+        </Link>
       </div>
 
       <div className="portfolio-details mt-2">
-        <a
+        <Link
           href={item.href}
           className="d-flex align-items-center justify-content-between"
         >
@@ -90,7 +91,7 @@ const PortFolio: React.FC = () => {
               style={{ transform: "rotate(300deg)" }}
             ></i>
           </span>
-        </a>
+        </Link>
       </div>
     </div>
   );

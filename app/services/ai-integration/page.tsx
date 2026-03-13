@@ -10,6 +10,8 @@ import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
 import AiSlider from "./AiSlider";
+import { BASE_URL } from "@/lib/url";
+import Link from "next/link";
 
 const AiIntregation = async ({ params }: { params: { slug: string } }) => {
 
@@ -54,7 +56,7 @@ const AiIntregation = async ({ params }: { params: { slug: string } }) => {
               <div className="col-lg-6 order-lg-1 text-center">
                 <div className="ai-img">
                   <img
-                    src="https://www.b3net.com/wp-content/uploads/2025/03/left-img.png"
+                    src={`${BASE_URL}/wp-content/uploads/2025/03/left-img.png`}
                     alt=""
                   />
                 </div>
@@ -87,7 +89,7 @@ const AiIntregation = async ({ params }: { params: { slug: string } }) => {
                     <div className="icon">
                       <img
                         decoding="async"
-                        src="https://www.b3net.com/wp-content/uploads/2025/03/icon-1.png"
+                        src={`${BASE_URL}/wp-content/uploads/2025/03/icon-1.png`}
                       />
                     </div>
                     <div className="text">
@@ -111,7 +113,7 @@ const AiIntregation = async ({ params }: { params: { slug: string } }) => {
                     <div className="icon">
                       <img
                         decoding="async"
-                        src="https://www.b3net.com/wp-content/uploads/2025/03/icon-2.png"
+                        src={`${BASE_URL}/wp-content/uploads/2025/03/icon-2.png`}
                       />
                     </div>
                     <div className="text">
@@ -134,7 +136,7 @@ const AiIntregation = async ({ params }: { params: { slug: string } }) => {
                     <div className="icon">
                       <img
                         decoding="async"
-                        src="https://www.b3net.com/wp-content/uploads/2025/03/icon-3.png"
+                        src={`${BASE_URL}/wp-content/uploads/2025/03/icon-3.png`}
                       />
                     </div>
                     <div className="text">
@@ -156,7 +158,7 @@ const AiIntregation = async ({ params }: { params: { slug: string } }) => {
                     <div className="icon">
                       <img
                         decoding="async"
-                        src="https://www.b3net.com/wp-content/uploads/2025/03/icon-4.png"
+                        src={`${BASE_URL}/wp-content/uploads/2025/03/icon-4.png`}
                       />
                     </div>
                     <div className="text">
@@ -180,9 +182,9 @@ const AiIntregation = async ({ params }: { params: { slug: string } }) => {
                 streamline your operations, or unlock new avenues for growth,
                 our tailor-made AI solutions have got you covered. Transform
                 your business with{" "}
-                <a href="https://www.b3net.com/" className="site-logo">
+                <Link href="/" className="site-logo">
                   B3NET Inc.
-                </a>
+                </Link>
                 , and experience the difference that intelligent automation can
                 make.{" "}
               </p>
@@ -209,7 +211,7 @@ const AiIntregation = async ({ params }: { params: { slug: string } }) => {
                 <div className="col-md-6 pe-0 pe-md-4">
                   <div className="development-video">
                     <img
-                      src="https://www.b3net.com/wp-content/uploads/2025/03/chat-gpt-on-laptop.gif"
+                      src={`${BASE_URL}/wp-content/uploads/2025/03/chat-gpt-on-laptop.gif`}
                       decoding="async"
                       alt=""
                     />
@@ -262,7 +264,7 @@ const AiIntregation = async ({ params }: { params: { slug: string } }) => {
         <section className="row align-items-center gy-5">
           <div className="col-md-6 order-md-last">
             <img
-              src="https://www.b3net.com/wp-content/uploads/2025/03/left-img2.png"
+              src={`${BASE_URL}/wp-content/uploads/2025/03/left-img2.png`}
               alt="AI Solutions"
               decoding="async"
             />
@@ -277,9 +279,9 @@ const AiIntregation = async ({ params }: { params: { slug: string } }) => {
                 Imagine a business model delivering precision, agility, and
                 intelligence simultaneously. At
                 <br />
-                <a className="site-logo" href="https://www.b3net.com/">
+                <Link className="site-logo" href="/">
                   B3NET Inc.
-                </a>
+                </Link>
                 , our AI-powered solutions transform your daily operations,
                 enhance decision-making, and set the stage for a profitable
                 future.
@@ -297,7 +299,7 @@ const AiIntregation = async ({ params }: { params: { slug: string } }) => {
             <div className="row align-items-center gy-5">
               <div className="col-md-5">
                 <div className="advantages-img">
-                  <img src="https://www.b3net.com/wp-content/uploads/2025/03/img-3.png" />
+                  <img src={`${BASE_URL}/wp-content/uploads/2025/03/img-3.png`} />
                 </div>
               </div>
               <div className="col-md-7">
@@ -309,7 +311,7 @@ const AiIntregation = async ({ params }: { params: { slug: string } }) => {
                 <div className="advantages-lists">
                   <div className="d-flex">
                     <div className="icon">
-                      <img src="https://www.b3net.com/wp-content/uploads/2025/03/icon-add-1.png" />
+                      <img src={`${BASE_URL}/wp-content/uploads/2025/03/icon-add-1.png`} />
                     </div>
                     <div className="text">
                       <h3>Efficiency and Productivity</h3>
@@ -322,7 +324,7 @@ const AiIntregation = async ({ params }: { params: { slug: string } }) => {
 
                   <div className="d-flex">
                     <div className="icon">
-                      <img src="https://www.b3net.com/wp-content/uploads/2025/03/icon-add-2.png" />
+                      <img src={`${BASE_URL}/wp-content/uploads/2025/03/icon-add-2.png`} />
                     </div>
                     <div className="text">
                       <h3>Improved Decision Making</h3>
@@ -335,7 +337,7 @@ const AiIntregation = async ({ params }: { params: { slug: string } }) => {
 
                   <div className="d-flex">
                     <div className="icon">
-                      <img src="https://www.b3net.com/wp-content/uploads/2025/03/icon-add-3.png" />
+                      <img src={`${BASE_URL}/wp-content/uploads/2025/03/icon-add-3.png`} />
                     </div>
                     <div className="text">
                       <h3>Enhanced Customer Experience</h3>
@@ -348,7 +350,7 @@ const AiIntregation = async ({ params }: { params: { slug: string } }) => {
 
                   <div className="d-flex">
                     <div className="icon">
-                      <img src="https://www.b3net.com/wp-content/uploads/2025/03/icon-add-4.png" />
+                      <img src={`${BASE_URL}/wp-content/uploads/2025/03/icon-add-4.png`} />
                     </div>
                     <div className="text">
                       <h3>Scalability</h3>
@@ -369,7 +371,7 @@ const AiIntregation = async ({ params }: { params: { slug: string } }) => {
             <div className="row align-items-center gy-5">
               <div className="col-md-6 order-md-last mb-sm-30">
                 <div className="ready-img">
-                  <img src="https://www.b3net.com/wp-content/uploads/2025/03/img-4.jpg" />
+                  <img src={`${BASE_URL}/wp-content/uploads/2025/03/img-4.jpg`} />
                 </div>
               </div>
               <div className="col-md-6 order-md-first">

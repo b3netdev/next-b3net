@@ -237,8 +237,8 @@ const ServiceSubpage = async ({ params }: { params: { slug: string } }) => {
                                 </div>
                                 <div className="col-lg-6 right-column text-center">
                                     <img
-                                     src={`${BASE_URL}/wp-content/uploads/2024/06/Why-B3NET-3.jpg`}
-                                     className="img-fluid" alt="Data Cleansing Image" />
+                                        src={`${BASE_URL}/wp-content/uploads/2024/06/Why-B3NET-3.jpg`}
+                                        className="img-fluid" alt="Data Cleansing Image" />
                                 </div>
                             </div>
                         </div>
@@ -480,7 +480,7 @@ const ServiceSubpage = async ({ params }: { params: { slug: string } }) => {
                                     </div>
                                     <div className="col-md-6 text-center ">
                                         <div className="outerwrap-img">
-                                            <img src="https://www.b3net.com/wp-content/uploads/2025/03/WEBSITE-1.webp" />
+                                            <img src={`${BASE_URL}/wp-content/uploads/2025/03/WEBSITE-1.webp`} />
                                         </div>
                                     </div>
                                 </div>
@@ -512,7 +512,7 @@ const ServiceSubpage = async ({ params }: { params: { slug: string } }) => {
                                                     <div className="testimonial-wrapper lazyloaded">
                                                         <div className="quote-icon">
                                                             <img
-                                                                src="https://www.b3net.com/wp-content/themes/perfecti/assets/seo-assets/images/tetimonial-quote-icon.png"
+                                                                src={`${BASE_URL}/wp-content/themes/perfecti/assets/seo-assets/images/tetimonial-quote-icon.png`}
                                                                 alt="quotes"
                                                             />
                                                         </div>

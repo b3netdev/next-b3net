@@ -2,6 +2,7 @@
 import { notFound } from "next/navigation";
 import { GetPageData } from "@/lib/getdata";
 import AboutUsClient from "./AboutUsClient";
+import { BASE_URL } from "@/lib/url";
 
 type PageProps = {
   params: { slug: string };
@@ -23,7 +24,7 @@ export default async function AboutUsPage({ params }: PageProps) {
       <div className="port-landing-wrap gpp">
         <div className="banner-img">
           <img
-            src="https://www.b3net.com/wp-content/uploads/2025/12/about-banner.webp"
+            src={`${BASE_URL}/wp-content/uploads/2025/12/about-banner.webp`}
             alt=""
           />
           <div className="container">
@@ -68,7 +69,7 @@ export default async function AboutUsPage({ params }: PageProps) {
           <div className="row">
             <div className="col-lg-4 col-md-6 mb-4">
               <img
-                src="https://www.b3net.com/wp-content/uploads/2025/12/ai-image.webp"
+                src={`${BASE_URL}/wp-content/uploads/2025/12/ai-image.webp`}
                 alt=""
               />
             </div>
@@ -84,7 +85,7 @@ export default async function AboutUsPage({ params }: PageProps) {
         </div>
       </div>
 
-      {/* ✅ Client-only stuff (swiper, DOM animation, etc) */}
+      
       <AboutUsClient pageData={pageData} />
     </div>
   );

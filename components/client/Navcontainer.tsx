@@ -9,6 +9,7 @@ import { setId } from "@/redux/slicers/idSlicer";
 
 import { menulist, serviceMegaMenuColumns } from "../../helper/Menulist";
 import SideMenu from "./SideMenu";
+import { BASE_URL } from "@/lib/url";
 
 
 type MenuChild = {
@@ -127,7 +128,7 @@ export default function Navbar() {
 
                             <Link href={`/services/${item?.slug}`}
                                 className="service-menu-link"
-                            
+
                             >
                                 {item.label}
                             </Link>
@@ -230,7 +231,7 @@ export default function Navbar() {
                         <i className="fa-solid fa-users-viewfinder"></i>
                     )}
 
-                    
+
                     <Link href={`/about-company/${data?.page?.slug !== "about-company" ? data?.page?.slug : ''}`}
 
                     >{data.title}</Link>
@@ -269,9 +270,9 @@ export default function Navbar() {
                 >
                     <div className="site_logo">
                         <Link className="site_link" href="/">
-                            
+
                             <img
-                                src="https://www.b3net.com/wp-content/uploads/2025/06/logo-2.png"
+                                src={`${BASE_URL}/wp-content/uploads/2025/06/logo-2.png`}
                                 alt="logo"
                                 className="logo_img"
                                 style={{ filter: !isSticky ? "brightness(0) invert(1)" : "none" }}

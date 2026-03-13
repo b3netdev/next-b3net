@@ -94,7 +94,7 @@ const CaseStudy = async ({ slug }: any) => {
                             </div>
                             <div className="hire-right">
                                 <a
-                                    href="https://www.b3net.com/get-a-free-proposal.html"
+
                                     className="hireus-btn btn btn-primary"
                                 >
                                     {pageData?.acf?.data?.first_section_box_button_name}{" "}
@@ -105,9 +105,11 @@ const CaseStudy = async ({ slug }: any) => {
                         <div className="our-client-sec">
                             <div className="two-blocks f-block">
                                 <div className="client-imgwrap">
-                                <img src={`${BASE_URL}/wp-content/uploads/2023/07/hear-from-client.png`} />
+                                    <img src={`${BASE_URL}/wp-content/uploads/2023/07/hear-from-client.png`} />
                                     <div className="play-btn">
-                                        <img src="https://www.b3net.com/old-site-2025/wp-content/themes/perfecti/case-3-assets/images/play-icon.png" />
+                                        <img
+                                            src={`${BASE_URL}/old-site-2025/wp-content/themes/perfecti/case-3-assets/images/play-icon.png`}
+                                        />
                                     </div>
                                 </div>
                             </div>
@@ -265,7 +267,7 @@ const CaseStudy = async ({ slug }: any) => {
                                 />
 
                                 <Link
-                                    href="https://www.b3net.com/request-for-proposal.html"
+                                    href="/proposal"
                                     className="get-result-btn btn btn-primary"
                                 >
                                     Get Results <i className="fa-solid fa-arrow-right"></i>
@@ -285,7 +287,7 @@ const CaseStudy = async ({ slug }: any) => {
                         <div className="case-sec-ttl">
                             <h2>Request For Quote</h2>
                         </div>
-                        <ServiceContact showTitle={false}  />
+                        <ServiceContact showTitle={false} />
                         <ContactFooter />
                     </div>
                 </section>
