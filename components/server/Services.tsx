@@ -24,14 +24,14 @@ const Services = () => {
           description: "Attract, engage, and convert consistently",
           image: `${BASE_URL}/wp-content/uploads/2026/02/Digital-Marketing-Demand-Generation.webp`,
           link: `${BASE_URL}/digital-marketing-agency-services.html`,
-          slug: ""
+          slug: "Digital-Marketing-Demand-Generation"
         },
         {
           title: "Search Engine & Answer Engine Optimization (SEO/AEO)",
           description: "Increase visibility on Google, ChatGPT",
           image: `${BASE_URL}/wp-content/uploads/2026/02/SEO-AEO.webp`,
           link: `${BASE_URL}/seo-services.html`,
-          slug: ""
+          slug: "seo-services"
         },
         {
           title: "Social Media Marketing",
@@ -52,14 +52,14 @@ const Services = () => {
           description: "Build scalable tools. Streamline operations and growth",
           image: `${BASE_URL}/wp-content/uploads/2026/02/Custom-Web-Mobile-Applications.webp`,
           link: `${BASE_URL}/custom-web-application-development.html`,
-          slug: ""
+          slug: "custom-web-application-development"
         },
         {
           title: "Data Engineering & Analytics",
           description: "Clean data pipelines. Power smarter decisions",
           image: `${BASE_URL}/wp-content/uploads/2026/02/Data-Engineering-Analytics.webp`,
           link: `${BASE_URL}/data-engineering-services.html`,
-          slug: ""
+          slug: "data-engineering-services"
         },
         {
           title: "Data Strategy & Governance",
@@ -73,7 +73,7 @@ const Services = () => {
           description: "Transform data into clear, actionable growth insights",
           image: `${BASE_URL}/wp-content/uploads/2026/02/Analytics-Business-Insights.webp`,
           link: `${BASE_URL}/data-solutions.html`,
-          slug: ""
+          slug: "data-solutions"
         },
       ];
     return (
