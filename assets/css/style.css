@@ -346,7 +346,7 @@ body.body {
   background-size: contain;
   padding: 15px;
   border-radius: 20px;
-  margin-top: 40px;
+  /* margin-top: 40px; */
 }
 
 .portfolio-list .image img {
@@ -4220,7 +4220,7 @@ p.form-submit input#submit {
   }
 
   .portfolio-list {
-    margin-top: 20px;
+    /* margin-top: 20px; */
   }
 
   .rating-section {
@@ -7000,4 +7000,14 @@ div {
   display: flex;
   align-items: center;
   gap: 8px;
+}
+
+
+.solutions-hover-box div p {
+  color: white;
+}
+
+.solutions-hover-box div span {
+  cursor: pointer !important;
+  color: #ff6600;
 }

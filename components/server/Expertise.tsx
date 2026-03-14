@@ -57,7 +57,7 @@ const Expertise: React.FC = () => {
   ];
 
   return (
-    <div className="expertise-service sp pb-0" id="expertise-service">
+    <div className="expertise-service sp pb-0 p-0" id="expertise-service">
       <div className="container">
         <div className="row mb-4 mb-md-5">
           <div className="col-lg-12 text-center">
@@ -71,10 +71,10 @@ const Expertise: React.FC = () => {
         </div>
       </div>
 
-      <div className="portfolio-sec-images solutions-list-images expertise-list-images">
-        <div className="row  align-items-center p-0">
+      <div className="portfolio-sec-images solutions-list-images expertise-list-images p-0">
+        <div className="row align-items-center p-0">
           {expertiseItems.map((item, index) => (
-            <div className="col-lg-4 col-md-6 p-0" key={index}>
+            <div className="col-lg-4 col-md-6 m-0 p-0" key={index}>
               <div className="portfolio-list">
                 <div className="image image-anime reveal">
                   <Link href={item.link}>
@@ -98,6 +98,7 @@ const Expertise: React.FC = () => {
           ))}
         </div>
       </div>
+
     </div>
   );
 };

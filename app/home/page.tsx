@@ -163,7 +163,7 @@ export default function Home() {
                 </div>
             </div>
 
-            {/* SECTIONS */}
+
             <div className="tab-section-click d-lg-block d-none">
                 <HomeNav />
             </div>

@@ -12,8 +12,7 @@ export default async function Portfolio() {
 
 
   const pageData = await GetPageData("portfolio", "page");
-
-
+  console.log(pageData, "PageData")
 
   if (!pageData) notFound();
 
@@ -82,17 +81,18 @@ export default async function Portfolio() {
                   <div className="col-lg-4 col-md-6 p-0" key={index}>
                     <div className="portfolio-list">
                       <div className="image image-anime reveal">
-                        <Link href="/requestforproposal.html">
+                        <Link href="/proposal">
                           <img src={item?.image} alt="" />
+                          <div className="solutions-hover-box ">
+                            <div
+                              dangerouslySetInnerHTML={{
+                                __html: (item?.content ?? "")
+                                  .replace(/<a\b[^>]*>/g, "<span>")
+                                  .replace(/<\/a>/g, "</span>")
+                              }}
+                            />
+                          </div>
                         </Link>
-
-                        <div className="solutions-hover-box">
-                          <div
-                            dangerouslySetInnerHTML={{
-                              __html: item?.content ?? "",
-                            }}
-                          />
-                        </div>
                       </div>
                     </div>
                   </div>
@@ -114,9 +114,9 @@ export default async function Portfolio() {
                       className="col-6 col-sm-4 col-md-3 col-lg-2 col-xl-2 xtra-space"
                       key={index}
                     >
-                      <a href={item?.url ?? "#"} target="_blank" rel="noreferrer">
+                      <Link href="/portfolio" >
                         <img src={item?.image} alt="As seen on" />
-                      </a>
+                      </Link>
                     </div>
                   )
                 )}
