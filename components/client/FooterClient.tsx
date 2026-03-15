@@ -75,7 +75,7 @@ function LocationColumns({ columns }: { columns: FooterLocationItem[][] }) {
                           className="d-flex align-items-cennter justify-content-center"
                         >
                           <Dot color="#ff4f02" strokeWidth={5} />
-                          <Link href={l.url} target="_blank" rel="noreferrer">
+                          <Link href={l.url} >
                             {l.label}
                           </Link>
                         </div>
@@ -297,7 +297,7 @@ export default function FooterClient({ footerData }: Props) {
                       <ul className="footer-social">
                         {footerData.socials.map((s) => (
                           <li key={s.url}>
-                            <Link href={s.url} target="_blank" title="" rel="noreferrer">
+                            <Link href={s.url}>
                               <i className={`fa-brands ${s.icon}`}></i>
                             </Link>
                           </li>
@@ -314,8 +314,7 @@ export default function FooterClient({ footerData }: Props) {
                           <li key={p.img}>
                             <Link
                               href={p.url}
-                              target={p.url !== "#" ? "_blank" : undefined}
-                              rel="noreferrer"
+
                             >
                               <img src={p.img} alt={p.alt || ""} />
                             </Link>
