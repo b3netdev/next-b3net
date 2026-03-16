@@ -187,10 +187,10 @@ export default function FooterClient({ footerData }: Props) {
 
                     <div
                       id={collapseId}
-                      className={`accordion-collapse collapse ${open ? "show" : ""} bg-amber-700`}
+                      className={`accordion-collapse  ${open ? "show" : ""} bg-amber-700`}
                       style={{ display: open ? "block" : "none" }}
                     >
-                      {/* <div className="accordion-body">
+                      <div className="accordion-body">
                         <div className="footer-col">
                           <div className="top-footer new-footer">
                             <div className="container">
@@ -204,12 +204,8 @@ export default function FooterClient({ footerData }: Props) {
                             </div>
                           </div>
                         </div>
-                      </div> */}
-                      <div className="accordion-body p-0 bg-amber-200">
-                        <div className="menu-list">
-                          <LocationColumns columns={loc.columns} />
-                        </div>
                       </div>
+                      
                     </div>
                   </div>
                 );
@@ -259,12 +255,12 @@ export default function FooterClient({ footerData }: Props) {
                       role="tabpanel"
                       aria-labelledby={`${domId}-tab`}
                     >
-                      <div className="footer-col">
+                      <div className="footer-col ">
                         <div className="top-footer new-footer">
                           <div className="container">
                             <div className="row">
                               <div className="col-lg-12 col-xl-12">
-                                <div className="menu-list">
+                                <div className="menu-list  desktopFooterMenu">
                                   <LocationColumns columns={loc.columns} />
                                 </div>
                               </div>
