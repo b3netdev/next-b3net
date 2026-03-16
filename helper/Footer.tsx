@@ -50,11 +50,11 @@ export const footerData: FooterData = {
             links: [
               {
                 label: "Addison Website Design Development",
-                url: "/services/addison-website-design-development",
+                url: "/services/web-design-services-in-addison",
               },
               {
                 label: "Digital Marketing Addison",
-                url: "/services/digital-marketing-addison",
+                url: "/services/digital-marketing-in-addison",
               },
             ],
           },
@@ -63,7 +63,7 @@ export const footerData: FooterData = {
             links: [
               {
                 label: "Website Design Albuquerque",
-                url: "/services/website-design-albuquerque",
+                url: "/services/albuquerque-web-design",
               },
             ],
           },
@@ -76,7 +76,7 @@ export const footerData: FooterData = {
               },
               {
                 label: "Digital Marketing Allen TX",
-                url: "/services/digital-marketing-allen-tx",
+                url: "/services/digital-marketing-in-allen",
               },
             ],
           },
@@ -85,11 +85,11 @@ export const footerData: FooterData = {
             links: [
               {
                 label: "Arlington Web Design",
-                url: "/services/arlington-web-design",
+                url: "/services/website-design-development-arlington",
               },
               {
                 label: "Digital Marketing Arlington",
-                url: "/services/digital-marketing-arlington",
+                url: "/services/digital-marketing-in-arlington",
               },
             ],
           },
@@ -98,11 +98,11 @@ export const footerData: FooterData = {
             links: [
               {
                 label: "Austin Website Design Development",
-                url: "/services/austin-website-design-development",
+                url: "/services/web-design-and-development",
               },
               {
                 label: "Digital Marketing Austin",
-                url: "/services/digital-marketing-austin",
+                url: "/services/tustin-digital-marketing-company",
               },
             ],
           },
@@ -111,11 +111,11 @@ export const footerData: FooterData = {
             links: [
               {
                 label: "Carrollton Website Design Development",
-                url: "https://b3net.com/texas/carrollton-website-design-development.html",
+                url: "/services/website-design-development-carrollton",
               },
               {
                 label: "Digital Marketing Carrollton",
-                url: "https://b3net.com/texas/digital-marketing-carrollton.html",
+                url: "/services/digital-marketing-in-carrollton",
               },
             ],
           },
@@ -124,11 +124,11 @@ export const footerData: FooterData = {
             links: [
               {
                 label: "Cedar Hill Website Design & Development",
-                url: "https://b3net.com/texas/cedar-hill-website-design-development.html",
+                url: "/services/web-design-and-development-in-cedar-hill",
               },
               {
                 label: "Digital Marketing Cedar Hill TX",
-                url: "https://b3net.com/texas/digital-marketing-cedar-hill-tx.html",
+                url: "/services/digital-marketing-in-cedar-hill",
               },
             ],
           },
@@ -139,11 +139,11 @@ export const footerData: FooterData = {
             links: [
               {
                 label: "Coppell Website Design & Development",
-                url: "/services/oppell-website-design-development",
+                url: "/services/web-design-services-in-coppell",
               },
               {
                 label: "Digital Marketing Coppell TX",
-                url: "/services/digital-marketing-coppell-tx",
+                url: "/services/digital-marketing-in-coppell",
               },
             ],
           },
@@ -156,31 +156,31 @@ export const footerData: FooterData = {
               },
               {
                 label: "Dallas PPC Management Company",
-                url: "/services/dallas-ppc-management-company",
+                url: "/services/dallas-ppc-management",
               },
               {
                 label: "Dallas SEO Internet Marketing Service",
-                url: "/services/dallas-seo-internet-marketing-service",
+                url: "/services/dallas-seo-agency",
               },
               {
                 label: "Dallas Web Development Agency",
-                url: "/services/dallas-web-development-agency",
+                url: "/services/web-development-service",
               },
               {
                 label: "Digital Marketing Agency Dallas Fort Worth",
-                url: "/services/digital-marketing-agency-dallas-fort-worth",
+                url: "/services/digital-marketing-forth-worth",
               },
               {
                 label: "Local SEO Agency Dallas",
-                url: "/services/local-seo-agency-dallas",
+                url: "/services/dallas-local-seo-agency",
               },
               {
                 label: "Social Media Marketing Agency Dallas",
-                url: "/services/social-media-marketing-agency-dallas",
+                url: "/services/dallas-social-media-marketing",
               },
               {
                 label: "Website Maintenance Services Dallas",
-                url: "/services/website-maintenance-services-dallas",
+                url: "/services/website-maintenance-service-dallas",
               },
             ],
           },
@@ -189,11 +189,11 @@ export const footerData: FooterData = {
             links: [
               {
                 label: "Digital Marketing Farmers Branch TX",
-                url: "/services/digital-marketing-farmers-branch-tx",
+                url: "/services/digital-marketing-in-farmers-branch",
               },
               {
                 label: "Farmers Branch Website Design & Development",
-                url: "/services/farmers-branch-website-design-development",
+                url: "/services/web-design-and-development-in-farmers-branch",
               },
             ],
           },
@@ -202,11 +202,11 @@ export const footerData: FooterData = {
             links: [
               {
                 label: "Digital Marketing Fort Worth",
-                url: "/services/digital-marketing-fort-worth",
+                url: "/services/digital-marketing-in-fort-worth",
               },
               {
                 label: "Website Design Fort Worth",
-                url: "/services/website-design-fort-worth",
+                url: "/services/website-design-development-fort-worth",
               },
             ],
           },
@@ -219,7 +219,7 @@ export const footerData: FooterData = {
               },
               {
                 label: "Website Design Frisco",
-                url: "/services/website-design-frisco",
+                url: "/services/web-design-services-in-frisco",
               },
             ],
           },
@@ -228,11 +228,11 @@ export const footerData: FooterData = {
             links: [
               {
                 label: "Digital Marketing Garland TX",
-                url: "/services/digital-marketing-garland-tx",
+                url: "/services/digital-marketing-in-garland",
               },
               {
                 label: "Garland Website Design",
-                url: "/services/garland-website-design",
+                url: "/services/garland-website-design-development",
               },
             ],
           },
@@ -241,7 +241,7 @@ export const footerData: FooterData = {
             links: [
               {
                 label: "Digital Marketing Grapevine TX",
-                url: "/services/digital-marketing-grapevine-tx",
+                url: "/services/digital-marketing-in-grapevine",
               },
               {
                 label: "Grapevine Website Design & Development",
@@ -256,11 +256,11 @@ export const footerData: FooterData = {
             links: [
               {
                 label: "Digital Marketing Houston TX",
-                url: "/services/digital-marketing-houston-tx",
+                url: "/services/digital-marketing-in-houston",
               },
               {
                 label: "Website Design Houston",
-                url: "/services/website-design-houston",
+                url: "/services/web-design-and-development-in-houston",
               },
             ],
           },
@@ -269,11 +269,11 @@ export const footerData: FooterData = {
             links: [
               {
                 label: "Digital Marketing Company Irvine",
-                url: "/services/digital-marketing-company-irvine",
+                url: "/services/digital-marketing-company-in-irvine-ca",
               },
               {
                 label: "Website Design Irvine",
-                url: "/services/website-design-irvine",
+                url: "/services/irvine-web-design",
               },
             ],
           },
@@ -282,11 +282,11 @@ export const footerData: FooterData = {
             links: [
               {
                 label: "Digital Marketing Irving TX",
-                url: "/services/digital-marketing-irving-tx",
+                url: "/services/irving-digital-marketing",
               },
               {
                 label: "Irving Web Design",
-                url: "/services/irving-web-design",
+                url: "/services/web-design-and-development-irving",
               },
             ],
           },
@@ -295,7 +295,7 @@ export const footerData: FooterData = {
             links: [
               {
                 label: "Las Vegas Website Design",
-                url: "/services/las-vegas-website-design",
+                url: "/services/las-vegas-web-design",
               },
             ],
           },
@@ -304,7 +304,7 @@ export const footerData: FooterData = {
             links: [
               {
                 label: "Digital Marketing Lewisville TX",
-                url: "/services/digital-marketing-lewisville-tx",
+                url: "/services/dallas-digital-marketing-company-2",
               },
               {
                 label: "Lewisville Website Design & Development",
@@ -317,11 +317,11 @@ export const footerData: FooterData = {
             links: [
               {
                 label: "Digital Marketing McKinney TX",
-                url: "/services/digital-marketing-mckinney-tx",
+                url: "/services/digital-marketing-in-mckinney",
               },
               {
                 label: "Website Design McKinney",
-                url: "/services/website-design-mckinney",
+                url: "/services/web-design-and-development-in-mckinney",
               },
             ],
           },
@@ -330,7 +330,7 @@ export const footerData: FooterData = {
             links: [
               {
                 label: "Memphis Website Design Company",
-                url: "/services/memphis-website-design-company",
+                url: "/services/memphis-website-design-development",
               },
             ],
           },
@@ -341,11 +341,11 @@ export const footerData: FooterData = {
             links: [
               {
                 label: "Digital Marketing Mesquite TX",
-                url: "/services/digital-marketing-mesquite-tx",
+                url: "/services/digital-marketing-in-mesquite",
               },
               {
                 label: "Mesquite Website Design & Development",
-                url: "/services/mesquite-website-design-development",
+                url: "/services/web-design-and-development-in-mesquite",
               },
             ],
           },
@@ -354,7 +354,7 @@ export const footerData: FooterData = {
             links: [
               {
                 label: "New York Digital Marketing Agency",
-                url: "/services/digital-marketing-agency",
+                url: "/services/new-york-digital-marketing-company",
               },
             ],
           },
@@ -363,7 +363,7 @@ export const footerData: FooterData = {
             links: [
               {
                 label: "Website Design Oklahoma City",
-                url: "/services/website-design-oklohoma-city",
+                url: "/services/oklahoma-website-design",
               },
             ],
           },
@@ -376,7 +376,7 @@ export const footerData: FooterData = {
               },
               {
                 label: "Orange County Web Design",
-                url: "/services/orange-county-web-design",
+                url: "/services/orange-county-web-design-2",
               },
             ],
           },
@@ -385,7 +385,7 @@ export const footerData: FooterData = {
             links: [
               {
                 label: "Phoenix Web Design",
-                url: "/services/phoenix-web-design",
+                url: "/services/website-design-development-in-phoenix",
               },
             ],
           },
@@ -394,11 +394,11 @@ export const footerData: FooterData = {
             links: [
               {
                 label: "Plano Digital Marketing & Web Design",
-                url: "/services/plano-digital-marketing-web-design",
+                url: "/services/plano-digital-marketing",
               },
               {
                 label: "Plano Web Design Company",
-                url: "/services/plano-web-design-company",
+                url: "/services/riverside-web-design",
               },
             ],
           },
@@ -407,11 +407,11 @@ export const footerData: FooterData = {
             links: [
               {
                 label: "Princeton Digital Marketing Agency",
-                url: "https://www.b3net.com/texas/princeton-digital-marketing-agency.html",
+                url: "/services/digital-marketing-agency-in-princeton",
               },
               {
                 label: "Princeton Website Design & Development",
-                url: "https://b3net.com/texas/princeton-website-design-development.html",
+                url: "/services/princetonwebsite-design-development",
               },
             ],
           },
@@ -422,11 +422,11 @@ export const footerData: FooterData = {
             links: [
               {
                 label: "Digital Marketing Rancho Santa Margarita",
-                url: "/services/digital-marketing-rancho-santa-margarita",
+                url: "/services/digital-marketing-company-in-rancho-santa-margarita",
               },
               {
                 label: "Website Design Rancho Santa Margarita",
-                url: "/services/website-design-rancho-santa-margarita",
+                url: "/services/rancho-santa-margarita-web-design",
               },
             ],
           },
@@ -448,11 +448,11 @@ export const footerData: FooterData = {
             links: [
               {
                 label: "Riverside Digital Marketing Company",
-                url: "/services/riverside-digital-marketing-company",
+                url: "/services/digital-marketing-company-in-riverside-ca",
               },
               {
                 label: "Web Design & Development Company Riverside",
-                url: "/services/web-design-development-company-riverside",
+                url: "/services/orange-county-web-design",
               },
             ],
           },
@@ -461,11 +461,11 @@ export const footerData: FooterData = {
             links: [
               {
                 label: "Digital Marketing Rockwall TX",
-                url: "/services/digital-marketing-rockwall-tx",
+                url: "/services/digital-marketing-in-rockwall",
               },
               {
                 label: "Rockwall Website Design & Development",
-                url: "/services/rockwall-website-design-development",
+                url: "/services/website-design-development-in-rockwall",
               },
             ],
           },
