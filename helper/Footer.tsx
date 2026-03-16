@@ -719,11 +719,11 @@ export const footerData: FooterData = {
         },
       ],
     },
-    { title: "FAQ", url: "/faq" },
-    { title: "Testimonials", url: "/testimonial" },
+    { title: "FAQ", url: "/about-company/faq" },
+    { title: "Testimonials", url: "/about-company/testimonial" },
     { title: "Clients Login", url: "https://launchpad.37signals.com/signin" },
     { title: "Blog", url: "/blog" },
-    { title: "Contact Us", url: "/contact" },
+    { title: "Contact Us", url: "contact" },
   ],
 
   socials: [

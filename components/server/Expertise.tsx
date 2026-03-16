@@ -10,15 +10,10 @@ import Expertise5 from "../../assets/images/expertise-img-5.jpg";
 import Expertise6 from "../../assets/images/expertise-img-6.jpg";
 
 
-type ExpertiseItem = {
-  title: string;
-  img: StaticImageData;
-  desc: string;
-  link: string;
-};
+
 
 const Expertise: React.FC = () => {
-  const expertiseItems: ExpertiseItem[] = [
+  const expertiseItems: any = [
     {
       title: "Real Estate",
       img: Expertise1,
@@ -72,9 +67,9 @@ const Expertise: React.FC = () => {
         </div>
       </div>
 
-      <div className="portfolio-sec-images solutions-list-images h-auto expertise-list-images p-0 gap-0 bg-amber-700">
+      <div className="portfolio-sec-images solutions-list-images h-auto expertise-list-images p-0 gap-0">
         <div className="row align-items-center gap-0 p-0">
-          {expertiseItems.map((item, index) => (
+          {expertiseItems.map((item:any, index:any) => (
             <div className="col-lg-4 col-md-6 m-0 p-0" key={index}>
               <div className="portfolio-list">
                 <div className="image image-anime reveal">

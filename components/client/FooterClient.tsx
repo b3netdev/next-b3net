@@ -57,6 +57,10 @@ function LocationColumns({ columns }: { columns: FooterLocationItem[][] }) {
                         <i
                           className={`fa-solid fa-caret-${isOpen ? "down" : "right"} toggle-arrow`}
                           aria-hidden="true"
+                          style={{
+                            transform: isOpen ? "rotate(90deg)" : "rotate(0deg)",
+                            transition: "0.3s ease",
+                          }}
                         />
                       )}
                       <span>{item.title}</span>
@@ -66,15 +70,16 @@ function LocationColumns({ columns }: { columns: FooterLocationItem[][] }) {
                   {hasLinks && (
                     <div
                       className="dropdown-content"
-                      style={{ display: isOpen ? "block" : "none" }}
+                      style={{ display: isOpen ? "block" : "none",transition: "0.3s ease", }}
                       onClick={(e) => e.stopPropagation()}
+                      
                     >
                       {item.links.map((l) => (
                         <div
                           key={l.url}
                           className="d-flex align-items-cennter justify-content-center"
                         >
-                          <Dot color="#ff4f02" strokeWidth={5} />
+                          <Dot color="#ff4f02" strokeWidth={7} />
                           <Link href={l.url} >
                             {l.label}
                           </Link>
@@ -92,55 +97,153 @@ function LocationColumns({ columns }: { columns: FooterLocationItem[][] }) {
   );
 }
 
-function ExploreList({ items }: { items: FooterExploreItem[] }) {
+// function ExploreList({ items }: { items: FooterExploreItem[] }) {
+//   return (
+//     <ul className="d-flx explore-list">
+//       {items.map((item) => (
+//         <li key={item.title}>
+//           {"links" in item ? (
+//             <>
+//               <span
+//                 style={{
+//                   display: "flex",
+//                   justifyContent: "center",
+//                   alignItems: "center",
+//                 }}
+//               >
+//                 <i className="fa-solid fa-caret-right"></i>
+//                 <Link href="/" className="main-link"
+                
+//                 >{item.title}</Link>
+//               </span>
+
+//               <span className="dropdown-content">
+//                 {item.links.map((l) => (
+//                   <div
+//                     key={l.url}
+//                     style={{
+//                       display: "flex",
+//                       justifyContent: "center",
+//                       alignItems: "center",
+//                     }}
+//                   >
+//                     <Link href={l.url}>{l.label}</Link>
+//                   </div>
+//                 ))}
+//               </span>
+//             </>
+//           ) : (
+//             <div
+//               className="d-flex"
+//               style={{
+//                 display: "flex",
+//                 justifyContent: "center",
+//                 alignItems: "center",
+//                 gap: "10px",
+//               }}
+//             >
+//               <i className="fa-solid fa-caret-right"></i>
+//               <Link href={item.url}>{item.title}</Link>
+//             </div>
+//           )}
+//         </li>
+//       ))}
+//     </ul>
+//   );
+// }
+
+
+
+function ExploreList({ items }: { items: any }) {
+  const [openItem, setOpenItem] = useState<string | null>(null);
+
+  const toggle = (title: string) => {
+    setOpenItem((prev) => (prev === title ? null : title));
+  };
+
   return (
     <ul className="d-flx explore-list">
-      {items.map((item) => (
-        <li key={item.title}>
-          {"links" in item ? (
-            <>
-              <span
+      {items.map((item:any) => {
+        const hasLinks = "links" in item && (item.links?.length ?? 0) > 0;
+        const isOpen = openItem == item.title;
+
+        return (
+          <li key={item.title}>
+            {hasLinks ? (
+              <>
+                <span
+                  style={{
+                    display: "flex",
+                    justifyContent: "center",
+                    alignItems: "center",
+                    gap: "10px",
+                    cursor: "pointer",
+                  }}
+                  onClick={(e) => {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    toggle(item.title);
+                  }}
+                >
+                  <i
+                    className="fa-solid fa-caret-right"
+                    style={{
+                      transform: isOpen ? "rotate(90deg)" : "rotate(0deg)",
+                      transition: "0.3s ease",
+                    }}
+                  ></i>
+
+                  <Link
+                    href="/"
+                    className="main-link"
+                    role="button"
+                    aria-expanded={isOpen}
+                    onClick={(e) => {
+                      e.preventDefault();
+                      e.stopPropagation();
+                      toggle(item.title);
+                    }}
+                  >
+                    {item.title}
+                  </Link>
+                </span>
+
+                {isOpen && (
+                  <span className="dropdown-content active">
+                    {item.links.map((l:any, index:any) => (
+                      <div
+                        key={index}
+                        style={{
+                          display: "flex",
+                          justifyContent: "center",
+                          alignItems: "center",
+                          paddingLeft: "20px",
+                        }}
+                      >
+                        <Dot color="#ff4f02" strokeWidth={7} />
+                        <Link href={l.url}>{l.label}</Link>
+                      </div>
+                    ))}
+                  </span>
+                )}
+              </>
+            ) : (
+              <div
+                className="d-flex"
                 style={{
                   display: "flex",
                   justifyContent: "center",
                   alignItems: "center",
+                  gap: "10px",
                 }}
               >
                 <i className="fa-solid fa-caret-right"></i>
-                <Link href="/" className="main-link">{item.title}</Link>
-              </span>
-
-              <span className="dropdown-content">
-                {item.links.map((l) => (
-                  <div
-                    key={l.url}
-                    style={{
-                      display: "flex",
-                      justifyContent: "center",
-                      alignItems: "center",
-                    }}
-                  >
-                    <Link href={l.url}>{l.label}</Link>
-                  </div>
-                ))}
-              </span>
-            </>
-          ) : (
-            <div
-              className="d-flex"
-              style={{
-                display: "flex",
-                justifyContent: "center",
-                alignItems: "center",
-                gap: "10px",
-              }}
-            >
-              <i className="fa-solid fa-caret-right"></i>
-              <Link href={item.url}>{item.title}</Link>
-            </div>
-          )}
-        </li>
-      ))}
+                <Link href={item.url}>{item.title}</Link>
+              </div>
+            )}
+          </li>
+        );
+      })}
     </ul>
   );
 }
