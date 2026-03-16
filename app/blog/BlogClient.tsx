@@ -290,9 +290,12 @@ export default function BlogClient() {
                             </div>
 
                             <Link href={`/blog/${post?.slug}`}
-                              className="card-title mb-2 card-text-Link"
+                              className="card-title mb-2 card-text-Link "
                             >
-                              {post?.title?.rendered}
+                              <span className="text-[#3b58a2] font-extrabold">
+                                {post?.title?.rendered}
+
+                              </span>
                             </Link>
 
                             <div
@@ -302,7 +305,9 @@ export default function BlogClient() {
                             <Link href={`/blog/${post?.slug}`}
                               className="d-flex align-items-center gap-2 clr-blk"
                             >
-                              READ MORE
+                              <span className="font-extrabold">
+                                READ MORE
+                              </span>
                               <i className="fa-solid fa-arrow-right-long"></i>
                             </Link>
                           </div>
