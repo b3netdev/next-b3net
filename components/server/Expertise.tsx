@@ -72,8 +72,8 @@ const Expertise: React.FC = () => {
         </div>
       </div>
 
-      <div className="portfolio-sec-images solutions-list-images expertise-list-images p-0">
-        <div className="row align-items-center p-0">
+      <div className="portfolio-sec-images solutions-list-images h-auto expertise-list-images p-0 gap-0 bg-amber-700">
+        <div className="row align-items-center gap-0 p-0">
           {expertiseItems.map((item, index) => (
             <div className="col-lg-4 col-md-6 m-0 p-0" key={index}>
               <div className="portfolio-list">
@@ -86,7 +86,6 @@ const Expertise: React.FC = () => {
 
                     <div className="solution-hover">
                       <p style={{ color: "white" }}>{item.desc}</p>
-
                       <Link href={item.link}>
                         Request A Quote
                         <i className="fa-solid fa-arrow-right"></i>

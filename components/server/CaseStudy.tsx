@@ -42,9 +42,7 @@ const CaseStudy = () => {
         </div>
 
         <div className="case-studies-slider owl-carousel owl-theme d-flex justify-between">
-
           <CaseStudiesSlider  />
-
         </div>
       </div>
 

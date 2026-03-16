@@ -2378,7 +2378,7 @@ body:has(.page_banner_section + .intro_about_section) .page_banner_section {
   transition: all 0.5s;
   border-radius: 15px;
   transition: all 0.5s;
-  border-radius: 15px;
+  /* border-radius: 15px; */
   /* padding: 10px; */
 }
 
