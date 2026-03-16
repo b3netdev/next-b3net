@@ -20,7 +20,7 @@ const BlogDetail = () => {
   const { getBlogdetail, getRelatedPosts } = useBlog();
   const [pageData, setPageData] = useState<any>({});
   const [relatedpost, setRelatedPost] = useState<any>([]);
-  const [authordata , setAuthorData ] = useState<any>()
+  const [authordata, setAuthorData] = useState<any>()
 
   const dispatch = useAppDispatch();
   const [sideNav, setSidenav] = useState<any>([]);
@@ -47,7 +47,7 @@ const BlogDetail = () => {
         .required("Phone number is required"),
     }),
     onSubmit: (values) => {
-      
+
       console.log("Form Values:", values);
     },
   });
@@ -88,12 +88,12 @@ const BlogDetail = () => {
   }, [slug]);
 
   useEffect(() => {
-    console.log(pageData)
     setAuthorData(pageData?._embedded?.author[0])
     const fetchRelatedPosts = async () => {
       if (!pageData?.categories) return;
 
       const data = await getRelatedPosts(pageData?.categories, pageData?.id);
+      console.log(data, "RElated post data")
       setRelatedPost(data);
     };
     fetchRelatedPosts();
@@ -352,7 +352,10 @@ const BlogDetail = () => {
                             <Link
                               href={`/blog/${data?.slug}`}
                               className="card-title mb-2 card-text-a">
-                              {data?.title?.rendered}
+                               <span className="text-[#3b58a2] font-extrabold">
+                                {data?.title?.rendered}
+
+                              </span>
                             </Link>
 
                             <div
@@ -364,7 +367,9 @@ const BlogDetail = () => {
                             <Link
                               href={`/blog/${data?.slug}`}
                               className="d-flex align-items-center gap-2 clr-blk">
-                              READ MORE{" "}
+                              <span className="font-extrabold hover:!text-[#f15a29]">
+                                READ MORE
+                              </span>
                               <i className="fa-solid fa-arrow-right-long"></i>
                             </Link>
                           </div>
