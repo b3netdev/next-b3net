@@ -73,9 +73,9 @@ const AiIntregation = async ({ params }: { params: { slug: string } }) => {
               </h2>
               <p className="nitro-offscreen">
                 At{" "}
-                <a className="site-logo" href="https://www.b3net.com/">
+                <Link className="site-logo" href="/">
                   B3NET Inc.
-                </a>
+                </Link>
                 , our expertise goes beyond basic AI integrations. We offer a
                 comprehensive suite of services designed to fuel your business
                 growth. Here&#8217;s what we can do for you:

@@ -3,6 +3,7 @@ import { notFound } from "next/navigation";
 import { GetPageData } from "@/lib/getdata";
 import AboutUsClient from "./AboutUsClient";
 import { BASE_URL } from "@/lib/url";
+import Link from "next/link";
 
 type PageProps = {
   params: { slug: string };
@@ -41,7 +42,7 @@ export default async function AboutUsPage({ params }: PageProps) {
             <nav aria-label="breadcrumb">
               <ol className="breadcrumb d-flex align-items-center">
                 <li className="breadcrumb-item">
-                  <a href="/">Home</a>
+                  <Link href="/">Home</Link>
                 </li>
                 <li className="breadcrumb-item active" aria-current="page">
                   About

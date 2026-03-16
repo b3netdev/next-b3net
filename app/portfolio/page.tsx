@@ -41,7 +41,7 @@ export default async function Portfolio() {
               <nav aria-label="breadcrumb ">
                 <ol className="breadcrumb d-flex align-items-center ">
                   <li className="breadcrumb-item">
-                    <a href="https://b3net.com">Home</a>
+                    <Link href="/">Home</Link>
                   </li>
                   <li className="breadcrumb-item active" aria-current="page">
                     Portfolio

@@ -2,6 +2,7 @@ import React from "react";
 import ContactUsForm from "./Contactusform";
 import ContactFooter from "@/components/server/ContactFooter";
 import { BASE_URL } from "@/lib/url";
+import Link from "next/link";
 
 type SubOffice = {
   title: string;
@@ -83,7 +84,7 @@ export default function ContactUs() {
             <nav aria-label="breadcrumb">
               <ol className="breadcrumb d-flex align-items-center">
                 <li className="breadcrumb-item">
-                  <a href="/">Home</a>
+                  <Link href="/">Home</Link>
                 </li>
                 <li className="breadcrumb-item active">Contact</li>
               </ol>

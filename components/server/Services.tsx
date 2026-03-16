@@ -9,7 +9,7 @@ import { BASE_URL } from "@/lib/url";
 
 const Services = () => {
 
- 
+    // https://b3net.com/wp-content/uploads/2026/02/Website-Design-Development.webp
 
     const solutionsList = [
         {
