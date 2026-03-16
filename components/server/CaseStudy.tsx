@@ -3,10 +3,7 @@ import Image, { StaticImageData } from "next/image";
 import Link from "next/link";
 
 import Upgrade from "../../assets/images/up-grade-icon.png";
-import CaseStudies from "../../assets/images/case-studies-img-1.jpg";
-import CaseStudies4 from "../../assets/images/case-studies-img-4.jpg";
-import CaseStudies3 from "../../assets/images/case-studies-img-3.jpg";
-import CaseStudies5 from "../../assets/images/case-studies-img-5.jpg";
+
 import ExpertIcon1 from "../../assets/images/expert-icon-1.png";
 import ExpertIcon2 from "../../assets/images/expert-icon-2.png";
 import Why from "../../assets/images/why-image.jpg";
@@ -27,47 +24,10 @@ type CaseStudyItem = {
 };
 
 const CaseStudy = () => {
-  const caseStudiesData: CaseStudyItem[] = [
-    {
-      img: CaseStudies,
-      link: `${BASE_URL}/case-study-mattress-company-website-digital-marketing.html`,
-      title: "Mattress Manufacturing Company",
-      percent: "95%",
-      desc: "Increase in Average Website Visitors",
-      path: "/services/casestudies/",
-      id: 13074,
-    },
-    {
-      img: CaseStudies4,
-      link: `${BASE_URL}/case-study-tech-hardware-service-web-design-digital-marketing.html`,
-      title: "Viage Solutions",
-      percent: "370%",
-      desc: "Increase in Average Monthly Sale",
-      path: "/services/casestudies1/",
-      id: 13037,
-    },
-    {
-      img: CaseStudies3,
-      link: `${BASE_URL}/case-study-automobile-parts-website-design-seo.html`,
-      title: "Motorcycle Parts Manufacturer",
-      percent: "275%",
-      desc: "Increase In Average Monthly Sales",
-      path: "/services/casestudies2/",
-      id: 13121,
-    },
-    {
-      img: CaseStudies5,
-      link: `${BASE_URL}/case-study-tree-care-service-web-design-digital-marketing.html`,
-      title: "Tree Care Company",
-      percent: "103%",
-      desc: "Increase In Average Monthly Sales",
-      path: "/services/casestudies3/",
-      id: 12949,
-    },
-  ];
+ 
   return (
     <>
-      <div className="case-studies-service pt-5 mb-4  new-gap" id="case-studies">
+      <div className="case-studies-service pt-5 mb-4 mt-0  new-gap" id="case-studies">
         <div className="container">
           <div className="row mb-4 mb-md-5">
             <div className="col-lg-12 text-center">
@@ -83,7 +43,7 @@ const CaseStudy = () => {
 
         <div className="case-studies-slider owl-carousel owl-theme d-flex justify-between">
 
-          <CaseStudiesSlider data={caseStudiesData} />
+          <CaseStudiesSlider  />
 
         </div>
       </div>

@@ -9,6 +9,7 @@ import Expertise4 from "../../assets/images/expertise-img-4.jpg";
 import Expertise5 from "../../assets/images/expertise-img-5.jpg";
 import Expertise6 from "../../assets/images/expertise-img-6.jpg";
 
+
 type ExpertiseItem = {
   title: string;
   img: StaticImageData;
@@ -61,7 +62,7 @@ const Expertise: React.FC = () => {
       <div className="container">
         <div className="row mb-4 mb-md-5">
           <div className="col-lg-12 text-center">
-            <div className="heading-title">
+            <div className="heading-title pt-16">
               <h2>
                 Our Digital Expertise Across
                 <span> Industries </span>
@@ -98,7 +99,6 @@ const Expertise: React.FC = () => {
           ))}
         </div>
       </div>
-
     </div>
   );
 };
