@@ -474,11 +474,11 @@ export const footerData: FooterData = {
             links: [
               {
                 label: "Digital Marketing Rowlett TX",
-                url: "/services/digital-marketing-rowlett-tx",
+                url: "/services/digital-marketing-in-rowlett",
               },
               {
                 label: "Rowlett Website Design & Development",
-                url: "/services/rowlett-website-design-development",
+                url: "/services/web-design-and-development-in-rowlett",
               },
             ],
           },
@@ -487,7 +487,7 @@ export const footerData: FooterData = {
             links: [
               {
                 label: "Digital Marketing Southlake TX",
-                url: "/services/digital-marketing-southlake-tx",
+                url: "/services/digital-marketing-company-in-southlake-tx",
               },
               {
                 label: "Southlake Website Design & Development",
@@ -500,11 +500,11 @@ export const footerData: FooterData = {
             links: [
               {
                 label: "Tustin Digital Marketing Company",
-                url: "/services/digital-marketing-tustin",
+                url: "/services/digital-marketing-company-in-tustin-ca",
               },
               {
                 label: "Tustin Website Design",
-                url: "/services/website-design-tustin",
+                url: "/services/tustin-web-design",
               },
             ],
           },
@@ -585,7 +585,7 @@ export const footerData: FooterData = {
         },
         {
           label: "Web Development",
-          url: "/services/web-development-agency",
+          url: "/services/web-development-service-2",
         },
         {
           label: "Ecommerce",
@@ -597,11 +597,11 @@ export const footerData: FooterData = {
         },
         {
           label: "Website Maintenance",
-          url: "/services/website-maintenance-services-dallas",
+          url: "/services/website-maintenance-service-dallas",
         },
         {
           label: "Magento Web Design",
-          url: "/services/magento-ecommerce-development",
+          url: "/services/magento-development-company",
         },
         {
           label: "Woocommerce",
@@ -609,61 +609,61 @@ export const footerData: FooterData = {
         },
         {
           label: "Opencart Development",
-          url: "/services/opencart-website-development-service",
+          url: "/services/opencart-web-development-services",
         },
         {
           label: "Shopify Development",
-          url: "/services/shopify-store-development-servce",
+          url: "/services/laravel-development-company",
         },
         {
           label: "Laravel Development",
-          url: "/services/laravel-development-company",
+          url: "/services/laravel-development-company-2",
         },
       ],
     },
     {
       title: "AI-Powered Digital Marketing",
       links: [
-        { label: "SEO", url: "/services/seo-services" },
+        { label: "SEO", url: "/services/seo-services-2" },
         {
           label: "Local Search Marketing",
-          url: "/services/local-search-marketing-services",
+          url: "/services/local-search-marketing-4",
         },
         {
           label: "PPC Management",
-          url: "/services/ppc-management-services",
+          url: "/services/ppc-management",
         },
         {
           label: "Social Media Marketing",
-          url: "/services/social-media-marketing-services",
+          url: "/services/social-media-marketing-service",
         },
         {
           label: "Content Marketing",
-          url: "/services/content-marketing-services",
+          url: "/services/content-marketing-service",
         },
         {
           label: "Email Marketing",
-          url: "/services/email-marketing-services-company",
+          url: "/services/email-marketing-services",
         },
         {
           label: "App Store Optimization",
-          url: "/services/app-store-optimization",
+          url: "/services/app-store-optimization-2",
         },
         {
           label: "Online Reputation Management",
-          url: "/services/online-reputation-management",
+          url: "/services/online-reputation-management-2",
         },
         {
           label: "Zoho Consultant",
-          url: "/services/zoho-crm-consultant-integration-service",
+          url: "/services/zoho-consultant",
         },
         {
           label: "Go High Level Consultant",
-          url: "/services/gohighlevel-expert-services",
+          url: "/services/gohighlevel-crm-services",
         },
         {
           label: "Amazon Consultant",
-          url: "/services/amazon-sales-consultant",
+          url: "/services/amazon-marketing-service",
         },
       ],
     },
@@ -672,21 +672,21 @@ export const footerData: FooterData = {
       links: [
         {
           label: "AI Integration Services",
-          url: "/services/ai-integration-services",
+          url: "/services/ai-integration",
         },
         {
           label: "Marketing Automation",
-          url: "/services/marketing-automation-services-company",
+          url: "/services/marketing-automation-services-2",
         },
         { label: "AI Video", url: "/services/ai-video" },
-        {
-          label: "Customer Sentiment Analysis",
-          url: "/services/customer-sentiment-analysis",
-        },
-        {
-          label: "AI-Powered PPC Campaign Tool",
-          url: "/services/ppc-campaign",
-        },
+        // {
+        //   label: "Customer Sentiment Analysis",
+        //   url: "/services/customer-sentiment-analysis",
+        // },
+        // {
+        //   label: "AI-Powered PPC Campaign Tool",
+        //   url: "/services/ppc-campaign",
+        // },
       ],
     },
     {
@@ -694,7 +694,7 @@ export const footerData: FooterData = {
       links: [
         {
           label: "iOS Development",
-          url: "/services/iphone-app-development-services",
+          url: "/services/ios-app-development-company",
         },
         {
           label: "Android Development",
@@ -702,7 +702,7 @@ export const footerData: FooterData = {
         },
         {
           label: "PhoneGap Development",
-          url: "/services/phonegap-hypbrid-app-development",
+          url: "/services/hybrid-app-phonegap-development",
         },
       ],
     },
