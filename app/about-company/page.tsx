@@ -205,7 +205,7 @@ export default async function AboutUsPage({ params }: PageProps) {
                   achieve remarkable growth and digital transformation.
                 </p>
                 <div className="mt-4">
-                  <Link href="/about-company/testimonial"
+                  <Link href="/testimonial.html"
                     className="btn btn-orange"
 
 
@@ -277,7 +277,7 @@ export default async function AboutUsPage({ params }: PageProps) {
               <div className="mt-4">
                 <Link
                   className="btn btn-orange"
-                  href="/about-company/testimonial"
+                  href="/testimonial"
                 >
                   <span className="btn_label" ata-text="Discover More">
                     Discover More
