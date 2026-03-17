@@ -19,7 +19,7 @@ import Navbar from "@/components/client/Navcontainer";
 import Providers from "@/redux/Provider";
 import Footer from "@/components/server/Footer";
 import { Poppins } from "next/font/google";
-import NewFooter from "@/components/client/NewFooter";
+import ToastProvider from "@/components/client/Toast";
 
 const poppins = Poppins({
   subsets: ["latin"],
@@ -42,6 +42,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           <BootstrapClient />
           {children}
           <Footer />
+          <ToastProvider/>
         </Providers>
       </body>
     </html>

@@ -3,35 +3,44 @@
 import React from "react";
 import { useFormik } from "formik";
 import * as Yup from "yup";
+import { useForm } from "@/hooks/useForm";
+import { useRouter } from "next/navigation";
+import CircularProgress from '@mui/material/CircularProgress';
 
 type ContactUsFormValues = {
-  name: string;
+  fname: string;
   email: string;
   phone: string;
-  message: string;
+  Message: string;
+  subject: string
 };
 
-const validationSchema: Yup.ObjectSchema<ContactUsFormValues> = Yup.object({
-  name: Yup.string().required("Name is required"),
+const validationSchema: any = Yup.object({
+  fname: Yup.string().required("Name is required"),
   email: Yup.string().email("Invalid email").required("Email is required"),
   phone: Yup.string().required("Mobile number is required"),
-  message: Yup.string().required("Message is required"),
+  Message: Yup.string().required("Message is required"),
 });
 
 export default function ContactUsForm() {
+  const { submitcontact, loading, error } = useForm()
+  const router = useRouter()
   const formik = useFormik<ContactUsFormValues>({
     initialValues: {
-      name: "",
+      fname: "",
       email: "",
       phone: "",
-      message: "",
+      Message: "",
+      subject: ""
     },
     validationSchema,
     onSubmit: async (values) => {
-
-
-      // ✅ TODO: submit to API route / CF7 endpoint here
-      // await fetch("/api/contact", { method: "POST", body: JSON.stringify(values) })
+      // console.log(formik.values,"data")
+      // return
+      const data = await submitcontact(formik.values, 12474)
+      if (data?.status === "mail_sent") {
+        router.push("/thankyou");
+      }
     },
   });
 
@@ -57,15 +66,15 @@ export default function ContactUsForm() {
                 </label>
                 <input
                   type="text"
-                  name="name"
+                  name="fname"
                   className="form-control"
-                  placeholder="Enter your name"
+                  placeholder="Enter your fname"
                   onChange={formik.handleChange}
                   onBlur={formik.handleBlur}
-                  value={formik.values.name}
+                  value={formik.values.fname}
                 />
-                {formik.touched.name && formik.errors.name && (
-                  <small className="text-danger">{formik.errors.name}</small>
+                {formik.touched.fname && formik.errors.fname && (
+                  <small className="text-danger">{formik.errors.fname}</small>
                 )}
               </div>
 
@@ -106,31 +115,55 @@ export default function ContactUsForm() {
                   <small className="text-danger">{formik.errors.phone}</small>
                 )}
               </div>
-            </div>
 
+              <div className="col-12 col-md-6 form-group">
+                <label>
+                  Subject <span>*</span>
+                </label>
+                <input
+                  type="tel"
+                  name="subject"
+                  className="form-control"
+                  placeholder="Enter subject"
+                  onChange={formik.handleChange}
+                  onBlur={formik.handleBlur}
+                  value={formik.values.subject}
+                />
+                {formik.touched.subject && formik.errors.subject && (
+                  <small className="text-danger">{formik.errors.subject}</small>
+                )}
+
+              </div>
+            </div>
             <div className="row">
               <div className="col-12 form-group">
                 <label>
                   Message <span>*</span>
                 </label>
                 <textarea
-                  name="message"
+                  name="Message"
                   className="form-control"
                   rows={5}
-                  placeholder="Enter your message"
+                  placeholder="Enter your Message"
                   onChange={formik.handleChange}
                   onBlur={formik.handleBlur}
-                  value={formik.values.message}
+                  value={formik.values.Message}
                 />
-                {formik.touched.message && formik.errors.message && (
-                  <small className="text-danger">{formik.errors.message}</small>
+                {formik.touched.Message && formik.errors.Message && (
+                  <small className="text-danger">{formik.errors.Message}</small>
                 )}
               </div>
             </div>
 
             <div className="mb-0 text-center pt-md-3">
-              <button type="submit" className="btn btn-primary">
-                Submit Now <i className="fa-solid fa-arrow-right-long"></i>
+              <button type="submit" className="btn btn-primary" disabled={loading}>
+                {loading ? (
+                <CircularProgress size={20} sx={{ color: "#fff" }} className="mx-16" />
+                ) : (
+                  <>
+                    Submit Now <i className="fa-solid fa-arrow-right-long"></i>
+                  </>
+                )}
               </button>
             </div>
           </form>
