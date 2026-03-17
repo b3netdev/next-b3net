@@ -20,45 +20,54 @@ type AddressItem = {
 };
 
 export default function ContactUs() {
-  const addressList: AddressItem[] = [
+  const offices: any = [
     {
-      id: 1,
       title: "Texas Offices:",
-      subOffices: [
+      locations: [
         {
-          title: "Dallas Office",
-          address: "13601 Preston Rd, Ste W706,",
-          location: "Dallas, TX 75240",
+          label: "Dallas Office:",
+          address: `13601 Preston Rd, Ste W706, 
+  Dallas, TX 75240`,
         },
         {
-          title: "Austin Office: ",
-          address: "701 Tillery St #12, Unit 213",
-          location: "Austin, TX 78702",
+          label: "Austin Office:",
+          address: `701 Tillery St #12, Unit 213 
+  Austin, TX 78702`,
         },
       ],
-      phone: "+1 234 567 890",
+      phone: "(214) 586-0650",
       email: "info@b3net.com",
     },
     {
-      id: 2,
       title: "California Office:",
-      address: "1570 E. Edinger Ave., Ste 3,Santa Ana, CA 92705",
+      locations: [
+        {
+          address: `1570 E. Edinger Ave., Ste 3, 
+  Santa Ana, CA 92705`,
+        },
+      ],
       phone: "(714) 936-0208",
-      email: "info (@) b3net (dot) com",
+      email: "info@b3net.com",
     },
     {
-      id: 3,
       title: "New York Office:",
-      address: "456 Market Road, Los Angeles, USA",
-      phone: "+1 987 654 321",
-      email: "info (@) b3net (dot) com",
+      locations: [
+        {
+          address: `30 Wall Street, 8th Floor, 
+  New York City, NY 10005`,
+        },
+      ],
+      email: "info@b3net.com",
     },
     {
-      id: 4,
-      title: "India Office",
-      address: "Sector III, Salt Lake, Kolkata,West Bengal 700106",
-      phone: "+91 98765 43210",
-      email: "info (@) b3net (dot) com",
+      title: "India Office:",
+      locations: [
+        {
+          address: `Sector III, Salt Lake, Kolkata, 
+  West Bengal 700106`,
+        },
+      ],
+      email: "info@b3net.com",
     },
   ];
 
@@ -149,6 +158,57 @@ export default function ContactUs() {
                 alt=""
               />
             </div>
+          </div>
+        </div>
+      </div>
+
+      <div className="contact-address-sec">
+        <div className="container">
+          <div className="row gy-4">
+            {offices.map((office: any, index: any) => (
+              <div key={index} className="col-xxl-3 col-xl-4 col-md-6 addresssboxContainer">
+                <div className="address-box">
+                  <div className="address-box-heading">
+                    <h4>{office.title}</h4>
+                  </div>
+
+                  <ul className="address-ftr">
+                    <li>
+                      {office.locations.map((loc: any, i: any) => (
+                        <div key={i}>
+                          <i className="fa-solid fa-location-dot"></i>
+                          {loc.label && <strong>{loc.label} </strong>}
+                          {loc.address.split("\n").map((line: any, idx: any) => (
+                            <span key={idx} className="font-semibold opacity-70" >
+                              {line} 
+                              <br />
+                            </span>
+                          ))}
+                        </div>
+                      ))}
+                    </li>
+
+                    {office.phone && (
+                      <li>
+                        <a href={`tel:${office.phone}`} className="font-semibold">
+                          <i className="fa-solid fa-phone"></i>
+                          {office.phone}
+                        </a>
+                      </li>
+                    )}
+
+                    {office.email && (
+                      <li>
+                        <a href={`mailto:${office.email}`} className="font-semibold">
+                          <i className="fa-solid fa-envelope"></i>
+                          info (@) b3net (dot) com
+                        </a>
+                      </li>
+                    )}
+                  </ul>
+                </div>
+              </div>
+            ))}
           </div>
         </div>
       </div>
