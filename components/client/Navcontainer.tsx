@@ -3,8 +3,9 @@
 import React, { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import { useAppDispatch, useAppSelector } from "@/redux/hooks";
-import { useRouter } from "next/router";
 import { setId } from "@/redux/slicers/idSlicer";
+import HeaderForm from "./HeaderForm";
+
 
 
 import { menulist, serviceMegaMenuColumns } from "../../helper/Menulist";
@@ -59,6 +60,7 @@ type ServiceMegaMenuColumn = {
 };
 
 export default function Navbar() {
+    
     const { showDefault } = useAppSelector((state) => state.menu);
     const [hoverService, setHoverService] = useState(false);
     const [aboutHover, setAboutHover] = useState(false);
@@ -161,38 +163,7 @@ export default function Navbar() {
                                                 industries.
                                             </p>
 
-                                            <form>
-                                                <div className="row">
-                                                    <div className="col-md-6 form-group">
-                                                        <label>
-                                                            First Name<span>*</span>
-                                                        </label>
-                                                        <input type="text" className="form-control" />
-                                                    </div>
-                                                    <div className="col-md-6 form-group">
-                                                        <label>
-                                                            Last Name<span>*</span>
-                                                        </label>
-                                                        <input type="text" className="form-control" />
-                                                    </div>
-                                                </div>
-
-                                                <div className="row">
-                                                    <div className="col-md-12 form-group">
-                                                        <label>
-                                                            Your Email<span>*</span>
-                                                        </label>
-                                                        <input type="email" className="form-control" />
-                                                    </div>
-                                                </div>
-
-                                                <div className="mb-0 text-center pt-md-3">
-                                                    <button type="submit" className="btn btn-primary">
-                                                        SUBMIT NOW
-                                                        <i className="fa-solid fa-arrow-right-long"></i>
-                                                    </button>
-                                                </div>
-                                            </form>
+                                            <HeaderForm  setHoverService={setHoverService} />
                                         </div>
                                     </div>
 

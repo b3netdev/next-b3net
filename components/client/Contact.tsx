@@ -71,7 +71,7 @@ const validationSchema: Yup.ObjectSchema<ContactFormValues> = Yup.object({
     .required()
     .defined(), // ⭐ FIX
 });
-const Contact: React.FC<ContactProps> = ({ data = false }) => {
+const   Contact: React.FC<ContactProps> = ({ data = false }) => {
   const [selectService, setSelectService] = useState<string[]>([]);
   const { submitcontact, error, loading } = useForm()
   const router = useRouter();

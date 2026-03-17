@@ -181,13 +181,13 @@ export default async function AboutUsPage({ params }: PageProps) {
               <div className="col-lg-6 pe-lg-5">
                 <div className="heading-title heading-big-uppercase text-white">
                   <p className="title">
-                    <p
-                      className="title"
+                    <span
+                      className="text-xl font-semibold uppercase tracking-wider text-white"
                       data-aos="fade-left"
                       data-aos-duration="800"
                     >
                       Our Portfolio
-                    </p>
+                    </span>
                     <h2>
                       Our Work,
                       <br />
@@ -205,10 +205,10 @@ export default async function AboutUsPage({ params }: PageProps) {
                   achieve remarkable growth and digital transformation.
                 </p>
                 <div className="mt-4">
-                  <Link href="/testimonial.html" 
-                   className="btn btn-orange"
-                  
-                  
+                  <Link href="/testimonial.html"
+                    className="btn btn-orange"
+
+
                   >
                     <span className="btn_label" data-text="Discover More">
                       Discover More
@@ -227,7 +227,7 @@ export default async function AboutUsPage({ params }: PageProps) {
                     <div className="col-lg-4 col-md-6 col-sm-12" key={colIndex}>
                       {pageData?.acf?.data?.portfolio_repeater
                         ?.slice(colIndex * 2, colIndex * 2 + 2)
-                        ?.map((item:any, index:any) => (
+                        ?.map((item: any, index: any) => (
                           <div className="portfolio-list mt-3" key={index}>
                             <div className="image image-anime reveal">
                               <Link href={item.url}>
@@ -292,7 +292,7 @@ export default async function AboutUsPage({ params }: PageProps) {
           <div className="space20"></div>
         </div>
         <TestimonialSwiper />
-        
+
       </div>
 
 
