@@ -10,8 +10,9 @@ import { BASE_URL } from "@/lib/url";
 const CaseStudy = async ({ slug }: any) => {
 
 
-    const data = await getcaseStudiesData(slug)
-    const pageData = data?.page
+    const pageData = await getcaseStudiesData(slug)
+    // console.log(data,"DATA")
+    // const pageData = data?.page
 
 
 
@@ -25,7 +26,7 @@ const CaseStudy = async ({ slug }: any) => {
                             <div className="casebanner-wrap">
                                 <div className="banner-caption order-sec">
                                     <div
-                                        dangerouslySetInnerHTML={{ __html: pageData?.content }}
+                                        dangerouslySetInnerHTML={{ __html: pageData?.content || " " }}
                                     />
 
                                     <div className="three-blocks">
@@ -78,7 +79,7 @@ const CaseStudy = async ({ slug }: any) => {
                                         </div>
 
                                         <div className="service-desc">
-                                            <div dangerouslySetInnerHTML={{ __html: item?.text }} />
+                                            <div dangerouslySetInnerHTML={{ __html: item?.text  || " "}} />
                                         </div>
                                     </div>
                                 )
@@ -88,7 +89,7 @@ const CaseStudy = async ({ slug }: any) => {
                             <div className="hire-left">
                                 <div
                                     dangerouslySetInnerHTML={{
-                                        __html: pageData?.acf?.data?.first_section_box_content,
+                                        __html: pageData?.acf?.data?.first_section_box_content || " ",
                                     }}
                                 />
                             </div>
@@ -129,7 +130,7 @@ const CaseStudy = async ({ slug }: any) => {
                         <div className="innerwrap">
                             <div
                                 dangerouslySetInnerHTML={{
-                                    __html: pageData?.acf?.data?.second_section_content_2,
+                                    __html: pageData?.acf?.data?.second_section_content_2 || " ",
                                 }}
                             />
                         </div>
@@ -148,7 +149,7 @@ const CaseStudy = async ({ slug }: any) => {
                             <div
                                 className="valueDrivenArc"
                                 dangerouslySetInnerHTML={{
-                                    __html: pageData?.acf?.data?.second_section_content_4,
+                                    __html: pageData?.acf?.data?.second_section_content_4 || " ",
                                 }}
                             />
                         </div>
@@ -185,7 +186,7 @@ const CaseStudy = async ({ slug }: any) => {
                         <div className="innerwrap">
                             <div
                                 dangerouslySetInnerHTML={{
-                                    __html: pageData?.custom_fields?.fourth_section_top_content,
+                                    __html: pageData?.custom_fields?.fourth_section_top_content || " ",
                                 }}
                             />
 
@@ -195,7 +196,7 @@ const CaseStudy = async ({ slug }: any) => {
                                         <div className="step-process first-step" key={index}>
                                             <div
                                                 className="d-flex"
-                                                dangerouslySetInnerHTML={{ __html: data?.content }}
+                                                dangerouslySetInnerHTML={{ __html: data?.content || " " }}
                                             />
                                         </div>
                                     );
@@ -209,7 +210,7 @@ const CaseStudy = async ({ slug }: any) => {
                     <div className="container">
                         <div
                             dangerouslySetInnerHTML={{
-                                __html: pageData?.custom_fields?.fifth_section_top_content,
+                                __html: pageData?.custom_fields?.fifth_section_top_content || " ",
                             }}
                         />
 
@@ -262,7 +263,7 @@ const CaseStudy = async ({ slug }: any) => {
                             <div className="two-blocks s-block">
                                 <div
                                     dangerouslySetInnerHTML={{
-                                        __html: pageData?.acf?.data?.sixth_section_content,
+                                        __html: pageData?.acf?.data?.sixth_section_content || " ",
                                     }}
                                 />
 
