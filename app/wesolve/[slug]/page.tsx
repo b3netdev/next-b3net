@@ -32,19 +32,10 @@ export async function generateStaticParams() {
 export default async function BlogDetail({ params }: { params: { slug: string } }) {
 
     const { slug } = await params;
-
     const pageData = await GetPageData(slug, "post");
-
-
-
-
     const author = pageData?.author;
     const authorSlug = author?.name?.split(" ")?.[0]?.toLowerCase();
     const relatedPosts = await GetRelatedPost(pageData?.categories, pageData?.id)
-    console.log(relatedPosts, "RElatedPosts")
-
-
-
     return (
         <main className="page_content wesolveSub">
             <ShowNav />

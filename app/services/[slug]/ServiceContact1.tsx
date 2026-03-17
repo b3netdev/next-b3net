@@ -2,7 +2,12 @@
 import React from 'react'
 import { useFormik } from "formik";
 import * as Yup from "yup";
+import { useForm } from '@/hooks/useForm';
+import { useRouter } from "next/navigation";
+import CircularProgress from '@mui/material/CircularProgress';
 const ServiceContact1 = () => {
+    const { submitcontact, loading } = useForm()
+    const router = useRouter()
 
     const formik = useFormik({
         initialValues: {
@@ -47,9 +52,12 @@ const ServiceContact1 = () => {
         }),
         onSubmit: async (values, { resetForm, setSubmitting }) => {
             try {
-                // TODO: your submit API call here
-                console.log("Submit values:", values);
-                // resetForm();
+                
+                const data = await submitcontact(formik.values, 12066)
+                if (data?.status === "mail_sent") {
+                    router.push("/thankyou");
+                }
+                
             } finally {
                 setSubmitting(false);
             }
@@ -346,7 +354,7 @@ const ServiceContact1 = () => {
                     <div className="inputrow nitro-offscreen">
                         <div className="inputcol f-w">
                             <div className="submit-btn-sec">
-                                <input
+                                {/* <input
                                     type="submit"
                                     className="wpcf7-form-control has-spinner wpcf7-submit submit-btn btn btn-primary"
                                     value={
@@ -355,7 +363,19 @@ const ServiceContact1 = () => {
                                             : "Submit"
                                     }
                                     disabled={formik.isSubmitting}
-                                />
+                                /> */}
+                                <button type="submit" 
+                                 className="wpcf7-form-control has-spinner wpcf7-submit submit-btn btn btn-primary"
+                                disabled={loading}
+                                >
+                                    {loading ? (
+                                        <CircularProgress size={20} sx={{ color: "#fff" }} className="mx-16" />
+                                    ) : (
+                                        <>
+                                            Submit Now <i className="fa-solid fa-arrow-right-long"></i>
+                                        </>
+                                    )}
+                                </button>
                             </div>
                         </div>
                     </div>
