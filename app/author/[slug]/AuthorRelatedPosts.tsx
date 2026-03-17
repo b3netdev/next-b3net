@@ -64,7 +64,7 @@ const AuthorRelatedPosts = (slug: any) => {
                             >
                                 <h2 className="text-center mb-4">More From The AuthorRelatedPosts</h2>
 
-                                <div className="row gy-4">
+                                {/* <div className="row gy-4">
                                     {loading
                                         ? Array.from({ length: 6 }).map((_, index) => (
                                             <div className="col-lg-4 col-sm-6" key={index}>
@@ -131,7 +131,7 @@ const AuthorRelatedPosts = (slug: any) => {
                                                 </div>
                                             );
                                         })}
-                                </div>
+                                </div> */}
 
                                 <div className="pagination-cstms">
                                     <span aria-current="page" className="page-numbers current">
