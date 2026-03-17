@@ -124,7 +124,8 @@ const PortFolio: React.FC = () => {
                 
                 <Link
                   className="btn btn-orange"
-                  href="/testimonial.html"
+                  
+                  href="/portfolio"
                 >
                   <span className="btn_label" data-text="Discover More">
                     Discover More

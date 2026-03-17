@@ -24,7 +24,9 @@ const Testimonial = () => {
               stay ahead of the competition.
             </p>
             <div className="mt-4">
-              <Link className="btn" href="/testimonials">
+              <Link className="btn"
+                href="/about-company/testimonial"
+              >
                 <span className="btn_label" data-text="Discover More">
                   Discover More
                 </span>
