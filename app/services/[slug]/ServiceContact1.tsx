@@ -354,16 +354,6 @@ const ServiceContact1 = () => {
                     <div className="inputrow nitro-offscreen">
                         <div className="inputcol f-w">
                             <div className="submit-btn-sec">
-                                {/* <input
-                                    type="submit"
-                                    className="wpcf7-form-control has-spinner wpcf7-submit submit-btn btn btn-primary"
-                                    value={
-                                        formik.isSubmitting
-                                            ? "Submitting..."
-                                            : "Submit"
-                                    }
-                                    disabled={formik.isSubmitting}
-                                /> */}
                                 <button type="submit" 
                                  className="wpcf7-form-control has-spinner wpcf7-submit submit-btn btn btn-primary"
                                 disabled={loading}

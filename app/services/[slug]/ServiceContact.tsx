@@ -4,10 +4,13 @@ import React from "react";
 import { useFormik } from "formik";
 import * as Yup from "yup";
 import { Element } from "react-scroll";
+import { useForm } from "@/hooks/useForm";
+import { useRouter } from "next/navigation";
+import CircularProgress from "@mui/material/CircularProgress";
 
 type FormValues = {
-  firstName: string;
-  lastName: string;
+  first_name: string;
+  last_name: string;
   email: string;
   phone: string;
   companyName: string;
@@ -21,10 +24,12 @@ type ServiceContactProps = {
 
 const ServiceContact: React.FC<ServiceContactProps> = ({ title = "Request a FREE Consultation", showTitle = true,
 }) => {
+  const { submitcontact, loading } = useForm()
+  const router = useRouter()
   const formik = useFormik<FormValues>({
     initialValues: {
-      firstName: "",
-      lastName: "",
+      first_name: "",
+      last_name: "",
       email: "",
       phone: "",
       companyName: "",
@@ -32,8 +37,8 @@ const ServiceContact: React.FC<ServiceContactProps> = ({ title = "Request a FREE
       message: "",
     },
     validationSchema: Yup.object({
-      firstName: Yup.string().trim().required("First Name is required"),
-      lastName: Yup.string().trim().required("Last Name is required"),
+      first_name: Yup.string().trim().required("First Name is required"),
+      last_name: Yup.string().trim().required("Last Name is required"),
       email: Yup.string().trim().email("Invalid email").required("Email is required"),
       phone: Yup.string().trim().required("Phone No is required"),
       companyName: Yup.string().trim().required("Company name required"),
@@ -47,8 +52,12 @@ const ServiceContact: React.FC<ServiceContactProps> = ({ title = "Request a FREE
     }),
     onSubmit: async (values, { setSubmitting, resetForm }) => {
       try {
-        // TODO: replace with your API call
-        console.log("Form Submitted:", values);
+      
+        const data = await submitcontact(formik?.values, 12129)
+        console.log(data,)
+        if (data?.status === "mail_sent") {
+          router.push("/thankyou");
+        }
         resetForm();
       } catch (error) {
         console.error("Submit error:", error);
@@ -93,20 +102,20 @@ const ServiceContact: React.FC<ServiceContactProps> = ({ title = "Request a FREE
                     <span className="wpcf7-form-control-wrap" data-name="first-name">
                       <input
                         type="text"
-                        name="firstName"
-                        value={formik.values.firstName}
+                        name="first_name"
+                        value={formik.values.first_name || " "}
                         onChange={formik.handleChange}
                         onBlur={formik.handleBlur}
                         size={40}
                         className="wpcf7-form-control wpcf7-text wpcf7-validates-as-required form-control"
                         aria-required="true"
-                        aria-invalid={hasErr("firstName") ? "true" : "false"}
-                        aria-describedby={hasErr("firstName") ? "firstName-error" : undefined}
+                        aria-invalid={hasErr("first_name") ? "true" : "false"}
+                        aria-describedby={hasErr("first_name") ? "first_name-error" : undefined}
                       />
                     </span>
-                    {fieldError("firstName") && (
-                      <small id="firstName-error" className="text-danger d-block mt-1">
-                        {fieldError("firstName")}
+                    {fieldError("first_name") && (
+                      <small id="first_name-error" className="text-danger d-block mt-1">
+                        {fieldError("first_name")}
                       </small>
                     )}
                   </div>
@@ -119,20 +128,20 @@ const ServiceContact: React.FC<ServiceContactProps> = ({ title = "Request a FREE
                     <span className="wpcf7-form-control-wrap" data-name="last-name">
                       <input
                         type="text"
-                        name="lastName"
-                        value={formik.values.lastName}
+                        name="last_name"
+                        value={formik.values.last_name}
                         onChange={formik.handleChange}
                         onBlur={formik.handleBlur}
                         size={40}
                         className="wpcf7-form-control wpcf7-text wpcf7-validates-as-required form-control"
                         aria-required="true"
-                        aria-invalid={hasErr("lastName") ? "true" : "false"}
-                        aria-describedby={hasErr("lastName") ? "lastName-error" : undefined}
+                        aria-invalid={hasErr("last_name") ? "true" : "false"}
+                        aria-describedby={hasErr("last_name") ? "last_name-error" : undefined}
                       />
                     </span>
-                    {fieldError("lastName") && (
-                      <small id="lastName-error" className="text-danger d-block mt-1">
-                        {fieldError("lastName")}
+                    {fieldError("last_name") && (
+                      <small id="last_name-error" className="text-danger d-block mt-1">
+                        {fieldError("last_name")}
                       </small>
                     )}
                   </div>
@@ -267,12 +276,24 @@ const ServiceContact: React.FC<ServiceContactProps> = ({ title = "Request a FREE
                 </div>
 
                 <div className="mt-md-3 text-center">
-                  <input
+                  {/* <input
                     type="submit"
                     className="wpcf7-form-control has-spinner wpcf7-submit services-button"
                     value={formik.isSubmitting ? "Submitting..." : "SUBMIT NOW"}
                     disabled={formik.isSubmitting}
-                  />
+                  /> */}
+                  <button type="submit"
+                    className="wpcf7-form-control has-spinner wpcf7-submit services-button"
+                    disabled={loading}
+                  >
+                    {loading ? (
+                      <CircularProgress size={20} sx={{ color: "#fff" }} className="mx-16" />
+                    ) : (
+                      <>
+                        Submit Now <i className="fa-solid fa-arrow-right-long"></i>
+                      </>
+                    )}
+                  </button>
                 </div>
 
                 <div className="wpcf7-response-output" aria-hidden="true"></div>
