@@ -526,15 +526,15 @@ export const footerData: FooterData = {
             links: [
               {
                 label: "Web Design Auckland",
-                url: "/services/web-design-auckland",
+                url: "https://b3net.co.nz/web-design-auckland/",
               },
               {
                 label: "Web Design Wellington",
-                url: "/services/web-design-wellington",
+                url: "https://b3net.co.nz/web-design-wellington/",
               },
               {
                 label: "Web Design Christchurch",
-                url: "/services/web-design-christchurch",
+                url: "https://b3net.co.nz/web-design-christchurch/",
               },
             ],
           },
@@ -543,15 +543,15 @@ export const footerData: FooterData = {
             links: [
               {
                 label: "SEO PPC Services Auckland",
-                url: "/services/seo-ppc-services-auckland",
+                url: "https://b3net.co.nz/seo-ppc-services-auckland/",
               },
               {
                 label: "SEO PPC Services Wellington",
-                url: "/services/seo-ppc-services-wellington",
+                url: "https://b3net.co.nz/seo-ppc-services-wellington/",
               },
               {
                 label: "SEO PPC Services Christchurch",
-                url: "/services/seo-ppc-services-christchurch",
+                url: "https://b3net.co.nz/seo-ppc-services-christchurch/",
               },
             ],
           },
@@ -560,7 +560,7 @@ export const footerData: FooterData = {
             links: [
               {
                 label: "Data Governance Solutions",
-                url: "/services/data-governance-solutions",
+                url: "https://b3net.co.nz/data-governance-solutions/",
               },
             ],
           },
