@@ -41,7 +41,7 @@ export default async function BlogDetail({ params }: { params: { slug: string } 
     const author = pageData?.author;
     const authorSlug = author?.name?.split(" ")?.[0]?.toLowerCase();
     const relatedPosts = await GetRelatedPost(pageData?.categories, pageData?.id)
-
+    console.log(relatedPosts, "RElatedPosts")
 
 
 
@@ -187,28 +187,28 @@ export default async function BlogDetail({ params }: { params: { slug: string } 
                                                             </div>
 
                                                             <Link
-                                                                href={post.url}
+                                                                href={`/blog/${post?.slug}`}
                                                                 className="card-title mb-2 card-text-a"
                                                                 style={{ color: "#3b58a2" }}
-                                                                target="_blank"
-                                                                rel="noreferrer"
+
                                                             >
-                                                                {post.title?.rendered}
+                                                                <span className="font-bold">
+                                                                    {post.title?.rendered}
+                                                                </span>
                                                             </Link>
 
                                                             <div
                                                                 dangerouslySetInnerHTML={{ __html: post?.excerpt?.rendered }}
                                                             />
 
-                                                            <a
-                                                                href={post.url}
+                                                            <Link 
+                                                                href={`/blog/${post?.slug}`}
                                                                 className="d-flex align-items-center gap-2 clr-blk"
-                                                                target="_blank"
-                                                                rel="noreferrer"
+                                                                
                                                             >
                                                                 READ MORE{" "}
                                                                 <i className="fa-solid fa-arrow-right-long"></i>
-                                                            </a>
+                                                            </Link>
                                                         </div>
                                                     </div>
                                                 </div>
