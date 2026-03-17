@@ -8,6 +8,7 @@ import { useRouter } from "next/navigation";
 import { useForm } from "@/hooks/useForm";
 
 import ContactFooter from "../server/ContactFooter";
+import CircularProgress from "@mui/material/CircularProgress";
 // import { useForm } from "../../hooks/useForm";
 
 
@@ -102,10 +103,10 @@ const Contact: React.FC<ContactProps> = ({ data = false }) => {
       values.services.forEach((service) => {
         formData.append("services[]", service);
       });
-        const res: any = await submitcontact(formData, 12634);
-        if (res?.status === "mail_sent") {
-          router.push("/thankyou");
-        }
+      const res: any = await submitcontact(formData, 12634);
+      if (res?.status === "mail_sent") {
+        router.push("/thankyou");
+      }
     },
   });
 
@@ -294,7 +295,13 @@ const Contact: React.FC<ContactProps> = ({ data = false }) => {
 
               <div className="mb-0 text-center pt-md-5">
                 <button type="submit" className="btn btn-primary">
-                  SUBMIT NOW <i className="fa-solid fa-arrow-right-long"> </i>
+                  {loading ? (
+                    <CircularProgress size={20} sx={{ color: "#fff" }} className="mx-16" />
+                  ) : (
+                    <>
+                      Submit Now <i className="fa-solid fa-arrow-right-long"></i>
+                    </>
+                  )}
                 </button>
               </div>
             </form>

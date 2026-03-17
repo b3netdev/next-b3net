@@ -12,10 +12,14 @@ import Link from "next/link";
 import Scroll from "@/components/client/Scroll";
 import { useFormik } from "formik";
 import * as Yup from "yup";
+import { useForm } from "@/hooks/useForm";
+import { useRouter } from "next/navigation";
 
 const BlogDetail = () => {
   const params = useParams();
   const slug = params?.slug
+  const router = useRouter()
+  const { submitcontact, loading } = useForm()
 
   const { getBlogdetail, getRelatedPosts } = useBlog();
   const [pageData, setPageData] = useState<any>({});
@@ -352,7 +356,7 @@ const BlogDetail = () => {
                             <Link
                               href={`/blog/${data?.slug}`}
                               className="card-title mb-2 card-text-a">
-                               <span className="text-[#3b58a2] font-extrabold">
+                              <span className="text-[#3b58a2] font-extrabold">
                                 {data?.title?.rendered}
 
                               </span>
