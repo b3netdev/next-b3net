@@ -7022,3 +7022,33 @@ div {
   display: flex !important;
   justify-content: space-between !important;
 }
+
+
+
+/* Expertise  */
+.portfolio-sec-images .portfolio-list,
+.portfolio-sec-images .image {
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+.portfolio-sec-images .image > a {
+  display: block;
+  line-height: 0;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+.portfolio-sec-images .image img {
+  display: block !important;
+  width: 100%;
+  height: auto;
+}
+
+.portfolio-sec-images .solutions-hover-box,
+.portfolio-sec-images .solution-hover,
+.portfolio-sec-images .solution-hover p,
+.portfolio-sec-images .solution-hover a,
+.portfolio-sec-images .solutions-hover-box h3 {
+  line-height: 1.4;
+}

@@ -2,64 +2,16 @@ import { getportfoliodetail, getPortFloioRelatedPost } from "@/lib/getdata";
 import Link from "next/link";
 import Contact from "@/components/client/Contact";
 import ShowNav from "@/components/client/ShowNav";
-const page = async ({ params }: { params: { slug: any} }) => {
+import Expertise from "@/components/server/Expertise";
+const page = async ({ params }: { params: { slug: any } }) => {
     const { slug } = await params
-    
+
     const pageData = await getportfoliodetail(slug)
     const relatedpost = await getPortFloioRelatedPost(pageData?.portfolio_category, pageData?.id)
-    
-    console.log(relatedpost,"Related Post")
 
-    const expertiseData = [
-        {
-            title: "Real Estate",
-            image:
-                "https://b3net.com/wp-content/themes/b3net/assets/images/expertise-img-1.jpg",
-            description:
-                "SEO-driven websites for realtors, brokers, and property managers to attract buyers, sellers, and investors effortlessly.",
-            link: "https://b3net.com/request-for-proposal.html",
-        },
-        {
-            title: "Financial Services",
-            image:
-                "https://b3net.com/wp-content/themes/b3net/assets/images/expertise-img-2.jpg",
-            description:
-                "Custom web solutions for insurance agencies, notaries, and financial institutions to enhance credibility and client acquisition.",
-            link: "https://b3net.com/request-for-proposal.html",
-        },
-        {
-            title: "Medical & Healthcare",
-            image:
-                "https://b3net.com/wp-content/themes/b3net/assets/images/expertise-img-3.jpg",
-            description:
-                "HIPAA-compliant, fast, and SEO-friendly websites for clinics, hospitals, and healthcare providers to improve patient engagement.",
-            link: "https://b3net.com/request-for-proposal.html",
-        },
-        {
-            title: "Small Businesses",
-            image:
-                "https://b3net.com/wp-content/themes/b3net/assets/images/expertise-img-4.jpg",
-            description:
-                "Affordable, high-performing websites designed to help small businesses grow, attract customers, and increase online visibility.",
-            link: "https://b3net.com/request-for-proposal.html",
-        },
-        {
-            title: "Automotive",
-            image:
-                "https://b3net.com/wp-content/themes/b3net/assets/images/expertise-img-5.jpg",
-            description:
-                "Custom automotive websites with SEO and e-commerce features to help dealerships, repair shops, and auto parts businesses thrive.",
-            link: "https://b3net.com/request-for-proposal.html",
-        },
-        {
-            title: "Professional Service",
-            image:
-                "https://b3net.com/wp-content/themes/b3net/assets/images/expertise-img-6.jpg",
-            description:
-                "Sleek, conversion-focused websites for lawyers, consultants, and agencies to showcase expertise and attract more clients.",
-            link: "https://b3net.com/request-for-proposal.html",
-        },
-    ];
+    console.log(relatedpost, "Related Post")
+
+   
 
     return (
         <main className="page_content">
@@ -145,7 +97,7 @@ const page = async ({ params }: { params: { slug: any} }) => {
                                 </div>
                             </div>
                         </div>
-                        <div className="d-flex align-items-center justify-content-between">
+                        <div className="d-flex align-items-center justify-content-between mt-10">
                             <div className="row g-4 mx-0">
                                 {relatedpost?.map((item: any, index: any) => (
                                     <div
@@ -168,7 +120,7 @@ const page = async ({ params }: { params: { slug: any} }) => {
                                             <div className="portfolio-details d-flex align-items-center justify-content-between py-4 px-3">
                                                 <Link
                                                     href={`/portfolio/${item?.slug}`}
-                                                 
+
                                                     className="text-truncate"
                                                     style={{ maxWidth: "calc(100% - 28px)" }}
                                                 >
@@ -188,53 +140,8 @@ const page = async ({ params }: { params: { slug: any} }) => {
                     </div>
                 </div>
 
-                {/* common box  */}
-                <div className="expertise-service sp pb-0 new-gap">
-                    <div className="container">
-                        <div className="row mb-4 mb-md-5">
-                            <div className="col-lg-12 text-center">
-                                <div className="heading-title">
-                                    <h2>
-                                        Our Digital Expertise Across
-                                        <span> Industries </span>
-                                    </h2>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div className="portfolio-sec-images solutions-list-images expertise-list-images">
-                        <div
-                            className="row m-0 align-items-center"
-                            data-aos="fade-up"
-                            data-aos-duration="800"
-                        >
-                            {expertiseData.map((item, index) => (
-                                <div className="col-lg-4 col-md-6 p-0" key={index}>
-                                    <div className="portfolio-list">
-                                        <div className="image image-anime reveal">
-                                            <Link href="/proposal">
-                                                <img src={item.image} alt={item.title} />
-                                            </Link>
-
-                                            <div className="solutions-hover-box">
-                                                <h3>{item.title}</h3>
-
-                                                <div className="solution-hover ">
-                                                    <p className="font-extrabold text-white" > {item.description}</p>
- 
-                                                    <Link href="/proposal">
-                                                        Request A Quote
-                                                        <i className="fa-solid fa-arrow-right"></i>
-                                                    </Link>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            ))}
-                        </div>
-                    </div>
-                </div>
+                
+                <Expertise />
 
                 <section className="contact-sec bg-grey sp py-5">
                     <div className="container">
