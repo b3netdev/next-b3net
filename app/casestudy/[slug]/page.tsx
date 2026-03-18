@@ -4,22 +4,21 @@ import CaseStudy2 from "./CaseStudy2/CaseStudy2";
 import CaseStudy3 from "./CaseStudy3/CaseStudy3";
 
 
-const idList = [
-    13074,
-    13037,
-    13121,
-    12949
+const sluglist = [
+    "case-study-flexus-comfort",
+    "case-study-viage",
+   "case-study-arc-lever",
+  "case-study-treecarearborists"
 ]
 export async function generateStaticParams() {
 
-    return idList.map((item) => ({
+    return sluglist.map((item) => ({
         slug: item.toString(),
     }));
 
 }
 const Page = async ({ params }: { params: { slug: any } }) => {
     const { slug } = await params;
-    console.log(slug, "SLUG")
 
     return (
         <>

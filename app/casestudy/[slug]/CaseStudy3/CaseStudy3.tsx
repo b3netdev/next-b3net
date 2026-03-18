@@ -5,8 +5,7 @@ import ContactFooter from "@/components/server/ContactFooter";
 import styles from "./casestudy3.module.css";
 
 const CaseStudy3 =async({ slug }: any) =>  {
-    const data = await getcaseStudiesData(slug)
-    const pageData = data?.page
+  
   return (
     <main className="page_content">
     <div className="case-study">
