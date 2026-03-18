@@ -5,6 +5,7 @@ import * as Yup from "yup";
 import { useForm } from '@/hooks/useForm';
 import { useRouter } from "next/navigation";
 import CircularProgress from '@mui/material/CircularProgress';
+import { Element } from 'react-scroll';
 const ServiceContact1 = () => {
     const { submitcontact, loading } = useForm()
     const router = useRouter()
@@ -64,7 +65,7 @@ const ServiceContact1 = () => {
         },
     });
     return (
-        <div>
+        <Element name="contact-form1">
             <form onSubmit={formik.handleSubmit} noValidate>
                 <div className="quote-form">
                     <div className="inputrow">
@@ -375,7 +376,7 @@ const ServiceContact1 = () => {
                     aria-hidden="true"
                 ></div>
             </form>
-        </div>
+        </Element>
     )
 }
 

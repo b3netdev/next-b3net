@@ -110,7 +110,7 @@ const Services = async () => {
             <Workslider pageData={pageData} />
 
 
-            <div className="our-work-section sec-pad lazyloaded">
+            <div className="our-work-section  lazyloaded">
                 <div className="container">
                     <div className="heading-blocks text-center mb-5">
                         <h2 className="sec-heading">
@@ -161,7 +161,7 @@ const Services = async () => {
             </div>
 
             <div className="our-work Challenges outerwrap related-post related-post-1 py-3 py-sm-5 mt-1 mt-sm-5">
-                <div className="our-work-section sec-pad lazyloaded">
+                <div className="our-work-section  lazyloaded">
                     <div className="container">
                         <div className="heading-blocks text-center mb-5">
                             <h2 className="sec-heading">

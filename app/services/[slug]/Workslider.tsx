@@ -15,7 +15,7 @@ const Workslider: React.FC<WorkSliderProps> = ({ pageData }) => {
     <>
       {pageData?.acf?.data?.service_page_section_5_images && (
         <div className="our-work outerwrap py-2 py-sm-5">
-          <div className="our-work-section sec-pad lazyloaded">
+          <div className="our-work-section  lazyloaded">
             <div className="container">
               <div className="heading-blocks text-center mb-5">
                 <h2 className="sec-heading">

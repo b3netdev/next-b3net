@@ -60,8 +60,7 @@ const validationSchema: Yup.ObjectSchema<ContactFormValues> = Yup.object({
   cname: Yup.string().required("Company name is required"),
 
   cwebsite: Yup.string()
-    .url("Enter a valid URL")
-    .required("Website is required"),
+    .required("Website link is required"),
 
   message: Yup.string().required("Message is required"),
 
@@ -69,7 +68,7 @@ const validationSchema: Yup.ObjectSchema<ContactFormValues> = Yup.object({
     .of(Yup.string().required())
     .min(1, "Please select at least one service")
     .required()
-    .defined(), // ⭐ FIX
+    .defined(), 
 });
 const   Contact: React.FC<ContactProps> = ({ data = false }) => {
   const [selectService, setSelectService] = useState<string[]>([]);

@@ -62,7 +62,7 @@ export default function Home() {
                             <div key={i} className="col-lg-3 col-sm-6 rating-box">
                                 <div className="d-flex align-items-center">
                                     <div className="rating-logo pe-3">
-                                        <Image src={item.img} alt="rating" width={60} height={60} />
+                                        <Image src={item.img} alt="rating" width={100} height={100} />
                                     </div>
                                     <div className="rating-content ps-3 text-left">
                                         <div className="stars">

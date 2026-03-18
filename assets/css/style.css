@@ -1815,7 +1815,7 @@ button#playPauseButton {
 }
 
 .site_link {
-  max-width: 160px;
+  max-width: 220px;
   padding: 10px 0;
 }
 
@@ -7051,4 +7051,165 @@ div {
 .portfolio-sec-images .solution-hover a,
 .portfolio-sec-images .solutions-hover-box h3 {
   line-height: 1.4;
+}
+
+/* 404 not Found  */
+
+
+
+.page-404{
+	text-align: center;
+	color: white;
+}
+.page-eerr  h1 {
+    font-size: 180px;
+    font-weight: 800;
+    color: #ffffff;
+	margin: 0;
+}
+.page-eerr h3{
+	color: white;
+	font-weight: 600 !important;
+	padding: 10px 0;
+}
+.page-eerr h4{
+	color: white;
+	font-weight: 600 !important;
+}
+.page-eerr span{
+	color: #ff4f02;
+}
+.page-404 {
+    text-align: center;
+    color: white;
+    padding: 0;
+    margin-bottom: 0 !important;
+}
+
+.error-bttn {
+    background-image: linear-gradient(white, white);
+    color:#3b58a1 ;
+	border: 2px solid #ffffff;
+}
+.error-bttn:hover{
+	background-image: linear-gradient(white, white);
+    color:#3b58a1 ;
+	border: 2px solid #ffffff;
+}
+.underline-sec{
+	width: 60%;
+	text-align: center;
+	color: black;
+	margin: 0 auto;
+	margin-bottom: 50px;
+}
+.underline-sec a{
+	color: #3b58a1;
+	font-weight: 600;
+	text-decoration: underline;
+}
+.cont-error{
+	padding: 80px 0;
+}
+
+span.error-label:hover {
+    color: black !important;
+}
+
+.minn{
+	margin-top: 40px;
+
+}
+span.error-label {
+	color: black;
+}
+span.error-label span {
+	color: #3b58a1;
+	font-family: 'EASPORTS';
+}
+.cont-error h3{
+color: black;
+}
+.new-list-sec h3{
+	color: black !important;
+}
+
+
+
+
+.error-bttn {
+    gap: 10px;
+    line-height: 1;
+    padding: 15px 40px;
+    font-size: 16px;
+	border-radius: 50px;
+    overflow: hidden;
+    font-weight: 600;
+    transition: 300ms;
+    align-items: center;
+    letter-spacing: 1px;
+    display: inline-flex;
+    color: #fff;
+    justify-content: center;
+    text-transform: uppercase;
+    font-family: 'Poppins', serif;
+
+}
+
+
+
+
+
+@media (max-width:1299px){
+	.underline-sec {
+    width: 75%;
+}
+
+.page-eerr  h1 {
+    font-size: 160px;
+}
+
+}
+
+
+
+@media (max-width:1199px){
+	.underline-sec {
+    width: 85%;
+}
+
+}
+
+
+@media (max-width:991px){
+	.underline-sec {
+    width: 100%;
+}
+.page-eerr  h1 {
+    font-size: 150px;
+}
+.page-eerr h3{
+	padding-top: 10px;
+}
+.cont-error {
+    padding: 50px 0;
+}
+}
+
+
+@media (max-width:767px){
+
+.underline-sec {
+	margin-bottom: 30px;
+}
+}
+
+
+
+@media (max-width:575px){
+
+.page-eerr h3 {
+  font-size: 16px !important;
+}
+
 }

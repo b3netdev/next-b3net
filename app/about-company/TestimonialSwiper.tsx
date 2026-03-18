@@ -62,7 +62,7 @@ function TestimonialSwiper() {
   return (
     <div className="testimonial-page-sec sp">
     <div className="container">
-      <div className="testimonial-slider-col">
+      <div className="testimonial-slider-col pe-0 ps-0">
         <Swiper
           modules={[Autoplay, Pagination]}
           spaceBetween={30}

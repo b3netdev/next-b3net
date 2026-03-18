@@ -121,7 +121,7 @@ const TestimonialCard: React.FC<{ item: TestimonialItem }> = ({ item }) => {
 
 const TestimonoalCard: React.FC = () => {
   return (
-    <div className="testimonial-slider-col">
+    <div className="testimonial-slider-col pe-0 ps-0">
       <div className="container">
         <Swiper
           modules={[Navigation, Pagination, Autoplay]}

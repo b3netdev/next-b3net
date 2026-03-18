@@ -92,6 +92,8 @@ html {
 
 .additional_content p {
     margin-top: 10px;
+    font-family: "Poppins", serif;
+    color: #8c92a1;
 }
 
 .related-post .card-parts-1 {

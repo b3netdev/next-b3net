@@ -100,14 +100,14 @@ const ServiceSubpage = async ({ params }: { params: { slug: string } }) => {
                                                 pageData?.acf?.data?.services_page_section_2_description || "",
                                         }}
                                     />
-                                    <Link
-                                        href={`/contact`}
-                                        className="get-intouch-btn nitro-offscreen">
+                                    <Scroll
+                                       to="contact-form1"
+                                        className="get-intouch-btn nitro-offscreen cursor-pointer">
                                         Get in Touch{" "}
                                         <span className="btn_icon">
                                             <i className="fa-solid fa-arrow-right"></i>
                                         </span>{" "}
-                                    </Link>
+                                    </Scroll>
                                 </div>
                                 <div className="col-lg-6" id="request-proposal">
                                     <div className="form-part">
@@ -132,6 +132,7 @@ const ServiceSubpage = async ({ params }: { params: { slug: string } }) => {
                                                 ></p>{" "}
                                                 <ul></ul>
                                             </div>
+                                            
                                             <ServiceContact1 />
                                         </div>
                                     </div>
@@ -441,7 +442,7 @@ const ServiceSubpage = async ({ params }: { params: { slug: string } }) => {
 
             {pageData?.acf?.data?.services_page_section_4_title && (
                 <div className="outerwrap-1">
-                    <div className="digital-agency-section sec-pad lazyloaded">
+                    <div className="digital-agency-section lazyloaded">
                         <div className="container">
                             <div className="why-choose-seo">
                                 <div className="heading-blocks">
@@ -494,7 +495,7 @@ const ServiceSubpage = async ({ params }: { params: { slug: string } }) => {
 
             {pageData?.acf?.data?.service_page_section_6_title && (
                 <div className="client-testimonials outerwrap">
-                    <div className="our-work-section sec-pad lazyloaded">
+                    <div className="our-work-section  lazyloaded">
                         <div className="container">
                             <div className="heading-blocks text-center mb-5">
                                 <h2 className="sec-heading">
@@ -546,7 +547,7 @@ const ServiceSubpage = async ({ params }: { params: { slug: string } }) => {
 
             {pageData?.acf?.data?.service_page_section_7_title && (
                 <div className="our-work Challenges outerwrap related-post related-post-1 py-3 py-sm-5 mt-1 mt-sm-5">
-                    <div className="our-work-section sec-pad lazyloaded">
+                    <div className="our-work-section  lazyloaded">
                         <div className="container">
                             <div className="heading-blocks text-center mb-5">
                                 <h2 className="sec-heading">
