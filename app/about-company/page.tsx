@@ -22,7 +22,6 @@ export default async function AboutUsPage({ params }: PageProps) {
 
   const pageData = data?.page ?? data;
 
-  console.log(pageData)
 
   if (!pageData) notFound();
 
@@ -224,11 +223,11 @@ export default async function AboutUsPage({ params }: PageProps) {
               <div className="row align-items-center">
                 <div className="row">
                   {[0, 1, 2].map((colIndex) => (
-                    <div className="col-lg-4 col-md-6 col-sm-12" key={colIndex}>
+                    <div className="col-lg-4 col-md-6 col-sm-12 gap-5" key={colIndex}>
                       {pageData?.acf?.data?.portfolio_repeater
                         ?.slice(colIndex * 2, colIndex * 2 + 2)
                         ?.map((item: any, index: any) => (
-                          <div className="portfolio-list mt-3" key={index}>
+                          <div className="portfolio-list !mt-7 !p-4" key={index}>
                             <div className="image image-anime reveal">
                               <Link href={item.url}>
                                 <img src={item.image} alt={item.url} />
@@ -242,7 +241,7 @@ export default async function AboutUsPage({ params }: PageProps) {
                               >
                                 {item.title}{" "}
                                 <span>
-                                  <i className="fa-solid fa-arrow-right"></i>
+                                  <i className="fa-solid fa-arrow-right -rotate-45"></i>
                                 </span>
                               </Link>
                             </div>

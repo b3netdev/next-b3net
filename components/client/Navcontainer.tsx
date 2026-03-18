@@ -67,7 +67,7 @@ export default function Navbar() {
     const [wesolveHover, setWesolveHover] = useState(false);
     const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
     const dispatch = useAppDispatch();
-    // const router = useRouter()
+   
 
     const [isSticky, setIsSticky] = useState(false);
     const navRef = useRef<HTMLDivElement | null>(null);

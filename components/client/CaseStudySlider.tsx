@@ -97,7 +97,7 @@ const caseStudiesData: any = [
   ];
 
 
-export default function CaseStudiesSlider() {
+export default function     CaseStudiesSlider() {
     return (
         <div className="w-full">
 
@@ -146,8 +146,8 @@ export default function CaseStudiesSlider() {
                                                         <Image src={Upgrade} alt="" />
                                                     </div>
                                                     <h3>{item.title}</h3>
-                                                    <div className="percent">{item.percent}</div>
-                                                    <p style={{ color: "white" }}>{item.desc}</p>
+                                                    <div className="percent mt-4">{item.percent}</div>
+                                                    <p style={{ color: "white" }} className="mt-4">{item.desc}</p>
                                                 </Link>
                                             </div>
                                         </div>

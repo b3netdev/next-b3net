@@ -67,32 +67,7 @@ const Expertise: React.FC = () => {
         </div>
       </div>
 
-      {/* <div className="portfolio-sec-images solutions-list-images h-auto expertise-list-images  gap-0 bg-amber-400 pt-10">
-        <div className="row align-items-center gap-0 p-0">
-          {expertiseItems.map((item:any, index:any) => (
-            <div className="col-lg-4 col-md-6 m-0 p-0" key={index}>
-              <div className="portfolio-list">
-                <div className="image image-anime reveal">
-                  <Link href={item.link}>
-                    <Image src={item.img} alt={item.title} />
-                  </Link>
-                  <div className="solutions-hover-box">
-                    <h3>{item.title}</h3>
-
-                    <div className="solution-hover">
-                      <p style={{ color: "white" }}>{item.desc}</p>
-                      <Link href={item.link}>
-                        Request A Quote
-                        <i className="fa-solid fa-arrow-right"></i>
-                      </Link>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          ))}
-        </div>
-      </div> */}
+   
       <div className="portfolio-sec-images solutions-list-images h-auto expertise-list-images ">
         <div className="row g-0 m-0 p-0">
           {expertiseItems.map((item: any, index: any) => (
