@@ -201,8 +201,6 @@ export default function Navbar() {
                     ) : (
                         <i className="fa-solid fa-users-viewfinder"></i>
                     )}
-
-
                     <Link href={`/about-company/${data?.page?.slug !== "about-company" ? data?.page?.slug : ''}`}
 
                     >{data.title}</Link>

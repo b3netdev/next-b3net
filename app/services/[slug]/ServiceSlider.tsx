@@ -33,7 +33,7 @@ const ServiceSlider: React.FC<Props> = ({ pageData }) => {
                 <div className="item">
                   <div
                     className="card-parts-1 card-parts-2"
-                    style={{ height: "650px" }}
+                    style={{ height: "550px" }}
                   >
                     <div className="card h-100">
                       <img
