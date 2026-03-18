@@ -1,6 +1,6 @@
 import ShowNav from "@/components/client/ShowNav";
 import Link from "next/link";
-import ContactFooter from "@/components/server/ContactFooter";
+ 
 
 export default function NotFound() {
     return (
@@ -33,7 +33,7 @@ export default function NotFound() {
                     </div>
                 </div>
             </section>
-            <ContactFooter />
+            {/*   */}
         </>
     );
 }

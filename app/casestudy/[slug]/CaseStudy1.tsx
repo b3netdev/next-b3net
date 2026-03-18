@@ -1,7 +1,7 @@
 import { getcaseStudiesData } from "@/lib/getdata";
 import Link from "next/link";
 import ServiceContact from "@/app/services/[slug]/ServiceContact";
-import ContactFooter from "@/components/server/ContactFooter";
+ 
 
 
 
@@ -282,7 +282,7 @@ const CaseStudy1 = async ({ slug }: any) => {
             <h2>Request For Quote</h2>
           </div>
           <ServiceContact showTitle={false}  />
-          <ContactFooter />
+           
         </div>
       </section>
     </div>

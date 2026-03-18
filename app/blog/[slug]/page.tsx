@@ -5,7 +5,7 @@ import useBlog from "../../../hooks/useBlog";
 
 import { useAppDispatch } from "@/redux/hooks";
 import { setStickyNavMenu } from "@/redux/slicers/menuSlicer";
-import ContactFooter from "@/components/server/ContactFooter";
+ 
 // import { Link as ScrollL } from "react-scroll";
 import { useParams } from "next/navigation";
 import Link from "next/link";
@@ -386,7 +386,7 @@ const BlogDetail = () => {
             </div>
           </div>
         </div>
-        <ContactFooter />
+         
       </div>
     </main>
   );

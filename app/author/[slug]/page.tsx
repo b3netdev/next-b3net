@@ -1,4 +1,4 @@
-import ContactFooter from "@/components/server/ContactFooter";
+ 
 
 import Link from "next/link";
 import { GetAuthorData, GetRelatedPost } from "@/lib/getdata";
@@ -97,7 +97,7 @@ export default async function Author({ params }: { params: { slug: string } }) {
                 </div>
             </div>
             {/* <Auth */}
-            <ContactFooter />
+             
         </main>
     );
 }

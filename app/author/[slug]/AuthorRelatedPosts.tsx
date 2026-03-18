@@ -5,7 +5,7 @@ import { useEffect } from "react";
 import useBlog from "@/hooks/useBlog";
 import { useAppDispatch } from "@/redux/hooks";
 
-import ContactFooter from "@/components/server/ContactFooter";
+ 
 ;
 import Skeleton from "@mui/material/Skeleton";
 import Link from "next/link";
@@ -143,7 +143,7 @@ const AuthorRelatedPosts = (slug: any) => {
                     </div>
                 </div>
             </div>
-            <ContactFooter />
+             
         </div >
        
     );

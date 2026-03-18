@@ -318,7 +318,7 @@ export default async function AboutUsPage({ params }: PageProps) {
 
 
       {/* Contact (client) */}
-      <div className="row justify-content-center mb-5" style={{ padding: "50px" }}>
+      <div className="row justify-content-center mb-5 pt-4 pt-md-5"  >
         <div className="col-lg-8 text-center">
           <div className="heading-title">
             <p className="title">Request for a Service</p>

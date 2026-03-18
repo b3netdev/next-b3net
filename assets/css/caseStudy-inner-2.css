@@ -28,7 +28,11 @@
 	justify-content: center;
 }
 
-p {
+.case-study p,
+.case-study-1 p,
+.case-study-2 p,
+.case-study-3 p,
+.case-study-4 p {
 
 	color: #363636;
 	font-size: 16px;

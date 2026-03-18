@@ -241,7 +241,7 @@ export const menulist = [
             {
                 "id": 13569,
                 "parent_id": 13479,
-                "title": "7+ Reasons Why Your Website Is Not Showing Up on Google (And How To Fix It)",
+                "title": "7+ Reasons Why Your Website Is Not Showing Up on Google",
                 "url": "https://2026.b3net.info/b3net-com/7-reasons-why-your-website-is-not-showing-up-how-to-fix-it/",
                 "type": "post_type",
                 "object": "post",
@@ -251,7 +251,7 @@ export const menulist = [
                 "page": {
                     "id": 7810,
                     "type": "post",
-                    "title": "7+ Reasons Why Your Website Is Not Showing Up on Google (And How To Fix It)",
+                    "title": "7+ Reasons Why Your Website Is Not Showing Up on Google",
                     
                     "excerpt": "We know that in this vast and fast-paced digital landscape, you probably understand how important it is to have a [&hellip;]",
                     "slug": "7-reasons-why-your-website-is-not-showing-up-how-to-fix-it",
@@ -264,7 +264,7 @@ export const menulist = [
             {
                 "id": 13570,
                 "parent_id": 13479,
-                "title": "Why is My Website Traffic Not Converting? 9 Reasons Behind Low Conversion Rate",
+                "title": "Why is My Website Traffic Not Converting? ",
                 "url": "https://2026.b3net.info/b3net-com/9-reasons-why-my-website-traffic-not-converting/",
                 "type": "post_type",
                 "object": "post",
@@ -274,7 +274,7 @@ export const menulist = [
                 "page": {
                     "id": 7863,
                     "type": "post",
-                    "title": "Why is My Website Traffic Not Converting? 9 Reasons Behind Low Conversion Rate",
+                    "title": "Why is My Website Traffic Not Converting?",
                     
                     "excerpt": "Are you troubled by the enigma of your website’s lackluster performance? Does your online presence feel like an unsolvable riddle, [&hellip;]",
                     "slug": "9-reasons-why-my-website-traffic-not-converting",
@@ -288,7 +288,7 @@ export const menulist = [
             {
                 "id": 13571,
                 "parent_id": 13479,
-                "title": "Why Is Your Website Not Making Sales? (and How To Fix It?)",
+                "title": "Why Is Your Website Not Making Sales?",
                 "url": "https://2026.b3net.info/b3net-com/website-not-making-sales/",
                 "type": "post_type",
                 "object": "post",
@@ -298,7 +298,7 @@ export const menulist = [
                 "page": {
                     "id": 8210,
                     "type": "post",
-                    "title": "Why Is Your Website Not Making Sales? (and How To Fix It?)",
+                    "title": "Why Is Your Website Not Making Sales?",
                    
                     "excerpt": "Have you ever been troubled by the mysterious question, ‘Why is your website not making sales?’ You check the analytics [&hellip;]",
                     "slug": "why-is-your-website-not-making-sales-and-how-to-fix-it",

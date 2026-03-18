@@ -46,7 +46,7 @@ const Testimonial = () => {
 
       <div className="space30"></div>
 
-      <div className="as-seen-on">
+      {/* <div className="as-seen-on">
         <div className="container">
           <h3 className="text-center mb-4">As Seen On</h3>
           <div className="row g-4 d-flex align-items-center justify-content-center">
@@ -141,7 +141,7 @@ const Testimonial = () => {
             </div>
           </div>
         </div>
-      </div>
+      </div> */}
     </div>
   );
 };

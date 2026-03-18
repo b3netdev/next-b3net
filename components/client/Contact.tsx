@@ -307,7 +307,7 @@ const   Contact: React.FC<ContactProps> = ({ data = false }) => {
           </div>
         </div>
 
-        <ContactFooter />
+         
       </div>
     </div>
   );

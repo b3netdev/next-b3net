@@ -4,6 +4,7 @@ import React, { useState } from "react";
 import { Dot } from "lucide-react";
 import type { FooterData, FooterExploreItem, FooterLocationItem } from "../server/Footer";
 import Link from "next/link";
+import ContactFooter from "../server/ContactFooter";
 
 type Props = {
   footerData: FooterData;
@@ -22,7 +23,7 @@ function LocationColumns({ columns }: { columns: FooterLocationItem[][] }) {
   const colClassByCount = (count: number) =>
     count === 1
       ? "col-12 col-sm-12 col-lg-12 col-xl-12"
-      : "col-6 col-sm-4 col-lg-3 col-xl-2";
+      : "col-12 col-sm-4 col-lg-3 col-xl-2";
 
   const toggle = (key: string) => {
     setOpenKey((prev) => (prev === key ? null : key));
@@ -172,13 +173,8 @@ function ExploreList({ items }: { items: any }) {
             {hasLinks ? (
               <>
                 <span
-                  style={{
-                    display: "flex",
-                    justifyContent: "center",
-                    alignItems: "center",
-                    gap: "10px",
-                    cursor: "pointer",
-                  }}
+                  
+                  className="haslinksFooterExplore"
                   onClick={(e) => {
                     e.preventDefault();
                     e.stopPropagation();
@@ -255,6 +251,7 @@ export default function FooterClient({ footerData }: Props) {
 
   return (
     <main className="page_content-1">
+       <ContactFooter/>
       <div className="footer-col">
         <div className="top-footer">
           <div className="container">
@@ -438,6 +435,14 @@ export default function FooterClient({ footerData }: Props) {
           </div>
         </div>
       </div>
+      <div className="copyright-sec">
+      <div className="container">
+      <div className="copyright-part">
+        <p><span>Copyright © 1999-2026, </span><Link href="/"><strong>B3net</strong> inc.</Link></p>
+        <p><Link href="/privacy-policy">Privacy Policy </Link> | <Link href="/terms-of-use">Terms of Use</Link></p>
+      </div>
+      </div>
+    </div>
     </main>
   );
 }

@@ -829,7 +829,7 @@ const Testimonial = async () => {
                 <TestimonialsClientsSlider pageData={pageData} />
             </div>
 
-            <ContactFooter />
+             
         </main>
     )
 }

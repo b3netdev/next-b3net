@@ -1,7 +1,7 @@
 import { getcaseStudiesData } from "@/lib/getdata";
 import Link from "next/link";
 import ServiceContact from "@/app/services/[slug]/ServiceContact";
-import ContactFooter from "@/components/server/ContactFooter";
+ 
 import styles from "./CaseStudy2.module.css";
 import Slider from "./Slider";
 import { BASE_URL } from "@/lib/url";
@@ -339,7 +339,7 @@ const CaseStudy2 = async ({ slug }: any) => {
             </div>
             <ServiceContact showTitle={false} />
           </div>
-          <ContactFooter />
+           
         </section>
       </div>
     </main>

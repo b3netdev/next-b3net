@@ -3,7 +3,7 @@
 import React, { useState, useRef } from "react";
 import Skeleton from "@mui/material/Skeleton";
 import Stack from "@mui/material/Stack";
-import ContactFooter from "@/components/server/ContactFooter";
+ 
 
 type Props = {
   pageData: any;
@@ -161,7 +161,7 @@ export default function FaqClient({ pageData, loading = false }: Props) {
         </div>
       </div>
 
-      <ContactFooter />
+       
     </>
   );
 }

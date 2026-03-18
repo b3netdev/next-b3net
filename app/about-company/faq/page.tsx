@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { GetPageData } from "@/lib/getdata";
 import FaqClient from "./FaqClient";
-import ContactFooter from "@/components/server/ContactFooter";
+ 
 import { BASE_URL } from "@/lib/url";
 
 

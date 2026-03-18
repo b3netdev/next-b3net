@@ -10,6 +10,7 @@ import Expertise from "@/components/server/Expertise";
 import CaseStudy from "@/components/server/CaseStudy";
 import Contact from "@/components/client/Contact";
 import { BASE_URL } from "@/lib/url";
+import FrequentQuestion from "@/components/client/FrequentQuestion";
 
 
 
@@ -103,65 +104,85 @@ export default function Home() {
 
                     </div>
                 </div>
-
-                {/* ABOUT */}
-                <div className="container">
+                <div className="container mt-md-5">
                     <div className="row">
-                        <div className="col-lg-9 pe-lg-4">
-                            <div className="heading-title heading-big-uppercase">
+                        <div className="col-lg-12">
+                            <div className="heading-title heading-big-uppercase text-center">
                                 <p className="title">About Us</p>
-                                <h2>
-                                    Leverage AI Innovation To <span>Empower</span> Your Business
-                                </h2>
+                                <h2>What <span style={{ color: "#3b58a1" }}>B3NET</span> Delivers for Your Business</h2>
+                                <p>B3NET helps businesses increase qualified leads, improve conversion rates, and operate more
+                                    efficiently by building and optimizing digital platforms that are designed to drive
+                                    measurable growth.</p>
                             </div>
                         </div>
                     </div>
-
                     <div className="space30"></div>
-
-                    <div className="row">
-                        <div className="col-lg-4 col-md-6 mb-4">
-                            <Image
-                                src={`${BASE_URL}/wp-content/uploads/2025/12/ai-image.webp`}
-                                alt="AI"
-                                width={500}
-                                height={400}
-                            />
+                    <div className="row g-md-4">
+                        <div className="col-lg-6 mb-4 mb-md-0">
+                            <div className="border p-4 abt-shadow-blog">
+                                <div className="d-md-flex align-items-center g-2 mb-3">
+                                    <div className="abt-img mb-3 mb-md-0">
+                                        <img src="https://b3net.com/wp-content/themes/b3net/assets/images/delivered-icon.png" />
+                                    </div>
+                                    <div className="abt-heading">
+                                        <h4>We deliver end-to-end digital solutions, including:</h4>
+                                    </div>
+                                </div>
+                                <div className="abt-content common-content">
+                                    <ul>
+                                        <li>Custom website design and development</li>
+                                        <li>eCommerce platforms and online stores</li>
+                                        <li>Search engine optimization (SEO) and answer engine optimization (AEO)</li>
+                                        <li>Mobile application design and development</li>
+                                        <li>CRM implementation, automation, and optimization</li>
+                                    </ul>
+                                    <p>These foundations are then enhanced with AI-driven marketing, automation, and analytics
+                                        to reduce manual effort, accelerate sales response, and improve visibility into
+                                        performance and ROI.</p>
+                                </div>
+                            </div>
                         </div>
 
-                        <div className="col-lg-8 col-md-6 mb-4 common-content">
-                            <p>
-                                With 25+ years of expertise, B3NET helps small and medium-sized
-                                businesses thrive using cutting-edge AI solutions.
-                            </p>
+                        <div className="col-lg-6 mb-4 mb-md-0">
+                            <div className="border p-4 abt-shadow-blog">
+                                <div className="d-md-flex align-items-center g-2 mb-3">
+                                    <div className="abt-img mb-3 mb-md-0">
+                                        <img src="https://b3net.com/wp-content/themes/b3net/assets/images/partners-icon.png" />
+                                    </div>
+                                    <div className="abt-heading">
+                                        <h4>Businesses work with <span style={{ color: "#3b58a1", fontWeight: 'bold' }}>B3NET</span> to:</h4>
+                                    </div>
+                                </div>
+                                <div className="abt-content common-content">
+                                    <ul>
+                                        <li>Generate more inbound leads and demand</li>
+                                        <li>Convert more website and eCommerce traffic into revenue</li>
+                                        <li>Automate marketing and sales workflows</li>
+                                        <li>Improve customer engagement across digital channels</li>
+                                        <li>Scale digital operations without increasing complexity</li>
+                                    </ul>
+                                    <p>With over 25 years of execution experience, B3NET combines proven digital
+                                        fundamentals with modern AI-powered systems to deliver results that are practical,
+                                        trackable, and aligned with your business goals.</p>
+                                </div>
+                            </div>
+                        </div>
 
-                            <p>
-                                Our AI-powered strategies streamline operations, amplify online
-                                visibility, and create personalized automated marketing campaigns.
-                            </p>
-
-                            <h4>Let’s turn your vision into measurable success.</h4>
-
-                            <div className="space40"></div>
-
-                            <ul className="btns_group unordered_list p-0 justify-content-start">
-                                <li>
-                                    <Link href="/about-company">
-                                        <span className="btn">
-                                            <span className="btn_label" data-text="Learn More">
-                                                Learn More
-                                            </span>
-                                            <span className="btn_icon">
-                                                <i className="fa-solid fa-arrow-right"></i>
-                                            </span>
-                                        </span>
-                                    </Link>
-                                </li>
-                            </ul>
+                        <div className="btns_group unordered_list p-0 justify-content-center mt-3 mt-md-5">
+                            <a className="btn" href="https://b3net.com/about-company.html">
+                                <span className="btn_label" data-text="Learn More">Learn More</span>
+                                <span className="btn_icon">
+                                    <i className="fa-solid fa-arrow-right"></i>
+                                </span>
+                            </a>
                         </div>
                     </div>
                 </div>
+
+
             </div>
+
+
 
 
             <div className="tab-section-click d-lg-block d-none">
@@ -174,6 +195,7 @@ export default function Home() {
             <section id="testimonials"><Testimonial /></section>
             <section id="expertise-service"><Expertise /></section>
             <section id="case-studies"><CaseStudy /></section>
+            <FrequentQuestion />
             <section id="contact"><Contact /></section>
         </main>
     );

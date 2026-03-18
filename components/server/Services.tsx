@@ -95,10 +95,10 @@ const Services = () => {
                         </div>
                     </div>
 
-                    <div className="portfolio-sec-images solutions-list-images">
+                    <div className="solutions-list-images">
                         <div className="row align-items-center">
                             {solutionsList?.map((item, index) => (
-                                <div className="col-lg-4 col-md-6 col-sm-12" key={index}>
+                                <div className="col-lg-4 col-md-6 col-sm-12 mb-3 mb-md-5" key={index}>
                                     <div className="portfolio-list">
                                         <div className="image image-anime reveal reveal-move">
                                             <Link href={`/services/${item?.slug}`}>

@@ -106,7 +106,7 @@ export default function AiModelClient(): React.ReactElement {
           return (
             <div
               key={data.id}
-              className={`flip-card gradient-border ${isActive ? "active" : ""}`}
+              className={`flip-card gradient-border ${isActive ? "active" : "next"}`}
             >
               <div className="gradient-inner">
                 <div className="card-header">

@@ -1,6 +1,6 @@
 import React from "react";
 import ContactUsForm from "./Contactusform";
-import ContactFooter from "@/components/server/ContactFooter";
+ 
 import { BASE_URL } from "@/lib/url";
 import Link from "next/link";
 
@@ -212,7 +212,7 @@ export default function ContactUs() {
           </div>
         </div>
       </div>
-      <ContactFooter />
+       
     </div>
   );
 }

@@ -115,7 +115,7 @@ export default function Navbar() {
                     <img src={group.icon?.src ?? group.icon} alt="" /> {group.title}
                 </h4>
 
-                <div className="d-flex flex-column gap-0">
+                <div className="d-flex flex-column gap-1">
                     {group.items.map((item: any, idx: any) => (
                         <span
                             key={idx}
@@ -227,15 +227,9 @@ export default function Navbar() {
             ref={navRef}
             className={`NavHeading nav-floating ${isSticky ? "nav-sticky" : "nav-top"}`}
         >
-            <div className="NavContainer">
+            <div className="NavContainer site_header ps-0 ps-sm-3 pe-0 pe-sm-3">
                 <div
-                    style={{
-                        width: "10em",
-                        display: "flex",
-                        justifyContent: "center",
-                        alignItems: "center",
-                        paddingLeft: "10px",
-                    }}
+                    className="header-col-1 "
                 >
                     <div className="site_logo">
                         <Link className="site_link" href="/">
