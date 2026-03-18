@@ -23,15 +23,15 @@ const Page = async ({ params }: { params: { slug: any } }) => {
 
     return (
         <>
-            {slug == 13074 ? (
-                <CaseStudy slug={slug} />
-            ) : slug == 13037 ? (
-                <CaseStudy1 slug={slug} />
-            ) : slug == 13121 ? (
-                <CaseStudy2 slug={slug} />
+            {slug == "case-study-flexus-comfort" ? (
+                <CaseStudy slug={13074} />
+            ) : slug == "case-study-viage" ? (
+                <CaseStudy1 slug={13037} />
+            ) : slug == "case-study-arc-lever" ? (
+                <CaseStudy2 slug={13121} />
             ) :
-                slug == 12949 ? (
-                    <CaseStudy3 slug={slug} />
+                slug == "case-study-treecarearborists" ? (
+                    <CaseStudy3 slug={12949} />
                 )
                     : null
             }
