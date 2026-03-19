@@ -129,7 +129,7 @@ export default function Navbar() {
                             ></i>
 
                             <Link href={`/services/${item?.slug}`}
-                                className="service-menu-link"
+                                className="service-menu-link !text-base"
 
                             >
                                 {item.label}

@@ -5122,6 +5122,7 @@ li {
   display: flex;
   width: 60%;
   gap: 20px;
+  width: 100dvw;
   justify-content: space-between;
   position: relative;
 }
@@ -5597,6 +5598,7 @@ li {
   top: 0;
   transform: translateY(0);
   background: #ffffff;
+  width: 100dvw;
   /* you can keep white or change */
   box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
   animation: navSlideDown 0.35s ease;
@@ -6726,8 +6728,9 @@ div {
 
 @media (max-width: 1400px) {
   body {
-    font-size: 16px;
+    font-size: 13px;
     line-height: 28px;
+    font-weight: bold;
   }
 }
 
