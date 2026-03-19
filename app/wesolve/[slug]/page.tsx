@@ -21,6 +21,10 @@ const sluglist = [
     },
 ]
 
+export const revalidate = 21600;
+export const dynamicParams = true;
+
+
 export async function generateStaticParams() {
 
     return sluglist.map((item) => ({

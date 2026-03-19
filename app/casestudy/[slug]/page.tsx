@@ -7,9 +7,13 @@ import CaseStudy3 from "./CaseStudy3/CaseStudy3";
 const sluglist = [
     "case-study-flexus-comfort",
     "case-study-viage",
-   "case-study-arc-lever",
-  "case-study-treecarearborists"
+    "case-study-arc-lever",
+    "case-study-treecarearborists"
 ]
+
+export const revalidate = 21600;
+export const dynamicParams = true;
+
 export async function generateStaticParams() {
 
     return sluglist.map((item) => ({

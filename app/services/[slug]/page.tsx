@@ -10,6 +10,11 @@ import Workslider from "./Workslider";
 import { sluglist } from "@/helper/Menulist";
 import { BASE_URL } from "@/lib/url";
 
+
+
+export const revalidate = 21600;
+export const dynamicParams = true;
+
 export async function generateStaticParams() {
 
     return sluglist.map((item) => ({
@@ -23,6 +28,7 @@ const ServiceSubpage = async ({ params }: { params: { slug: string } }) => {
     const data = await GetPageData(slug, "page");
 
     const pageData = data?.page ?? data;
+    console.log(pageData,"PAGE DAAT ")
 
 
     return (
@@ -518,9 +524,9 @@ const ServiceSubpage = async ({ params }: { params: { slug: string } }) => {
                                                             />
                                                         </div>
 
-                                                        <p style={{ fontWeight: "500" }}>
-                                                            {data?.post_content}
-                                                            <a> Read More</a>
+                                                        <p >
+                                                            {data?.post_content.slice(0,197)}
+                                                            <Link href={`/blog/${data?.post_name}`} className="text-[#ff6600] opacity-80"> ...Read More</Link>
                                                         </p>
 
                                                         <div className="testi-icon-wrap">
