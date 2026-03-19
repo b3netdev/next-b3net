@@ -8,17 +8,31 @@ import CaseStudiesSlider from "@/components/client/CaseStudySlider";
 import Expertise from "@/components/server/Expertise";
 import Contact from "@/components/client/Contact";
 import TestimonialSwiper from "./TestimonialSwiper";
+import { cache } from "react";
+import { Metadata } from "next";
+import { buildMetadata, getSeoFromPageData } from "@/lib/seo";
 
 type PageProps = {
   params: { slug: string };
 };
 
-export default async function AboutUsPage({ params }: PageProps) {
-  const { slug } = params;
-
-
+const getPageData = cache(async () => {
+  
   const data = await GetPageData("about-company", "page");
+  return data?.page ?? data;
+});
 
+export async function generateMetadata(): Promise<Metadata> {
+  const pageData = await getPageData();
+  const seo = getSeoFromPageData(pageData);
+
+  return buildMetadata(seo);
+}
+
+
+export default async function AboutUsPage({ params }: PageProps) {
+
+  const data = await getPageData();
 
   const pageData = data?.page ?? data;
 

@@ -4,18 +4,42 @@ import { GetPageData } from "@/lib/getdata";
 import BlogheroBanner from "@/assets/images/blog-hero-banner.jpg";
 import BlogClient from "./BlogClient";
 import { BASE_URL } from "@/lib/url";
+import { Metadata } from "next";
+import { buildMetadata, getSeoFromPageData, getSchemaFromPageData } from "@/lib/seo";
+import { cache } from "react";
+
+const getBlogPageData = cache(async () => {
+  
+  const data = await GetPageData("blog", "page");
+  return data?.page ?? data;
+});
+
+export async function generateMetadata(): Promise<Metadata> {
+  const pageData = await getBlogPageData();
+  const seo = getSeoFromPageData(pageData);
+
+  return buildMetadata(seo);
+}
 
 export default async function BlogPage() {
-  const pagedata = await GetPageData("blog", "page")
-
+  const pageData = await getBlogPageData();
+  const schema = getSchemaFromPageData(pageData);
 
 
   return (
     <main className="page_content blogContainer">
+      {schema ? (
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(schema),
+          }}
+        />
+      ) : null}
       <div className="portfolio-page blog ">
         <div className="port-landing-wrap gpp">
           <div className="banner-img">
-          <img src={`${BASE_URL}/wp-content/themes/b3net/assets/images/blog-hero-banner.jpg`} alt="" />
+            <img src={`${BASE_URL}/wp-content/themes/b3net/assets/images/blog-hero-banner.jpg`} alt="" />
             <div className="container">
               <div className="banner-caption">
                 <h1>Web Design & <br />

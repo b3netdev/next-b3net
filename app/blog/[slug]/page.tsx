@@ -6,7 +6,6 @@ import useBlog from "../../../hooks/useBlog";
 import { useAppDispatch } from "@/redux/hooks";
 import { setStickyNavMenu } from "@/redux/slicers/menuSlicer";
  
-// import { Link as ScrollL } from "react-scroll";
 import { useParams } from "next/navigation";
 import Link from "next/link";
 import Scroll from "@/components/client/Scroll";
