@@ -5487,14 +5487,21 @@ li {
 .aboutSubMenu .about-item a, .aboutSubMenu .about-item i {
   color: #020842 !important;
   opacity: 1 !important;
-  font-family: "Poppins", serif;
+  /* font-family: "Poppins", serif; */
+}
+.aboutSubMenu .about-item a {
+  color: #020842 !important;
+  opacity: 1 !important;
+  /* font-family: "Poppins", serif; */
 }
 
 .aboutSubMenu .about-item i {
   color: #000000 !important;
   opacity: 1 !important;
+  /* font-family: "Font Awesome 6 Free" !important; */
+  font-style: normal;
+  font-weight: 900;
 }
-
 .about-item:hover {
   color: #ff6600 !important;
 }

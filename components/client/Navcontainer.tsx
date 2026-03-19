@@ -186,7 +186,7 @@ export default function Navbar() {
 
 
     const AboutSubmenu = ({ data }: { data: any }) => {
-        const url = data.url;
+      
 
 
         return (
@@ -197,7 +197,7 @@ export default function Navbar() {
                     ) : data.id === 13484 ? (
                         <i className="fa-solid fa-circle-question"></i>
                     ) : data.id === 13485 ? (
-                        <i className="fa-regular fa-pen-to-square"></i>
+                        <i className="fa-solid fa-pen-to-square"></i>
                     ) : (
                         <i className="fa-solid fa-users-viewfinder"></i>
                     )}
