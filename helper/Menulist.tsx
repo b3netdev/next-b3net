@@ -477,4 +477,6 @@ export const serviceMegaMenuColumns: ServiceMegaMenuColumn[] = [
     { slug: "ai-integration" },
     { slug: "marketing-automation-services-2" },
     { slug: "ai-video" },
+    { slug: "data-engineering" },
+    { slug: "custom-web-application-development" },
 ]

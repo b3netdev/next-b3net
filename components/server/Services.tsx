@@ -24,14 +24,14 @@ const Services = () => {
           description: "Attract, engage, and convert consistently",
           image: `${BASE_URL}/wp-content/uploads/2026/02/Digital-Marketing-Demand-Generation.webp`,
           link: `${BASE_URL}/digital-marketing-agency-services.html`,
-          slug: "Digital-Marketing-Demand-Generation"
+          slug: "digital-marketing-agency-services"
         },
         {
           title: "Search Engine & Answer Engine Optimization (SEO/AEO)",
           description: "Increase visibility on Google, ChatGPT",
           image: `${BASE_URL}/wp-content/uploads/2026/02/SEO-AEO.webp`,
           link: `${BASE_URL}/seo-services.html`,
-          slug: "seo-services"
+          slug: "seo-services-2"
         },
         {
           title: "Social Media Marketing",
@@ -59,7 +59,7 @@ const Services = () => {
           description: "Clean data pipelines. Power smarter decisions",
           image: `${BASE_URL}/wp-content/uploads/2026/02/Data-Engineering-Analytics.webp`,
           link: `${BASE_URL}/data-engineering-services.html`,
-          slug: "data-engineering-services"
+          slug: "data-engineering"
         },
         {
           title: "Data Strategy & Governance",
