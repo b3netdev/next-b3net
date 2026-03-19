@@ -68,9 +68,9 @@ const validationSchema: Yup.ObjectSchema<ContactFormValues> = Yup.object({
     .of(Yup.string().required())
     .min(1, "Please select at least one service")
     .required()
-    .defined(), 
+    .defined(),
 });
-const   Contact: React.FC<ContactProps> = ({ data = false }) => {
+const Contact: React.FC<ContactProps> = ({ data = false }) => {
   const [selectService, setSelectService] = useState<string[]>([]);
   const { submitcontact, error, loading } = useForm()
   const router = useRouter();
@@ -138,7 +138,7 @@ const   Contact: React.FC<ContactProps> = ({ data = false }) => {
             <form onSubmit={formik.handleSubmit}>
               <div className="row">
                 <div className="col-md-4 form-group">
-                  <label>
+                  <label className="font-normal text-lg">
                     First Name <span>*</span>
                   </label>
                   <input
@@ -150,12 +150,12 @@ const   Contact: React.FC<ContactProps> = ({ data = false }) => {
                     value={formik.values.firstName}
                   />
                   {formik.touched.firstName && formik.errors.firstName && (
-                    <small className="text-danger">{formik.errors.firstName}</small>
+                    <small className="text-danger font-semibold  text-lg">{formik.errors.firstName}</small>
                   )}
                 </div>
 
                 <div className="col-md-4 form-group">
-                  <label>
+                <label className="font-normal text-lg">
                     Last Name <span>*</span>
                   </label>
                   <input
@@ -167,12 +167,12 @@ const   Contact: React.FC<ContactProps> = ({ data = false }) => {
                     value={formik.values.lastName}
                   />
                   {formik.touched.lastName && formik.errors.lastName && (
-                    <small className="text-danger">{formik.errors.lastName}</small>
+                    <small className="text-danger font-semibold  text-lg">{formik.errors.lastName}</small>
                   )}
                 </div>
 
                 <div className="col-md-4 form-group">
-                  <label>
+                <label className="font-normal text-lg">
                     Phone Number <span>*</span>
                   </label>
                   <input
@@ -184,14 +184,14 @@ const   Contact: React.FC<ContactProps> = ({ data = false }) => {
                     value={formik.values.phone}
                   />
                   {formik.touched.phone && formik.errors.phone && (
-                    <small className="text-danger">{formik.errors.phone}</small>
+                    <small className="text-danger font-semibold  text-lg">{formik.errors.phone}</small>
                   )}
                 </div>
               </div>
 
               <div className="row">
                 <div className="col-md-4 form-group">
-                  <label>
+                <label className="font-normal text-lg">
                     Your Email <span>*</span>
                   </label>
                   <input
@@ -203,12 +203,12 @@ const   Contact: React.FC<ContactProps> = ({ data = false }) => {
                     value={formik.values.email}
                   />
                   {formik.touched.email && formik.errors.email && (
-                    <small className="text-danger">{formik.errors.email}</small>
+                    <small className="text-danger font-semibold  text-lg">{formik.errors.email}</small>
                   )}
                 </div>
 
                 <div className="col-md-4 form-group">
-                  <label>
+                <label className="font-normal text-lg">
                     Company Name <span>*</span>
                   </label>
                   <input
@@ -220,12 +220,12 @@ const   Contact: React.FC<ContactProps> = ({ data = false }) => {
                     value={formik.values.cname}
                   />
                   {formik.touched.cname && formik.errors.cname && (
-                    <small className="text-danger">{formik.errors.cname}</small>
+                    <small className="text-danger font-semibold  text-lg">{formik.errors.cname}</small>
                   )}
                 </div>
 
                 <div className="col-md-4 form-group">
-                  <label>
+                <label className="font-normal text-lg">
                     Company Website <span>*</span>
                   </label>
                   <input
@@ -237,7 +237,7 @@ const   Contact: React.FC<ContactProps> = ({ data = false }) => {
                     value={formik.values.cwebsite}
                   />
                   {formik.touched.cwebsite && formik.errors.cwebsite && (
-                    <small className="text-danger">{formik.errors.cwebsite}</small>
+                    <small className="text-danger font-semibold  text-lg" >{formik.errors.cwebsite}</small>
                   )}
                 </div>
               </div>
@@ -259,17 +259,20 @@ const   Contact: React.FC<ContactProps> = ({ data = false }) => {
                         }
                       >
                         <input
+                          // className="!font-normal"
                           type="checkbox"
                           checked={selectService.includes(item.value)}
                           onChange={() => handleSelectService(item.value)}
                         />
-                        {item.label}
+                        <span className="text-black font-normal">
+                          {item.label}
+                        </span>
                       </label>
                     ))}
                   </div>
 
                   {formik.touched.services && formik.errors.services && (
-                    <div className="text-danger mt-2">
+                    <div className="text-danger mt-2 font-semibold  text-lg">
                       {formik.errors.services as string}
                     </div>
                   )}
@@ -277,7 +280,7 @@ const   Contact: React.FC<ContactProps> = ({ data = false }) => {
               </div>
 
               <div className="form-group">
-                <label>
+              <label className="font-normal text-lg">
                   Your Message <span>*</span>
                 </label>
                 <textarea
@@ -288,7 +291,7 @@ const   Contact: React.FC<ContactProps> = ({ data = false }) => {
                   value={formik.values.message}
                 />
                 {formik.touched.message && formik.errors.message && (
-                  <small className="text-danger">{formik.errors.message}</small>
+                  <small className="text-danger font-semibold  text-lg">{formik.errors.message}</small>
                 )}
               </div>
 
@@ -307,7 +310,7 @@ const   Contact: React.FC<ContactProps> = ({ data = false }) => {
           </div>
         </div>
 
-         
+
       </div>
     </div>
   );
