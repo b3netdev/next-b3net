@@ -20,7 +20,7 @@ const FrequentQuestion = ({ pageData }: { pageData: any }) => {
     <div className="container my-5">
       <h2 className="text-center mb-4">Frequently Asked Questions</h2>
 
-      <div className="accordion" id="faqAccordion">
+      <div className="accordion new-accor-item" id="faqAccordion">
         {faqs.map((item: any, index: number) => {
           const headingId = `faqHeading${index}`;
           const collapseId = `faqCollapse${index}`;
@@ -28,7 +28,7 @@ const FrequentQuestion = ({ pageData }: { pageData: any }) => {
 
           return (
             <div className="accordion-item" key={headingId}>
-              <div className="flex  justify-between bg-amber-200">
+              {/* <div className="flex  justify-between"> */}
                 <div className="accordion-header" id={headingId}>
                   <button
                     className={`accordion-button ${!isOpen ? "collapsed" : ""}`}
@@ -38,10 +38,12 @@ const FrequentQuestion = ({ pageData }: { pageData: any }) => {
                     aria-controls={collapseId}
                   >
                     {item?.question}
+                    <i className="fa-solid fa-chevron-down faq-icon"></i>
+
                   </button>
                 </div>
                
-              </div>
+              {/* </div> */}
               {isOpen && (
                 <div id={collapseId} className="accordion-collapse">
                   <div className="accordion-body">{item?.answer}</div>

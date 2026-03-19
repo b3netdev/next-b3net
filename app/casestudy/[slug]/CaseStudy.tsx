@@ -3,6 +3,7 @@ import Link from "next/link";
 import ServiceContact from "@/app/services/[slug]/ServiceContact";
  
 import { BASE_URL } from "@/lib/url";
+import CountUp from "@/components/client/CountUp";
 
 
 
@@ -35,8 +36,7 @@ const CaseStudy = async ({ slug }: any) => {
                                                     <div className="organic-block" key={index}>
                                                         <h4>
                                                             <span className="count" data-target="176" style={{ color: "#35d1bd" }}>
-                                                                {data?.number}
-                                                                %
+                                                            <CountUp value={data?.number}  duration={3000}/>%
                                                             </span>
                                                         </h4>
                                                         <p style={{ color: "white" }}>{data?.text}</p>

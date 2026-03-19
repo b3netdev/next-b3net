@@ -7,7 +7,7 @@ type PortfolioItem = {
   img: string;
   href: string;
   size: "big" | "small";
-  featured?: boolean; 
+  featured?: boolean;
 };
 
 type TileProps = {
@@ -15,38 +15,38 @@ type TileProps = {
 };
 
 const PortFolio: React.FC = () => {
-  const items:any =[
+  const items: any = [
     {
-        "image": "https://2026.b3net.info/b3net-com/wp-content/uploads/2025/03/portfolio-img-1.jpg",
-        "title": "Bio Sleep Concept",
-        "url": "https://www.b3net.com/portfolio/bio-sleep-concept-magento.html"
+      "image": "https://2026.b3net.info/b3net-com/wp-content/uploads/2025/03/portfolio-img-1.jpg",
+      "title": "Bio Sleep Concept",
+      "url": "https://www.b3net.com/portfolio/bio-sleep-concept-magento.html"
     },
     {
-        "image": "https://2026.b3net.info/b3net-com/wp-content/uploads/2025/03/portfolio-img-2.jpg",
-        "title": "Arc Levers",
-        "url": "https://www.b3net.com/portfolio/arc-levers.html"
+      "image": "https://2026.b3net.info/b3net-com/wp-content/uploads/2025/03/portfolio-img-2.jpg",
+      "title": "Arc Levers",
+      "url": "https://www.b3net.com/portfolio/arc-levers.html"
     },
     {
-        "image": "https://2026.b3net.info/b3net-com/wp-content/uploads/2025/03/portfolio-img-3.jpg",
-        "title": "Arrendaria",
-        "url": "https://www.b3net.com/portfolio/arrendaria-real-estate-service/"
+      "image": "https://2026.b3net.info/b3net-com/wp-content/uploads/2025/03/portfolio-img-3.jpg",
+      "title": "Arrendaria",
+      "url": "https://www.b3net.com/portfolio/arrendaria-real-estate-service/"
     },
     {
-        "image": "https://2026.b3net.info/b3net-com/wp-content/uploads/2025/03/portfolio-img-4.jpg",
-        "title": "Tim Henson’s Unique Lighting",
-        "url": "https://www.b3net.com/portfolio/tim-hensons-unique-lighting-wordpress.html"
+      "image": "https://2026.b3net.info/b3net-com/wp-content/uploads/2025/03/portfolio-img-4.jpg",
+      "title": "Tim Henson’s Unique Lighting",
+      "url": "https://www.b3net.com/portfolio/tim-hensons-unique-lighting-wordpress.html"
     },
     {
-        "image": "https://2026.b3net.info/b3net-com/wp-content/uploads/2025/03/portfolio-img-5.jpg",
-        "title": "The Fifth OC",
-        "url": "https://www.b3net.com/portfolio/the-fifth-oc-wordpress.html"
+      "image": "https://2026.b3net.info/b3net-com/wp-content/uploads/2025/03/portfolio-img-5.jpg",
+      "title": "The Fifth OC",
+      "url": "https://www.b3net.com/portfolio/the-fifth-oc-wordpress.html"
     },
     {
-        "image": "https://2026.b3net.info/b3net-com/wp-content/uploads/2025/03/portfolio-img-6.jpg",
-        "title": "Maya Stone",
-        "url": "https://www.b3net.com/portfolio/maya-stone-inc-wordpress.html"
+      "image": "https://2026.b3net.info/b3net-com/wp-content/uploads/2025/03/portfolio-img-6.jpg",
+      "title": "Maya Stone",
+      "url": "https://www.b3net.com/portfolio/maya-stone-inc-wordpress.html"
     }
-]
+  ]
 
 
 
@@ -75,10 +75,10 @@ const PortFolio: React.FC = () => {
               </p>
 
               <div className="mt-4">
-                
+
                 <Link
                   className="btn btn-orange"
-                  
+
                   href="/portfolio"
                 >
                   <span className="btn_label" data-text="Discover More">
@@ -93,7 +93,10 @@ const PortFolio: React.FC = () => {
           </div>
 
           <div className="portfolio-sec-images">
-              <div className="row align-items-center">
+            <div className="row align-items-center">
+
+              <div className="d-none d-lg-block">
+
                 <div className="row">
                   {[0, 1, 2].map((colIndex) => (
                     <div className="col-lg-4 col-md-6 col-sm-12 gap-5" key={colIndex}>
@@ -124,7 +127,42 @@ const PortFolio: React.FC = () => {
                   ))}
                 </div>
               </div>
+              <div className="d-block d-lg-none">
+                <div className="row">
+
+
+                  {items
+                    ?.map((item: any, index: any) => (
+                      <div className="col-12 col-sm-6" key={index}>
+                        <div className="portfolio-list !mt-7 !p-4">
+                          <div className="image image-anime reveal">
+                            <Link href={`/portfolio/${item?.about_portfolio_slug}`}>
+                              <img src={item.image} alt={item.title} />
+                            </Link>
+                          </div>
+
+                          <div className="portfolio-details">
+                            <Link
+                              href={`/portfolio/${item?.about_portfolio_slug}`}
+                              className="d-flex align-items-center justify-content-between"
+                            >
+                              {item.title}{" "}
+                              <span>
+                                <i className="fa-solid fa-arrow-right -rotate-45"></i>
+                              </span>
+                            </Link>
+                          </div>
+                        </div>
+                      </div>
+                    ))}
+
+
+                </div>
+              </div>
+
+
             </div>
+          </div>
 
         </div>
       </div>

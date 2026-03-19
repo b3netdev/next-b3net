@@ -42,7 +42,7 @@ function LocationColumns({ columns }: { columns: FooterLocationItem[][] }) {
               return (
                 <li key={item.title} className={isOpen ? "open" : ""}>
                   <Link
-                    className="main-link d-flex align-items-center justify-content-between"
+                    className="main-link flex items-center justify-between"
                     href="/"
                     role={hasLinks ? "button" : undefined}
                     aria-expanded={hasLinks ? isOpen : undefined}
@@ -53,7 +53,7 @@ function LocationColumns({ columns }: { columns: FooterLocationItem[][] }) {
                       toggle(key);
                     }}
                   >
-                    <div className=" flex flex-col gap-5 w-3xs">
+                    <div className="flex items-baseline w-3xs">
                       {hasLinks && (
                         <i
                           className={`fa-solid fa-caret-${isOpen ? "down" : "right"} toggle-arrow`}
@@ -225,13 +225,7 @@ function ExploreList({ items }: { items: any }) {
               </>
             ) : (
               <div
-                className="d-flex"
-                style={{
-                  display: "flex",
-                  justifyContent: "center",
-                  alignItems: "center",
-                  gap: "10px",
-                }}
+                className="haslinksFooterExplore"
               >
                 <i className="fa-solid fa-caret-right"></i>
                 <Link href={item.url}>{item.title}</Link>

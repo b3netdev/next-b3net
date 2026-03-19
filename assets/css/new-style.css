@@ -529,7 +529,7 @@ h4.card-title.mb-2 {
 
 /* details */
 .portfolio-detail.portfoli-padd.portfolio-page-1 {
-    padding: 120px 0 0 0;
+    padding: 90px 0 0 0;
 }
 
 .portfolio-detail {
@@ -974,6 +974,7 @@ svg {
     border-radius: 30px;
     border: 2px solid #d6dde8;
     margin-bottom: 20px;
+    height: 100%;
 }
 
 .testimonial-header {

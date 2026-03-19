@@ -5,6 +5,7 @@ import ServiceContact from "@/app/services/[slug]/ServiceContact";
 import styles from "./CaseStudy2.module.css";
 import Slider from "./Slider";
 import { BASE_URL } from "@/lib/url";
+import CountUp from "@/components/client/CountUp";
 
 const CaseStudy2 = async ({ slug }: any) => {
   const data = await getcaseStudiesData(slug)
@@ -36,7 +37,7 @@ const CaseStudy2 = async ({ slug }: any) => {
                           <div className={styles.organicBlock} key={index}>
                             <h4>
                               <span className="count" data-target="275">
-                                {data?.number}%
+                              <CountUp value={data?.number} duration={3000} />%
                               </span>
                             </h4>
                             <p>{data?.text}</p>

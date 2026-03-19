@@ -1,7 +1,7 @@
 import { getcaseStudiesData } from "@/lib/getdata";
 import Link from "next/link";
 import ServiceContact from "@/app/services/[slug]/ServiceContact";
- 
+import CountUp from "@/components/client/CountUp"; 
 
 
 
@@ -25,10 +25,10 @@ const CaseStudy1 = async ({ slug }: any) => {
                   {pageData?.acf?.data?.case_study_number_repeater?.map(
                     (data: any, index: any) => {
                       return (
-                        <div className="organic-block">
+                        <div className="organic-block" key={index}>
                           <h4>
                             <span className="count" data-target="176">
-                              {data?.number}
+                              <CountUp value={data?.number}  duration={3000}/>
                             </span>
                             %
                           </h4>

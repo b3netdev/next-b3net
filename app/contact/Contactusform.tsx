@@ -45,7 +45,7 @@ export default function ContactUsForm() {
   });
 
   return (
-    <section className="contact-sec bg-grey sp">
+    <section className="contact-sec bg-white sp">
       <div className="container px-4">
         <div className="row justify-content-center mb-2 mb-md-4">
           <div className="col-lg-12 text-start">
@@ -68,7 +68,7 @@ export default function ContactUsForm() {
                   type="text"
                   name="fname"
                   className="form-control"
-                  placeholder="Enter your fname"
+                  
                   onChange={formik.handleChange}
                   onBlur={formik.handleBlur}
                   value={formik.values.fname}
@@ -86,7 +86,7 @@ export default function ContactUsForm() {
                   type="email"
                   name="email"
                   className="form-control"
-                  placeholder="Enter your email"
+                  
                   onChange={formik.handleChange}
                   onBlur={formik.handleBlur}
                   value={formik.values.email}
@@ -106,7 +106,7 @@ export default function ContactUsForm() {
                   type="tel"
                   name="phone"
                   className="form-control"
-                  placeholder="Enter your mobile number"
+                  
                   onChange={formik.handleChange}
                   onBlur={formik.handleBlur}
                   value={formik.values.phone}
@@ -124,7 +124,7 @@ export default function ContactUsForm() {
                   type="tel"
                   name="subject"
                   className="form-control"
-                  placeholder="Enter subject"
+                  
                   onChange={formik.handleChange}
                   onBlur={formik.handleBlur}
                   value={formik.values.subject}
@@ -144,7 +144,7 @@ export default function ContactUsForm() {
                   name="Message"
                   className="form-control"
                   rows={5}
-                  placeholder="Enter your Message"
+                 
                   onChange={formik.handleChange}
                   onBlur={formik.handleBlur}
                   value={formik.values.Message}
