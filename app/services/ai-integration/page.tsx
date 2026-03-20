@@ -9,14 +9,32 @@ import "swiper/css/navigation";
 import AiSlider from "./AiSlider";
 import { BASE_URL } from "@/lib/url";
 import Link from "next/link";
+import { cache } from "react";
+import { Metadata } from "next";
+import { buildMetadata, getSeoFromPageData } from "@/lib/seo";
+
+
+const getPageData = cache(async () => {
+  
+  const data = await GetPageData("ai-integration", "page");
+  return data?.page ?? data;
+});
+
+export async function generateMetadata(): Promise<Metadata> {
+  const pageData = await getPageData();
+  const seo = getSeoFromPageData(pageData);
+
+  return buildMetadata(seo);
+}
+
 
 
 
 const AiIntregation = async ({ params }: { params: { slug: string } }) => {
 
-  const data = await GetPageData("ai-integration", "page");
-  const pageData = data?.page ?? data;
+   const data = await getPageData();
 
+  const pageData = data?.page ?? data;
 
 
 
@@ -36,19 +54,19 @@ const AiIntregation = async ({ params }: { params: { slug: string } }) => {
                   </h1>
                   <p>
                     At{" "}
-                    <a className="site-logo" href="https://www.b3net.com/">
+                    <Link className="site-logo" href="/">
                       B3NET Inc.
-                    </a>
+                    </Link>
                     , we understand the unique challenges faced by small and
                     medium-sized businesses in the digital age...
                   </p>
-                  <a href="" className="unq-free-cons">
+                  <Link href="/services/ai-integration" className="unq-free-cons">
                     Get a FREE Consultation{" "}
                     <i
                       className="fa-arrow-right fa-solid"
                       aria-hidden="true"
                     ></i>
-                  </a>
+                  </Link>
                 </div>
               </div>
 

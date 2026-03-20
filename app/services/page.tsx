@@ -5,46 +5,44 @@ import Link from "next/link";
 import ServiceContact from "./[slug]/ServiceContact";
 import Workslider from "./[slug]/Workslider";
 import { BASE_URL } from "@/lib/url";
-// import "swiper/css";
-// import "swiper/css/navigation";
-// import usePage from "../../../hooks/usePage";
+import { cache } from "react";
+import { Metadata } from "next";
+import { buildMetadata, getSeoFromPageData } from "@/lib/seo";
+import { notFound } from "next/navigation";
 
+
+
+
+const getPageData = cache(async () => {
+  
+  const data = await GetPageData("services", "page");
+  return data?.page ?? data;
+});
+
+export async function generateMetadata(): Promise<Metadata> {
+  const pageData = await getPageData();
+  const seo = getSeoFromPageData(pageData);
+
+  return buildMetadata(seo);
+}
 
 
 const Services = async () => {
 
 
-    const pageData = await GetPageData("services", "page")
+    const data = await getPageData();
+    
+      const pageData = data?.page ?? data;
+    
+    
+      if (!pageData) notFound();
+    
 
 
 
 
 
-    // const OurWorkSlider = () => (
-    //     <Swiper
-    //         modules={[Autoplay]}
-    //         autoplay={{ delay: 2000, disableOnInteraction: false }}
-    //         loop
-    //         navigation
-    //         spaceBetween={20}
-    //         breakpoints={{
-    //             320: { slidesPerView: 1 },
-    //             576: { slidesPerView: 2 },
-    //             768: { slidesPerView: 3 },
-    //             1024: { slidesPerView: 4 },
-    //         }}
-    //         className="our-work-swiper"
-    //     >
-    //         {pageData?.acf?.data?.service_page_section_5_images?.map((item) => (
-    //             <SwiperSlide key={item.id}>
-    //                 <div className="work-slide">
-    //                     <img src={item.image} alt="service" loading="lazy" />
-    //                 </div>
-    //             </SwiperSlide>
-    //         ))}
-    //     </Swiper>
-    // );
-
+ 
     return (
         <main className="page_content services-design-page">
             {/* HERO */}

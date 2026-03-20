@@ -4,9 +4,30 @@ import ContactUsForm from "@/app/contact/Contactusform";
 import Contact from "@/components/client/Contact";
 
 import { GetPageData } from "@/lib/getdata";
+import { buildMetadata, getSeoFromPageData } from "@/lib/seo";
+import { Metadata } from "next";
+import { cache } from "react";
+
+
+
+const getPageData = cache(async () => {
+  
+  const data = await GetPageData("ai-video", "page");
+  return data?.page ?? data;
+});
+
+export async function generateMetadata(): Promise<Metadata> {
+  const pageData = await getPageData();
+  const seo = getSeoFromPageData(pageData);
+
+  return buildMetadata(seo);
+}
+
+
 const Aivideo = async () => {
 
-  const data = await GetPageData("ai-video", "page");
+  const data = await getPageData();
+
   const pageData = data?.page ?? data;
 
 
