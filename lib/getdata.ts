@@ -75,3 +75,17 @@ export const getcaseStudiesData = async (id: number) => {
   );
   return Array.isArray(data) ? data ?? null : data ?? null;
 };
+
+
+
+ export const getBlogdetail = async (slug: any) => {
+    
+  
+
+      const data: any = await fetcher(`/wp-json/wp/v2/posts?slug=${slug}`, {
+        params: { _embed: 1 },
+      });
+
+      return Array.isArray(data) ? data ?? null : data ?? null;
+   
+  };
