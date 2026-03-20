@@ -7,6 +7,7 @@ import { GetPageData } from "@/lib/getdata";
 import { buildMetadata, getSeoFromPageData } from "@/lib/seo";
 import { Metadata } from "next";
 import { cache } from "react";
+import ShowNav from "@/components/client/ShowNav";
 
 
 
@@ -33,7 +34,8 @@ const Aivideo = async () => {
 
 
   return (
-    <section className="email-col py-md-5 py-3">
+    <section className="email-col py-md-5 mt-5 py-3">
+      <ShowNav />
       <div className="container">
         <div className="email-market-gap">
           <div className="form-box-shadow p-sm-4 p-0 d-flex flex-column justify-content-center align-items-center ai-video-wrapper">

@@ -4,7 +4,7 @@ import React, { useEffect, useState } from "react";
 import useBlog from "../../../hooks/useBlog";
 
 import { useAppDispatch } from "@/redux/hooks";
-import { setStickyNavMenu } from "@/redux/slicers/menuSlicer";
+
  
 import { useParams } from "next/navigation";
 import Link from "next/link";
