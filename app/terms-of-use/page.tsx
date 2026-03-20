@@ -21,7 +21,7 @@ const getBlogPageData = cache(async () => {
   
 const page = async () => {
     const pageData = await getBlogPageData();
-    console.log(pageData)
+  
 
     return (
         <section className="product-details-sec shop-sec page_content default_content_class">

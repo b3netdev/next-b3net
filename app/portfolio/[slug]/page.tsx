@@ -9,14 +9,14 @@ import { buildMetadata, getSeoFromPageData } from "@/lib/seo";
 
 
 const getBlogPageData = cache(async (slug:string) => {
-    console.log("Calling")
+    
     const data = await  getportfoliodetail(slug);
     return data?.page ?? data;
   });
   
   export async function generateMetadata({ params }: { params: { slug: string } }): Promise<Metadata> {
     const { slug } = await params;
-    console.log(slug,"SLUG")
+    
     const pageData = await getBlogPageData(slug);
     const seo = getSeoFromPageData(pageData);
   
@@ -27,10 +27,9 @@ const page = async ({ params }: { params: { slug: any } }) => {
     const { slug } = await params
 
     const pageData = await getBlogPageData(slug);
-    console.log(pageData,"Page d ata")
+    
     const relatedpost = await getPortFloioRelatedPost(pageData?.portfolio_category, pageData?.id)
 
-    console.log(relatedpost, "Related Post")
 
    
 

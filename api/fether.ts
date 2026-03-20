@@ -53,7 +53,7 @@ export async function fetcher<T = any>(
   });
 
   if (!response.ok) {
-    console.log(response)
+    
     const errorText = await response.text();
     throw new Error(
       `Fetch error ${response.status}: ${response.statusText} - ${errorText}`

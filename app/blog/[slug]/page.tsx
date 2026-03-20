@@ -89,7 +89,7 @@ const BlogDetail = () => {
       if (!pageData?.categories) return;
 
       const data = await getRelatedPosts(pageData?.categories, pageData?.id);
-      console.log(data, "RElated post data")
+      
       setRelatedPost(data);
     };
     fetchRelatedPosts();

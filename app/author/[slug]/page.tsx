@@ -13,9 +13,7 @@ export default async function Author({ params }: { params: { slug: string } }) {
     
 
     const [authorData] = await GetAuthorData(slug);
-    console.log(authorData,"AuthorDATA")
-    // const relatedpost: any = await GetRelatedPost(authorData?.id)
-    // console.log(relatedpost,"Related post")
+    
 
 
 

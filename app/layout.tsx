@@ -31,15 +31,69 @@ const poppins = Poppins({
   display: "swap",
 });
 
+
+
 export const metadata: Metadata = {
-  title: {
-    default: "B3NET",
-    template: "B3NET | %s",
+  title: "B3NET - Innovating Your Digital",
+  description:
+    "B3NET offers cutting-edge web design, AI-powered digital marketing, mobile app development, and OpenAI integration services. Transform your brand with our expert solutions.",
+
+  robots: {
+    index: true,
+    follow: true,
+    nocache: false,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-snippet": -1,
+      "max-image-preview": "large",
+      "max-video-preview": -1,
+    },
+  },
+
+  alternates: {
+    canonical: "https://2026.b3net.info/b3net-com/",
+  },
+
+  openGraph: {
+    locale: "en_US",
+    type: "article",
+    url: "https://2026.b3net.info/b3net-com/",
+    siteName: "B3net",
+    title: "Home",
+    description:
+      "B3NET offers cutting-edge web design, AI-powered digital marketing, mobile app development, and OpenAI integration services. Transform your brand with our expert solutions.",
+    images: [
+      {
+        url: "https://2026.b3net.info/b3net-com/wp-content/uploads/2025/11/B3NET-New-Logo-for-Yaost.jpg",
+        width: 1200,
+        height: 675,
+        type: "image/jpeg",
+      },
+    ],
+  },
+
+  twitter: {
+    card: "summary_large_image",
+    site: "@b3net",
+    title: "Home",
+    description:
+      "B3NET offers cutting-edge web design, AI-powered digital marketing, mobile app development, and OpenAI integration services. Transform your brand with our expert solutions.",
+    images: [
+      "https://2026.b3net.info/b3net-com/wp-content/uploads/2025/11/B3NET-New-Logo-for-Yaost.jpg",
+    ],
+  },
+
+  other: {
+    "article:publisher": "https://www.facebook.com/B3NET",
+    "article:modified_time": "2025-03-26T10:34:36+00:00",
   },
 };
 
 
-export default function RootLayout({ children }: { children: React.ReactNode }) {
+export default async function RootLayout({ children }: { children: React.ReactNode }) {
+  const pagedata = await GetPageData("home", "page");
+ 
   return (
     <html lang="en" className={poppins.className}>
       <body>

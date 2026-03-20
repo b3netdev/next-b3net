@@ -19,7 +19,7 @@ const usePortfolio = () => {
     };
 
     const getportfolioItems = async (params: any) => {
-        console.log(Object.fromEntries(params),"PORTFOLIO API PARAMS")
+        
         setLoading(true);
         try {
             const res = await api.get("/wp-json/wp/v2/portfolio", {

@@ -42,10 +42,6 @@ export default function Portfoliobox() {
     })();
   }, []);
   
-  useEffect(()=>{
-    console.log(selectTab,"SELCT TAB")
-    console.log(selectTab?.count,"SELCT TAB COUNT")
-  },[selectTab])
 
 
   useEffect(() => {

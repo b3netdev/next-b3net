@@ -11,25 +11,10 @@ import CaseStudy from "@/components/server/CaseStudy";
 import Contact from "@/components/client/Contact";
 import { BASE_URL } from "@/lib/url";
 import FrequentQuestion from "@/components/client/FrequentQuestion";
-import { Metadata } from "next";
-import { buildMetadata, getSeoFromPageData, getSchemaFromPageData } from "@/lib/seo";
-import { cache } from "react";
-import { GetPageData } from "@/lib/getdata";
 
 
 
-// const getBlogPageData = cache(async () => {
-//     const data = await GetPageData("home", "page");
-//     console.log(data, "page Data")
-//     return data?.page ?? data;
-// });
 
-// export async function generateMetadata(): Promise<Metadata> {
-//     const pageData = await getBlogPageData();
-//     const seo = getSeoFromPageData(pageData);
-
-//     return buildMetadata(seo);
-// }
 
 
 

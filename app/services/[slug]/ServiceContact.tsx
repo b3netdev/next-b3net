@@ -54,7 +54,7 @@ const ServiceContact: React.FC<ServiceContactProps> = ({ title = "Request a FREE
       try {
       
         const data = await submitcontact(formik?.values, 12129)
-        console.log(data,)
+        
         if (data?.status === "mail_sent") {
           router.push("/thankyou");
         }

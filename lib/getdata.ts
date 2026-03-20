@@ -14,7 +14,7 @@ export async function GetPageData(slug: string, type: string) {
 
 
 export async function GetRelatedPost(categoryId: any, id: number | string) {
-  //console.log(categoryId,"CATEGORY_ID")
+  
   const data = await fetcher(`/wp-json/wp/v2/posts`, {
     params: {
       categories: categoryId,
