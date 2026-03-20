@@ -8,11 +8,10 @@ import CountUp from "@/components/client/CountUp";
 
 
 
-const CaseStudy = async ({ slug }: any) => {
+const CaseStudy = async ({ pageData }: any) => {
 
 
-    const data = await getcaseStudiesData(slug)
-    const pageData = data?.page
+    
 
 
 

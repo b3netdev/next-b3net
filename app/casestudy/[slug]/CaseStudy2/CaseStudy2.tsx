@@ -7,9 +7,8 @@ import Slider from "./Slider";
 import { BASE_URL } from "@/lib/url";
 import CountUp from "@/components/client/CountUp";
 
-const CaseStudy2 = async ({ slug }: any) => {
-  const data = await getcaseStudiesData(slug)
-  const pageData = data?.page
+const CaseStudy2 = async ({ pageData }: any) => {
+  
 
   return (
     <main className={styles.pageContent}>

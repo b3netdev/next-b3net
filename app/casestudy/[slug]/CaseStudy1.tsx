@@ -5,9 +5,8 @@ import CountUp from "@/components/client/CountUp";
 
 
 
-const CaseStudy1 = async ({ slug }: any) => {
-  const data = await getcaseStudiesData(slug)
-  const pageData = data?.page
+const CaseStudy1 = async ({ pageData }: any) => {
+ 
 
   return (
     <div className="case-study-2">

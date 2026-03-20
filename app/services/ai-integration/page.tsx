@@ -1,8 +1,5 @@
 
 
-import React from "react";
-// import { Swiper, SwiperSlide } from "swiper/react";
-// import { Pagination, Navigation, Autoplay, Mousewheel } from "swiper/modules";
 import Contact from "@/components/client/Contact";
 import { GetPageData } from "@/lib/getdata";
 
@@ -12,6 +9,8 @@ import "swiper/css/navigation";
 import AiSlider from "./AiSlider";
 import { BASE_URL } from "@/lib/url";
 import Link from "next/link";
+
+
 
 const AiIntregation = async ({ params }: { params: { slug: string } }) => {
 

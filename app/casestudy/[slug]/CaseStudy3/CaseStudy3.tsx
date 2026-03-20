@@ -20,7 +20,7 @@ const statsData = [
   },
 ];
 
-const CaseStudy3 = async ({ slug }: any) => {
+const CaseStudy3 = async ({ pageData }: any) => {
 
   return (
     <main className="page_content">
