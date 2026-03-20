@@ -2,6 +2,7 @@ import { getcaseStudiesData } from "@/lib/getdata";
 import Link from "next/link";
 import ServiceContact from "@/app/services/[slug]/ServiceContact";
 import CountUp from "@/components/client/CountUp"; 
+import { BASE_URL } from "@/lib/url";
 
 
 
@@ -43,12 +44,17 @@ const CaseStudy1 = async ({ pageData }: any) => {
                 <img
                   width="710"
                   height="710"
-                  src="https://b3net.com/wp-content/uploads/2025/04/flexus-banner-img.png"
+                  src={`${BASE_URL}/wp-content/uploads/2025/04/flexus-banner-img.png`}
                   className="attachment-full size-full wp-post-image"
                   alt=""
                   decoding="async"
                   fetchPriority="high"
-                  srcSet="https://b3net.com/wp-content/uploads/2025/04/flexus-banner-img.png 710w, https://b3net.com/wp-content/uploads/2025/04/flexus-banner-img-300x300.png 300w, https://b3net.com/wp-content/uploads/2025/04/flexus-banner-img-150x150.png 150w, https://b3net.com/wp-content/uploads/2025/04/flexus-banner-img-24x24.png 24w, https://b3net.com/wp-content/uploads/2025/04/flexus-banner-img-48x48.png 48w, https://b3net.com/wp-content/uploads/2025/04/flexus-banner-img-96x96.png 96w"
+                 srcSet={`${BASE_URL}/wp-content/uploads/2025/04/flexus-banner-img.png 710w, 
+                  ${BASE_URL}/wp-content/uploads/2025/04/flexus-banner-img-300x300.png 300w, 
+                  ${BASE_URL}/wp-content/uploads/2025/04/flexus-banner-img-150x150.png 150w, 
+                  ${BASE_URL}/wp-content/uploads/2025/04/flexus-banner-img-24x24.png 24w, 
+                  ${BASE_URL}/wp-content/uploads/2025/04/flexus-banner-img-48x48.png 48w, 
+                  ${BASE_URL}/wp-content/uploads/2025/04/flexus-banner-img-96x96.png 96w`}
                   sizes="(max-width: 710px) 100vw, 710px"
                 />{" "}
               </div>

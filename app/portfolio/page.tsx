@@ -6,6 +6,7 @@ import Contact from "@/components/client/Contact";
 import { cache } from "react";
 import { Metadata } from "next";
 import { buildMetadata, getSeoFromPageData } from "@/lib/seo";
+import { BASE_URL } from "@/lib/url";
 type PageProps = {
   params: { slug: string };
 };
@@ -39,7 +40,7 @@ export default async function Portfolio() {
         <div className="port-landing-wrap gpp">
           <div className="banner-img">
             <img
-              src="https://b3net.com/wp-content/uploads/2025/10/portfolio-banner-1.webp"
+              src={`${BASE_URL}/wp-content/uploads/2025/10/portfolio-banner-1.webp`}
               alt=""
             />
             <div className="container">

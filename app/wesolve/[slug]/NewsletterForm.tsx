@@ -37,7 +37,7 @@ export default function NewsletterForm() {
       try {
         // 🔁 Replace this with your actual endpoint
         // await fetch("/api/newsletter", { method: "POST", body: JSON.stringify(values) })
-        console.log("Newsletter submit:", values);
+       
 
         resetForm();
       } finally {

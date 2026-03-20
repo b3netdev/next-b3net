@@ -17,32 +17,32 @@ type TileProps = {
 const PortFolio: React.FC = () => {
   const items: any = [
     {
-      "image": "https://2026.b3net.info/b3net-com/wp-content/uploads/2025/03/portfolio-img-1.jpg",
+      "image": `${BASE_URL}/wp-content/uploads/2025/03/portfolio-img-1.jpg`,
       "title": "Bio Sleep Concept",
       "url": "https://www.b3net.com/portfolio/bio-sleep-concept-magento.html"
     },
     {
-      "image": "https://2026.b3net.info/b3net-com/wp-content/uploads/2025/03/portfolio-img-2.jpg",
+      "image": `${BASE_URL}/wp-content/uploads/2025/03/portfolio-img-2.jpg`,
       "title": "Arc Levers",
       "url": "https://www.b3net.com/portfolio/arc-levers.html"
     },
     {
-      "image": "https://2026.b3net.info/b3net-com/wp-content/uploads/2025/03/portfolio-img-3.jpg",
+      "image": `${BASE_URL}/wp-content/uploads/2025/03/portfolio-img-3.jpg`,
       "title": "Arrendaria",
       "url": "https://www.b3net.com/portfolio/arrendaria-real-estate-service/"
     },
     {
-      "image": "https://2026.b3net.info/b3net-com/wp-content/uploads/2025/03/portfolio-img-4.jpg",
+      "image": `${BASE_URL}/wp-content/uploads/2025/03/portfolio-img-4.jpg`,
       "title": "Tim Henson’s Unique Lighting",
       "url": "https://www.b3net.com/portfolio/tim-hensons-unique-lighting-wordpress.html"
     },
     {
-      "image": "https://2026.b3net.info/b3net-com/wp-content/uploads/2025/03/portfolio-img-5.jpg",
+      "image": `${BASE_URL}/wp-content/uploads/2025/03/portfolio-img-5.jpg`,
       "title": "The Fifth OC",
       "url": "https://www.b3net.com/portfolio/the-fifth-oc-wordpress.html"
     },
     {
-      "image": "https://2026.b3net.info/b3net-com/wp-content/uploads/2025/03/portfolio-img-6.jpg",
+      "image": `${BASE_URL}/wp-content/uploads/2025/03/portfolio-img-6.jpg`,
       "title": "Maya Stone",
       "url": "https://www.b3net.com/portfolio/maya-stone-inc-wordpress.html"
     }

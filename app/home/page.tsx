@@ -19,8 +19,7 @@ import FrequentQuestion from "@/components/client/FrequentQuestion";
 
 
 export default async function Home() {
-    // const pageData = await getBlogPageData();
-    // const schema = getSchemaFromPageData(pageData);
+    
     return (
         <main className="page_content">
            
@@ -128,7 +127,7 @@ export default async function Home() {
                             <div className="border p-4 abt-shadow-blog">
                                 <div className="d-md-flex align-items-center g-2 mb-3">
                                     <div className="abt-img mb-3 mb-md-0">
-                                        <img src="https://b3net.com/wp-content/themes/b3net/assets/images/delivered-icon.png" />
+                                        <img src={`${BASE_URL}/wp-content/themes/b3net/assets/images/delivered-icon.png`} alt="Delivered Icon" />
                                     </div>
                                     <div className="abt-heading">
                                         <h4>We deliver end-to-end digital solutions, including:</h4>
@@ -153,7 +152,7 @@ export default async function Home() {
                             <div className="border p-4 abt-shadow-blog">
                                 <div className="d-md-flex align-items-center g-2 mb-3">
                                     <div className="abt-img mb-3 mb-md-0">
-                                        <img src="https://b3net.com/wp-content/themes/b3net/assets/images/partners-icon.png" />
+                                        <img src={`${BASE_URL}/wp-content/themes/b3net/assets/images/partners-icon.png`} alt="Partners Icon" />
                                     </div>
                                     <div className="abt-heading">
                                         <h4>Businesses work with <span style={{ color: "#3b58a1", fontWeight: 'bold' }}>B3NET</span> to:</h4>
@@ -175,12 +174,12 @@ export default async function Home() {
                         </div>
 
                         <div className="btns_group unordered_list p-0 justify-content-center mt-3 mt-md-5">
-                            <a className="btn" href="https://b3net.com/about-company.html">
+                            <Link className="btn" href="/about-company">
                                 <span className="btn_label" data-text="Learn More">Learn More</span>
                                 <span className="btn_icon">
                                     <i className="fa-solid fa-arrow-right"></i>
                                 </span>
-                            </a>
+                            </Link>
                         </div>
                     </div>
                 </div>

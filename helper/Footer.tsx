@@ -1,3 +1,5 @@
+import { BASE_URL } from "@/lib/url";
+
 export type FooterLink = {
   label: string;
   url: string;
@@ -743,19 +745,19 @@ export const footerData: FooterData = {
 
   partners: [
     {
-      img: "https://www.b3net.com/wp-content/themes/b3net/assets/images/zoho.png",
+      img: `${BASE_URL}/wp-content/themes/b3net/assets/images/zoho.png`,
       url: "https://www.zoho.com/partners/find-partner-profile.html?partnerid=d1b91bec8996f03d23320e2caa316b72",
       alt: "Zoho",
     },
     {
-      img: "https://www.b3net.com/wp-content/themes/b3net/assets/images/google-authorised.png",
+      img: `${BASE_URL}/wp-content/themes/b3net/assets/images/google-authorised.png`,
       url: "#",
       alt: "Google Authorised",
     },
   ],
 
 
-  successImg: "https://www.b3net.com/wp-content/themes/b3net/assets/images/success-img.png",
+  successImg: `${BASE_URL}/wp-content/themes/b3net/assets/images/success-img.png`,
 };
 
 

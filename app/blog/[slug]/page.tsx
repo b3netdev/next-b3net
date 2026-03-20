@@ -6,6 +6,7 @@ import ShowNav from "@/components/client/ShowNav";
 import { load } from "cheerio";
 import { cache } from "react";
 import { buildMetadata, getSeoFromPageData } from "@/lib/seo";
+import { Metadata } from "next";
 
 
 
@@ -13,7 +14,6 @@ import { buildMetadata, getSeoFromPageData } from "@/lib/seo";
 const getBlogPageData = cache(async (slug:string) => {
   
     const data = await getBlogdetail(slug);
-    // console.log(data)
     return data[0];
   });
   

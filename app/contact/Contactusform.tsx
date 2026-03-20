@@ -35,8 +35,7 @@ export default function ContactUsForm() {
     },
     validationSchema,
     onSubmit: async (values) => {
-      // console.log(formik.values,"data")
-      // return
+    
       const data = await submitcontact(formik.values, 12474)
       if (data?.status === "mail_sent") {
         router.push("/thankyou");

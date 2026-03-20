@@ -6,6 +6,7 @@ import Expertise from "@/components/server/Expertise";
 import { cache } from "react";
 import { Metadata } from "next";
 import { buildMetadata, getSeoFromPageData } from "@/lib/seo";
+import { BASE_URL } from "@/lib/url";
 
 
 const getBlogPageData = cache(async (slug:string) => {
@@ -41,7 +42,7 @@ const page = async ({ params }: { params: { slug: any } }) => {
                     <div className="menu-design"></div>
                     <div className="banner-img">
                         <img
-                            src="https://b3net.com/wp-content/themes/b3net/assets/images/portfolio/port-details-banner.jpg"
+                            src={`${BASE_URL}/wp-content/themes/b3net/assets/images/portfolio/port-details-banner.jpg`}
                             alt=""
                         />
                         <div className="container">
