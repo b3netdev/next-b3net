@@ -1,8 +1,28 @@
 import Link from 'next/link'
-import React from 'react'
+import React, { cache } from 'react'
 import ShowNav from '@/components/client/ShowNav'
+import { GetPageData } from '@/lib/getdata';
+import { Metadata } from 'next';
+import { buildMetadata, getSeoFromPageData } from '@/lib/seo';
 
-const page = () => {
+
+const getBlogPageData = cache(async () => {
+  
+    const data = await GetPageData("terms-of-use", "page");
+    return data?.page ?? data;
+  });
+  
+  export async function generateMetadata(): Promise<Metadata> {
+    const pageData = await getBlogPageData();
+    const seo = getSeoFromPageData(pageData);
+  
+    return buildMetadata(seo);
+  }
+  
+const page = async () => {
+    const pageData = await getBlogPageData();
+    console.log(pageData)
+
     return (
         <section className="product-details-sec shop-sec page_content default_content_class">
             <ShowNav/>
@@ -12,7 +32,7 @@ const page = () => {
 
                     <div className="container">
                         <div className="banner-caption">
-                            <h2>Terms of Use</h2>
+                            <h2>{pageData?.title?.rendered}</h2>
                         </div>
                     </div>
                 </div>
@@ -28,7 +48,7 @@ const page = () => {
                             </ol>
                         </nav>
                     </div>
-                    <p>Welcome to the website of B3NET Inc. By accessing or using this website (<Link href="/">www.b3net.com</Link>), you agree to comply with and be bound by the following Terms of Use. If you do not agree with these terms, please do not use this website.</p>
+                    {/* <p>Welcome to the website of B3NET Inc. By accessing or using this website (<Link href="/">www.b3net.com</Link>), you agree to comply with and be bound by the following Terms of Use. If you do not agree with these terms, please do not use this website.</p>
                     <h2><strong>1. Copyright &amp; Ownership</strong></h2>
                     <p>All content on this website, including text, graphics, logos, images, design, and layout, is the property of B3NET Inc. and is protected by applicable copyright and intellectual property laws.</p>
                     <p>Copyright © 1999–2026, B3NET Inc. All rights reserved.</p>
@@ -74,7 +94,12 @@ const page = () => {
                     <p><strong>B3NET INC.</strong><br />
                         <strong>13601 Preston Rd, Ste W706,</strong><br />
                         <strong>Dallas, TX 75240</strong><br />
-                        <strong>[Located at Carillon Towers at Dallas Midtown]</strong></p>
+                        <strong>[Located at Carillon Towers at Dallas Midtown]</strong></p> */}
+
+                        <div 
+                        
+                        dangerouslySetInnerHTML={{__html:pageData?.content || ""}}
+                        />
                 </div>
             </div>
 

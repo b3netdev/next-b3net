@@ -1,16 +1,33 @@
-import React from 'react'
+import React, { cache } from 'react'
 import { GetPageData } from '@/lib/getdata'
 import ContactFooter from '@/components/server/ContactFooter';
 import TestimonialsClientsSlider from './TestimonialSliders';
 import { BASE_URL } from '@/lib/url';
 import Link from 'next/link';
+import { buildMetadata, getSeoFromPageData } from '@/lib/seo';
+import { Metadata } from 'next';
+
+
+
+const getBlogPageData = cache(async () => {
+  
+    const data = await GetPageData("testimonial", "page");
+    return data?.page ?? data;
+  });
+  
+  export async function generateMetadata(): Promise<Metadata> {
+    const pageData = await getBlogPageData();
+    const seo = getSeoFromPageData(pageData);
+  
+    return buildMetadata(seo);
+  }
 
 const Testimonial = async () => {
 
-    const data = await GetPageData("testimonial", "page");
+    const pageData = await getBlogPageData();
 
 
-    const pageData = data?.page ?? data;
+
     return (
         <main className="page_content testimonialcontainer">
             <div className="portfolio-page testimonials">

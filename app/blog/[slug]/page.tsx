@@ -13,6 +13,7 @@ import { useFormik } from "formik";
 import * as Yup from "yup";
 import { useForm } from "@/hooks/useForm";
 import { useRouter } from "next/navigation";
+import ShowNav from "@/components/client/ShowNav";
 
 const BlogDetail = () => {
   const params = useParams();
@@ -73,14 +74,6 @@ const BlogDetail = () => {
 
 
   useEffect(() => {
-    dispatch(setStickyNavMenu(true));
-
-    return () => {
-      dispatch(setStickyNavMenu(false));
-    };
-  }, []);
-
-  useEffect(() => {
     const getblogData = async () => {
       if (!slug) return;
       const data = await getBlogdetail(slug);
@@ -138,6 +131,7 @@ const BlogDetail = () => {
 
   return (
     <main className="page_content">
+      <ShowNav/>
       <div className="portfolio-detail portfoli-padd portfolio-page-1 blog-details">
         {/* Landing */}
         <div className="port-landing-wrap details-page-1">
@@ -165,11 +159,10 @@ const BlogDetail = () => {
         <div className="blog-detalis-content py-0 pt-4 pt-lg-0 py-lg-5">
           <div className="container">
             <div className="row gy-5">
-              {/* Sidebar */}
+              
               <div className="col-lg-4 col-xl-3">
                 <div id="blog-sidebar" className="sidebar">
-                  {/* side menu  */}
-                  {/* <div className="col-lg-8 col-xl-9"> */}
+                  
                   <div className="newsletter-blog">
                     <div className="toc-text">
                       <h3>Table of Contents</h3>
@@ -188,7 +181,7 @@ const BlogDetail = () => {
                       ))}
                     </div>
                   </div>
-                  {/* </div> */}
+                
 
                   <div className="newsletter-blog">
                     <h3>Join Our Newsletter</h3>

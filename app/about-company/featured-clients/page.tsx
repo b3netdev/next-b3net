@@ -1,5 +1,23 @@
+import { GetPageData } from "@/lib/getdata";
+import { buildMetadata, getSeoFromPageData } from "@/lib/seo";
 import { BASE_URL } from "@/lib/url";
+import { Metadata } from "next";
+import { cache } from "react";
 
+
+const getBlogPageData = cache(async () => {
+  
+    const data = await GetPageData("featured-clients-html", "page");
+    return data?.page ?? data;
+  });
+  
+  export async function generateMetadata(): Promise<Metadata> {
+    const pageData = await getBlogPageData();
+    const seo = getSeoFromPageData(pageData);
+  
+    return buildMetadata(seo);
+  }
+  
 
 export default function FeaturedClients() {
     return (

@@ -1,26 +1,32 @@
-"use client";
-
-import React, { useEffect } from "react";
+import React, { cache  } from "react";
 import Contact from "@/components/client/Contact";
 import Link from "next/link";
-import { useAppDispatch } from "@/redux/hooks";
-import { setStickyNavMenu } from "@/redux/slicers/menuSlicer";
+import ShowNav from "@/components/client/ShowNav";
+import { GetPageData } from "@/lib/getdata";
+import { Metadata } from "next";
+import { buildMetadata, getSeoFromPageData } from "@/lib/seo";
 
+
+const getBlogPageData = cache(async () => {
+  
+  const data = await GetPageData("get-a-free-proposal", "page");
+  return data?.page ?? data;
+});
+
+export async function generateMetadata(): Promise<Metadata> {
+  const pageData = await getBlogPageData();
+  const seo = getSeoFromPageData(pageData);
+
+  return buildMetadata(seo);
+}
 
 
 const Proposal = () => {
-    const dispatch = useAppDispatch();
-
-      useEffect(() => {
-        dispatch(setStickyNavMenu(true))
     
-        return () => {
-          dispatch(setStickyNavMenu(false))
-        }
-      }, [])
     
   return (
     <section className="product-details-sec shop-sec page_content default_content_class">
+      <ShowNav/>
       <div className="port-landing-wrap details-page default-img">
         <div className="menu-design"></div>
 

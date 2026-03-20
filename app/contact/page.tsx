@@ -1,8 +1,11 @@
-import React from "react";
+import React, { cache } from "react";
 import ContactUsForm from "./Contactusform";
  
 import { BASE_URL } from "@/lib/url";
 import Link from "next/link";
+import { GetPageData } from "@/lib/getdata";
+import { Metadata } from "next";
+import { buildMetadata, getSeoFromPageData } from "@/lib/seo";
 
 type SubOffice = {
   title: string;
@@ -18,6 +21,21 @@ type AddressItem = {
   phone: string;
   email: string;
 };
+
+
+const getBlogPageData = cache(async () => {
+  
+  const data = await GetPageData("contact", "page");
+  return data?.page ?? data;
+});
+
+export async function generateMetadata(): Promise<Metadata> {
+  const pageData = await getBlogPageData();
+  const seo = getSeoFromPageData(pageData);
+
+  return buildMetadata(seo);
+}
+
 
 export default function ContactUs() {
   const offices: any = [

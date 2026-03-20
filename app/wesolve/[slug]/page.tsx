@@ -3,6 +3,9 @@ import { GetPageData, GetRelatedPost } from "@/lib/getdata";
 import NewsletterForm from "./NewsletterForm";
 import ShowNav from "@/components/client/ShowNav";
 import { BASE_URL } from "@/lib/url";
+import { cache } from "react";
+import { Metadata } from "next";
+import { buildMetadata, getSeoFromPageData } from "@/lib/seo";
 
 
 
@@ -25,6 +28,21 @@ export const revalidate = 21600;
 export const dynamicParams = true;
 
 
+const getBlogPageData = cache(async (slug:string) => {
+  
+    const data = await GetPageData(slug, "post");
+    return data?.page ?? data;
+  });
+  
+  export async function generateMetadata({ params }: { params: { slug: string } }): Promise<Metadata> {
+    const { slug } = await params;
+    const pageData = await getBlogPageData(slug);
+    const seo = getSeoFromPageData(pageData);
+  
+    return buildMetadata(seo);
+  }
+  
+
 export async function generateStaticParams() {
 
     return sluglist.map((item) => ({
@@ -36,7 +54,7 @@ export async function generateStaticParams() {
 export default async function BlogDetail({ params }: { params: { slug: string } }) {
 
     const { slug } = await params;
-    const pageData = await GetPageData(slug, "post");
+    const pageData = await getBlogPageData(slug)
     const author = pageData?.author;
     const authorSlug = author?.name?.split(" ")?.[0]?.toLowerCase();
     const relatedPosts = await GetRelatedPost(pageData?.categories, pageData?.id)

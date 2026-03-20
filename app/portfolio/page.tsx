@@ -3,16 +3,33 @@ import { notFound } from "next/navigation";
 import { GetPageData } from "@/lib/getdata";
 import Portfoliobox from "./Portfoliobox";
 import Contact from "@/components/client/Contact";
+import { cache } from "react";
+import { Metadata } from "next";
+import { buildMetadata, getSeoFromPageData } from "@/lib/seo";
 type PageProps = {
   params: { slug: string };
 };
+
+
+
+const getBlogPageData = cache(async () => {
+  
+  const data = await GetPageData("portfolio", "page");
+  return data?.page ?? data;
+});
+
+export async function generateMetadata(): Promise<Metadata> {
+  const pageData = await getBlogPageData();
+  const seo = getSeoFromPageData(pageData);
+
+  return buildMetadata(seo);
+}
 
 export default async function Portfolio() {
 
 
 
-  const pageData = await GetPageData("portfolio", "page");
-  console.log(pageData, "PageData")
+  const pageData = await getBlogPageData();
 
   if (!pageData) notFound();
 

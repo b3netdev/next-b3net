@@ -3,13 +3,28 @@ import { GetPageData } from "@/lib/getdata";
 import FaqClient from "./FaqClient";
  
 import { BASE_URL } from "@/lib/url";
+import { cache } from "react";
+import { buildMetadata, getSeoFromPageData } from "@/lib/seo";
+import { Metadata } from "next";
 
 
+
+const getBlogPageData = cache(async () => {
+  
+    const data = await GetPageData("faq", "page");
+    return data?.page ?? data;
+  });
+  
+  export async function generateMetadata(): Promise<Metadata> {
+    const pageData = await getBlogPageData();
+    const seo = getSeoFromPageData(pageData);
+  
+    return buildMetadata(seo);
+  }
+  
 
 export default async function FaqPage() {
-    // use your real WP slug for FAQ page:
-    const data = await GetPageData("faq", "page");
-    const pageData = data?.page ?? data;
+    const pageData = await getBlogPageData();
 
 
 
