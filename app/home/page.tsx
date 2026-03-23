@@ -27,7 +27,6 @@ export default async function Home() {
             
            
             <div className="video-container relative">
-             <ScrollToTop/>
                 <Image
                     src={`${BASE_URL}/wp-content/uploads/2025/10/B3NET-bg-image.webp`}
                     alt="Background"

@@ -23,6 +23,7 @@ import { Poppins } from "next/font/google";
 import ToastProvider from "@/components/client/Toast";
 import { GetPageData } from "@/lib/getdata";
 import { buildMetadata, getSeoFromPageData } from "@/lib/seo";
+import ScrollToTop from "@/components/client/ScrollToTop";
 
 const poppins = Poppins({
   subsets: ["latin"],
@@ -60,6 +61,7 @@ export default async function RootLayout({ children }: { children: React.ReactNo
         <Providers>
           <Navbar />
           <BootstrapClient />
+          <ScrollToTop/>
           {children}
           <Footer />
           <ToastProvider/>
