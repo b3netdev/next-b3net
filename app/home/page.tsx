@@ -11,6 +11,8 @@ import CaseStudy from "@/components/server/CaseStudy";
 import Contact from "@/components/client/Contact";
 import { BASE_URL } from "@/lib/url";
 import FrequentQuestion from "@/components/client/FrequentQuestion";
+import ScrollToTop from "@/components/client/ScrollToTop";
+
 
 
 
@@ -21,9 +23,11 @@ import FrequentQuestion from "@/components/client/FrequentQuestion";
 export default async function Home() {
     
     return (
-        <main className="page_content">
+        <main className="page_content relative">
+            
            
-            <div className="video-container">
+            <div className="video-container relative">
+             <ScrollToTop/>
                 <Image
                     src={`${BASE_URL}/wp-content/uploads/2025/10/B3NET-bg-image.webp`}
                     alt="Background"
