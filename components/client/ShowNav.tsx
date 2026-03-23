@@ -15,7 +15,7 @@ const ShowNav = () => {
         };
     }, [dispatch])
     return (
-        <div />
+        <></>
     )
 }
 
