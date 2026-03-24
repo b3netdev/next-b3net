@@ -12,16 +12,16 @@ type AiCarouselProps = {
 
 export default function AiSlider({ carouselData }: AiCarouselProps) {
   const defaultCarouselData = [
-    {
-      type: "video",
-      src: `${BASE_URL}/wp-content/uploads/2025/03/open-ai.webm`,
-      mime: "video/webm",
-    },
-    {
-      type: "video",
-      src: `${BASE_URL}/wp-content/uploads/2025/03/ai-banner-video.webm`,
-      mime: "video/webm",
-    },
+    // {
+    //   type: "video",
+    //   src: `${BASE_URL}/wp-content/uploads/2025/03/open-ai.webm`,
+    //   mime: "video/webm",
+    // },
+    // {
+    //   type: "video",
+    //   src: `${BASE_URL}/wp-content/uploads/2025/03/ai-banner-video.webm`,
+    //   mime: "video/webm",
+    // },
     {
       type: "image",
       src: `${BASE_URL}/wp-content/uploads/2025/03/banner-1.jpg`,
