@@ -13,23 +13,26 @@ interface HeaderMenu {
 
 interface MenuState {
   showDefault: boolean;
+  showLayout: boolean;
 }
 
 const initialState: MenuState = {
   showDefault: false,
+  showLayout: true,
 };
 
 const menuSlice = createSlice({
   name: "nav",
   initialState,
   reducers: {
-    
-
     setStickyNavMenu: (state, action: PayloadAction<boolean>) => {
       state.showDefault = action.payload;
     },
+    SetshowLayout: (state, action: PayloadAction<boolean>) => {
+      state.showLayout = action.payload;
+    }
   },
 });
 
-export const {  setStickyNavMenu } = menuSlice.actions;
+export const {  setStickyNavMenu, SetshowLayout } = menuSlice.actions;
 export default menuSlice.reducer;

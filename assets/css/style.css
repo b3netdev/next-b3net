@@ -7225,3 +7225,254 @@ span.error-label span {
     padding: 15px 0;
   }
 }
+
+
+
+
+/* cca */
+.help:hover{
+	cursor: pointer;
+}
+.godaddy-seal{
+	position: absolute;
+	right: 0;
+	top: 0;	
+}
+.star{
+	color: #E33E45;
+}
+.star:after{
+	content: " ";
+}
+.tooltip-inner {
+	background-color: #E33E45;
+	color: #fff;
+	max-width: 250px;
+	font-size: 12px;
+}
+.tooltip.top .tooltip-arrow {
+	border-top-color: #E33E45;
+}
+.tooltip.right .tooltip-arrow {
+	border-right-color: #E33E45;
+}
+.tooltip.bottom .tooltip-arrow {
+	border-bottom-color: #E33E45;
+}
+.tooltip.left .tooltip-arrow {
+	border-left-color: #E33E45;
+}
+input.error, select.error, textarea.error {
+	border: 1px solid red;
+}
+.contentBox{
+	border: 2px solid #98e8ff;
+	margin: 1em;
+	padding: 30px  0 50px;
+}
+.btn-arrow {
+	position: relative;
+}
+.btn-md {
+	padding: 15px 45px;
+	font-size: 16px;
+}
+.btn-info-gradiant {
+	background: #188ef4;
+	background: -webkit-linear-gradient(legacy-direction(to right), #188ef4 0%, #316ce8 100%);
+	background: -webkit-gradient(linear, left top, right top, from(#188ef4), to(#316ce8));
+	background: -webkit-linear-gradient(left, #188ef4 0%, #316ce8 100%);
+	background: -o-linear-gradient(left, #188ef4 0%, #316ce8 100%);
+	background: linear-gradient(to right, #188ef4 0%, #316ce8 100%);
+	color: #fff;
+	border: 0px;
+}
+.btn-arrow span {
+	display: inline-block;
+	position: relative;
+	-webkit-transition: all 300ms ease-out;
+	-o-transition: all 300ms ease-out;
+	transition: all 300ms ease-out;
+	will-change: transform;
+}
+.btn-arrow i {
+	position: absolute;
+	width: 1.1em;
+	right: 0px;
+	right: 0rem;
+	opacity: 0;
+	top: 50%;
+	-webkit-transform: translateY(-50%);
+	-ms-transform: translateY(-50%);
+	transform: translateY(-50%);
+	-webkit-transition: all 300ms ease-out;
+	-o-transition: all 300ms ease-out;
+	transition: all 300ms ease-out;
+	will-change: right, opacity;
+}
+.btn-info-gradiant:hover {
+	background: #316ce8;
+	background: -webkit-linear-gradient(legacy-direction(to right), #316ce8 0%, #188ef4 100%);
+	background: -webkit-gradient(linear, left top, right top, from(#316ce8), to(#188ef4));
+	background: -webkit-linear-gradient(left, #316ce8 0%, #188ef4 100%);
+	background: -o-linear-gradient(left, #316ce8 0%, #188ef4 100%);
+	background: linear-gradient(to right, #316ce8 0%, #188ef4 100%);
+	color: #fff;
+}
+.btn-arrow:hover span, .btn-arrow:focus span {
+	-webkit-transform: translate3d(-1rem, 0, 0);
+	transform: translate3d(-1rem, 0, 0);
+}
+.btn-arrow:hover i, .btn-arrow:focus i {
+	opacity: 1;
+	right: -2rem;
+}
+.sign-pad-sec{
+	display: flex;
+	display: -webkit-flex;
+	display: -moz-flex;
+    justify-content: center;
+	-webkit-justify-content: center;
+	 -moz-justify-content: center;
+    align-items: center;
+	-webkit-align-items: center;
+	 -moz-align-items: center;
+    flex-direction: row-reverse;
+	-webkit-flex-direction: row-reverse;
+	 -moz-flex-direction: row-reverse;
+	 padding: 0 15px;
+}
+#clear_applicant.clear{
+	 margin: 6px;
+    padding: 7px 30px;
+    font-size: 16px;
+}
+#save_applicant.save {
+    padding: 7px 30px;
+    margin: 6px;
+    background: #08a948;
+    border: 1px solid #08a948;
+    border-radius: 2px;
+    color: #fff;
+    font-size: 18px;
+}
+canvas#applicant_signature {
+    border: 1px solid rgb(204, 204, 204);
+  
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    -webkit-box-shadow: inset 0 1px 1px rgb(0 0 0 / 8%);
+    box-shadow: inset 0 1px 1px rgb(0 0 0 / 8%);
+    -webkit-transition: border-color ease-in-out .15s,-webkit-box-shadow ease-in-out .15s;
+    -o-transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+    transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+	width: 100%;
+	
+}
+
+.header_area{
+  
+}
+.list-inline{
+ display: flex;
+ width: 100%;
+ justify-content: center;
+ gap: 10px;
+} 
+
+.list-inline li a{
+    color: #3b58a1;
+    font-weight: 600;
+}
+
+
+div#signature-pad{
+	    float: right;
+		width:100%;
+		
+}
+.description {
+    color: #666666;
+    font-weight: bold;
+}
+.cardsec-logo {
+    margin: 20px 0;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* float: left;  */
+}
+.cardsec-address {
+        font-size: 17px;
+    width: 100%;
+    /* float: left; */
+    margin: 0 0 10px;
+    width: 100%;
+    float: left;
+    font-weight: 700;
+    color: #666;
+    text-align: center;
+    font-family: "Trebuchet MS",Arial,Helvetica,sans-serif;
+    line-height: 30px;
+}
+.card-title-sec {
+    width: 100%;
+    float: left;
+    color: #333;
+    font-weight: 700px;
+    font-size: 30px;
+    text-align: center;
+    font-family: "Trebuchet MS",Arial,Helvetica,sans-serif;
+    margin: 40px 0 30px;
+}
+		.thankyou-payment-sec {
+			width: 100%;
+			float: left;
+			padding: 100px 0 160px; 
+			text-align: center;
+		}
+		.thank-ttle {
+			 font-size: 60px;
+			color: #333;
+			font-weight: 600;
+			text-transform: uppercase;
+			font-family: Source Sans Pro, sans-serif;
+			margin: 0 0 37px;
+		}
+		.thankyou-payment-sec p {
+			font-family: Source Sans Pro, sans-serif;
+			font-size: 16px;
+			font-weight: normal;
+			color: #333;
+		}
+		.errorsign{
+			color:#f00;
+		}
+		.cardsec-logo img {
+			max-width: 300px;
+			width: 100%;
+		}
+@media only screen and ( max-width: 991px ) {
+	.godaddy-seal{
+		position: relative;
+		display: block;		
+	}
+	.contentBox{
+		padding: 0.3em;
+		margin: 0.5em;
+	}
+	.form-horizontal .control-label{
+		text-align: left;
+	}
+	}
+	
+	@media screen and ( max-width: 580px ){
+		canvas#applicant_signature{
+			width:100%;
+		}
+		.sign-pad-sec {
+			
+			flex-direction: column;
+		}
+	}

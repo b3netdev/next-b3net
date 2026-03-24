@@ -61,7 +61,7 @@ type ServiceMegaMenuColumn = {
 
 export default function Navbar() {
     
-    const { showDefault } = useAppSelector((state) => state.menu);
+    const { showDefault,showLayout } = useAppSelector((state) => state.menu);
     const [hoverService, setHoverService] = useState(false);
     const [aboutHover, setAboutHover] = useState(false);
     const [wesolveHover, setWesolveHover] = useState(false);
@@ -106,6 +106,10 @@ export default function Navbar() {
 
     }
 
+
+    if(showLayout == false){
+        return null;
+    }
 
 
     const ServiceMenuGroup = ({ group }: { group: any }) => {

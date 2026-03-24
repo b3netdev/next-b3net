@@ -5,6 +5,7 @@ import { Dot } from "lucide-react";
 import type { FooterData, FooterExploreItem, FooterLocationItem } from "../server/Footer";
 import Link from "next/link";
 import ContactFooter from "../server/ContactFooter";
+import { useAppSelector } from "@/redux/hooks";
 
 type Props = {
   footerData: FooterData;
@@ -18,6 +19,7 @@ const makeDomId = (str: string) =>
     .replace(/^-|-$/g, "");
 
 function LocationColumns({ columns }: { columns: FooterLocationItem[][] }) {
+ 
   const [openKey, setOpenKey] = useState<string | null>(null);
 
   const colClassByCount = (count: number) =>
@@ -28,6 +30,9 @@ function LocationColumns({ columns }: { columns: FooterLocationItem[][] }) {
   const toggle = (key: string) => {
     setOpenKey((prev) => (prev === key ? null : key));
   };
+
+
+  
 
   return (
     <div className="row d-flex-2">
@@ -98,60 +103,6 @@ function LocationColumns({ columns }: { columns: FooterLocationItem[][] }) {
   );
 }
 
-// function ExploreList({ items }: { items: FooterExploreItem[] }) {
-//   return (
-//     <ul className="d-flx explore-list">
-//       {items.map((item) => (
-//         <li key={item.title}>
-//           {"links" in item ? (
-//             <>
-//               <span
-//                 style={{
-//                   display: "flex",
-//                   justifyContent: "center",
-//                   alignItems: "center",
-//                 }}
-//               >
-//                 <i className="fa-solid fa-caret-right"></i>
-//                 <Link href="/" className="main-link"
-                
-//                 >{item.title}</Link>
-//               </span>
-
-//               <span className="dropdown-content">
-//                 {item.links.map((l) => (
-//                   <div
-//                     key={l.url}
-//                     style={{
-//                       display: "flex",
-//                       justifyContent: "center",
-//                       alignItems: "center",
-//                     }}
-//                   >
-//                     <Link href={l.url}>{l.label}</Link>
-//                   </div>
-//                 ))}
-//               </span>
-//             </>
-//           ) : (
-//             <div
-//               className="d-flex"
-//               style={{
-//                 display: "flex",
-//                 justifyContent: "center",
-//                 alignItems: "center",
-//                 gap: "10px",
-//               }}
-//             >
-//               <i className="fa-solid fa-caret-right"></i>
-//               <Link href={item.url}>{item.title}</Link>
-//             </div>
-//           )}
-//         </li>
-//       ))}
-//     </ul>
-//   );
-// }
 
 
 
@@ -239,9 +190,14 @@ function ExploreList({ items }: { items: any }) {
 }
 
 export default function FooterClient({ footerData }: Props) {
+   const { showLayout } = useAppSelector((state) => state.menu);
   const firstLocationId = footerData.locations[0]?.id ?? "";
   const [activeDesktopTab, setActiveDesktopTab] = useState<string>(firstLocationId);
   const [openMobileAcc, setOpenMobileAcc] = useState<string>(firstLocationId);
+
+   if(showLayout == false){
+        return null;
+    }
 
   return (
     <main className="page_content-1">
