@@ -488,6 +488,5 @@ export const serviceMegaMenuColumns: ServiceMegaMenuColumn[] = [
     { slug: "dallas-digital-marketing-company" },
     { slug: "dallas-ppc-management" },
     { slug: "dallas-social-media-marketing" },
-    { slug: "data-dallas-local-seo-agency" },
     { slug: "custom-web-application-development" },
 ]
