@@ -1,5 +1,6 @@
 "use client";
 
+import Link from 'next/link';
 import React from 'react'
 import { Autoplay } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
@@ -50,11 +51,9 @@ const ServiceSlider: React.FC<Props> = ({ pageData }) => {
                         </p>
 
                         <div className="mt-4">
-                          <a
+                          <Link
                             className="btn btn-orange"
-                            target="_blank"
-                            href={item.link}
-                            rel="noreferrer"
+                            href={`/casestudy/${index==0?"case-study-flexus-comfort": index==1?"case-study-viage":index==2?"case-study-treecarearborists": index==3 ?"case-study-arc-lever" :"case-study-arc-lever"}`}
                           >
                             <span className="btn_label_1">
                               Read More
@@ -62,7 +61,7 @@ const ServiceSlider: React.FC<Props> = ({ pageData }) => {
                             <span className="btn_icon">
                               <i className="fa-solid fa-arrow-right"></i>
                             </span>
-                          </a>
+                          </Link>
                         </div>
                       </div>
                     </div>
