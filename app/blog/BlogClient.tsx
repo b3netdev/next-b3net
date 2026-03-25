@@ -350,7 +350,7 @@ export default function BlogClient() {
                     className={pagenumber === i ? "paginationactive" : "paginationbox"}
                     onClick={() => HandleSelectnumbox(i)}
                   >
-                    {i}
+                    {i} 
                   </div>
                 );
               }
