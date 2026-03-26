@@ -42,7 +42,7 @@ const Workslider: React.FC<WorkSliderProps> = ({ pageData }) => {
                     (item: any, index: number) => (
                       <SwiperSlide key={index}>
                         <div className="item">
-                          <img src={item.image} alt="" />
+                          <img src={item.image} alt={`item-${index}`} />
                         </div>
                       </SwiperSlide>
                     )

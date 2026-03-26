@@ -179,7 +179,7 @@ export default function BlogClient() {
                 <div className="row gy-4 justify-content-center align-items-center">
                   <div className="col-lg-6">
                     <div className="blog-about-img">
-                      <Link href="/"> <img src={item?.image} alt="" /></Link>
+                      <Link href="/"> <img src={item?.image} alt="blog-about-img" /></Link>
                     </div>
                   </div>
                   <div className="col-lg-6 ">
@@ -277,7 +277,7 @@ export default function BlogClient() {
                             <img
                               src={post?.featured_image_url || ""}
                               className="card-img-top"
-                              alt="..."
+                              alt="blogItem-image"
                               loading="lazy"
                             />
                           </Link>

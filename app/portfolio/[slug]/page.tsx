@@ -46,7 +46,7 @@ const page = async ({ params }: { params: { slug: any } }) => {
                     <div className="banner-img">
                         <img
                             src={`${BASE_URL}/wp-content/themes/b3net/assets/images/portfolio/port-details-banner.jpg`}
-                            alt=""
+                            alt="banner-img"
                         />
                         <div className="container">
                             <div className="banner-caption">
@@ -83,7 +83,7 @@ const page = async ({ params }: { params: { slug: any } }) => {
                                         <img
                                             src={pageData?.featured_media_url}
                                             className="img-fluid"
-                                            alt=""
+                                            alt="img-fluid"
                                         />
                                     </div>
                                 </div>

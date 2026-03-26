@@ -132,7 +132,7 @@ export default function     CaseStudiesSlider() {
                                         <div className="case-studier-image w-full">
                                             <Image
                                                 src={item.img}
-                                                alt=""
+                                                alt="case-studier-image"
                                                 className="w-full h-auto"
                                                 width={600}
                                                 height={400}
@@ -143,7 +143,7 @@ export default function     CaseStudiesSlider() {
                                             <div className="solution-hover text-center">
                                                 <Link href={href}>
                                                     <div className="up-icon">
-                                                        <Image src={Upgrade} alt="" />
+                                                        <Image src={Upgrade} alt="up-icon" />
                                                     </div>
                                                     <h3>{item.title}</h3>
                                                     <div className="percent mt-4">{item.percent}</div>

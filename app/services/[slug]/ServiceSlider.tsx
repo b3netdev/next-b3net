@@ -40,7 +40,7 @@ const ServiceSlider: React.FC<Props> = ({ pageData }) => {
                       <img
                         src={item.image}
                         className="card-img-top"
-                        alt="..."
+                        alt="card-img-top"
                       />
                       <div className="card-body heading5 p-4">
                         <h4 className="card-title mb-2">

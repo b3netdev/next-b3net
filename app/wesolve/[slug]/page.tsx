@@ -74,7 +74,7 @@ export default async function BlogDetail({ params }: { params: { slug: string } 
                                 <div className="col-md-6 pe-md-5">
                                     <img
                                         src={`${BASE_URL}/wp-content/uploads/2023/07/B3NET-Blog-Banner-11.jpg`}
-                                        alt=""
+                                        alt="B3NET-Blog-Banner-11"
                                     />
                                 </div>
 
@@ -187,7 +187,7 @@ export default async function BlogDetail({ params }: { params: { slug: string } 
                                                         <img
                                                             src={post.featured_image_url}
                                                             className="card-img-top"
-                                                        // alt={post.imgAlt}
+                                                        alt="featured_image_url"
                                                         />
 
                                                         <div className="card-body heading5">

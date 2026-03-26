@@ -119,7 +119,7 @@ export default function Portfoliobox() {
                       <Link
                         href={`/portfolio/${item?.slug}`}
                       >
-                        <img src={item.featured_media_url || ""} alt="" />
+                        <img src={item.featured_media_url || ""} alt="featured_media" />
                       </Link>
                     </div>
 

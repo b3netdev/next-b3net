@@ -55,7 +55,7 @@ export default async function FeaturedClients() {
                                 <img
                                     src={`${BASE_URL}/wp-content/uploads/2016/12/Davis-Partners.jpg`}
                                     className="card-img-top"
-                                    alt="..."
+                                    alt="card_img"
                                 />
 
 
@@ -67,7 +67,7 @@ export default async function FeaturedClients() {
                                 <img
                                     src={`${BASE_URL}/wp-content/uploads/2016/12/clinicalrx1.jpg`}
                                     className="card-img-top"
-                                    alt="..."
+                                    alt="card-img-top"
                                 />
 
 
@@ -80,7 +80,7 @@ export default async function FeaturedClients() {
                                 <img
                                     src={`${BASE_URL}/wp-content/uploads/2016/12/integrated-physician-support-services.jpg`}
                                     className="card-img-top"
-                                    alt="..."
+                                    alt="card-img-top"
                                 />
 
 
@@ -93,7 +93,7 @@ export default async function FeaturedClients() {
                                 <img
                                     src={`${BASE_URL}/wp-content/uploads/2015/06/crystalcove-alliance.jpg`}
                                     className="card-img-top"
-                                    alt="..."
+                                    alt="card-img-top"
                                 />
 
 
@@ -106,7 +106,7 @@ export default async function FeaturedClients() {
                                 <img
                                     src={`${BASE_URL}/wp-content/uploads/2016/08/wise-place.png`}
                                     className="card-img-top"
-                                    alt="..."
+                                    alt="card-img-top"
                                 />
 
 
@@ -119,7 +119,7 @@ export default async function FeaturedClients() {
                                 <img
                                     src={`${BASE_URL}/wp-content/uploads/2015/06/wgbib.jpg`}
                                     className="card-img-top"
-                                    alt="..."
+                                    alt="card-img-top"
                                 />
 
 
@@ -132,7 +132,7 @@ export default async function FeaturedClients() {
                                 <img
                                     src={`${BASE_URL}/wp-content/uploads/2015/06/upgradespace.jpg`}
                                     className="card-img-top"
-                                    alt="..."
+                                    alt="card-img-top"
                                 />
 
 
@@ -145,7 +145,7 @@ export default async function FeaturedClients() {
                                 <img
                                     src={`${BASE_URL}/wp-content/uploads/2015/06/statfuse.jpg`}
                                     className="card-img-top"
-                                    alt="..."
+                                    alt="card-img-top"
                                 />
 
 
@@ -157,7 +157,7 @@ export default async function FeaturedClients() {
                                 <img
                                     src={`${BASE_URL}/wp-content/uploads/2015/06/firstamerican.jpg`}
                                     className="card-img-top"
-                                    alt="..."
+                                    alt="card-img-top"
                                 />
 
                             </div>
@@ -168,7 +168,7 @@ export default async function FeaturedClients() {
                                 <img
                                     src={`${BASE_URL}/wp-content/uploads/2015/06/flintgroup.jpg`}
                                     className="card-img-top"
-                                    alt="..."
+                                    alt="card-img-top"
                                 />
 
 
@@ -181,7 +181,7 @@ export default async function FeaturedClients() {
                                 <img
                                     src={`${BASE_URL}/wp-content/uploads/2015/06/allergan.jpg`}
                                     className="card-img-top"
-                                    alt="..."
+                                    alt="card-img-top"
                                 />
 
 
@@ -194,7 +194,7 @@ export default async function FeaturedClients() {
                                 <img
                                     src={`${BASE_URL}/wp-content/uploads/2015/06/Kythera.jpg`}
                                     className="card-img-top"
-                                    alt="..."
+                                    alt="card-img-top"
                                 />
 
 
@@ -207,7 +207,7 @@ export default async function FeaturedClients() {
                                 <img
                                     src={`${BASE_URL}/wp-content/uploads/2015/06/mpbio.jpg`}
                                     className="card-img-top"
-                                    alt="..."
+                                    alt="card-img-top"
                                 />
 
 
@@ -230,7 +230,7 @@ export default async function FeaturedClients() {
                                 <img
                                     src={`${BASE_URL}/wp-content/uploads/2015/06/clayton-company.jpg`}
                                     className="card-img-top"
-                                    alt="..."
+                                    alt="card-img-top"
                                 />
 
 
@@ -256,7 +256,7 @@ export default async function FeaturedClients() {
                                 <img
                                     src={`${BASE_URL}/wp-content/uploads/2015/07/california-university.jpg`}
                                     className="card-img-top"
-                                    alt="..."
+                                    alt="card-img-top"
                                 />
 
 
@@ -269,7 +269,7 @@ export default async function FeaturedClients() {
                                 <img
                                     src={`${BASE_URL}/wp-content/uploads/2015/06/cabinetdiy.jpg`}
                                     className="card-img-top"
-                                    alt="..."
+                                    alt="card-img-top"
                                 />
 
 
@@ -282,7 +282,7 @@ export default async function FeaturedClients() {
                                 <img
                                     src={`${BASE_URL}/wp-content/uploads/2015/06/salonpal.jpg`}
                                     className="card-img-top"
-                                    alt="..."
+                                    alt="card-img-top"
                                 />
 
 
@@ -308,7 +308,7 @@ export default async function FeaturedClients() {
                                 <img
                                     src={`${BASE_URL}/wp-content/uploads/2015/07/lecreatifcreation1.png`}
                                     className="card-img-top"
-                                    alt="..."
+                                    alt="card-img-top"
                                 />
 
 
@@ -321,7 +321,7 @@ export default async function FeaturedClients() {
                                 <img
                                     src={`${BASE_URL}/wp-content/uploads/2015/06/mychoiceink1.png`}
                                     className="card-img-top"
-                                    alt="..."
+                                    alt="card-img-top"
                                 />
 
 
@@ -334,7 +334,7 @@ export default async function FeaturedClients() {
                                 <img
                                     src={`${BASE_URL}/wp-content/uploads/2015/06/arc_logo.png`}
                                     className="card-img-top"
-                                    alt="..."
+                                    alt="card-img-top"
                                 />
 
 

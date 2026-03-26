@@ -33,7 +33,7 @@ export default async function BlogPage() {
       <div className="portfolio-page blog ">
         <div className="port-landing-wrap gpp">
           <div className="banner-img">
-            <img src={`${BASE_URL}/wp-content/themes/b3net/assets/images/blog-hero-banner.jpg`} alt="" />
+            <img src={`${BASE_URL}/wp-content/themes/b3net/assets/images/blog-hero-banner.jpg`} alt="blog-hero-banner" />
             <div className="container">
               <div className="banner-caption">
                 <h1>Web Design & <br />

@@ -48,7 +48,7 @@ export default async function AboutUsPage({ params }: PageProps) {
         <div className="banner-img">
           <img
             src={`${BASE_URL}/wp-content/uploads/2025/12/about-banner.webp`}
-            alt=""
+            alt="about-banner"
           />
           <div className="container">
             <div className="banner-caption">
@@ -93,7 +93,7 @@ export default async function AboutUsPage({ params }: PageProps) {
             <div className="col-lg-4 col-md-6 mb-4">
               <img
                 src={`${BASE_URL}/wp-content/uploads/2025/12/ai-image.webp`}
-                alt=""
+                alt="ai-image"
               />
             </div>
 
@@ -162,7 +162,7 @@ export default async function AboutUsPage({ params }: PageProps) {
                       <div className="tes-box">
                         <div className="bottom mb-2">
                           <div className="image-leader">
-                            <img src={leader?.image} alt="" />
+                            <img src={leader?.image} alt="leader" />
                           </div>
 
                           <div className="content leadershipBox ">

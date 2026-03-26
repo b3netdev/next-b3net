@@ -46,7 +46,7 @@ const CaseStudy1 = async ({ pageData }: any) => {
                   height="710"
                   src={`${BASE_URL}/wp-content/uploads/2025/04/flexus-banner-img.png`}
                   className="attachment-full size-full wp-post-image"
-                  alt=""
+                  alt="bnr-img "
                   decoding="async"
                   fetchPriority="high"
                  srcSet={`${BASE_URL}/wp-content/uploads/2025/04/flexus-banner-img.png 710w, 
@@ -73,7 +73,7 @@ const CaseStudy1 = async ({ pageData }: any) => {
               (item:any, index:any) => (
                 <div className="services-block" key={index}>
                   <div className="service-icon">
-                    <img src={item?.logo} />
+                    <img src={item?.logo} alt="service-icon" />
                   </div>
 
                   <div className="service-desc">
@@ -274,7 +274,9 @@ const CaseStudy1 = async ({ pageData }: any) => {
             </div>
             <div className="two-blocks f-block">
               <div className="seo-imgwrap">
-                <img src={pageData?.acf?.data?.sixth_section_image} />
+                <img src={pageData?.acf?.data?.sixth_section_image}
+                alt="seo-imgwrap"
+                />
               </div>
             </div>
           </div>

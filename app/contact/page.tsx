@@ -101,7 +101,7 @@ export default async function ContactUs() {
         <div className="banner-img">
           <img
             src={`${BASE_URL}/wp-content/uploads/2025/10/contact-banner-1.webp`}
-            alt=""
+            alt="banner-img"
           />
           <div className="container">
             <div className="banner-caption">
@@ -179,7 +179,7 @@ export default async function ContactUs() {
             <div className="contct-img my-5 my-md-5">
               <img
                 src={`${BASE_URL}/wp-content/uploads/2025/06/logo-2.png`}
-                alt=""
+                alt="logo-2.png"
               />
             </div>
           </div>

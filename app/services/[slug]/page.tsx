@@ -465,7 +465,7 @@ export async function generateStaticParams() {
                                                     <img
                                                         src={item.image}
                                                         className="card-img-top"
-                                                        alt="..."
+                                                        alt="card-img-top"
                                                     />
                                                     <div className="card-body heading5">
                                                         <h4 className="card-title mb-3">{item.title}</h4>
@@ -571,7 +571,9 @@ export async function generateStaticParams() {
                                         </div>
                                         <div className="col-md-6 text-center ">
                                             <div className="outerwrap-img">
-                                                <img src={`${BASE_URL}/wp-content/uploads/2025/03/WEBSITE-1.webp`} />
+                                                <img src={`${BASE_URL}/wp-content/uploads/2025/03/WEBSITE-1.webp`} 
+                                                alt="outerwrap-img"
+                                                />
                                             </div>
                                         </div>
                                     </div>
@@ -616,7 +618,9 @@ export async function generateStaticParams() {
                                                             <div className="testi-icon-wrap">
                                                                 <div className="testi-icon">
                                                                     {" "}
-                                                                    <img src={data?.featured_image?.url} />
+                                                                    <img src={data?.featured_image?.url}
+                                                                    alt="testi-icon"
+                                                                    />
                                                                 </div>
                                                             </div>
                                                             <div className="testi-client-desc">

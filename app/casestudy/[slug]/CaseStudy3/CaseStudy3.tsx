@@ -51,7 +51,9 @@ const CaseStudy3 = async ({ pageData }: any) => {
                   </div>
                 </div>
                 <div className="bnr-img">
-                  <img src={`${BASE_URL}/wp-content/themes/b3net/assets/images/banner-tree-care-logo.png`} />
+                  <img src={`${BASE_URL}/wp-content/themes/b3net/assets/images/banner-tree-care-logo.png`}
+                  alt="bnr-img"
+                  />
                   <p>
                     <a href="https://treecarearborists.com/">
                       www.treecarearborists.com
@@ -99,7 +101,9 @@ const CaseStudy3 = async ({ pageData }: any) => {
               previous site of TreeCare Arborists.
             </p>
             <div className="case-img-wrap">
-              <img src={`${BASE_URL}/wp-content/themes/b3net/assets/images/old-website-design.png`} />
+              <img src={`${BASE_URL}/wp-content/themes/b3net/assets/images/old-website-design.png`}
+              alt="case-img-wrap"
+              />
             </div>
           </div>
         </section>
@@ -236,7 +240,9 @@ const CaseStudy3 = async ({ pageData }: any) => {
               and nutrition and fertilization.
             </p>
             <div className="case-img-wrap">
-              <img src={`${BASE_URL}/wp-content/themes/b3net/assets/images/new-website-design.png`} />
+              <img src={`${BASE_URL}/wp-content/themes/b3net/assets/images/new-website-design.png`}
+              alt="case-img-wrap"
+              />
             </div>
             <p>
               We also work on the search engine optimization of the site.
@@ -256,7 +262,9 @@ const CaseStudy3 = async ({ pageData }: any) => {
               later. Isn't it really user-friendly?
             </p>
             <div className="case-img-wrap">
-              <img src={`${BASE_URL}/wp-content/themes/b3net/assets/images/form-design.png`} />
+              <img src={`${BASE_URL}/wp-content/themes/b3net/assets/images/form-design.png`}
+              alt="case-img-wrap"
+              />
             </div>
           </div>
         </section>

@@ -402,10 +402,10 @@ const Page = () => {
                                 src={`${BASE_URL}/cca/images/help.png`}
                                 width="25"
                                 height="25"
-                                alt=""
+                                alt="help"
                                 
                               />
-                              <img src={`${BASE_URL}/cca/images/card_help.png`} className="hidden" alt="" />
+                              <img src={`${BASE_URL}/cca/images/card_help.png`} className="hidden" alt="card_help" />
                             </a>
                           </div>
                         </div>

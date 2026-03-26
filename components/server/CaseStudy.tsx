@@ -86,7 +86,7 @@ const CaseStudy = () => {
                   <div id="textSections">
                     <div className="content-section" data-image={Why as any}>
                       <div className="expert-icon">
-                        <Image src={ExpertIcon1} alt="" />
+                        <Image src={ExpertIcon1} alt="expert-icon" />
                       </div>
                       <div className="expert-text">
                         <h3 className="section-title">Expertise Backed by Experience</h3>
@@ -100,7 +100,7 @@ const CaseStudy = () => {
 
                     <div className="content-section" data-image={Why as any}>
                       <div className="expert-icon">
-                        <Image src={ExpertIcon2} alt="" />
+                        <Image src={ExpertIcon2} alt="expert-icon" />
                       </div>
                       <div className="expert-text">
                         <h3 className="section-title">Staying Ahead with Technology</h3>
@@ -113,7 +113,7 @@ const CaseStudy = () => {
 
                     <div className="content-section" data-image={Why as any}>
                       <div className="expert-icon">
-                        <Image src={ExpertIcon3} alt="" />
+                        <Image src={ExpertIcon3} alt="expert-icon" />
                       </div>
                       <div className="expert-text">
                         <h3 className="section-title">Commitment to Driving Transformation</h3>

@@ -44,7 +44,7 @@ export default async function Portfolio() {
           <div className="banner-img">
             <img
               src={`${BASE_URL}/wp-content/uploads/2025/10/portfolio-banner-1.webp`}
-              alt=""
+              alt="banner-img"
             />
             <div className="container">
               <div className="banner-caption">
@@ -103,7 +103,7 @@ export default async function Portfolio() {
                     <div className="portfolio-list">
                       <div className="image image-anime reveal">
                         <Link href="/proposal">
-                          <img src={item?.image} alt="" />
+                          <img src={item?.image} alt="proposal" />
                           <div className="solutions-hover-box ">
                             <div
                               dangerouslySetInnerHTML={{

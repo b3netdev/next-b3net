@@ -41,7 +41,7 @@ export default async function FaqPage() {
                             <div className="banner-img">
                                 <img
                                     src={`${BASE_URL}/wp-content/uploads/2025/12/faq-banner.webp`}
-                                    alt=""
+                                    alt="banner_image"
                                 />
                                 <div className="container">
                                     <div className="banner-caption">
