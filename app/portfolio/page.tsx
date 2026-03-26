@@ -5,8 +5,9 @@ import Portfoliobox from "./Portfoliobox";
 import Contact from "@/components/client/Contact";
 import { cache } from "react";
 import { Metadata } from "next";
-import { buildMetadata, getSeoFromPageData } from "@/lib/seo";
+import { buildMetadata, getSchemaFromPageData, getSeoFromPageData } from "@/lib/seo";
 import { BASE_URL } from "@/lib/url";
+import StructuredData from "@/components/server/StructuredData";
 type PageProps = {
   params: { slug: string };
 };
@@ -33,9 +34,11 @@ export default async function Portfolio() {
   const pageData = await getBlogPageData();
 
   if (!pageData) notFound();
+    const schemaData = getSchemaFromPageData(pageData);
 
   return (
     <main className="page_content">
+      <StructuredData data={schemaData} />
       <div className="portfolio-page">
         <div className="port-landing-wrap gpp">
           <div className="banner-img">

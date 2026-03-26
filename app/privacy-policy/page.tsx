@@ -3,7 +3,8 @@ import ShowNav from '@/components/client/ShowNav'
 import Link from 'next/link'
 import { GetPageData } from '@/lib/getdata';
 import { Metadata } from 'next';
-import { buildMetadata, getSeoFromPageData } from '@/lib/seo';
+import { buildMetadata, getSchemaFromPageData, getSeoFromPageData } from '@/lib/seo';
+import StructuredData from '@/components/server/StructuredData';
 
 
 const getBlogPageData = cache(async () => {
@@ -21,10 +22,12 @@ const getBlogPageData = cache(async () => {
 
 const page = async () => {
     const pageData = await getBlogPageData();
+      const schemaData = getSchemaFromPageData(pageData);
     
     return (
         <section className="product-details-sec shop-sec page_content default_content_class">
             <ShowNav/>
+            <StructuredData data={schemaData} />
             <div className="port-landing-wrap details-page default-img">
                 <div className="menu-design"></div>
                 <div className="banner-img">

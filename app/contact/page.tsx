@@ -5,7 +5,8 @@ import { BASE_URL } from "@/lib/url";
 import Link from "next/link";
 import { GetPageData } from "@/lib/getdata";
 import { Metadata } from "next";
-import { buildMetadata, getSeoFromPageData } from "@/lib/seo";
+import { buildMetadata, getSchemaFromPageData, getSeoFromPageData } from "@/lib/seo";
+import StructuredData from "@/components/server/StructuredData";
 
 type SubOffice = {
   title: string;
@@ -23,21 +24,25 @@ type AddressItem = {
 };
 
 
-const getBlogPageData = cache(async () => {
+const getContactpageData = cache(async () => {
   
   const data = await GetPageData("contact", "page");
   return data?.page ?? data;
 });
 
 export async function generateMetadata(): Promise<Metadata> {
-  const pageData = await getBlogPageData();
+  const pageData = await getContactpageData();
+  
   const seo = getSeoFromPageData(pageData);
 
   return buildMetadata(seo);
 }
 
 
-export default function ContactUs() {
+export default async function ContactUs() {
+  const pageData = await getContactpageData();
+  const schemaData = getSchemaFromPageData(pageData);
+    
   const offices: any = [
     {
       title: "Texas Offices:",
@@ -91,6 +96,7 @@ export default function ContactUs() {
 
   return (
     <div className="portfolio-page testimonials contact-page">
+      <StructuredData data={schemaData} />
       <div className="port-landing-wrap gpp">
         <div className="banner-img">
           <img

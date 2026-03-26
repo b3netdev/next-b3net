@@ -597,7 +597,7 @@ export async function generateStaticParams() {
                                 <div className=" new-slider-2 owl-carousel owl-theme d-flex ">
                                     {pageData?.acf?.data?.service_page_section_6_testimonial?.map(
                                         (data: any, index: any) => {
-                                            return (
+                                                return (
                                                 <div className="item" key={index}>
                                                     <div className=" border-testi">
                                                         <div className="testimonial-wrapper lazyloaded">

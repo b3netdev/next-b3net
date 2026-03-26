@@ -7,6 +7,7 @@ import { BASE_URL } from "@/lib/url";
 import { Metadata } from "next";
 import { buildMetadata, getSeoFromPageData, getSchemaFromPageData } from "@/lib/seo";
 import { cache } from "react";
+import StructuredData from "@/components/server/StructuredData";
 
 const getBlogPageData = cache(async () => {
   
@@ -23,19 +24,12 @@ export async function generateMetadata(): Promise<Metadata> {
 
 export default async function BlogPage() {
   const pageData = await getBlogPageData();
-  const schema = getSchemaFromPageData(pageData);
+    const schemaData = getSchemaFromPageData(pageData);
 
 
   return (
     <main className="page_content blogContainer">
-      {schema ? (
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{
-            __html: JSON.stringify(schema),
-          }}
-        />
-      ) : null}
+      <StructuredData data={schemaData} />
       <div className="portfolio-page blog ">
         <div className="port-landing-wrap gpp">
           <div className="banner-img">

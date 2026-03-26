@@ -11,13 +11,6 @@ import CaseStudy from "@/components/server/CaseStudy";
 import Contact from "@/components/client/Contact";
 import { BASE_URL } from "@/lib/url";
 import FrequentQuestion from "@/components/client/FrequentQuestion";
-import ScrollToTop from "@/components/client/ScrollToTop";
-
-
-
-
-
-
 
 
 export default async function Home() {

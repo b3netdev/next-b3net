@@ -4,8 +4,9 @@ import ContactFooter from '@/components/server/ContactFooter';
 import TestimonialsClientsSlider from './TestimonialSliders';
 import { BASE_URL } from '@/lib/url';
 import Link from 'next/link';
-import { buildMetadata, getSeoFromPageData } from '@/lib/seo';
+import { buildMetadata, getSchemaFromPageData, getSeoFromPageData } from '@/lib/seo';
 import { Metadata } from 'next';
+import StructuredData from '@/components/server/StructuredData';
 
 
 
@@ -25,11 +26,13 @@ const getBlogPageData = cache(async () => {
 const Testimonial = async () => {
 
     const pageData = await getBlogPageData();
+      const schemaData = getSchemaFromPageData(pageData);
 
 
 
     return (
         <main className="page_content testimonialcontainer">
+            <StructuredData data={schemaData} />
             <div className="portfolio-page testimonials">
                 <div className="port-landing-wrap gpp">
                     <div className="banner-img">

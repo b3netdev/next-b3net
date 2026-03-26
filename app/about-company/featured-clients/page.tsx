@@ -1,5 +1,6 @@
+import StructuredData from "@/components/server/StructuredData";
 import { GetPageData } from "@/lib/getdata";
-import { buildMetadata, getSeoFromPageData } from "@/lib/seo";
+import { buildMetadata, getSchemaFromPageData, getSeoFromPageData } from "@/lib/seo";
 import { BASE_URL } from "@/lib/url";
 import { Metadata } from "next";
 import { cache } from "react";
@@ -19,9 +20,13 @@ const getBlogPageData = cache(async () => {
   }
   
 
-export default function FeaturedClients() {
+export default async function FeaturedClients() {
+    const pageData = await getBlogPageData();
+    const schemaData = getSchemaFromPageData(pageData);
+
     return (
         <div className="feature-clientWrapper">
+            <StructuredData data={schemaData} />
             <div className="seo-landing-wrap"
                 style={{
                     backgroundImage: `url(${BASE_URL}/wp-content/uploads/2025/12/portfolio-banner-1.webp)`

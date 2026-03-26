@@ -5,8 +5,9 @@ import ShowNav from "@/components/client/ShowNav";
 import Expertise from "@/components/server/Expertise";
 import { cache } from "react";
 import { Metadata } from "next";
-import { buildMetadata, getSeoFromPageData } from "@/lib/seo";
+import { buildMetadata, getSchemaFromPageData, getSeoFromPageData } from "@/lib/seo";
 import { BASE_URL } from "@/lib/url";
+import StructuredData from "@/components/server/StructuredData";
 
 
 const getBlogPageData = cache(async (slug:string) => {
@@ -28,6 +29,7 @@ const page = async ({ params }: { params: { slug: any } }) => {
     const { slug } = await params
 
     const pageData = await getBlogPageData(slug);
+      const schemaData = getSchemaFromPageData(pageData);
     
     const relatedpost = await getPortFloioRelatedPost(pageData?.portfolio_category, pageData?.id)
 
@@ -36,6 +38,7 @@ const page = async ({ params }: { params: { slug: any } }) => {
 
     return (
         <main className="page_content">
+            <StructuredData data={schemaData} />
             <ShowNav />
             <div className="portfolio-detail portfoli-padd portfolio-page-1">
                 <div className="port-landing-wrap details-page">

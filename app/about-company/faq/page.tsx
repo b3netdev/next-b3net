@@ -4,8 +4,9 @@ import FaqClient from "./FaqClient";
  
 import { BASE_URL } from "@/lib/url";
 import { cache } from "react";
-import { buildMetadata, getSeoFromPageData } from "@/lib/seo";
+import { buildMetadata, getSchemaFromPageData, getSeoFromPageData } from "@/lib/seo";
 import { Metadata } from "next";
+import StructuredData from "@/components/server/StructuredData";
 
 
 
@@ -25,6 +26,7 @@ const getBlogPageData = cache(async () => {
 
 export default async function FaqPage() {
     const pageData = await getBlogPageData();
+      const schemaData = getSchemaFromPageData(pageData);
 
 
 
@@ -32,6 +34,7 @@ export default async function FaqPage() {
 
         <>
             <header>
+                <StructuredData data={schemaData} />
                 <main className="page_content faqWrapper">
                     <div className="portfolio-page faq-page">
                         <div className="port-landing-wrap gpp">

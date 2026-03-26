@@ -10,7 +10,8 @@ import Contact from "@/components/client/Contact";
 import TestimonialSwiper from "./TestimonialSwiper";
 import { cache } from "react";
 import { Metadata } from "next";
-import { buildMetadata, getSeoFromPageData } from "@/lib/seo";
+import { buildMetadata, getSchemaFromPageData, getSeoFromPageData } from "@/lib/seo";
+import StructuredData from "@/components/server/StructuredData";
 
 type PageProps = {
   params: { slug: string };
@@ -35,12 +36,14 @@ export default async function AboutUsPage({ params }: PageProps) {
   const data = await getPageData();
 
   const pageData = data?.page ?? data;
+    const schemaData = getSchemaFromPageData(pageData);
 
 
   if (!pageData) notFound();
 
   return (
     <div className="about-page portfolio-page">
+      <StructuredData data={schemaData} />
       <div className="port-landing-wrap gpp">
         <div className="banner-img">
           <img

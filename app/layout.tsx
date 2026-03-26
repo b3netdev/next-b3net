@@ -22,8 +22,10 @@ import Footer from "@/components/server/Footer";
 import { Poppins } from "next/font/google";
 import ToastProvider from "@/components/client/Toast";
 import { GetPageData } from "@/lib/getdata";
-import { buildMetadata, getSeoFromPageData } from "@/lib/seo";
+import { buildMetadata, getSchemaFromPageData, getSeoFromPageData } from "@/lib/seo";
 import ScrollToTop from "@/components/client/ScrollToTop";
+import { cache } from "react";
+import StructuredData from "@/components/server/StructuredData";
 
 const poppins = Poppins({
   subsets: ["latin"],
@@ -38,7 +40,7 @@ type PageProps = {
   params: { slug: string };
 };
 
-const getPageData = (async () => {
+const getPageData = cache(async () => {
   
   const data = await GetPageData("home", "page");
   return data?.page ?? data;
@@ -52,12 +54,15 @@ export async function generateMetadata(): Promise<Metadata> {
 }
 
 
+
 export default async function RootLayout({ children }: { children: React.ReactNode }) {
-  
+  const pageData = await getPageData();
+  const schemaData = getSchemaFromPageData(pageData);
  
   return (
     <html lang="en" className={poppins.className}>
       <body>
+        <StructuredData data={schemaData} />
         <Providers>
           <Navbar />
           <BootstrapClient />

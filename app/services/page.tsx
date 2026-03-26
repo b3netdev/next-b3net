@@ -7,8 +7,9 @@ import Workslider from "./[slug]/Workslider";
 import { BASE_URL } from "@/lib/url";
 import { cache } from "react";
 import { Metadata } from "next";
-import { buildMetadata, getSeoFromPageData } from "@/lib/seo";
+import { buildMetadata, getSchemaFromPageData, getSeoFromPageData } from "@/lib/seo";
 import { notFound } from "next/navigation";
+import StructuredData from "@/components/server/StructuredData";
 
 
 
@@ -30,9 +31,9 @@ export async function generateMetadata(): Promise<Metadata> {
 const Services = async () => {
 
 
-    const data = await getPageData();
-    
-      const pageData = data?.page ?? data;
+    const pageData = await getPageData();
+      const schemaData = getSchemaFromPageData(pageData);
+     
     
     
       if (!pageData) notFound();
@@ -46,6 +47,7 @@ const Services = async () => {
     return (
         <main className="page_content services-design-page">
             {/* HERO */}
+            <StructuredData data={schemaData} />
             <div
                 className="seo-landing-wrap"
                 style={{

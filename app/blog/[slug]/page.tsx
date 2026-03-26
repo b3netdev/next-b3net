@@ -5,8 +5,9 @@ import Scroll from "@/components/client/Scroll";
 import ShowNav from "@/components/client/ShowNav";
 import { load } from "cheerio";
 import { cache } from "react";
-import { buildMetadata, getSeoFromPageData } from "@/lib/seo";
+import { buildMetadata, getSchemaFromPageData, getSeoFromPageData } from "@/lib/seo";
 import { Metadata } from "next";
+import StructuredData from "@/components/server/StructuredData";
 
 
 
@@ -32,6 +33,7 @@ const getBlogPageData = cache(async (slug:string) => {
 const BlogDetail = async ({ params }: { params: { slug: string } }) => {
   const { slug } = await params;
   const pageData = await getBlogPageData(slug)
+    const schemaData = getSchemaFromPageData(pageData);
 
 
    const authordata =    pageData?._embedded?.author[0]
@@ -72,6 +74,7 @@ const BlogDetail = async ({ params }: { params: { slug: string } }) => {
   return (
     <main className="page_content">
       <ShowNav />
+      <StructuredData data={schemaData} />
 
       <div className="portfolio-detail portfoli-padd portfolio-page-1 blog-details">
         <div className="port-landing-wrap details-page-1">

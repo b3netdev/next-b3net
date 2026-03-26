@@ -5,7 +5,8 @@ import ShowNav from "@/components/client/ShowNav";
 import { BASE_URL } from "@/lib/url";
 import { cache } from "react";
 import { Metadata } from "next";
-import { buildMetadata, getSeoFromPageData } from "@/lib/seo";
+import { buildMetadata, getSchemaFromPageData, getSeoFromPageData } from "@/lib/seo";
+import StructuredData from "@/components/server/StructuredData";
 
 
 
@@ -55,11 +56,13 @@ export default async function BlogDetail({ params }: { params: { slug: string } 
 
     const { slug } = await params;
     const pageData = await getBlogPageData(slug)
+      const schemaData = getSchemaFromPageData(pageData);
     const author = pageData?.author;
     const authorSlug = author?.name?.split(" ")?.[0]?.toLowerCase();
     const relatedPosts = await GetRelatedPost(pageData?.categories, pageData?.id)
     return (
         <main className="page_content wesolveSub">
+            <StructuredData data={schemaData} />
             <ShowNav />
             <div className="portfolio-detail portfoli-padd portfolio-page-1 blog-details">
                 <div className="port-landing-wrap details-page-1">
