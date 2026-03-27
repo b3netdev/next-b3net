@@ -57,19 +57,22 @@ const BlogDetail = async ({ params }: { params: { slug: string } }) => {
 
   if (contentData) {
     const $ = load(contentData);
-
-    $("h2").each((index, el) => {
-      const id = `h2-${index}`;
+  
+    $("h2, h3").each((index, el) => {
+      const tag = el.tagName; // h2 or h3
+      const id = `${tag}-${index}`;
+  
       $(el).attr("id", id);
-
+  
       sideNav.push({
         id,
         text: $(el).text().trim(),
       });
     });
-
+  
     contentData = $.html();
   }
+  console.log(contentData,"Content data")
 
   return (
     <main className="page_content">
@@ -122,10 +125,10 @@ const BlogDetail = async ({ params }: { params: { slug: string } }) => {
                     </div>
                   </div>
 
-                  <div className="newsletter-blog">
+                  {/* <div className="newsletter-blog">
                     <h3>Join Our Newsletter</h3>
                     <BlogDetailForm />
-                  </div>
+                  </div> */}
 
                   <div className="solutions">
                     <h3>Explore Our Solutions</h3>
@@ -144,7 +147,7 @@ const BlogDetail = async ({ params }: { params: { slug: string } }) => {
               </div>
 
               <div className="col-lg-8 col-xl-9">
-                <div
+                <span
                   dangerouslySetInnerHTML={{
                     __html: contentData,
                   }}

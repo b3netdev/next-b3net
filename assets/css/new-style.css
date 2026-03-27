@@ -1431,7 +1431,7 @@ a.d-flex.align-items-center.gap-2.clr-blk {
     align-items: center;
     width: 100%;
     cursor: pointer;
-    padding: 10px;
+    /* padding: 10px; */
 }
 
 .navListMenu span{
@@ -1470,7 +1470,9 @@ a.d-flex.align-items-center.gap-2.clr-blk {
 }
 
 .toc-text {
-    padding: 20px 20px 10px 20px;
+    text-align: center;
+    
+    /* padding: 20px 20px 10px 20px; */
     /* background-color: #000; */
 }
 
@@ -1492,7 +1494,7 @@ a.d-flex.align-items-center.gap-2.clr-blk {
 
 /* Newsletter */
 .newsletter-blog {
-    padding: 20px;
+    padding: 10px;
     border-radius: 10px;
     border: 2px solid #b8c0d4;
 }

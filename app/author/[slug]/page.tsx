@@ -72,7 +72,7 @@ export default async function Author({ params }: { params: { slug: string } }) {
                                                 height={150}
                                                 src={authorData?.mpp_avatar?.full}
                                                 className="avatar avatar-150 photo mx-auto"
-                                                alt=""
+                                                alt="left-side"
                                                 decoding="async"
                                                 sizes="(max-width: 150px) 100vw, 150px"
                                             />
