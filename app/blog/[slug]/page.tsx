@@ -72,7 +72,6 @@ const BlogDetail = async ({ params }: { params: { slug: string } }) => {
   
     contentData = $.html();
   }
-  console.log(contentData,"Content data")
 
   return (
     <main className="page_content">

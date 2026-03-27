@@ -596,7 +596,7 @@ export async function generateStaticParams() {
                                     <p>{pageData?.acf?.data?.service_page_section_6_short_title}</p>
                                 </div>
 
-                                <div className=" new-slider-2 owl-carousel owl-theme d-flex ">
+                                <div className=" new-slider-2  d-flex flex-wrap gap-5 justify-center ">
                                     {pageData?.acf?.data?.service_page_section_6_testimonial?.map(
                                         (data: any, index: any) => {
                                                 return (
@@ -610,7 +610,7 @@ export async function generateStaticParams() {
                                                                 />
                                                             </div>
 
-                                                            <p >
+                                                            <p className="clamp-3" >
                                                                 {data?.post_content.slice(0, 197)}
                                                                 <Link href={`/blog/${data?.post_name}`} className="text-[#ff6600] opacity-80"> ...Read More</Link>
                                                             </p>

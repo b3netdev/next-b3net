@@ -4572,6 +4572,7 @@ h4.card-title.mb-2 {
   }
 }
 
+
 @media (min-width: 1024px) {
   .border-testi {
     padding: 20px;
@@ -4587,6 +4588,7 @@ h4.card-title.mb-2 {
   padding: 30px;
   border-radius: 15px;
   height: 100%;
+  overflow: hidden;
 }
 
 .quote-icon {
@@ -4628,6 +4630,20 @@ h4.card-title.mb-2 {
 .testi-client-desc {
   text-align: right;
 }
+
+.new-slider-2{}
+
+
+
+
+@media (max-width: 278px) {
+  .clamp-3 {
+    font-size:small;
+    overflow: hidden;
+  }
+  
+}
+
 
 .new-slider-2 a {
   color: #f35622;
