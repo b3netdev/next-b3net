@@ -181,7 +181,7 @@
 
 /* Hire Us (from HTML: hire-us-section, hire-left, hire-right, sectitl) */
 .hireUsSection {
-  background-image: url(https://www.b3net.com/old-site-2025/wp-content/themes/perfecti/case-4-assets/images/hire-us-bg.png);
+  /* background-image: url(https://www.b3net.com/old-site-2025/wp-content/themes/perfecti/case-4-assets/images/hire-us-bg.png); */
   background-repeat: no-repeat;
   align-items: center;
   background-position: bottom center;
@@ -239,7 +239,7 @@
 
 /* Testimonial */
 .caseTesti {
-  background-image: url(https://www.b3net.com/old-site-2025/wp-content/themes/perfecti/case-4-assets/images/testi-bg.png);
+  /* background-image: url(https://www.b3net.com/old-site-2025/wp-content/themes/perfecti/case-4-assets/images/testi-bg.png); */
   background-repeat: no-repeat;
   padding: 70px 0;
   width: 100%;

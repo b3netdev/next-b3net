@@ -1,10 +1,16 @@
 import React from "react";
 
 import AiModelClient from "../client/AiModelCard";
+import { BASE_URL } from "@/lib/url";
 
 export default function AiModel() {
   return (
-    <div className="slider-ai-slider new-gap" id="ai-integration-model">
+    <div className="new-gap" id="ai-integration-model"
+      style={{
+        backgroundImage: `url(${BASE_URL}/wp-content/uploads/2025/09/Vector-Smart-Object-copy-3.jpg)`
+      }}
+
+    >
       <div className="aisliderwrapper">
         <div className="container">
           <div className="aislider-content text-center mb-3 mb-md-5 heading-title">

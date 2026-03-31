@@ -76,7 +76,11 @@ const CaseStudy2 = async ({ pageData }: any) => {
             </div>
 
             {/* Hire us */}
-            <div className={styles.hireUsSection}>
+            <div className={styles.hireUsSection}
+            style={{
+              backgroundImage: `url(${BASE_URL}/old-site-2025/wp-content/themes/perfecti/case-4-assets/images/hire-us-bg.png)`
+            }}
+            >
               <div className={styles.hireLeft}>
                 <div className={styles.sectitl}>
                   <h2>
@@ -101,7 +105,11 @@ const CaseStudy2 = async ({ pageData }: any) => {
             </div>
 
             {/* Testimonial */}
-            <div className={styles.caseTesti}>
+            <div className={styles.caseTesti}
+            style={{
+              backgroundImage: `url(${BASE_URL}/old-site-2025/wp-content/themes/perfecti/case-4-assets/images/testi-bg.png)`
+            }}
+            >
               <div className={styles.caseSecTtl}>
                 <h2>{pageData?.acf?.data?.testimonial_heading}</h2>
               </div>
