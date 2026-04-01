@@ -5,7 +5,7 @@ import { BASE_URL } from "@/lib/url";
 
 export default function AiModel() {
   return (
-    <div className="new-gap" id="ai-integration-model"
+    <div className="slider-ai-slider new-gap" id="ai-integration-model"
       style={{
         backgroundImage: `url(${BASE_URL}/wp-content/uploads/2025/09/Vector-Smart-Object-copy-3.jpg)`
       }}
