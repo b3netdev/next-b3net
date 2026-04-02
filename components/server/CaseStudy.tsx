@@ -23,15 +23,15 @@ type CaseStudyItem = {
   id: number;
 };
 
-const CaseStudy = () => {
+const   CaseStudy = () => {
  
   return (
     <>
       <div className="case-studies-service pt-5 mb-4 mt-0  new-gap" id="case-studies">
         <div className="container">
           <div className="row mb-4 mb-md-5">
-            <div className="col-lg-12 text-center">
-              <div className="heading-title heading-big-uppercase text-white">
+            <div className="col-lg-12 text-center   py-2">
+              <div className="heading-title heading-big-uppercase text-white ">
                 <h2>Case Studies</h2>
               </div>
               <div className="heading-title text-white">

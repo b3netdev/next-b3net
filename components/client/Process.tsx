@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useRef, useState } from "react";
+import React, { useLayoutEffect, useRef, useState } from "react";
 import Image, { StaticImageData } from "next/image";
 
 import Select1 from "../../assets/images/select-1.png";
@@ -55,12 +55,47 @@ const processSteps: ProcessStep[] = [
 ];
 
 const Process: React.FC = () => {
-  const [activeId, setActiveId] = useState<string>(processSteps[0].id);
+  const [activeId, setActiveId] = useState<string>("one");
   const [activeImage, setActiveImage] = useState<StaticImageData>(
     processSteps[0].image
   );
+  const [contentHeights, setContentHeights] = useState<Record<string, number>>(
+    {}
+  );
 
   const contentRefs = useRef<Record<string, HTMLDivElement | null>>({});
+
+  useLayoutEffect(() => {
+    const heights: Record<string, number> = {};
+
+    processSteps.forEach((step) => {
+      const el = contentRefs.current[step.id];
+      if (el) {
+        heights[step.id] = el.scrollHeight;
+      }
+    });
+
+    setContentHeights(heights);
+
+    const handleResize = () => {
+      const updatedHeights: Record<string, number> = {};
+
+      processSteps.forEach((step) => {
+        const el = contentRefs.current[step.id];
+        if (el) {
+          updatedHeights[step.id] = el.scrollHeight;
+        }
+      });
+
+      setContentHeights(updatedHeights);
+    };
+
+    window.addEventListener("resize", handleResize);
+
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
 
   const toggle = (step: ProcessStep) => {
     setActiveImage(step.image);
@@ -86,16 +121,12 @@ const Process: React.FC = () => {
             <div className="accordion custom-accordion">
               {processSteps.map((step, index) => {
                 const isOpen = activeId === step.id;
-                const el = contentRefs.current[step.id];
-                const height = isOpen && el ? el.scrollHeight : 0;
 
                 return (
                   <div className="accordion-item" key={step.id}>
                     <h2 className="accordion-header">
                       <button
-                        className={`accordion-button ${
-                          !isOpen ? "collapsed" : ""
-                        }`}
+                        className={`accordion-button ${!isOpen ? "collapsed" : ""}`}
                         type="button"
                         onClick={() => toggle(step)}
                         aria-expanded={isOpen}
@@ -112,7 +143,13 @@ const Process: React.FC = () => {
 
                     <div
                       className={`acc-anim ${isOpen ? "open" : ""}`}
-                      style={{ maxHeight: `${height}px` }}
+                      style={{
+                        maxHeight: isOpen
+                          ? `${contentHeights[step.id] || 0}px`
+                          : "0px",
+                        overflow: "hidden",
+                        transition: "max-height 0.4s ease",
+                      }}
                     >
                       <div
                         className="acc-anim-inner"

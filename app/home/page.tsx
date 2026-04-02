@@ -33,7 +33,7 @@ export default async function Home() {
                         Innovate. Adapt. Succeed with <strong>B3NET</strong>
                     </h1>
 
-                    <p style={{ color: "white", fontSize: "1em", fontWeight: "bold" }}>
+                    <p style={{ color: "white", fontSize: "1em",  }}>
                         B3NET Empowers Businesses with AI-Driven Digital Marketing, Web
                         Development, & CRM Optimization.
                     </p>
