@@ -123,7 +123,7 @@ export default async function Home() {
                             <div className="border p-4 abt-shadow-blog">
                                 <div className="d-md-flex align-items-center g-2 mb-3">
                                     <div className="abt-img mb-3 mb-md-0">
-                                        <img src={`${BASE_URL}/wp-content/themes/b3net/assets/images/delivered-icon.png`} alt="Delivered Icon" />
+                                        <img src={`${BASE_URL}/wp-content/themes/b3net/assets/images/delivered-icon.png`} alt="Delivered-Icon" />
                                     </div>
                                     <div className="abt-heading">
                                         <h4>We deliver end-to-end digital solutions, including:</h4>
