@@ -332,7 +332,9 @@ body.body {
   align-items: center;
   justify-content: space-between;
 }
-
+.caseStudyHeading{
+  color: #ff4f02 !important;
+}
 .portfolio-sec-images {
   /* background-color: #003d87;  */
 }
