@@ -4372,6 +4372,7 @@ p.form-submit input#submit {
   padding: 150px 0;
   background-repeat: no-repeat;
   background-position: center;
+  height: 90dvh;
 }
 
 .banner-caption {
