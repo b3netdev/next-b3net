@@ -19,32 +19,32 @@ const PortFolio: React.FC = () => {
     {
       "image": `${BASE_URL}/wp-content/uploads/2025/03/portfolio-img-1.jpg`,
       "title": "Bio Sleep Concept",
-      "url": "https://www.b3net.com/portfolio/bio-sleep-concept-magento.html"
+      "slug": "bio-sleep-concept-magento"
     },
     {
       "image": `${BASE_URL}/wp-content/uploads/2025/03/portfolio-img-2.jpg`,
       "title": "Arc Levers",
-      "url": "https://www.b3net.com/portfolio/arc-levers.html"
+      "slug":'arc-levers-store'
     },
     {
       "image": `${BASE_URL}/wp-content/uploads/2025/03/portfolio-img-3.jpg`,
       "title": "Arrendaria",
-      "url": "https://www.b3net.com/portfolio/arrendaria-real-estate-service/"
+      "slug":"arrendaria"
     },
     {
       "image": `${BASE_URL}/wp-content/uploads/2025/03/portfolio-img-4.jpg`,
       "title": "Tim Henson’s Unique Lighting",
-      "url": "https://www.b3net.com/portfolio/tim-hensons-unique-lighting-wordpress.html"
+      "slug" :"tim-hensons-unique-lighting-wordpress"
     },
     {
       "image": `${BASE_URL}/wp-content/uploads/2025/03/portfolio-img-5.jpg`,
       "title": "The Fifth OC",
-      "url": "https://www.b3net.com/portfolio/the-fifth-oc-wordpress.html"
+      "slug":"the-fifth-oc-wordpress"
     },
     {
       "image": `${BASE_URL}/wp-content/uploads/2025/03/portfolio-img-6.jpg`,
       "title": "Maya Stone",
-      "url": "https://www.b3net.com/portfolio/maya-stone-inc-wordpress.html"
+      "slug" :"maya-stone-inc-wordpress"
     }
   ]
 
@@ -105,14 +105,14 @@ const PortFolio: React.FC = () => {
                         ?.map((item: any, index: any) => (
                           <div className="portfolio-list !mt-7 !p-4" key={index}>
                             <div className="image image-anime reveal">
-                              <Link href={`/portfolio/${item?.about_portfolio_slug}`}>
+                              <Link href={`/portfolio/${item?.slug}`}>
                                 <img src={item.image} alt={item.title} />
                               </Link>
                             </div>
 
                             <div className="portfolio-details">
                               <Link
-                                href={`/portfolio/${item?.about_portfolio_slug}`}
+                                href={`/portfolio/${item?.slug}`}
                                 className="d-flex align-items-center justify-content-between"
                               >
                                 {item.title}{" "}
