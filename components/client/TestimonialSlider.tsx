@@ -1,6 +1,6 @@
 "use client";
 
-import React from "react";
+import React, { useRef } from "react";
 import Image, { StaticImageData } from "next/image";
 
 import testImage1 from "../../assets/images/testi-img-1.png";
@@ -85,6 +85,8 @@ const Stars: React.FC = () => (
 );
 
 const TestimonialCard: React.FC<{ item: TestimonialItem }> = ({ item }) => {
+  const swiperRef = useRef<any | null>(null);
+  
   return (
     <div className={`tes-box ${item.type === "video" ? "video-box" : ""}`}>
       <div className="bottom mb-2">
@@ -102,8 +104,6 @@ const TestimonialCard: React.FC<{ item: TestimonialItem }> = ({ item }) => {
         {item.type === "video" ? (
           <div className="video-container-iframe">
             <iframe
-              width="560"
-              height="315"
               src={item.video}
               title={item.name}
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
@@ -125,15 +125,12 @@ const TestimonoalCard: React.FC = () => {
       <div className="container">
         <Swiper
           modules={[Navigation, Pagination, Autoplay]}
-          spaceBetween={24}
+          spaceBetween={10}
           loop={true}
           pagination={{ clickable: true }}
-          autoplay={{ delay: 2500, disableOnInteraction: false }}
-          breakpoints={{
-            0: { slidesPerView: 1 },
-            768: { slidesPerView: 2 },
-            1200: { slidesPerView: 3 },
-          }}
+          autoplay={{ delay: 2500, disableOnInteraction: true }}
+          slidesPerView="auto"
+          
         >
           {testimonials.map((item) => (
             <SwiperSlide key={item.id}>
