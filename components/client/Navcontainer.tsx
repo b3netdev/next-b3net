@@ -214,7 +214,7 @@ export default function Navbar() {
     };
 
     const WesolveSubMenu = ({ data }: { data: any }) => {
-        const slug = new URL(data.url).pathname.split("/").filter(Boolean).pop() || "";
+
         return (
             <div className="aboutSubMenu WesolveBox" key={data.id}>
                 <span className="about-item">

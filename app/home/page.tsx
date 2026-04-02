@@ -24,7 +24,7 @@ export default async function Home() {
                     src={`${BASE_URL}/wp-content/uploads/2025/10/B3NET-bg-image.webp`}
                     alt="Background"
                     fill
-                    priority
+                    loading="lazy"
                     className="background-image"
                 />
 
