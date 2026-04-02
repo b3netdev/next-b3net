@@ -100,13 +100,23 @@ export default function AiModelClient(): React.ReactElement {
 
       {/* Cards */}
       <div className="card-container">
-        {CardData.map((data) => {
-          const isActive = data.id === selectCard;
+        {CardData.map((data,index) => {
+        
+          const currentIndex = CardData.findIndex(
+            (item) => item.id === selectCard
+          );
+      
+          const nextIndex =
+            currentIndex === CardData.length - 1 ? 0 : currentIndex + 1;
+      
+          const isActive = index === currentIndex;
+          const isNext = index === nextIndex;
+      
 
           return (
             <div
               key={data.id}
-              className={`flip-card gradient-border ${isActive ? "active" : "next"}`}
+              className={`flip-card gradient-border ${isActive ? "active" : isNext ? "next" : ""}`}
             >
               <div className="gradient-inner">
                 <div className="card-header">

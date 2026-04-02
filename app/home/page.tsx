@@ -179,17 +179,10 @@ export default async function Home() {
                         </div>
                     </div>
                 </div>
-
-
             </div>
-
-
-
-
             <div className="tab-section-click d-lg-block d-none">
                 <HomeNav />
             </div>
-
             <section id="services"><Services /></section>
             <section id="ai-integration-model"><AiModel /></section>
             <section id="portfolio"><PortFolio /></section>
