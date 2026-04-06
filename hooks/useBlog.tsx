@@ -57,15 +57,19 @@ const useBlog = () => {
     }
   };
 
-  const getBlogItems = async (params: any): Promise<WPPost[]> => {
+  const getBlogItems = async (params: any): Promise<any> => {
+    console.log(params.toString());
+  
     setLoading(true);
     try {
-
-      const res: AxiosResponse<WPPost[]> = await api.get("/wp-json/wp/v2/posts", {
+      const res:any = await api.get("/wp-json/wp/v2/posts", {
         params: params,
-      });
-
-      return res.data;
+      });      
+        const totalPosts = Number(res.headers["x-wp-total"] || 0);
+        return {
+          totalPosts,
+          data: res.data,
+        };
     } catch (error) {
       console.error("Failed to fetch blog items:", error);
       throw error;

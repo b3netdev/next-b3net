@@ -31,6 +31,7 @@ export default function BlogClient() {
   const [category, setCategory] = useState<any>([]);
   const tabsRef = useRef<HTMLDivElement | null>(null);
   const [categoryloading, setCategoryLoading] = useState(false)
+  const [pageCount,setPageCount] = useState<any>(null)
 
   const [selectTab, setSelectTab] = useState<any>({
     id: "",
@@ -50,14 +51,8 @@ export default function BlogClient() {
       setCategoryLoading(true)
       const data = await getBlogCategories();
 
-      let allIdList = "";
-
-      if (Array.isArray(data) && data.length > 0) {
-        allIdList = data.map((item: any) => item.id).join(",");
-      }
-
       const allobj = {
-        id: allIdList,
+        id:[],
         target: "#pills-home",
         controls: "pills-home",
         selected: true,
@@ -76,14 +71,17 @@ export default function BlogClient() {
   useEffect(() => {
     if (!selectTab?.id) return;
     const getblogitems = async () => {
+      console.log(selectTab,"SELECT TAB")
       const params = new URLSearchParams({
-        categories: String(selectTab?.id),
-        per_page: String(6),
+        per_page: "6",
         page: String(pagenumber),
       });
-
-      const data = await getBlogItems(params);
-      setBlogItems(data);
+      if (selectTab?.name !== "All") {
+        params.append("categories", String(selectTab?.id));
+      }
+      const res:any = await getBlogItems(params);
+      setBlogItems(res.data);
+      setPageCount(res.totalPosts)
     };
 
     getblogitems();
@@ -325,10 +323,10 @@ export default function BlogClient() {
         </div>
 
 
-       {selectTab?.count > 6 && (
+       {pageCount > 6 && (
   <div className="paginationContainer">
     {(() => {
-      const totalPages = Math.ceil(selectTab?.count / 6) || 0;
+      const totalPages = Math.ceil(pageCount / 6) || 0;
       const pages = [];
 
       const visiblePages =
