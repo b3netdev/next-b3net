@@ -1,9 +1,8 @@
 "use client";
 
-import React, { useState, useRef } from "react";
+import React, { useState } from "react";
 import Skeleton from "@mui/material/Skeleton";
 import Stack from "@mui/material/Stack";
- 
 
 type Props = {
   pageData: any;
@@ -14,13 +13,20 @@ function AccordionItem({
   question,
   answer,
   id,
+  activeId,
+  setActiveId,
 }: {
   question: string;
   answer: string;
   id: string;
+  activeId: string | null;
+  setActiveId: React.Dispatch<React.SetStateAction<string | null>>;
 }) {
-  const [open, setOpen] = useState(false);
-  const contentRef = useRef<HTMLDivElement>(null);
+  const open = activeId === id;
+
+  const handleToggle = () => {
+    setActiveId((prev) => (prev === id ? null : id));
+  };
 
   return (
     <div className="accordion-item">
@@ -28,11 +34,10 @@ function AccordionItem({
         <button
           className={`accordion-button${open ? "" : " collapsed"}`}
           type="button"
-          onClick={() => setOpen((prev) => !prev)}
+          onClick={handleToggle}
           aria-expanded={open}
           aria-controls={`collapse-${id}`}
         >
-          {/* Animated chevron icon using Tailwind */}
           <i
             className={`fa-solid fa-chevron-down icon transition-transform duration-300 ease-in-out ${
               open ? "rotate-180" : "rotate-0"
@@ -42,11 +47,6 @@ function AccordionItem({
         </button>
       </h2>
 
-      {/*
-        Animation strategy: transition max-height from 0 to a large value.
-        overflow-hidden ensures content is clipped when closed.
-        transition-all + duration-300 + ease-in-out gives the smooth slide effect.
-      */}
       <div
         id={`collapse-${id}`}
         aria-labelledby={`heading-${id}`}
@@ -81,6 +81,8 @@ const FaqSkeletonItem = () => (
 );
 
 export default function FaqClient({ pageData, loading = false }: Props) {
+  const [activeId, setActiveId] = useState<string | null>(null);
+
   return (
     <>
       <div className="accordian-part">
@@ -88,7 +90,6 @@ export default function FaqClient({ pageData, loading = false }: Props) {
           <div className="container">
             <div className="accordion" id="faqAccordion">
               <div className="row">
-                {/* LEFT column */}
                 <div className="col-md-6 pe-md-4">
                   {loading
                     ? Array.from({ length: 8 }).map((_, i) => (
@@ -100,11 +101,12 @@ export default function FaqClient({ pageData, loading = false }: Props) {
                           id={`left-${index}`}
                           question={item?.question}
                           answer={item?.answer}
+                          activeId={activeId}
+                          setActiveId={setActiveId}
                         />
                       ))}
                 </div>
 
-                {/* RIGHT column */}
                 <div className="col-md-6">
                   {loading
                     ? Array.from({ length: 8 }).map((_, i) => (
@@ -116,6 +118,8 @@ export default function FaqClient({ pageData, loading = false }: Props) {
                           id={`right-${index}`}
                           question={item?.question}
                           answer={item?.answer}
+                          activeId={activeId}
+                          setActiveId={setActiveId}
                         />
                       ))}
                 </div>
@@ -125,7 +129,6 @@ export default function FaqClient({ pageData, loading = false }: Props) {
         </div>
       </div>
 
-      {/* Webinar section */}
       <div className="webiner-video">
         <div className="video-section">
           <div className="container">
@@ -160,8 +163,6 @@ export default function FaqClient({ pageData, loading = false }: Props) {
           </div>
         </div>
       </div>
-
-       
     </>
   );
 }
