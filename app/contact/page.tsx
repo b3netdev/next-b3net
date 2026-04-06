@@ -170,12 +170,11 @@ export default async function ContactUs() {
                   </div>
                 </div>
 
-                {/* OPTIONAL: Address list rendering if you want it on UI */}
-                {/* (You didn’t render it in your JSX earlier, so I’m not forcing it) */}
+                
               </div>
             </div>
 
-            {/* Logo */}
+            
             <div className="contct-img my-5 my-md-5">
               <img
                 src={`${BASE_URL}/wp-content/uploads/2025/06/logo-2.png`}
