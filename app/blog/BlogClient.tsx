@@ -71,7 +71,6 @@ export default function BlogClient() {
   useEffect(() => {
     if (!selectTab?.id) return;
     const getblogitems = async () => {
-      console.log(selectTab,"SELECT TAB")
       const params = new URLSearchParams({
         per_page: "6",
         page: String(pagenumber),
