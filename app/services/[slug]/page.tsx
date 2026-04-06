@@ -126,7 +126,7 @@ export async function generateStaticParams() {
                     <div className="container">
                         <div className="banner-caption">
                             <h1>{pageData?.acf?.data?.banner_heading}</h1>
-                            <div
+                            <span
                                 dangerouslySetInnerHTML={{
                                     __html: pageData?.acf?.data?.banner_description || "",
                                 }}
