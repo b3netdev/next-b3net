@@ -275,7 +275,7 @@ export default function BlogClient() {
                               src={post?.featured_image_url || ""}
                               className="card-img-top"
                               alt="blogItem-image"
-                              loading="lazy"
+                             
                             />
                           </Link>
 

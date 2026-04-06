@@ -88,7 +88,7 @@
 
     .hire-us-section {
         max-width: 60%;
-        background-image: url(/images/hire-us-bg.png);
+        background-image: url(/images/hire-us-bg.webp);
         background-repeat: no-repeat;
         padding: 70px 30px;
         display: flex;
@@ -894,7 +894,7 @@
 
 
     .hire-us-section {
-        background-image: url(../images/case-studies/hire-us-bg.png);
+        background-image: url(../images/case-studies/hire-us-bg.webp);
         background-repeat: no-repeat;
         padding: 40px;
         display: flex;
@@ -1703,7 +1703,7 @@
     }
 
     .hire-us-section {
-        background-image: url(../images/case-studies/hire-us-bg-c3.png);
+        background-image: url(../images/case-studies/hire-us-bg-c3.webp);
         background-repeat: no-repeat;
         padding: 40px;
         display: flex;

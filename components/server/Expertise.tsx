@@ -2,12 +2,12 @@ import React from "react";
 import Image, { StaticImageData } from "next/image";
 import Link from "next/link";
 
-import Expertise1 from "../../assets/images/expertise-img-1.jpg";
-import Expertise2 from "../../assets/images/expertise-img-2.jpg";
-import Expertise3 from "../../assets/images/expertise-img-3.jpg";
-import Expertise4 from "../../assets/images/expertise-img-4.jpg";
-import Expertise5 from "../../assets/images/expertise-img-5.jpg";
-import Expertise6 from "../../assets/images/expertise-img-6.jpg";
+import Expertise1 from "../../assets/images/expertise-img-1.webp";
+import Expertise2 from "../../assets/images/expertise-img-2.webp";
+import Expertise3 from "../../assets/images/expertise-img-3.webp";
+import Expertise4 from "../../assets/images/expertise-img-4.webp";
+import Expertise5 from "../../assets/images/expertise-img-5.webp";
+import Expertise6 from "../../assets/images/expertise-img-6.webp";
 
 
 

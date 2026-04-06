@@ -2,11 +2,11 @@ import React from "react";
 import Image, { StaticImageData } from "next/image";
 import Link from "next/link";
 
-import Upgrade from "../../assets/images/up-grade-icon.png";
+import Upgrade from "../../assets/images/up-grade-icon.webp";
 
 import ExpertIcon1 from "../../assets/images/expert-icon-1.png";
 import ExpertIcon2 from "../../assets/images/expert-icon-2.png";
-import Why from "../../assets/images/why-image.jpg";
+import Why from "../../assets/images/why-image.webp";
 import ExpertIcon3 from "../../assets/images/expert-icon-3.png";
 import CaseStudiesSlider from "../client/CaseStudySlider";
 import Process from "../client/Process";

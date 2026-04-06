@@ -3,83 +3,83 @@
 import React, { useState } from "react";
 import Image, { StaticImageData } from "next/image";
 
-import PHP from "../../assets/images/technologies/PHP.png";
-import REACTJS from "../../assets/images/technologies/react-js.png";
-import WORDPRESS from "../../assets/images/technologies/wordpress.png";
-import SHOPIFY from "../../assets/images/technologies/Shopify.png";
-import PYTHON from "../../assets/images/technologies/Python.png";
-import NODE from "../../assets/images/technologies/Node.png";
-import MONGODB from "../../assets/images/technologies/MongoDB.png";
-import LARAVEL from "../../assets/images/technologies/laravel.png";
-import JQUERY from "../../assets/images/technologies/JQuery.png";
-import MYSQL from "../../assets/images/technologies/mysql.png";
-import JOOMLA from "../../assets/images/technologies/Joomla.png";
-import CODEIGNITER from "../../assets/images/technologies/codeigniter.png";
-import ANGULAR from "../../assets/images/technologies/angular.png";
-import ADOBEPHOTOI from "../../assets/images/design/adobe-photoshop.png";
-import ADOBEILLUS from "../../assets/images/design/Adobe-Illustrator.png";
-import CANVA from "../../assets/images/design/Canva.png";
-import ADOBEXD from "../../assets/images/design/Adobe-xd.png";
-import HTML5 from "../../assets/images/design/HTML5.png";
-import CSS from "../../assets/images/design/css.png";
-import FIGMA from "../../assets/images/design/Figma.png";
-import SKETCH from "../../assets/images/design/Sketch.png";
+import PHP from "../../assets/images/technologies/PHP.webp";
+import REACTJS from "../../assets/images/technologies/react-js.webp";
+import WORDPRESS from "../../assets/images/technologies/wordpress.webp";
+import SHOPIFY from "../../assets/images/technologies/Shopify.webp";
+import PYTHON from "../../assets/images/technologies/Python.webp";
+import NODE from "../../assets/images/technologies/Node.webp";
+import MONGODB from "../../assets/images/technologies/MongoDB.webp";
+import LARAVEL from "../../assets/images/technologies/laravel.webp";
+import JQUERY from "../../assets/images/technologies/JQuery.webp";
+import MYSQL from "../../assets/images/technologies/mysql.webp";
+import JOOMLA from "../../assets/images/technologies/Joomla.webp";
+import CODEIGNITER from "../../assets/images/technologies/codeigniter.webp";
+import ANGULAR from "../../assets/images/technologies/angular.webp";
+import ADOBEPHOTOI from "../../assets/images/design/adobe-photoshop.webp";
+import ADOBEILLUS from "../../assets/images/design/Adobe-Illustrator.webp";
+import CANVA from "../../assets/images/design/Canva.webp";
+import ADOBEXD from "../../assets/images/design/Adobe-xd.webp";
+import HTML5 from "../../assets/images/design/HTML5.webp";
+import CSS from "../../assets/images/design/css.webp";
+import FIGMA from "../../assets/images/design/Figma.webp";
+import SKETCH from "../../assets/images/design/Sketch.webp";
 
-import GOOGLESEARCH from "../../assets/images/tools/Google-search-console.png";
-import GOOGLEANALYTICS from "../../assets/images/tools/Google-Analytics.png";
-import SEMRUSH from "../../assets/images/tools/Semrush.png";
-import AHREFS from "../../assets/images/tools/ahrefs.png";
-import HUBSPOT from "../../assets/images/tools/HubSpot.png";
-import MICROSOFTCLARITY from "../../assets/images/tools/Microsoft-clarity.png";
-import SCREAMING from "../../assets/images/tools/Screaming-Frog.png";
-import KEYBOARDPLANER from "../../assets/images/tools/Keyword-planner.png";
-import SIMILARWEB from "../../assets/images/tools/Similarweb.png";
-import SPYFU from "../../assets/images/tools/spyfu.png";
+import GOOGLESEARCH from "../../assets/images/tools/Google-search-console.webp";
+import GOOGLEANALYTICS from "../../assets/images/tools/Google-Analytics.webp";
+import SEMRUSH from "../../assets/images/tools/Semrush.webp";
+import AHREFS from "../../assets/images/tools/ahrefs.webp";
+import HUBSPOT from "../../assets/images/tools/HubSpot.webp";
+import MICROSOFTCLARITY from "../../assets/images/tools/Microsoft-clarity.webp";
+import SCREAMING from "../../assets/images/tools/Screaming-Frog.webp";
+import KEYBOARDPLANER from "../../assets/images/tools/Keyword-planner.webp";
+import SIMILARWEB from "../../assets/images/tools/Similarweb.webp";
+import SPYFU from "../../assets/images/tools/spyfu.webp";
 
-import AI1 from "../../assets/images/design/ai-1.jpg";
-import AI2 from "../../assets/images/design/ai-2.jpg";
-import AI3 from "../../assets/images/design/ai-3.jpg";
-import AI4 from "../../assets/images/design/ai-4.jpg";
-import AI5 from "../../assets/images/design/ai-5.jpg";
-import AI6 from "../../assets/images/design/ai-6.jpg";
-import AI7 from "../../assets/images/design/ai-7.jpg";
-import AI8 from "../../assets/images/design/ai-8.jpg";
-import AI9 from "../../assets/images/design/ai-9.jpg";
-import AI10 from "../../assets/images/design/ai-10.jpg";
+import AI1 from "../../assets/images/design/ai-1.webp";
+import AI2 from "../../assets/images/design/ai-2.webp";
+import AI3 from "../../assets/images/design/ai-3.webp";
+import AI4 from "../../assets/images/design/ai-4.webp";
+import AI5 from "../../assets/images/design/ai-5.webp";
+import AI6 from "../../assets/images/design/ai-6.webp";
+import AI7 from "../../assets/images/design/ai-7.webp";
+import AI8 from "../../assets/images/design/ai-8.webp";
+import AI9 from "../../assets/images/design/ai-9.webp";
+import AI10 from "../../assets/images/design/ai-10.webp";
 
 // Normal client logos
-import CLIENT1 from "../../assets/images/clients-logo/our-client-1.png";
-import CLIENT2 from "../../assets/images/clients-logo/our-client-2.png";
-import CLIENT3 from "../../assets/images/clients-logo/our-client-3.png";
-import CLIENT4 from "../../assets/images/clients-logo/our-client-4.png";
-import CLIENT5 from "../../assets/images/clients-logo/our-client-5.png";
-import CLIENT6 from "../../assets/images/clients-logo/our-client-6.png";
-import CLIENT7 from "../../assets/images/clients-logo/our-client-7.png";
-import CLIENT8 from "../../assets/images/clients-logo/our-client-8.png";
-import CLIENT9 from "../../assets/images/clients-logo/our-client-9.png";
-import CLIENT11 from "../../assets/images/clients-logo/our-client-11.png";
-import CLIENT12 from "../../assets/images/clients-logo/our-client-12.png";
-import CLIENT13 from "../../assets/images/clients-logo/our-client-13.png";
-import CLIENT16 from "../../assets/images/clients-logo/our-client-16.png";
-import CLIENT17 from "../../assets/images/clients-logo/our-client-17.png";
-import CLIENT18 from "../../assets/images/clients-logo/our-client-18.png";
-import CLIENT19 from "../../assets/images/clients-logo/our-client-19.png";
-import CLIENT20 from "../../assets/images/clients-logo/our-client-20.svg";
+import CLIENT1 from "../../assets/images/clients-logo/our-client-1.webp";
+import CLIENT2 from "../../assets/images/clients-logo/our-client-2.webp";
+import CLIENT3 from "../../assets/images/clients-logo/our-client-3.webp";
+import CLIENT4 from "../../assets/images/clients-logo/our-client-4.webp";
+import CLIENT5 from "../../assets/images/clients-logo/our-client-5.webp";
+import CLIENT6 from "../../assets/images/clients-logo/our-client-6.webp";
+import CLIENT7 from "../../assets/images/clients-logo/our-client-7.webp";
+import CLIENT8 from "../../assets/images/clients-logo/our-client-8.webp";
+import CLIENT9 from "../../assets/images/clients-logo/our-client-9.webp";
+import CLIENT11 from "../../assets/images/clients-logo/our-client-11.webp";
+import CLIENT12 from "../../assets/images/clients-logo/our-client-12.webp";
+import CLIENT13 from "../../assets/images/clients-logo/our-client-13.webp";
+import CLIENT16 from "../../assets/images/clients-logo/our-client-16.webp";
+import CLIENT17 from "../../assets/images/clients-logo/our-client-17.webp";
+import CLIENT18 from "../../assets/images/clients-logo/our-client-18.webp";
+import CLIENT19 from "../../assets/images/clients-logo/our-client-19.webp";
+import CLIENT20 from "../../assets/images/clients-logo/our-client-20.webp";
 
 // Covert images
-import CTCGLOBAL from "../../assets/images/clients-logo/covert-images/ctc-global.jpg";
-import MP from "../../assets/images/clients-logo/covert-images/mp.jpg";
-import MEDMAPS from "../../assets/images/clients-logo/covert-images/med-maps.jpg";
-import CABINET from "../../assets/images/clients-logo/covert-images/cabinet.jpg";
-import IHA from "../../assets/images/clients-logo/covert-images/iha.jpg";
-import DOCKBOXES from "../../assets/images/clients-logo/covert-images/dock-boxes.jpg";
-import USDOT from "../../assets/images/clients-logo/covert-images/us.dot-services.jpg";
-import WISEPLACE from "../../assets/images/clients-logo/covert-images/wise-place.jpg";
-import THEFITFTH from "../../assets/images/clients-logo/covert-images/the-fitfth.jpg";
-import OXYGEN8 from "../../assets/images/clients-logo/covert-images/oxygen8.jpg";
-import MARINBIO from "../../assets/images/clients-logo/covert-images/marin-bio.jpg";
-import CRYSTALCOVE from "../../assets/images/clients-logo/covert-images/crystal-cove.jpg";
-import CALIFORNIAH2OT from "../../assets/images/clients-logo/covert-images/calforniah2ot.jpg";
+import CTCGLOBAL from "../../assets/images/clients-logo/covert-images/ctc-global.webp";
+import MP from "../../assets/images/clients-logo/covert-images/mp.webp";
+import MEDMAPS from "../../assets/images/clients-logo/covert-images/med-maps.webp";
+import CABINET from "../../assets/images/clients-logo/covert-images/cabinet.webp";
+import IHA from "../../assets/images/clients-logo/covert-images/iha.webp";
+import DOCKBOXES from "../../assets/images/clients-logo/covert-images/dock-boxes.webp";
+import USDOT from "../../assets/images/clients-logo/covert-images/us.dot-services.webp";
+import WISEPLACE from "../../assets/images/clients-logo/covert-images/wise-place.webp";
+import THEFITFTH from "../../assets/images/clients-logo/covert-images/the-fitfth.webp";
+import OXYGEN8 from "../../assets/images/clients-logo/covert-images/oxygen8.webp";
+import MARINBIO from "../../assets/images/clients-logo/covert-images/marin-bio.webp";
+import CRYSTALCOVE from "../../assets/images/clients-logo/covert-images/crystal-cove.webp";
+import CALIFORNIAH2OT from "../../assets/images/clients-logo/covert-images/calforniah2ot.webp";
 
 type StackId = "dev" | "seo" | "ai";
 
@@ -247,9 +247,9 @@ const TechStacks: React.FC = () => {
                   <div className="item" key={data.id ?? index}>
                     <div className="tech-list-col">
                       {"name" in data ? (
-                        <Image src={data.image} alt={data.name} />
+                        <Image src={data.image} alt={data.name} unoptimized/>
                       ) : (
-                        <Image src={data.image} alt={`Item ${index + 1}`} />
+                        <Image src={data.image} alt={`Item ${index + 1}`} unoptimized />
                       )}
                     </div>
                   </div>
@@ -280,7 +280,7 @@ const TechStacks: React.FC = () => {
                 {clientLogos.map((item) => (
                   <div className="item" key={item.id}>
                     <div className="tech-list-col">
-                      <Image src={item.image} alt={`Client ${item.id}`} />
+                      <Image src={item.image} alt={`Client ${item.id}`} unoptimized />
                     </div>
                   </div>
                 ))}

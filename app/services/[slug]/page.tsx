@@ -396,7 +396,7 @@ export async function generateStaticParams() {
                     </div>
                 ) : null}
 
-                {
+                {   
                     pageData?.acf?.data?.common_section_content_2 && (
 
                         <section className="section-second sec-pad pb-0">

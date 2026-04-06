@@ -21,11 +21,11 @@ export default async function Home() {
            
             <div className="video-container relative">
                 <Image
-                    src={`${BASE_URL}/wp-content/uploads/2025/10/B3NET-bg-image.webp`}
+                    src={`${BASE_URL}wp-content/uploads/2025/10/B3NET-bg-image.webp`}
                     alt="Background"
                     fill
-                    loading="lazy"
                     className="background-image"
+                    unoptimized
                 />
 
                 <div className="overlay-content text-center">
@@ -64,7 +64,7 @@ export default async function Home() {
                             <div key={i} className="col-lg-3 col-sm-6 rating-box">
                                 <div className="d-flex align-items-center">
                                     <div className="rating-logo pe-3">
-                                        <Image src={item.img} alt="rating" width={100} height={100} />
+                                        <Image src={item.img} unoptimized alt="rating" width={100} height={100} />
                                     </div>
                                     <div className="rating-content ps-3 text-left">
                                         <div className="stars">
@@ -88,6 +88,7 @@ export default async function Home() {
                                         alt="GoodFirms"
                                         width={60}
                                         height={60}
+                                        unoptimized
                                     />
                                 </div>
                                 <div className="rating-content ps-3 text-left">

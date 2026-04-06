@@ -252,7 +252,7 @@ h4.card-title.mb-2 {
 }
 
 .our-work {
-    background: url(../images/our-work-bg.png);
+    background: url(../images/our-work-bg.webp);
     background-size: cover;
 }
 
@@ -267,7 +267,7 @@ h4.card-title.mb-2 {
 }
 
 .testimonial-wrapper {
-    background: #fff url(https://cdn-ilankch.nitrocdn.com/gMlaMxPWqOdVFrhJXWimMxMpvayNPBVE/assets/images/optimized/rev-f91b968/www.b3net.com/wp-content/themes/perfecti/assets/seo-assets/images/testi-curve.png);
+    background: #fff url(https://cdn-ilankch.nitrocdn.com/gMlaMxPWqOdVFrhJXWimMxMpvayNPBVE/assets/images/optimized/rev-f91b968/www.b3net.com/wp-content/themes/perfecti/assets/seo-assets/images/testi-curve.webp);
     background-repeat: no-repeat;
     background-size: contain;
     background-position: bottom center;
@@ -371,7 +371,7 @@ h4.card-title.mb-2 {
     .banner-caption {
         position: absolute;
         bottom: 50px;
-        background-image: url(../images/portfolio/rectangle.png);
+        background-image: url(../images/portfolio/rectangle.webp);
         background-repeat: no-repeat;
         background-position: center;
         background-size: 100% 100%;
@@ -826,19 +826,19 @@ h4.card-title.mb-2 {
 }
 
 .video-section.we-offer {
-    background-image: url(../images/about-banner-2.jpg);
+    background-image: url(../images/about-banner-2.webp);
     background-size: cover;
 }
 
 .about-page .ceo-speaks {
-    background-image: url(../images/ceo-speaks-bg.jpg);
+    background-image: url(../images/ceo-speaks-bg.webp);
     width: 100%;
     padding: 100px 0 70px 0;
     background-size: cover;
 }
 
 .leadership {
-    background-image: url(../images/both-ceo-bottom-bg.jpg);
+    background-image: url(../images/both-ceo-bottom-bg.webp);
     width: 100%;
     padding: 70px 0;
 }
@@ -942,7 +942,7 @@ svg {
 
 
 .about-page .banner-caption {
-    background: url(../images/about-banner-des.png);
+    background: url(../images/about-banner-des.webp);
     position: absolute;
     bottom: 50px;
     right: 100px;
@@ -1021,7 +1021,7 @@ svg {
 }
 
 .contact-page .bg-color-part {
-    background: url(../images/contact-full-bg.jpg);
+    background: url(../images/contact-full-bg.webp);
 }
 
 .contact-page .contact-sec {
@@ -1175,7 +1175,7 @@ a.d-flex.align-items-center.gap-2.clr-blk {
 }
 
 .blog .bg-color-part {
-    background: url(../images/contact-full-bg.jpg);
+    background: url(../images/contact-full-bg.webp);
     height: 100%;
     background-repeat: no-repeat;
     background-size: contain;
@@ -1354,7 +1354,7 @@ a.d-flex.align-items-center.gap-2.clr-blk {
 }
 
 .faq-page .bg-color-part {
-    background: url(../images/contact-full-bg.jpg);
+    background: url(../images/contact-full-bg.webp);
     height: 100%;
     background-repeat: no-repeat;
     background-size: cover;
@@ -1394,7 +1394,7 @@ a.d-flex.align-items-center.gap-2.clr-blk {
 
 
 .blog-details .details-page-1 {
-    background-image: url(../images/blog-details-bg.jpg);
+    background-image: url(../images/blog-details-bg.webp);
     background-repeat: no-repeat;
     background-size: cover;
     padding: 100px 0;
@@ -1596,7 +1596,7 @@ a.d-flex.align-items-center.gap-2.clr-blk {
 
 /* Solutions Section */
 .solutions {
-    background-image: url(../images/Explore-bg.png);
+    background-image: url(../images/Explore-bg.webp);
     color: white;
     background-size: cover;
     padding: 30px 20px;
@@ -1702,13 +1702,13 @@ a.d-flex.align-items-center.gap-2.clr-blk {
 
 .blog-details-bottom {
     padding: 60px 0;
-    background: url(../images/blog-details-bottom.jpg);
+    background: url(../images/blog-details-bottom.webp);
     background-size: cover;
     background-repeat: no-repeat;
 }
 
 .blog-detalis-content {
-    /* background: url(../images/blog-detalis-content-bg.jpg); */
+    /* background: url(../images/blog-detalis-content-bg.webp); */
     background-size: cover;
     background-repeat: no-repeat;
     padding-top: 60px !important;
@@ -1869,7 +1869,7 @@ a.card-title.mb-2.card-text-a {
 
     .ai-col-1 {
         padding: 80px 0;
-        background-image: url(https://cdn-ilankch.nitrocdn.com/gMlaMxPWqOdVFrhJXWimMxMpvayNPBVE/assets/images/optimized/rev-f91b968/www.b3net.com/wp-content/themes/perfecti/assets/assets-ai-landing/images/bg-1.jpg);
+        background-image: url(https://cdn-ilankch.nitrocdn.com/gMlaMxPWqOdVFrhJXWimMxMpvayNPBVE/assets/images/optimized/rev-f91b968/www.b3net.com/wp-content/themes/perfecti/assets/assets-ai-landing/images/bg-1.webp);
         background-repeat: no-repeat;
         background-position: left bottom;
         background-size: cover;
@@ -1924,7 +1924,7 @@ a.card-title.mb-2.card-text-a {
 
     .ai-col-2 {
         padding: 80px 0;
-        background-image: url(https://cdn-ilankch.nitrocdn.com/gMlaMxPWqOdVFrhJXWimMxMpvayNPBVE/assets/images/optimized/rev-f91b968/www.b3net.com/wp-content/themes/perfecti/assets/assets-ai-landing/images/bg-2.jpg);
+        background-image: url(https://cdn-ilankch.nitrocdn.com/gMlaMxPWqOdVFrhJXWimMxMpvayNPBVE/assets/images/optimized/rev-f91b968/www.b3net.com/wp-content/themes/perfecti/assets/assets-ai-landing/images/bg-2.webp);
         background-repeat: no-repeat;
         background-position: top left;
         background-size: cover;
@@ -2011,7 +2011,7 @@ a.card-title.mb-2.card-text-a {
 
     .ai-col-3 {
         padding: 80px 0;
-        background-image: url(https://cdn-ilankch.nitrocdn.com/gMlaMxPWqOdVFrhJXWimMxMpvayNPBVE/assets/images/optimized/rev-f91b968/www.b3net.com/wp-content/themes/perfecti/assets/assets-ai-landing/images/bg-3.jpg);
+        background-image: url(https://cdn-ilankch.nitrocdn.com/gMlaMxPWqOdVFrhJXWimMxMpvayNPBVE/assets/images/optimized/rev-f91b968/www.b3net.com/wp-content/themes/perfecti/assets/assets-ai-landing/images/bg-3.webp);
         background-repeat: no-repeat;
         background-position: top left;
         background-size: cover;
@@ -2019,7 +2019,7 @@ a.card-title.mb-2.card-text-a {
 
     .ai-col-4 {
         padding: 50px 0;
-        background-image: url(https://cdn-ilankch.nitrocdn.com/gMlaMxPWqOdVFrhJXWimMxMpvayNPBVE/assets/images/optimized/rev-f91b968/www.b3net.com/wp-content/themes/perfecti/assets/assets-ai-landing/images/ai-bg-2.jpg);
+        background-image: url(https://cdn-ilankch.nitrocdn.com/gMlaMxPWqOdVFrhJXWimMxMpvayNPBVE/assets/images/optimized/rev-f91b968/www.b3net.com/wp-content/themes/perfecti/assets/assets-ai-landing/images/ai-bg-2.webp);
         background-repeat: no-repeat;
         background-position: top left;
         background-size: cover;
@@ -2054,7 +2054,7 @@ a.card-title.mb-2.card-text-a {
 
     .ai-col-5 {
         padding: 80px 0;
-        background-image: url(https://cdn-ilankch.nitrocdn.com/gMlaMxPWqOdVFrhJXWimMxMpvayNPBVE/assets/images/optimized/rev-f91b968/www.b3net.com/wp-content/themes/perfecti/assets/assets-ai-landing/images/bg-4.jpg);
+        background-image: url(https://cdn-ilankch.nitrocdn.com/gMlaMxPWqOdVFrhJXWimMxMpvayNPBVE/assets/images/optimized/rev-f91b968/www.b3net.com/wp-content/themes/perfecti/assets/assets-ai-landing/images/bg-4.webp);
         background-repeat: no-repeat;
         background-position: top left;
         background-size: cover;
@@ -2086,7 +2086,7 @@ a.card-title.mb-2.card-text-a {
 
     .ai-content-8 {
         border-radius: 15px;
-        background-image: url(https://cdn-ilankch.nitrocdn.com/gMlaMxPWqOdVFrhJXWimMxMpvayNPBVE/assets/images/optimized/rev-f91b968/www.b3net.com/wp-content/themes/perfecti/assets/assets-ai-landing/images/bg-5.jpg);
+        background-image: url(https://cdn-ilankch.nitrocdn.com/gMlaMxPWqOdVFrhJXWimMxMpvayNPBVE/assets/images/optimized/rev-f91b968/www.b3net.com/wp-content/themes/perfecti/assets/assets-ai-landing/images/bg-5.webp);
         background-repeat: no-repeat;
         background-position: top left;
         background-size: cover;
@@ -2120,7 +2120,7 @@ a.card-title.mb-2.card-text-a {
 
     .ai-col-6 {
         padding: 80px 0;
-        background-image: url(https://cdn-ilankch.nitrocdn.com/gMlaMxPWqOdVFrhJXWimMxMpvayNPBVE/assets/images/optimized/rev-f91b968/www.b3net.com/wp-content/themes/perfecti/assets/assets-ai-landing/images/bg-6.jpg);
+        background-image: url(https://cdn-ilankch.nitrocdn.com/gMlaMxPWqOdVFrhJXWimMxMpvayNPBVE/assets/images/optimized/rev-f91b968/www.b3net.com/wp-content/themes/perfecti/assets/assets-ai-landing/images/bg-6.webp);
         background-repeat: no-repeat;
         background-position: top left;
         background-size: cover;
@@ -2200,7 +2200,7 @@ a.card-title.mb-2.card-text-a {
 
 .data-goveranance .seo-landing-wrap {
 
-    background: url(https://www.b3net.com/wp-content/uploads/2024/09/data-governance-and-data-strategy.jpg);
+    background: url(https://www.b3net.com/wp-content/uploads/2024/09/data-governance-and-data-strategy.webp);
 }
 
 .left-column h1 {
@@ -2894,7 +2894,7 @@ end last css */
     }
 
     .about-page .ceo-speaks {
-        background-image: url(../images/ceo-speaks-bg.jpg);
+        background-image: url(../images/ceo-speaks-bg.webp);
         width: 100%;
         padding: 50px 0 50px 0;
         background-size: cover;
@@ -3292,7 +3292,7 @@ end last css */
 
 
 .port-landing-wrap.details-page.default-img {
-    background: url(https://b3net.info/2025/b3net/b3netdev/wp-content/themes/b3net/assets/images/portfolio/port-details-banner.jpg);
+    background: url(https://b3net.info/2025/b3net/b3netdev/wp-content/themes/b3net/assets/images/portfolio/port-details-banner.webp);
     padding: 90px 0;
     background-size: cover;
     background-repeat: no-repeat;

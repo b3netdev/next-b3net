@@ -7,7 +7,7 @@ import Link from "next/link";
 import Contact from "@/components/client/Contact";
 
 
-import Upgrade from "@/assets/images/up-grade-icon.png";
+import Upgrade from "@/assets/images/up-grade-icon.webp";
 import { BASE_URL } from "@/lib/url";
 import CaseStudiesSlider from "@/components/client/CaseStudySlider";
 import Expertise from "@/components/server/Expertise";

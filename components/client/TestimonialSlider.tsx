@@ -3,10 +3,10 @@
 import React, { useRef } from "react";
 import Image, { StaticImageData } from "next/image";
 
-import testImage1 from "../../assets/images/testi-img-1.png";
-import testImage2 from "../../assets/images/testi-img-2.png";
-import testImage3 from "../../assets/images/testi-img-3.png";
-import testImage4 from "../../assets/images/testi-img-4.png";
+import testImage1 from "../../assets/images/testi-img-1.webp";
+import testImage2 from "../../assets/images/testi-img-2.webp";
+import testImage3 from "../../assets/images/testi-img-3.webp";
+import testImage4 from "../../assets/images/testi-img-4.webp";
 
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Pagination, Autoplay } from "swiper/modules";

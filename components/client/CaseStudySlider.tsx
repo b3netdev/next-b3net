@@ -5,11 +5,11 @@ import Image from "next/image";
 import Link from "next/link";
 
 import { Swiper, SwiperSlide } from "swiper/react";
-import Upgrade from "../../assets/images/up-grade-icon.png";
-import CaseStudies from "@/assets/images/case-studies-img-1.jpg";
-import CaseStudies4 from "@/assets/images/case-studies-img-4.jpg";
-import CaseStudies3 from "@/assets/images/case-studies-img-3.jpg";
-import CaseStudies5 from "@/assets/images/case-studies-img-5.jpg";
+import Upgrade from "../../assets/images/up-grade-icon.webp";
+import CaseStudies from "@/assets/images/case-studies-img-1.webp";
+import CaseStudies4 from "@/assets/images/case-studies-img-4.webp";
+import CaseStudies3 from "@/assets/images/case-studies-img-3.webp";
+import CaseStudies5 from "@/assets/images/case-studies-img-5.webp";
 import { BASE_URL } from "@/lib/url";
 
 
@@ -136,6 +136,7 @@ export default function     CaseStudiesSlider() {
                                                 className="w-full h-auto"
                                                 width={600}
                                                 height={400}
+                                                unoptimized
                                             />
                                         </div>
 

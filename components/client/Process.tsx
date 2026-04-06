@@ -3,11 +3,11 @@
 import React, { useLayoutEffect, useRef, useState } from "react";
 import Image, { StaticImageData } from "next/image";
 
-import Select1 from "../../assets/images/select-1.png";
-import Select2 from "../../assets/images/select-2.png";
-import Select3 from "../../assets/images/select-3.png";
-import Select4 from "../../assets/images/select-4.png";
-import Select5 from "../../assets/images/select-5.png";
+import Select1 from "../../assets/images/select-1.webp";
+import Select2 from "../../assets/images/select-2.webp";
+import Select3 from "../../assets/images/select-3.webp";
+import Select4 from "../../assets/images/select-4.webp";
+import Select5 from "../../assets/images/select-5.webp";
 
 type ProcessStep = {
   id: string;
@@ -170,7 +170,7 @@ const Process: React.FC = () => {
 
           <div className="col-md-6 text-center">
             <div className="image-container d-none d-md-block pt-5 process-img-col">
-              <Image src={activeImage} alt="Process Step" />
+              <Image src={activeImage} alt="Process Step" unoptimized/>
             </div>
           </div>
         </div>
