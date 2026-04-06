@@ -845,7 +845,7 @@ const Testimonial = async () => {
                     </div>
                 </div>
 
-                {/* ✅ CLIENT COMPONENT (Swiper) */}
+          
                 <TestimonialsClientsSlider pageData={pageData} />
             </div>
 
