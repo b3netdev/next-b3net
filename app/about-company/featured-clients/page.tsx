@@ -15,6 +15,7 @@ const getBlogPageData = cache(async () => {
   export async function generateMetadata(): Promise<Metadata> {
     const pageData = await getBlogPageData();
     const seo = getSeoFromPageData(pageData);
+    
   
     return buildMetadata(seo);
   }
@@ -36,9 +37,6 @@ export default async function FeaturedClients() {
                 <div className="container">
                     <div className="banner-caption featured-caption">
                         <h1>Our Featured Clients</h1>
-
-
-
                     </div>
                 </div>
             </div>

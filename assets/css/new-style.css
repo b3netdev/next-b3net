@@ -20,9 +20,9 @@ html {
 }
 
 .seo-landing-wrap {
-    min-height: 600px;
+    height: 70dvh;
     background-size: cover;
-    padding: 230px 0;
+    /* padding: 230px 0; */
 }
 
 .services-design-page .seo-landing-wrap {
@@ -31,6 +31,14 @@ html {
     background-repeat: no-repeat;
     background-position: right center;
     background-size: cover;
+}
+.services-design-page .seo-landing-wrap .container {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  
+    align-items: center;
 }
 
 .banner-caption {
@@ -2458,16 +2466,34 @@ section.product-details-sec.shop-sec.page_content.default_content_class ul li {
     border-radius: 15px;
 }
 
+.feature-clientWrapper .seo-landing-wrap .container{
+    /* background-color: red; */
+    height: 100% !important;
+    width:100% !important;
+}
+
 .banner-caption.featured-caption {
-    width: 100%;
+    width: 100% !important;
+    height: 100% !important;
+    /* background-color: rebeccapurple; */
+    display: flex;
+    justify-content: center; 
+    align-items: center;
     text-align: center;
 }
 
+.feature-clientWrapper .seo-landing-wrap{
+    min-height: 600px;
+    width: 100dvw !important;
+    padding: 24px;
+}
 .banner-caption.featured-caption h1 {
     color: white;
-    font-size: 55px;
+    font-size: 60px !important;
     margin: 0;
     padding: 0;
+    text-transform: uppercase;
+    /* font-weight: ; */
 }
 
 .form-group label br {
