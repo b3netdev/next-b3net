@@ -615,7 +615,7 @@ const Testimonial = async () => {
                                         </p>
                                         <a href="https://www.youtube.com/watch?v=video3">
                                             <img
-                                                src="assets/images/test-video-img-1.png"
+                                                src="/images/test-video-img-1.png"
                                                 alt="Video 3"
                                             />
                                             <span className="play-button">▶</span>
@@ -656,7 +656,7 @@ const Testimonial = async () => {
                                         </p>
                                         <a href="https://www.youtube.com/watch?v=video3">
                                             <img
-                                                src="assets/images/test-video-img-1.png"
+                                                src="/images/test-video-img-1.png"
                                                 alt="Video 3"
                                             />
                                             <span className="play-button">▶</span>
@@ -686,7 +686,7 @@ const Testimonial = async () => {
                                         </p>
                                         <a href="https://www.youtube.com/watch?v=video3">
                                             <img
-                                                src="assets/images/test-video-img-1.png"
+                                                src="/images/test-video-img-1.png"
                                                 alt="Video 3"
                                             />
                                             <span className="play-button">▶</span>
@@ -727,7 +727,7 @@ const Testimonial = async () => {
                                         </p>
                                         <a href="https://www.youtube.com/watch?v=video3">
                                             <img
-                                                src="assets/images/test-video-img-1.png"
+                                                src="/images/test-video-img-1.png"
                                                 alt="Video 3"
                                             />
                                             <span className="play-button">▶</span>
@@ -768,7 +768,7 @@ const Testimonial = async () => {
                                         </p>
                                         <a href="https://www.youtube.com/watch?v=video3">
                                             <img
-                                                src="assets/images/test-video-img-1.png"
+                                                src="/images/test-video-img-1.png"
                                                 alt="Video 3"
                                             />
                                             <span className="play-button">▶</span>
@@ -809,7 +809,7 @@ const Testimonial = async () => {
                                         </p>
                                         <a href="https://www.youtube.com/watch?v=video3">
                                             <img
-                                                src="assets/images/test-video-img-1.png"
+                                                src="/images/test-video-img-1.png"
                                                 alt="Video 3"
                                             />
                                             <span className="play-button">▶</span>
