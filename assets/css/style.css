@@ -248,7 +248,7 @@ body.body {
 .top-footer {
   padding: 60px 0;
   background-color: #fff;
-  background-image: url(/images/footer-bg.jpg);
+  background-image: url(/images/footer-bg.webp);
   background-repeat: no-repeat;
   background-position: bottom center;
   background-size: cover;
