@@ -248,8 +248,7 @@ body.body {
 .top-footer {
   padding: 60px 0;
   background-color: #fff;
-  /* background-image: url(../images/footer-bg.jpg); */
-  background-image: url(../../public/images/footer-bg.jpg);
+  background-image: url(/images/footer-bg.jpg);
   background-repeat: no-repeat;
   background-position: bottom center;
   background-size: cover;
@@ -340,7 +339,7 @@ body.body {
 }
 
 .portfolio-list {
-  background-image: url(../../public/images/portfolio-list-bg.png);
+  background-image: url(/images/portfolio-list-bg.webp);
   background-repeat: repeat;
   background-position: center bottom;
   background-size: contain;
@@ -387,7 +386,7 @@ body.body {
 }
 
 .client-sec {
-  background-image: url(../../public/images/client-bg.jpg);
+  background-image: url(/images/client-bg.webp);
   background-repeat: no-repeat;
   background-position: center top;
   background-size: cover;
@@ -444,7 +443,7 @@ body.body {
 }
 
 .service .service-items::after {
-  background-image: url(../../public/images/bg-1.jpg);
+  background-image: url(/images/bg-1.webp);
   background-position: center center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -452,7 +451,7 @@ body.body {
 }
 
 .service .service-items.service-items2::after {
-  background-image: url(../../public/images/bg-2.jpg);
+  background-image: url(/images/bg-2.webp);
   background-position: center center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -511,7 +510,7 @@ body.body {
 }
 
 .testimonial-page-sec {
-  background-image: url(../../public/images/testi-bg.jpg);
+  background-image: url(/images/testi-bg.webp);
   background-repeat: no-repeat;
   background-position: top left;
   background-size: cover;
@@ -585,7 +584,7 @@ body.body {
   left: 0;
   height: 50px;
   width: 80px;
-  background-image: url(../../public/images/quote-img.png);
+  background-image: url(/images/quote-img.png);
   position: relative;
   display: block;
   background-repeat: no-repeat;
@@ -1991,14 +1990,14 @@ body:has(.page_banner_section + .intro_about_section) .page_banner_section {
   }
 
   .service .service-items1 {
-    background-image: url("../../public/images/bg-1.jpg");
+    background-image: url(/images/bg-1.webp);
     background-size: cover;
     background-position: left top;
     background-repeat: no-repeat;
   }
 
   .service .service-items2 {
-    background-image: url("../../public/images/bg-2.jpg");
+    background-image: url(/images/bg-2.webp);
     background-size: cover;
     background-position: left top;
     background-repeat: no-repeat;
@@ -2220,7 +2219,7 @@ body:has(.page_banner_section + .intro_about_section) .page_banner_section {
 }
 
 .industry-sec {
-  background-image: url(../../public/images/industry-bg.jpg);
+  background-image: url(/images/industry-bg.webp);
   background-repeat: no-repeat;
   background-position: top right;
   background-size: cover;
@@ -2236,7 +2235,7 @@ body:has(.page_banner_section + .intro_about_section) .page_banner_section {
 
 .video-container:before {
   content: "";
-  background-image: url(../../public/images/video-main-before.png);
+  background-image: url(/images/video-main-before.webp);
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
@@ -2479,14 +2478,14 @@ body:has(.page_banner_section + .intro_about_section) .page_banner_section {
 }
 
 .expertise-service {
-  background-image: url(../../public/images/expertise-service-bg.jpg);
+  background-image: url(/images/expertise-service-bg.webp);
   background-repeat: no-repeat;
   background-position: top left;
   background-size: cover;
 }
 
 .case-studies-service {
-  background-image: url(../../public/images/case-studies-bg.jpg);
+  background-image: url(/images/case-studies-bg.webp);
   background-repeat: no-repeat;
   background-position: top left;
   background-size: cover;
@@ -2528,7 +2527,7 @@ body:has(.page_banner_section + .intro_about_section) .page_banner_section {
   align-items: center;
   justify-content: center;
   height: 100%;
-  background-image: url(../../public/images/bg-blue.png);
+  background-image: url(/images/bg-blue.webp);
   background-repeat: repeat;
   background-position: bottom left;
   background-size: contain;
@@ -2663,7 +2662,7 @@ body:has(.page_banner_section + .intro_about_section) .page_banner_section {
 }
 
 .workflow-sec {
-  background-image: url(../../public/images/workflow-bg.jpg);
+  background-image: url(/images/workflow-bg.webp);
   background-repeat: no-repeat;
   background-position: left bottom;
   background-size: cover;
@@ -2789,7 +2788,7 @@ body:has(.page_banner_section + .intro_about_section) .page_banner_section {
 }
 
 .contact-sec {
-  background-image: url(../../public/images/contact-sec-bg.jpg);
+  background-image: url(/images/contact-sec-bg.webp);
   background-repeat: no-repeat;
   background-position: bottom right;
   background-size: cover;
@@ -2889,7 +2888,7 @@ body:has(.page_banner_section + .intro_about_section) .page_banner_section {
 
 .start-now-col {
   background-color: #08256e;
-  background-image: url(../../public/images/start-now-bg.jpg);
+  background-image: url(/images/start-now-bg.webp);
   background-repeat: no-repeat;
   background-position: bottom center;
   background-size: cover;
@@ -2995,7 +2994,7 @@ body:has(.page_banner_section + .intro_about_section) .page_banner_section {
 /*============== Menu CSS ===============**/
 
 .mega-menu-form {
-  background-image: url(../../public/images/menu-bg-line.jpg);
+  background-image: url(/images/menu-bg-line.webp);
   background-repeat: repeat;
   background-position: bottom left;
   background-size: contain;
@@ -4536,7 +4535,7 @@ h4.card-title.mb-2 {
 
 .outerwrap-1 {
   margin: 60px 0;
-  background-image: url(../../public/images/why-b3net-seo-bg.webp);
+  background-image: url(/images/why-b3net-seo-bg.webp);
   background-position: center left;
 }
 
@@ -4883,7 +4882,7 @@ li {
   width: 100%;
   background-attachment: fixed !important;
   min-height: 100vh;
-  background-image: url("../../public/images/bg-1.jpg");
+  background-image: url(/images/bg-1.jpg);
 }
 
 .home-services-item-2 {
