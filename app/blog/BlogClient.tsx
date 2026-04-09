@@ -11,7 +11,7 @@ import Skeleton from "@mui/material/Skeleton";
 import useBlog from "@/hooks/useBlog";
 import { BASE_URL } from "@/lib/url";
 import { useDispatch } from "react-redux";
-import { setCategoryId,addPageCount } from "@/redux/slicers/idSlicer";
+import { setCategoryId, addPageCount } from "@/redux/slicers/idSlicer";
 type TabItem = {
   id: any;
   target: string;
@@ -28,7 +28,7 @@ export default function BlogClient() {
   const [category, setCategory] = useState<any>([]);
   const tabsRef = useRef<HTMLDivElement | null>(null);
   const [categoryloading, setCategoryLoading] = useState(false)
-  const [pageCount,setPageCount] = useState<any>(null)
+  const [pageCount, setPageCount] = useState<any>(null)
 
   const [selectTab, setSelectTab] = useState<any>({
     id: "",
@@ -49,7 +49,7 @@ export default function BlogClient() {
       const data = await getBlogCategories();
 
       const allobj = {
-        id:[],
+        id: [],
         target: "#pills-home",
         controls: "pills-home",
         selected: true,
@@ -75,7 +75,7 @@ export default function BlogClient() {
       if (selectTab?.name !== "All") {
         params.append("categories", String(selectTab?.id));
       }
-      const res:any = await getBlogItems(params);
+      const res: any = await getBlogItems(params);
       setBlogItems(res.data);
       setPageCount(res.totalPosts)
     };
@@ -104,9 +104,9 @@ export default function BlogClient() {
 
 
 
-  const setCategoryID = (id:any)=>{
+  const setCategoryID = (id: any) => {
     dispatch(setCategoryId(id))
-   
+
   }
 
 
@@ -185,8 +185,8 @@ export default function BlogClient() {
                   </div>
                   <div className="col-lg-6 ">
                     <div className="left-side">
-                      <h4>{item?.category}</h4>
-                      <Link href="/"><h2>Designing Intelligence: How AI Is Transforming Digital Design, Navigation, and Experience in the Internet Age</h2></Link>
+                      <h4 className="!text-[#8c92a1]">{item?.category}</h4>
+                      <Link href="/"><h2 className="blogbannerheading">{item.title}</h2></Link>
                       <p>{item?.excerpt}</p>
                       <div className="mb-0 text-lg-start pt-md-4 " data-aos="fade-up" data-aos-duration="800">
                         <Link href="/" className="btn btn-primary orange-1">
@@ -274,15 +274,15 @@ export default function BlogClient() {
                     <div className="col-lg-4 col-sm-6 col-12 content1 blogItem" key={index}>
                       <div className="card-parts-1">
                         <div className="card">
-                            <Link href={`/blog/${post?.slug}`}
-                            onClick={()=>setCategoryID(post?.categories)}
-                            >
-                          
+                          <Link href={`/blog/${post?.slug}`}
+                            onClick={() => setCategoryID(post?.categories)}
+                          >
+
                             <img
                               src={post?.featured_image_url || ""}
                               className="card-img-top"
                               alt="blogItem-image"
-                             
+
                             />
                           </Link>
 
@@ -295,7 +295,7 @@ export default function BlogClient() {
 
                             <Link href={`/blog/${post?.slug}`}
                               className="card-title mb-2 card-text-Link "
-                              onClick={()=>setCategoryID(post?.categories)}
+                              onClick={() => setCategoryID(post?.categories)}
                             >
                               <span className="text-[#3b58a2] font-extrabold">
                                 {post?.title?.rendered}
@@ -309,7 +309,7 @@ export default function BlogClient() {
 
                             <Link href={`/blog/${post?.slug}`}
                               className="d-flex align-items-center gap-2 clr-blk"
-                              onClick={()=>setCategoryID(post?.categories)}
+                              onClick={() => setCategoryID(post?.categories)}
                             >
                               <span className="font-extrabold">
                                 READ MORE
@@ -331,73 +331,73 @@ export default function BlogClient() {
         </div>
 
 
-       {pageCount > 6 && (
-  <div className="paginationContainer">
-    {(() => {
-      const totalPages = Math.ceil(pageCount / 6) || 0;
-      const pages = [];
+        {pageCount > 6 && (
+          <div className="paginationContainer">
+            {(() => {
+              const totalPages = Math.ceil(pageCount / 6) || 0;
+              const pages = [];
 
-      const visiblePages =
-        pagenumber <= 4 ? 4 : Math.min(pagenumber, totalPages);
+              const visiblePages =
+                pagenumber <= 4 ? 4 : Math.min(pagenumber, totalPages);
 
-      pages.push(
-        <div
-          key="prev"
-          className="paginationbox prev size-10"
-          onClick={() => pagenumber > 1 && HandleSelectnumbox(pagenumber - 1)}
-        >
-          Prev
-        </div>
-      );
+              pages.push(
+                <div
+                  key="prev"
+                  className="paginationbox prev size-10"
+                  onClick={() => pagenumber > 1 && HandleSelectnumbox(pagenumber - 1)}
+                >
+                  Prev
+                </div>
+              );
 
-      for (let i = 1; i <= visiblePages; i++) {
-        pages.push(
-          <div
-            key={i}
-            className={pagenumber === i ? "paginationactive" : "paginationbox"}
-            onClick={() => HandleSelectnumbox(i)}
-          >
-            {i}
+              for (let i = 1; i <= visiblePages; i++) {
+                pages.push(
+                  <div
+                    key={i}
+                    className={pagenumber === i ? "paginationactive" : "paginationbox"}
+                    onClick={() => HandleSelectnumbox(i)}
+                  >
+                    {i}
+                  </div>
+                );
+              }
+
+              if (visiblePages < totalPages - 2) {
+                pages.push(
+                  <div key="dots" className="paginationbox">
+                    ...
+                  </div>
+                );
+
+                for (let i = totalPages - 1; i <= totalPages; i++) {
+                  pages.push(
+                    <div
+                      key={i}
+                      className={pagenumber === i ? "paginationactive" : "paginationbox"}
+                      onClick={() => HandleSelectnumbox(i)}
+                    >
+                      {i}
+                    </div>
+                  );
+                }
+              }
+
+              pages.push(
+                <div
+                  key="next"
+                  className="paginationbox prev"
+                  onClick={() =>
+                    pagenumber < totalPages && HandleSelectnumbox(pagenumber + 1)
+                  }
+                >
+                  Next
+                </div>
+              );
+
+              return pages;
+            })()}
           </div>
-        );
-      }
-
-      if (visiblePages < totalPages - 2) {
-        pages.push(
-          <div key="dots" className="paginationbox">
-            ...
-          </div>
-        );
-
-        for (let i = totalPages - 1; i <= totalPages; i++) {
-          pages.push(
-            <div
-              key={i}
-              className={pagenumber === i ? "paginationactive" : "paginationbox"}
-              onClick={() => HandleSelectnumbox(i)}
-            >
-              {i}
-            </div>
-          );
-        }
-      }
-
-      pages.push(
-        <div
-          key="next"
-          className="paginationbox prev"
-          onClick={() =>
-            pagenumber < totalPages && HandleSelectnumbox(pagenumber + 1)
-          }
-        >
-          Next
-        </div>
-      );
-
-      return pages;
-    })()}
-  </div>
-)}
+        )}
 
       </div>
     </>
