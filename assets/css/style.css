@@ -2235,7 +2235,7 @@ body:has(.page_banner_section + .intro_about_section) .page_banner_section {
 
 .video-container:before {
   content: "";
-  background-image: url(/images/video-main-before.webp);
+  /* background-image: url(/images/video-main-before.webp); */
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;

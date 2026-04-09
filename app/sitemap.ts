@@ -12,7 +12,7 @@ async function getAllBlogPosts() {
         page: 1,
         _fields: 'slug,modified',
       },
-      revalidate: 3600, // Cache for 1 hour
+      revalidate: 3600, 
     });
     return Array.isArray(posts) ? posts : [];
   } catch (error) {

@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import "@fortawesome/fontawesome-free/css/all.min.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "swiper/css";
 import '@fortawesome/fontawesome-free/css/all.min.css';
@@ -36,9 +35,6 @@ const poppins = Poppins({
 
 
 
-type PageProps = {
-  params: { slug: string };
-};
 
 const getPageData = cache(async () => {
   

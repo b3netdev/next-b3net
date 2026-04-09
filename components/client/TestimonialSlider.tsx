@@ -51,7 +51,7 @@ const testimonials: TestimonialItem[] = [
     img: testImage2,
     name: "Scott D. Stewart",
     role: "Executive Producer",
-    video: "https://www.youtube.com/embed/u9ftgf6V1QI?rel=0",
+    video: "https://www.youtube.com/watch?v=ey2r4hwa5yc&t=4s",
   },
   {
     id: 3,
@@ -59,7 +59,7 @@ const testimonials: TestimonialItem[] = [
     img: testImage3,
     name: "David Schnieder",
     role: "CEO of americanrealestateschool.com",
-    video: "https://www.youtube.com/embed/ey2r4hwa5yc?rel=0",
+    video: "https://www.youtube.com/watch?v=ey2r4hwa5yc&t=4s",
   },
   {
     id: 4,

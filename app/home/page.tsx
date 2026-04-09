@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-
+import heroBg from "@/assets/images/hero-bg.webp";
 import HomeNav from "@/components/client/HomeNav";
 import Services from "@/components/server/Services";
 import AiModel from "@/components/server/AiModel";
@@ -11,21 +11,44 @@ import CaseStudy from "@/components/server/CaseStudy";
 import Contact from "@/components/client/Contact";
 import { BASE_URL } from "@/lib/url";
 import FrequentQuestion from "@/components/client/FrequentQuestion";
+import { cache } from "react";
+import { GetPageData } from "@/lib/getdata";
+import { Metadata } from "next";
+import { buildMetadata, getSchemaFromPageData, getSeoFromPageData } from "@/lib/seo";
+import StructuredData from "@/components/server/StructuredData";
 
+
+const getPageData = cache(async () => {
+
+    const data = await GetPageData("home", "page");
+    return data?.page ?? data;
+});
+
+export async function generateMetadata(): Promise<Metadata> {
+    const pageData = await getPageData();
+    const seo = getSeoFromPageData(pageData);
+
+    return buildMetadata(seo);
+}
 
 export default async function Home() {
-    
+
+
+    const pageData = await getPageData();
+    const schemaData = getSchemaFromPageData(pageData);
+
+
     return (
         <main className="page_content relative">
-            
-           
+            <StructuredData data={schemaData} />
             <div className="video-container relative">
                 <Image
-                    src={`${BASE_URL}wp-content/uploads/2025/10/B3NET-bg-image.webp`}
+                    src={heroBg}
                     alt="Background"
                     fill
+                    priority
+                    sizes="100vw"
                     className="background-image"
-                    unoptimized
                 />
 
                 <div className="overlay-content text-center">
@@ -33,7 +56,7 @@ export default async function Home() {
                         Innovate. Adapt. Succeed with <strong>B3NET</strong>
                     </h1>
 
-                    <p style={{ color: "white", fontSize: "1em",  }}>
+                    <p style={{ color: "white", fontSize: "1em", }}>
                         B3NET Empowers Businesses with AI-Driven Digital Marketing, Web
                         Development, & CRM Optimization.
                     </p>
