@@ -13,18 +13,16 @@ import "../assets/css/caseStudy-inner.css";
 import "../assets/css/caseStudy-inner-3.css";
 import "../assets/css/caseStudy-inner-2.css";
 import "../assets/css/fade-down.css";
-// import "../assets/js/main.js";
-
 import Navbar from "@/components/client/Navcontainer";
 import Providers from "@/redux/Provider";
 import Footer from "@/components/server/Footer";
 import { Poppins } from "next/font/google";
 import ToastProvider from "@/components/client/Toast";
 import { GetPageData } from "@/lib/getdata";
-import { buildMetadata, getSchemaFromPageData, getSeoFromPageData } from "@/lib/seo";
+import { buildMetadata,  getSeoFromPageData } from "@/lib/seo";
 import ScrollToTop from "@/components/client/ScrollToTop";
 import { cache } from "react";
-import StructuredData from "@/components/server/StructuredData";
+
 
 const poppins = Poppins({
   subsets: ["latin"],
@@ -52,13 +50,11 @@ export async function generateMetadata(): Promise<Metadata> {
 
 
 export default async function RootLayout({ children }: { children: React.ReactNode }) {
-  const pageData = await getPageData();
-  const schemaData = getSchemaFromPageData(pageData);
+  
  
   return (
     <html lang="en" className={poppins.className}>
       <body>
-        <StructuredData data={schemaData} />
         <Providers>
           <Navbar />
           <BootstrapClient />

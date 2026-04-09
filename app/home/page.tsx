@@ -24,12 +24,6 @@ const getPageData = cache(async () => {
     return data?.page ?? data;
 });
 
-export async function generateMetadata(): Promise<Metadata> {
-    const pageData = await getPageData();
-    const seo = getSeoFromPageData(pageData);
-
-    return buildMetadata(seo);
-}
 
 export default async function Home() {
 
@@ -41,6 +35,7 @@ export default async function Home() {
     return (
         <main className="page_content relative">
             <StructuredData data={schemaData} />
+
             <div className="video-container relative">
                 <Image
                     src={heroBg}
