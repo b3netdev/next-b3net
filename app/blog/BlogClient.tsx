@@ -2,20 +2,16 @@
 
 import React, { useEffect, useRef, useState } from "react";
 import Link from "next/link";
-
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Pagination, A11y, Autoplay } from "swiper/modules";
-
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
-
-
 import Skeleton from "@mui/material/Skeleton";
-
 import useBlog from "@/hooks/useBlog";
 import { BASE_URL } from "@/lib/url";
-
+import { useDispatch } from "react-redux";
+import { setCategoryId,addPageCount } from "@/redux/slicers/idSlicer";
 type TabItem = {
   id: any;
   target: string;
@@ -27,6 +23,7 @@ type TabItem = {
 
 export default function BlogClient() {
   const { getBlogCategories, getBlogItems, loading } = useBlog();
+  const dispatch = useDispatch()
 
   const [category, setCategory] = useState<any>([]);
   const tabsRef = useRef<HTMLDivElement | null>(null);
@@ -107,6 +104,12 @@ export default function BlogClient() {
 
 
 
+  const setCategoryID = (id:any)=>{
+    dispatch(setCategoryId(id))
+    dispatch(addPageCount(pageCount))
+  }
+
+
   const HandleSelectnumbox = (num: number) => {
     setPageNumber(num);
   };
@@ -156,6 +159,7 @@ export default function BlogClient() {
   ];
 
   const showNoData = !loading && blogItems?.length === 0;
+
 
   return (
     <>
@@ -270,7 +274,10 @@ export default function BlogClient() {
                     <div className="col-lg-4 col-sm-6 col-12 content1 blogItem" key={index}>
                       <div className="card-parts-1">
                         <div className="card">
-                          <Link href={`/blog/${post?.slug}`}>
+                            <Link href={`/blog/${post?.slug}`}
+                            onClick={()=>setCategoryID(post?.categories)}
+                            >
+                          
                             <img
                               src={post?.featured_image_url || ""}
                               className="card-img-top"
@@ -288,6 +295,7 @@ export default function BlogClient() {
 
                             <Link href={`/blog/${post?.slug}`}
                               className="card-title mb-2 card-text-Link "
+                              onClick={()=>setCategoryID(post?.categories)}
                             >
                               <span className="text-[#3b58a2] font-extrabold">
                                 {post?.title?.rendered}
@@ -301,6 +309,7 @@ export default function BlogClient() {
 
                             <Link href={`/blog/${post?.slug}`}
                               className="d-flex align-items-center gap-2 clr-blk"
+                              onClick={()=>setCategoryID(post?.categories)}
                             >
                               <span className="font-extrabold">
                                 READ MORE

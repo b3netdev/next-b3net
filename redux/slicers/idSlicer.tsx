@@ -2,12 +2,14 @@ import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 
 export type IdState = {
   id: number | null;
-  categoryId: number | null;
+  categoryId: any;
+  pageCount:any
 };
 
 const initialState: IdState = {
   id: null,
   categoryId: null,
+  pageCount:null
 };
 
 const idSlice = createSlice({
@@ -18,8 +20,11 @@ const idSlice = createSlice({
       state.id = action.payload;
     },
 
-    setCategoryId: (state, action: PayloadAction<number | null>) => {
+    setCategoryId: (state, action: any) => {
       state.categoryId = action.payload;
+    },
+    addPageCount: (state, action: any) => {
+      state.pageCount = action.payload;
     },
 
     setIdPayload: (
@@ -38,7 +43,7 @@ const idSlice = createSlice({
   },
 });
 
-export const { setId, setCategoryId, setIdPayload, clearIdStore } =
+export const { setId, setCategoryId, setIdPayload, clearIdStore,addPageCount } =
   idSlice.actions;
 
 export default idSlice.reducer;

@@ -12,20 +12,20 @@ import StructuredData from "@/components/server/StructuredData";
 
 
 
-const getBlogPageData = cache(async (slug:string) => {
-  
-    const data = await getBlogdetail(slug);
-    return data[0];
-  });
-  
-  export async function generateMetadata({ params }: { params: { slug: string } }): Promise<Metadata> {
-    const { slug } = await params;
-    const pageData = await getBlogPageData(slug);
-    const seo = getSeoFromPageData(pageData);
-  
-    return buildMetadata(seo);
-  }
-  
+const getBlogPageData = cache(async (slug: string) => {
+
+  const data = await getBlogdetail(slug);
+  return data[0];
+});
+
+export async function generateMetadata({ params }: { params: { slug: string } }): Promise<Metadata> {
+  const { slug } = await params;
+  const pageData = await getBlogPageData(slug);
+  const seo = getSeoFromPageData(pageData);
+
+  return buildMetadata(seo);
+}
+
 
 
 
@@ -33,11 +33,11 @@ const getBlogPageData = cache(async (slug:string) => {
 const BlogDetail = async ({ params }: { params: { slug: string } }) => {
   const { slug } = await params;
   const pageData = await getBlogPageData(slug)
-    const schemaData = getSchemaFromPageData(pageData);
+  const schemaData = getSchemaFromPageData(pageData);
 
 
-   const authordata =    pageData?._embedded?.author[0]
- 
+  const authordata = pageData?._embedded?.author[0]
+
   const relatedpost = await GetRelatedPost(
     pageData?.categories,
     pageData?.id
@@ -46,10 +46,10 @@ const BlogDetail = async ({ params }: { params: { slug: string } }) => {
 
   const formattedDate = pageData?.date
     ? new Date(pageData.date).toLocaleDateString("en-US", {
-        year: "numeric",
-        month: "long",
-        day: "numeric",
-      })  
+      year: "numeric",
+      month: "long",
+      day: "numeric",
+    })
     : "";
 
   let sideNav: { id: string; text: string }[] = [];
@@ -57,24 +57,24 @@ const BlogDetail = async ({ params }: { params: { slug: string } }) => {
 
   if (contentData) {
     const $ = load(contentData);
-  
+
     $("h2, h3").each((index, el) => {
-      const tag = el.tagName; // h2 or h3
+      const tag = "toc"; 
       const id = `${tag}-${index}`;
-  
+
       $(el).attr("id", id);
-  
+
       sideNav.push({
         id,
         text: $(el).text().trim(),
       });
     });
-  
+
     contentData = $.html();
   }
 
   return (
-    <main className="page_content">
+    <>
       <ShowNav />
       <StructuredData data={schemaData} />
 
@@ -146,11 +146,14 @@ const BlogDetail = async ({ params }: { params: { slug: string } }) => {
               </div>
 
               <div className="col-lg-8 col-xl-9">
-                <span
+                
+                <div
+                  className="blog-container"
                   dangerouslySetInnerHTML={{
                     __html: contentData,
                   }}
                 />
+
 
                 <div className="blog-details-social-icons my-4">
                   <h3>Share With Friends</h3>
@@ -175,7 +178,7 @@ const BlogDetail = async ({ params }: { params: { slug: string } }) => {
                   </div>
                 </div>
 
-                
+
                 <div className="author-section">
                   <Link href={`/author/${authordata?.slug}`}>
                     <img
@@ -187,8 +190,7 @@ const BlogDetail = async ({ params }: { params: { slug: string } }) => {
                       <p>{authordata?.description}</p>
                     </div>
                   </Link>
-                </div> 
-               
+                </div>
               </div>
             </div>
           </div>
@@ -260,7 +262,7 @@ const BlogDetail = async ({ params }: { params: { slug: string } }) => {
           </div>
         </div>
       </div>
-    </main>
+    </>
   );
 };
 

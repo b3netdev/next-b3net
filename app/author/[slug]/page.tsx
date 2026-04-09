@@ -1,8 +1,9 @@
- 
+
 
 import Link from "next/link";
 import { GetAuthorData, GetRelatedPost } from "@/lib/getdata";
 import ShowNav from "@/components/client/ShowNav";
+import AuthorRelatedPosts from "./AuthorRelatedPosts";
 
 
 
@@ -10,10 +11,9 @@ import ShowNav from "@/components/client/ShowNav";
 export default async function Author({ params }: { params: { slug: string } }) {
 
     const { slug } = await params;
-    
+
 
     const [authorData] = await GetAuthorData(slug);
-    
 
 
 
@@ -21,40 +21,9 @@ export default async function Author({ params }: { params: { slug: string } }) {
 
 
 
-    // const PostCardSkeleton = () => (
-    //     <div className="card-parts-1">
-    //         <div className="card">
-    //             {/* Image */}
-    //             <Skeleton variant="rectangular" width="100%" height={220} />
 
-    //             <div className="card-body heading5">
-    //                 {/* Date row */}
-    //                 <div className="calender d-flex justify-content-between">
-    //                     <div className="mb-2 mb-sm-3 calender-size">
-    //                         <Skeleton variant="text" width={140} height={22} />
-    //                     </div>
-    //                 </div>
 
-    //                 {/* Title */}
-    //                 <Skeleton variant="text" width="90%" height={28} />
-    //                 <Skeleton variant="text" width="70%" height={28} />
-
-    //                 {/* Excerpt (2–3 lines) */}
-    //                 <Skeleton variant="text" width="100%" height={20} />
-    //                 <Skeleton variant="text" width="95%" height={20} />
-    //                 <Skeleton variant="text" width="80%" height={20} />
-
-    //                 {/* Read more */}
-    //                 <div
-    //                     className="d-flex align-items-center gap-2 clr-blk"
-    //                     style={{ marginTop: 12 }}
-    //                 >
-    //                     <Skeleton variant="text" width={110} height={22} />
-    //                 </div>
-    //             </div>
-    //         </div>
-    //     </div>
-    // );
+ 
 
     return (
         <main className="page_content">
@@ -94,8 +63,10 @@ export default async function Author({ params }: { params: { slug: string } }) {
                     </div>
                 </div>
             </div>
-            {/* <Auth */}
-             
+            <AuthorRelatedPosts
+                id={authorData?.id}
+            />
+
         </main>
     );
 }

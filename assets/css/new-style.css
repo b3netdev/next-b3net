@@ -533,7 +533,7 @@ h4.card-title.mb-2 {
 
 /* details */
 .portfolio-detail.portfoli-padd.portfolio-page-1 {
-    padding: 90px 0 0 0;
+    padding: 120px 0 0 0;
 }
 
 .portfolio-detail {
@@ -1513,7 +1513,7 @@ a.d-flex.align-items-center.gap-2.clr-blk {
     margin-top: 20px;
     font-size: 16px;
     padding: 10px;
-    background: #3b58a1;
+    
     border-radius: 5px;
 }
 
@@ -1521,11 +1521,13 @@ a.d-flex.align-items-center.gap-2.clr-blk {
     color: #37383a;
     margin: 0px 0px 20px 0;
     font-size: 22px;
+    font-weight: 600;
 }
 
 .blog-container h2 {
-
+    
     font-size: 28px;
+    font-weight: 600;
 }
 
 .solutions h3 {
@@ -1625,8 +1627,10 @@ a.d-flex.align-items-center.gap-2.clr-blk {
 
 /* Blog Container */
 .blog-container {
-    padding: 0px 30px 30px 30px;
+    padding: 0px 30px 30px 30px !important;
     border-radius: 10px;
+    font-weight: 500;
+    font-size: 16px;
 }
 
 .blog-about.author-blog .col-12.txt-part {
@@ -3316,10 +3320,22 @@ section.product-details-sec.shop-sec.page_content.default_content_class ol.bread
 .new-bg-sec .contact-sec {
     background: none;
 }
+.blog-container {
+    padding: 0px 30px 30px 30px;
+    border-radius: 10px    
+} 
+
+.blog-container ul {
+    margin-bottom: 20PX;
+    padding-left: 20px;
+
+}
+.blog-container ul li {
+    list-style: disc;
+}
 
 
 @media (max-width: 1400px) {
-
 
     .error-page {
         padding: 150px 0;

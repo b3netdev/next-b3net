@@ -58,7 +58,6 @@ const useBlog = () => {
   };
 
   const getBlogItems = async (params: any): Promise<any> => {
-    console.log(params.toString());
   
     setLoading(true);
     try {
@@ -96,18 +95,18 @@ const useBlog = () => {
   };
 
   const getRelatedPosts = async (
-    categoryId: number | string,
-    id: number | string
+    params: any
   ): Promise<WPPost[]> => {
     setLoading(true);
     try {
+      const {categories,exclude,per_page,page   } = params
       const res: any = await api.get("/wp-json/wp/v2/posts", {
         params: {
-          categories: categoryId,
-          exclude: id,
-          per_page: 3,
-          page: 1,
-        },
+        categories,
+        exclude,
+        per_page,
+        page,
+      },
       });
 
       return res.data;

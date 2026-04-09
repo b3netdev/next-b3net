@@ -4,17 +4,48 @@ import React, { useState } from "react";
 import { useEffect } from "react";
 import useBlog from "@/hooks/useBlog";
 import { useAppDispatch } from "@/redux/hooks";
-
- 
-;
 import Skeleton from "@mui/material/Skeleton";
 import Link from "next/link";
-import { setStickyNavMenu } from '@/redux/slicers/menuSlicer';
+import { useAppSelector } from "@/redux/hooks";
+import { useDispatch } from "react-redux";
+import { setCategoryId } from "@/redux/slicers/idSlicer";
+const AuthorRelatedPosts = ({ id }: { id: number }) => {
+    const { getRelatedPosts } = useBlog()
+    const { categoryId, pageCount } = useAppSelector(state => state.id)
+    const [loading, setLoading] = useState(false)
+    const [relatedpost, setRelatedpost] = useState<any>([])
+    const dispatch = useDispatch()
+    const [pageNumber, setPageNumber] = useState<number>(1)
 
-const AuthorRelatedPosts = (slug: any) => {
+    useEffect(() => {
+        const getposts = async () => {
+            setLoading(true)
+            const params : any = {
+                categories: categoryId,
+                exclude: String(id),
+                per_page: "6",
+                page: String(pageNumber),
+            };
+            const data = await getRelatedPosts(params)
+            setRelatedpost(data)
+            setLoading(false)
+        }
+        getposts()
 
+    }, [categoryId,pageNumber])
+
+
+    const setCategoryID = (id: any) => {
+        dispatch(setCategoryId(id))
+    }
+
+    const HandleSelectnumbox = (num: number) => {
+        setPageNumber(num);
+      };
     
-  
+
+
+
     const PostCardSkeleton = () => (
         <div className="card-parts-1">
             <div className="card">
@@ -52,8 +83,6 @@ const AuthorRelatedPosts = (slug: any) => {
 
     return (
         <div >
-            
-
             <div className="portfolio-content blog-content">
                 <div className="container">
                     <div className="tab-content" id="pills-tabContent">
@@ -64,14 +93,14 @@ const AuthorRelatedPosts = (slug: any) => {
                             >
                                 <h2 className="text-center mb-4">More From The AuthorRelatedPosts</h2>
 
-                                {/* <div className="row gy-4">
+                                <div className="row gy-4">
                                     {loading
                                         ? Array.from({ length: 6 }).map((_, index) => (
                                             <div className="col-lg-4 col-sm-6" key={index}>
                                                 <PostCardSkeleton />
                                             </div>
                                         ))
-                                        : relatedpost?.map((data, index) => {
+                                        : relatedpost?.map((data: any, index: any) => {
                                             // const categoryId = data?.categories.join("")
                                             return (
                                                 <div
@@ -86,11 +115,17 @@ const AuthorRelatedPosts = (slug: any) => {
                                                 >
                                                     <div className="card-parts-1">
                                                         <div className="card">
-                                                            <img
-                                                                src={data?.featured_image_url}
-                                                                className="card-img-top"
-                                                                alt={data?.title?.rendered || "Blog post"}
-                                                            />
+                                                            <Link
+                                                                href={`/blog/${data?.slug}`}
+                                                                onClick={() => setCategoryID(data?.categories)}
+
+                                                            >
+                                                                <img
+                                                                    src={data?.featured_image_url}
+                                                                    className="card-img-top"
+                                                                    alt={data?.title?.rendered || "Blog post"}
+                                                                />
+                                                            </Link>
 
                                                             <div className="card-body heading5">
                                                                 <div className="calender d-flex justify-content-between">
@@ -108,7 +143,8 @@ const AuthorRelatedPosts = (slug: any) => {
                                                                 </div>
 
                                                                 <Link
-                                                                    href={"/"}
+                                                                    href={`/blog/${data?.slug}`}
+                                                                    onClick={() => setCategoryID(data?.categories)}
                                                                     className="card-title mb-2 card-text-a">
                                                                     {data?.title?.rendered}
                                                                 </Link>
@@ -120,7 +156,8 @@ const AuthorRelatedPosts = (slug: any) => {
                                                                 />
 
                                                                 <Link
-                                                                    href={"/"}
+                                                                    href={`/blog/${data?.slug}`}
+                                                                    onClick={() => setCategoryID(data?.categories)}
                                                                     className="d-flex align-items-center gap-2 clr-blk">
                                                                     READ MORE{" "}
                                                                     <i className="fa-solid fa-arrow-right-long"></i>
@@ -131,21 +168,84 @@ const AuthorRelatedPosts = (slug: any) => {
                                                 </div>
                                             );
                                         })}
-                                </div> */}
-
-                                <div className="pagination-cstms">
-                                    <span aria-current="page" className="page-numbers current">
-                                        1
-                                    </span>
                                 </div>
+
+
+                                {/* {pageCount > 6 && (
+                                    <div className="paginationContainer">
+                                        {(() => {
+                                            const totalPages = Math.ceil(pageCount / 6) || 0;
+                                            const pages = [];
+
+                                            const visiblePages =
+                                                pageNumber <= 4 ? 4 : Math.min(pageNumber, totalPages);
+
+                                            pages.push(
+                                                <div
+                                                    key="prev"
+                                                    className="paginationbox prev size-10"
+                                                    onClick={() => pageNumber > 1 && HandleSelectnumbox(pageNumber - 1)}
+                                                >
+                                                    Prev
+                                                </div>
+                                            );
+
+                                            for (let i = 1; i <= visiblePages; i++) {
+                                                pages.push(
+                                                    <div
+                                                        key={i}
+                                                        className={pageNumber === i ? "paginationactive" : "paginationbox"}
+                                                        onClick={() => HandleSelectnumbox(i)}
+                                                    >
+                                                        {i}
+                                                    </div>
+                                                );
+                                            }
+
+                                            if (visiblePages < totalPages - 2) {
+                                                pages.push(
+                                                    <div key="dots" className="paginationbox">
+                                                        ...
+                                                    </div>
+                                                );
+
+                                                for (let i = totalPages - 1; i <= totalPages; i++) {
+                                                    pages.push(
+                                                        <div
+                                                            key={i}
+                                                            className={pageNumber === i ? "paginationactive" : "paginationbox"}
+                                                            onClick={() => HandleSelectnumbox(i)}
+                                                        >
+                                                            {i}
+                                                        </div>
+                                                    );
+                                                }
+                                            }
+
+                                            pages.push(
+                                                <div
+                                                    key="next"
+                                                    className="paginationbox prev"
+                                                    onClick={() =>
+                                                        pageNumber < totalPages && HandleSelectnumbox(pageNumber + 1)
+                                                    }
+                                                >
+                                                    Next
+                                                </div>
+                                            );
+
+                                            return pages;
+                                        })()}
+                                    </div>
+                                )} */}
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-             
+
         </div >
-       
+
     );
 };
 
