@@ -14,16 +14,7 @@ export default async function Author({ params }: { params: { slug: string } }) {
 
 
     const [authorData] = await GetAuthorData(slug);
-
-
-
-
-
-
-
-
-
- 
+    
 
     return (
         <main className="page_content">
@@ -49,7 +40,7 @@ export default async function Author({ params }: { params: { slug: string } }) {
 
                                         <h1>{authorData?.name}</h1>
 
-                                        <p className="!font-bold opacity-60">{authorData?.description}</p>
+                                        <p className="font-medium text-[16px] ">{authorData?.description}</p>
 
                                         <div
                                             className="mb-0 text-start pt-md-4 aos-init aos-animate"

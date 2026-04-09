@@ -58,17 +58,17 @@ const useBlog = () => {
   };
 
   const getBlogItems = async (params: any): Promise<any> => {
-  
+
     setLoading(true);
     try {
-      const res:any = await api.get("/wp-json/wp/v2/posts", {
+      const res: any = await api.get("/wp-json/wp/v2/posts", {
         params: params,
-      });      
-        const totalPosts = Number(res.headers["x-wp-total"] || 0);
-        return {
-          totalPosts,
-          data: res.data,
-        };
+      });
+      const totalPosts = Number(res.headers["x-wp-total"] || 0);
+      return {
+        totalPosts,
+        data: res.data,
+      };
     } catch (error) {
       console.error("Failed to fetch blog items:", error);
       throw error;
@@ -99,17 +99,16 @@ const useBlog = () => {
   ): Promise<any> => {
     setLoading(true);
     try {
-      const {categories,exclude,per_page,page   } = params
+      const { categories, author, per_page, page } = params
       const res: any = await api.get("/wp-json/wp/v2/posts", {
         params: {
-        categories,
-        exclude,
-        per_page,
-        page,
-      },
+          author,
+          per_page,
+          page,
+        },
       });
       const totalPosts = Number(res.headers["x-wp-total"] || 0);
-      console.log(totalPosts,"TOTAL POST")
+      console.log(totalPosts, "TOTAL POST")
 
       return {
         totalPosts,

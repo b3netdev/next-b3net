@@ -23,7 +23,7 @@ const tabsRef = useRef<HTMLDivElement | null>(null);
             setLoading(true)
             const params : any = {
                 categories: categoryId,
-                exclude: String(id),
+                author: String(id),
                 per_page: "6",
                 page: String(pageNumber),
             };
@@ -111,7 +111,7 @@ const tabsRef = useRef<HTMLDivElement | null>(null);
                                 className="portfolio-imgs blog-data"
                                 style={{ width: "90vw" }}
                             >
-                                <h2 className="text-center mb-4">More From The AuthorRelatedPosts</h2>
+                                <h2 className="text-center mb-4">More From The Author</h2>
 
                                 <div className="row gy-4">
                                     {loading
