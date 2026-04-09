@@ -15,27 +15,10 @@ import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
 
-type TestimonialText = {
-  id: number;
-  type: "text";
-  img: StaticImageData;
-  name: string;
-  role: string;
-  text: string;
-};
 
-type TestimonialVideo = {
-  id: number;
-  type: "video";
-  img: StaticImageData;
-  name: string;
-  role: string;
-  video: string;
-};
 
-type TestimonialItem = TestimonialText | TestimonialVideo;
 
-const testimonials: TestimonialItem[] = [
+const testimonials: any = [
   {
     id: 1,
     type: "text",
@@ -52,6 +35,7 @@ const testimonials: TestimonialItem[] = [
     name: "Scott D. Stewart",
     role: "Executive Producer",
     video: "https://www.youtube.com/watch?v=ey2r4hwa5yc&t=4s",
+    thumbnail_image: "https://img.youtube.com/vi/u9ftgf6V1QI/0.jpg"
   },
   {
     id: 3,
@@ -60,6 +44,7 @@ const testimonials: TestimonialItem[] = [
     name: "David Schnieder",
     role: "CEO of americanrealestateschool.com",
     video: "https://www.youtube.com/watch?v=ey2r4hwa5yc&t=4s",
+    thumbnail_image: "https://img.youtube.com/vi/ey2r4hwa5yc/0.jpg"
   },
   {
     id: 4,
@@ -84,9 +69,16 @@ const Stars: React.FC = () => (
   </div>
 );
 
-const TestimonialCard: React.FC<{ item: TestimonialItem }> = ({ item }) => {
-  const swiperRef = useRef<any | null>(null);
-  
+const TestimonialCard: React.FC<{ item: any }> = ({ item }) => {
+  const [isPlaying, setIsPlaying] = React.useState(false);
+
+  const getYouTubeId = (url: string) => {
+    const match = url.match(/v=([^&]+)/);
+    return match ? match[1] : "";
+  };
+
+  const videoId = item.type === "video" ? getYouTubeId(item.video) : "";
+
   return (
     <div className={`tes-box ${item.type === "video" ? "video-box" : ""}`}>
       <div className="bottom mb-2">
@@ -102,15 +94,39 @@ const TestimonialCard: React.FC<{ item: TestimonialItem }> = ({ item }) => {
 
       <div className="testi-text pt-2 pt-md-4">
         {item.type === "video" ? (
-          <div className="video-container-iframe">
-            <iframe
-              src={item.video}
-              title={item.name}
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-              referrerPolicy="strict-origin-when-cross-origin"
-              allowFullScreen
-            />
-          </div>
+          !isPlaying ? (
+            <div
+              className="relative cursor-pointer"
+              onClick={() => setIsPlaying(true)}
+            >
+
+              <img
+                src={item?.thumbnail_image}
+                alt={item.name}
+                className="w-full"
+              />
+
+
+              <div className="absolute inset-0 flex items-center justify-center">
+                <div className="w-16 h-16 rounded-full bg-black/60 flex items-center justify-center">
+                  <div className="w-0 h-0 border-l-[14px] border-l-white border-y-[10px] border-y-transparent ml-1"></div>
+                </div>
+              </div>
+            </div>
+          ) : (
+            <div className="video-container-iframe">
+              <div className="video-container-iframe aspect-video">
+                <iframe
+                  src={`https://www.youtube.com/embed/${videoId}?autoplay=1`}
+                  title={item.name}
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                  referrerPolicy="strict-origin-when-cross-origin"
+                  allowFullScreen
+                  className="w-full h-[250px]"
+                />
+              </div>
+            </div>
+          )
         ) : (
           <p>{item.text}</p>
         )}
@@ -128,11 +144,11 @@ const TestimonoalCard: React.FC = () => {
           spaceBetween={10}
           loop={true}
           pagination={{ clickable: true }}
-          autoplay={{ delay: 2500, disableOnInteraction: true }}
+          autoplay={{ delay: 10000, disableOnInteraction: true }}
           slidesPerView="auto"
-          
+
         >
-          {testimonials.map((item) => (
+          {testimonials.map((item: any) => (
             <SwiperSlide key={item.id}>
               <TestimonialCard item={item} />
             </SwiperSlide>
