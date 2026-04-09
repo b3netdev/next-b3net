@@ -599,6 +599,7 @@ export async function generateStaticParams() {
                                 <div className=" new-slider-2  d-flex flex-wrap gap-5 justify-center ">
                                     {pageData?.acf?.data?.service_page_section_6_testimonial?.map(
                                         (data: any, index: any) => {
+                                            console.log(data)
                                                 return (
                                                 <div className="item" key={index}>
                                                     <div className=" border-testi">
@@ -612,13 +613,13 @@ export async function generateStaticParams() {
 
                                                             <p className="clamp-3" >
                                                                 {data?.post_content.slice(0, 197)}
-                                                                <Link href={`/blog/${data?.post_name}`} className="text-[#ff6600] opacity-80"> ...Read More</Link>
+                                                                {/* <Link href={`/blog/${data?.post_name}`} className="text-[#ff6600] opacity-80"> ...Read More</Link> */}
                                                             </p>
 
                                                             <div className="testi-icon-wrap">
                                                                 <div className="testi-icon">
                                                                     {" "}
-                                                                    <img src={data?.featured_image?.url}
+                                                                    <img src={data?.featured_image_url}
                                                                     alt="testi-icon"
                                                                     />
                                                                 </div>

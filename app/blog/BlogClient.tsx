@@ -106,7 +106,7 @@ export default function BlogClient() {
 
   const setCategoryID = (id:any)=>{
     dispatch(setCategoryId(id))
-    dispatch(addPageCount(pageCount))
+   
   }
 
 

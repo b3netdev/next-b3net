@@ -4638,7 +4638,13 @@ h4.card-title.mb-2 {
   text-align: right;
 }
 
-.new-slider-2{}
+.new-slider-2 {
+  /* width: 100dvw; */
+  /* background-color: #00adef; */
+}
+.new-slider-2 .item{
+  width: 400px;
+}
 
 
 

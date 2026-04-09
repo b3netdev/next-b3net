@@ -96,7 +96,7 @@ const useBlog = () => {
 
   const getRelatedPosts = async (
     params: any
-  ): Promise<WPPost[]> => {
+  ): Promise<any> => {
     setLoading(true);
     try {
       const {categories,exclude,per_page,page   } = params
@@ -108,8 +108,13 @@ const useBlog = () => {
         page,
       },
       });
+      const totalPosts = Number(res.headers["x-wp-total"] || 0);
+      console.log(totalPosts,"TOTAL POST")
 
-      return res.data;
+      return {
+        totalPosts,
+        data: res.data,
+      };
     } catch (error) {
       console.error("Failed to fetch related posts:", error);
       throw error;

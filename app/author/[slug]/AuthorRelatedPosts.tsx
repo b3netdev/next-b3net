@@ -1,5 +1,5 @@
 "use client"
-import React, { useState } from "react";
+import React, { useRef, useState } from "react";
 
 import { useEffect } from "react";
 import useBlog from "@/hooks/useBlog";
@@ -11,12 +11,13 @@ import { useDispatch } from "react-redux";
 import { setCategoryId } from "@/redux/slicers/idSlicer";
 const AuthorRelatedPosts = ({ id }: { id: number }) => {
     const { getRelatedPosts } = useBlog()
-    const { categoryId, pageCount } = useAppSelector(state => state.id)
+    const { categoryId } = useAppSelector(state => state.id)
     const [loading, setLoading] = useState(false)
     const [relatedpost, setRelatedpost] = useState<any>([])
     const dispatch = useDispatch()
     const [pageNumber, setPageNumber] = useState<number>(1)
-
+    const [pageCount, setpageCount] = useState<any>()
+const tabsRef = useRef<HTMLDivElement | null>(null);
     useEffect(() => {
         const getposts = async () => {
             setLoading(true)
@@ -26,13 +27,32 @@ const AuthorRelatedPosts = ({ id }: { id: number }) => {
                 per_page: "6",
                 page: String(pageNumber),
             };
-            const data = await getRelatedPosts(params)
+            const {data,totalPosts} = await getRelatedPosts(params)
             setRelatedpost(data)
+            setpageCount(totalPosts)
             setLoading(false)
         }
         getposts()
 
     }, [categoryId,pageNumber])
+
+
+      useEffect(() => {
+        if (relatedpost?.length > 0 && tabsRef?.current) {
+          const yOffset = -220;
+    
+          const y =
+            tabsRef.current.getBoundingClientRect().top +
+            window.pageYOffset +
+            yOffset;
+    
+          window.scrollTo({
+            top: y,
+            behavior: "smooth",
+          });
+        }
+      }, [relatedpost]);
+    
 
 
     const setCategoryID = (id: any) => {
@@ -49,27 +69,27 @@ const AuthorRelatedPosts = ({ id }: { id: number }) => {
     const PostCardSkeleton = () => (
         <div className="card-parts-1">
             <div className="card">
-                {/* Image */}
+                
                 <Skeleton variant="rectangular" width="100%" height={220} />
 
                 <div className="card-body heading5">
-                    {/* Date row */}
+                   
                     <div className="calender d-flex justify-content-between">
                         <div className="mb-2 mb-sm-3 calender-size">
                             <Skeleton variant="text" width={140} height={22} />
                         </div>
                     </div>
 
-                    {/* Title */}
+                
                     <Skeleton variant="text" width="90%" height={28} />
                     <Skeleton variant="text" width="70%" height={28} />
 
-                    {/* Excerpt (2–3 lines) */}
+                    
                     <Skeleton variant="text" width="100%" height={20} />
                     <Skeleton variant="text" width="95%" height={20} />
                     <Skeleton variant="text" width="80%" height={20} />
 
-                    {/* Read more */}
+                  
                     <div
                         className="d-flex align-items-center gap-2 clr-blk"
                         style={{ marginTop: 12 }}
@@ -83,7 +103,7 @@ const AuthorRelatedPosts = ({ id }: { id: number }) => {
 
     return (
         <div >
-            <div className="portfolio-content blog-content">
+            <div className="portfolio-content blog-content" ref={tabsRef}>
                 <div className="container">
                     <div className="tab-content" id="pills-tabContent">
                         <div className="tab-pane fade show active" id="pills-home">
@@ -106,12 +126,7 @@ const AuthorRelatedPosts = ({ id }: { id: number }) => {
                                                 <div
                                                     className="col-lg-4 col-sm-6"
                                                     key={index}
-                                                    style={{ cursor: "pointer" }}
-                                                // onClick={() => {
-                                                //     navigate(`/blog/${data?.title?.rendered}`, {
-                                                //         state: { id: data?.id, categoryId }
-                                                //     });
-                                                // }}
+                                                
                                                 >
                                                     <div className="card-parts-1">
                                                         <div className="card">
@@ -171,7 +186,7 @@ const AuthorRelatedPosts = ({ id }: { id: number }) => {
                                 </div>
 
 
-                                {/* {pageCount > 6 && (
+                                {pageCount > 6 && (
                                     <div className="paginationContainer">
                                         {(() => {
                                             const totalPages = Math.ceil(pageCount / 6) || 0;
@@ -237,7 +252,7 @@ const AuthorRelatedPosts = ({ id }: { id: number }) => {
                                             return pages;
                                         })()}
                                     </div>
-                                )} */}
+                                )}
                             </div>
                         </div>
                     </div>
