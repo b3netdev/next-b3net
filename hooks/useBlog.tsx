@@ -108,7 +108,7 @@ const useBlog = () => {
         },
       });
       const totalPosts = Number(res.headers["x-wp-total"] || 0);
-      console.log(totalPosts, "TOTAL POST")
+     
 
       return {
         totalPosts,

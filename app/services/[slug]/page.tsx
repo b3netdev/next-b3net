@@ -599,7 +599,7 @@ export async function generateStaticParams() {
                                 <div className=" new-slider-2  d-flex flex-wrap gap-5 justify-center ">
                                     {pageData?.acf?.data?.service_page_section_6_testimonial?.map(
                                         (data: any, index: any) => {
-                                            console.log(data)
+                                          
                                                 return (
                                                 <div className="item" key={index}>
                                                     <div className=" border-testi">
