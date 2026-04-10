@@ -6,6 +6,7 @@ import type { FooterData, FooterExploreItem, FooterLocationItem } from "../serve
 import Link from "next/link";
 import ContactFooter from "../server/ContactFooter";
 import { useAppSelector } from "@/redux/hooks";
+import ChatBot from "./Chatbot";
 
 type Props = {
   footerData: FooterData;
@@ -393,6 +394,7 @@ export default function FooterClient({ footerData }: Props) {
       </div>
       </div>
     </div>
+    <ChatBot/>
     </main>
   );
 }

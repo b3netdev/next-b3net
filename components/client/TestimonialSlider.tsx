@@ -144,7 +144,9 @@ const TestimonoalCard: React.FC = () => {
           spaceBetween={10}
           loop={playingVideoId === null}
           pagination={{ clickable: true }}
-          autoplay={{ delay: 3000, disableOnInteraction: true }}
+          autoplay={{ delay: 3000, disableOnInteraction: true,
+            pauseOnMouseEnter: true,
+           }}
           slidesPerView="auto"
         >
           {testimonials.map((item: any) => (
