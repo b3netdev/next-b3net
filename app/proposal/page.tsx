@@ -1,4 +1,4 @@
-import React, { cache  } from "react";
+import React, { cache } from "react";
 import Contact from "@/components/client/Contact";
 import Link from "next/link";
 import ShowNav from "@/components/client/ShowNav";
@@ -9,7 +9,7 @@ import StructuredData from "@/components/server/StructuredData";
 
 
 const getBlogPageData = cache(async () => {
-  
+
   const data = await GetPageData("get-a-free-proposal", "page");
   return data?.page ?? data;
 });
@@ -23,17 +23,18 @@ export async function generateMetadata(): Promise<Metadata> {
 
 
 const Proposal = async () => {
-    const pageData = await getBlogPageData();
-    const schemaData = getSchemaFromPageData(pageData);
+  const pageData = await getBlogPageData();
+  const schemaData = getSchemaFromPageData(pageData);
 
   return (
     <section className="product-details-sec shop-sec page_content default_content_class">
-      <ShowNav/>
+      <ShowNav />
       <StructuredData data={schemaData} />
       <div className="port-landing-wrap details-page default-img">
         <div className="menu-design"></div>
-
-        <div className="banner-img">
+        <div
+          className="banner-img proposalBanner"
+        >
           <div className="container">
             <div className="banner-caption">
               <h2>Get A Free Proposal</h2>

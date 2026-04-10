@@ -3296,7 +3296,7 @@ end last css */
 
 
 .port-landing-wrap.details-page.default-img {
-    background: url(https://b3net.info/2025/b3net/b3netdev/wp-content/themes/b3net/assets/images/portfolio/port-details-banner.webp);
+    background: url(/images/proposal-bg.webp);
     padding: 90px 0;
     background-size: cover;
     background-repeat: no-repeat;

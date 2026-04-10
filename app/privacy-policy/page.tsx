@@ -28,9 +28,9 @@ const page = async () => {
         <section className="product-details-sec shop-sec page_content default_content_class">
             <ShowNav/>
             <StructuredData data={schemaData} />
-            <div className="port-landing-wrap details-page default-img">
-                <div className="menu-design"></div>
-                <div className="banner-img">
+            <div className="port-landing-wrap details-page default-img ">
+                <div className="menu-design"></div> 
+                <div className="banner-img proposalBanner">
 
                     <div className="container">
                         <div className="banner-caption">
@@ -42,7 +42,7 @@ const page = async () => {
 
             <div className="contact-sec">
                 <div className="container new-bg-sec">
-                    <div className="breadcrumb-left">
+                    <div className="breadcrumb-left ">
                         <nav aria-label="breadcrumb">
                             <ol className="breadcrumb">
                                 <li className="breadcrumb-item"><Link href="/">Home</Link></li>

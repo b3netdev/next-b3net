@@ -4669,7 +4669,7 @@ h4.card-title.mb-2 {
 /* newwwwwww */
 
 section.product-details-sec.shop-sec.page_content.default_content_class {
-  padding-top: 130px;
+  padding-top: 30px;
   margin-bottom: 60px;
 }
 
@@ -7561,4 +7561,12 @@ div#signature-pad {
 .relative.cursor-pointer.testimonialvideo-thumbnail img {
   object-fit: cover;
   height: 100%;
+}
+
+
+.proposalBanner{
+  background: url(/images/proposal-bg.webp);
+  background-size: cover;
+  background-repeat: no-repeat;
+  padding: 90px;
 }
