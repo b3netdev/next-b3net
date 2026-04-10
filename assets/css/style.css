@@ -538,7 +538,8 @@ body.body {
 }
 
 .testimonial-slider-col .swiper-slide {
-  width: min(440px, 85vw) !important;
+  width: min(413px, 85vw) !important;
+  margin: 0 10px
 }
 
 .testimonial-page-sec .video-box {
@@ -3544,7 +3545,7 @@ p.form-submit input#submit {
   }
 
   .testimonial-page-sec .tes-box {
-    max-width: 420px;
+    /* max-width: 420px; */
   }
 
   .choose-services-row {
@@ -3784,7 +3785,7 @@ p.form-submit input#submit {
   }
 
   .testimonial-page-sec .tes-box {
-    max-width: 350px;
+    /* max-width: 350px; */
   }
 
   .testimonial-page-sec .video-box {
@@ -7547,4 +7548,17 @@ div#signature-pad {
   padding-bottom: 10px;
   font-weight: 800;
   font-size: 47px;
+}
+
+.testimonialvideo-thumbnail img {
+  border-radius: 30px;
+}
+
+.testimonialvideo-thumbnail {
+  height: 196px;
+  overflow: hidden;
+}
+.relative.cursor-pointer.testimonialvideo-thumbnail img {
+  object-fit: cover;
+  height: 100%;
 }

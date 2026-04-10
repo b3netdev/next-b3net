@@ -34,7 +34,7 @@ const testimonials: any = [
     img: testImage2,
     name: "Scott D. Stewart",
     role: "Executive Producer",
-    video: "https://www.youtube.com/watch?v=ey2r4hwa5yc&t=4s",
+    video: "https://www.youtube.com/watch?v=u9ftgf6V1QI&t=2s",
     thumbnail_image: "https://img.youtube.com/vi/u9ftgf6V1QI/0.jpg"
   },
   {
@@ -96,7 +96,7 @@ const TestimonialCard: React.FC<{ item: any }> = ({ item }) => {
         {item.type === "video" ? (
           !isPlaying ? (
             <div
-              className="relative cursor-pointer"
+              className="relative cursor-pointer testimonialvideo-thumbnail"
               onClick={() => setIsPlaying(true)}
             >
 
@@ -144,7 +144,7 @@ const TestimonoalCard: React.FC = () => {
           spaceBetween={10}
           loop={true}
           pagination={{ clickable: true }}
-          autoplay={{ delay: 10000, disableOnInteraction: true }}
+          autoplay={{ delay: 3000, disableOnInteraction: true }}
           slidesPerView="auto"
 
         >
