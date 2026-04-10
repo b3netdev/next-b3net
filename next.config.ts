@@ -6,6 +6,46 @@ const nextConfig: NextConfig = {
   images: {
     domains: [domain],
   },
+
+  async redirects() {
+    return [
+      {
+        source: "/services/:slug",
+        destination: "/:slug",
+        permanent: true, // 301 redirect (SEO)
+      },
+      {
+        source: "/blog/:slug",
+        destination: "/:slug",
+        permanent: true, // 301 redirect (SEO)
+      },
+      {
+        source: "/about-company/faq",
+        destination: "/faq",
+        permanent: true, // 301 redirect (SEO)
+      },
+      {
+        source: "/about-company/testimonial",
+        destination: "/testimonial",
+        permanent: true, // 301 redirect (SEO)
+      },
+      {
+        source: "/about-company/featured-clients",
+        destination: "/featured-clients",
+        permanent: true, // 301 redirect (SEO)
+      },
+      {
+        source: "/wesolve/:slug",
+        destination: "/:slug",
+        permanent: true, // 301 redirect (SEO)
+      },
+      {
+        source: "/casestudy/:slug",
+        destination: "/:slug",
+        permanent: true, // 301 redirect (SEO)
+      },
+    ];
+  },
 };
 
 export default nextConfig;

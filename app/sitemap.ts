@@ -123,19 +123,19 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       priority: 0.8,
     },
     {
-      url: `${siteUrl}/about-company/faq`,
+      url: `${siteUrl}/faq`,
       lastModified: new Date(),
       changeFrequency: 'monthly',
       priority: 0.7,
     },
     {
-      url: `${siteUrl}/about-company/featured-clients`,
+      url: `${siteUrl}/featured-clients`,
       lastModified: new Date(),
       changeFrequency: 'monthly',
       priority: 0.7,
     },
     {
-      url: `${siteUrl}/about-company/testimonial`,
+      url: `${siteUrl}/testimonial`,
       lastModified: new Date(),
       changeFrequency: 'weekly',
       priority: 0.7,
@@ -147,13 +147,13 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       priority: 0.9,
     },
     {
-      url: `${siteUrl}/services/ai-integration`,
+      url: `${siteUrl}/ai-integration`,
       lastModified: new Date(),
       changeFrequency: 'monthly',
       priority: 0.8,
     },
     {
-      url: `${siteUrl}/services/ai-video`,
+      url: `${siteUrl}/ai-video`,
       lastModified: new Date(),
       changeFrequency: 'monthly',
       priority: 0.8,
@@ -192,7 +192,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
 
   // Dynamic blog posts
   const blogEntries: MetadataRoute.Sitemap = blogPosts.map((post: any) => ({
-    url: `${siteUrl}/blog/${post.slug}`,
+    url: `${siteUrl}/${post.slug}`,
     lastModified: post.modified ? new Date(post.modified) : new Date(),
     changeFrequency: 'weekly' as const,
     priority: 0.7,
@@ -207,8 +207,10 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   }));
 
   // Dynamic services
-  const serviceEntries: MetadataRoute.Sitemap = services.map((service: any) => ({
-    url: `${siteUrl}/services/${service.slug}`,
+  const serviceEntries: MetadataRoute.Sitemap = services
+    .filter((service: any) => !["ai-integration", "ai-video"].includes(service.slug))
+    .map((service: any) => ({
+    url: `${siteUrl}/${service.slug}`,
     lastModified: service.modified ? new Date(service.modified) : new Date(),
     changeFrequency: 'monthly' as const,
     priority: 0.8,
@@ -216,7 +218,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
 
   // Dynamic case studies
   const caseStudyEntries: MetadataRoute.Sitemap = caseStudies.map((study: any) => ({
-    url: `${siteUrl}/casestudy/${study.slug}`,
+    url: `${siteUrl}/${study.slug}`,
     lastModified: study.modified ? new Date(study.modified) : new Date(),
     changeFrequency: 'monthly' as const,
     priority: 0.7,

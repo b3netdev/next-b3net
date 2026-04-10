@@ -2,6 +2,7 @@
 
 import React, { useEffect, useRef, useState } from "react";
 import Link from "next/link";
+import { getServicePath } from "@/lib/servicePath";
 
 type Props = {
     open: any;
@@ -82,7 +83,7 @@ export default function SideMenu({
                                 style={{ color: "#3b58a2 ", fontSize: "8px" }}
                             ></i>
 
-                            <Link href={`/services/${item?.slug}`}
+                            <Link href={getServicePath(item?.slug)}
                                 className="service-sub-menu-link text-black"
                                 onClick={onClose}
                             >
@@ -187,7 +188,7 @@ export default function SideMenu({
                                                                             ? child?.page?.slug
                                                                             : ""
                                                                         }`
-                                                                        : `/wesolve/${child?.page?.slug}`
+                                                                        : `/${child?.page?.slug}`
                                                                 }
                                                                 className="sideMenuSubLink"
                                                                 onClick={onClose}

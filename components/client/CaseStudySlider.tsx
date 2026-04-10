@@ -62,7 +62,7 @@ const caseStudiesData: any = [
       desc: "Increase in Average Website Visitors",
       path: "/services/casestudies/",
       id: 13074,
-      slug: "case-study-flexus-comfort",
+      slug: "case-study-mattress-company-website-digital-marketing",
     },
     {
       img: CaseStudies4,
@@ -72,7 +72,7 @@ const caseStudiesData: any = [
       desc: "Increase in Average Monthly Sale",
       path: "/services/casestudies1/",
       id: 13037,
-      slug: "case-study-viage",
+      slug: "case-study-tech-hardware-service-web-design-digital-marketing",
     },
     {
       img: CaseStudies3,
@@ -82,7 +82,7 @@ const caseStudiesData: any = [
       desc: "Increase In Average Monthly Sales",
       path: "/services/casestudies2/",
       id: 13121,
-      slug: "case-study-arc-lever",
+      slug: "case-study-automobile-parts-website-design-seo",
     },
     {
       img: CaseStudies5,
@@ -92,7 +92,7 @@ const caseStudiesData: any = [
       desc: "Increase In Average Monthly Sales",
       path: "/services/casestudies3/",
       id: 12949,
-      slug: "case-study-treecarearborists",
+      slug: "case-study-tree-care-service-web-design-digital-marketing",
     },
   ];
 
@@ -122,7 +122,7 @@ export default function     CaseStudiesSlider() {
             >
                 {caseStudiesData.map((item: any, index: number) => {
 
-                    const href = `/casestudy/${item.slug}`;
+                    const href = `/${item.slug}`;
 
                     return (
                         <SwiperSlide key={index} className="w-full">

@@ -7,6 +7,7 @@ import Link from "next/link";
 import ContactFooter from "../server/ContactFooter";
 import { useAppSelector } from "@/redux/hooks";
 import ChatBot from "./Chatbot";
+import { normalizeServicePath } from "@/lib/servicePath";
 
 type Props = {
   footerData: FooterData;
@@ -87,7 +88,7 @@ function LocationColumns({ columns }: { columns: FooterLocationItem[][] }) {
                           className="d-flex align-items-cennter justify-content-center"
                         >
                           <Dot color="#ff4f02" strokeWidth={7} />
-                          <Link href={l.url} >
+                          <Link href={normalizeServicePath(l.url)} >
                             {l.label}
                           </Link>
                         </div>
@@ -169,7 +170,7 @@ function ExploreList({ items }: { items: any }) {
                         }}
                       >
                         <Dot color="#ff4f02" strokeWidth={7} />
-                        <Link href={l.url}>{l.label}</Link>
+                        <Link href={normalizeServicePath(l.url)}>{l.label}</Link>
                       </div>
                     ))}
                   </span>
@@ -180,7 +181,7 @@ function ExploreList({ items }: { items: any }) {
                 className="haslinksFooterExplore"
               >
                 <i className="fa-solid fa-caret-right"></i>
-                <Link href={item.url}>{item.title}</Link>
+                <Link href={normalizeServicePath(item.url)}>{item.title}</Link>
               </div>
             )}
           </li>

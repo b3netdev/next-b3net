@@ -204,7 +204,7 @@ const Services = async () => {
 
                                                         <div className="mt-4">
                                                             <Link
-                                                                href={`/casestudy/${item?.page_info}`}
+                                                                href={`/${item?.page_info}`}
                                                                 className="btn btn-orange"
                                                             >
                                                                 <span className="btn_label_1">

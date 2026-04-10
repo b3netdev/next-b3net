@@ -1,5 +1,6 @@
 import React from "react";
 import Link from "next/link";
+import { getServicePath } from "@/lib/servicePath";
 
 import Analytics from "../../assets/images/analyics.png";
 import Statergy from "../../assets/images/statergy.png";
@@ -101,7 +102,7 @@ const Services = () => {
                                 <div className="col-lg-4 col-md-6 col-sm-12 mb-3 mb-md-5" key={index}>
                                     <div className="portfolio-list">
                                         <div className="image image-anime reveal reveal-move">
-                                            <Link href={`/services/${item?.slug}`}>
+                                            <Link href={getServicePath(item?.slug)}>
                                                 <img
                                                     src={item.image}
                                                     alt=""
@@ -117,7 +118,7 @@ const Services = () => {
                                                 <div className="solution-hover">
                                                     <p style={{ color: "white" }}>{item.description}</p>
 
-                                                    <Link href={`/services/${item?.slug}`}>
+                                                    <Link href={getServicePath(item?.slug)}>
                                                         Read More
                                                         <i className="fa-solid fa-arrow-right"></i>
                                                     </Link>

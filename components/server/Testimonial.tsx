@@ -25,7 +25,7 @@ const Testimonial = () => {
             </p>
             <div className="mt-4">
               <Link className="btn"
-                href="/about-company/testimonial"
+                href="/testimonial"
               >
                 <span className="btn_label" data-text="Discover More">
                   Discover More

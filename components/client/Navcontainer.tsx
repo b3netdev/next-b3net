@@ -2,6 +2,7 @@
 
 import React, { useEffect, useRef, useState } from "react";
 import Link from "next/link";
+import { getServicePath } from "../../lib/servicePath";
 import { useAppDispatch, useAppSelector } from "@/redux/hooks";
 import { setId } from "@/redux/slicers/idSlicer";
 import HeaderForm from "./HeaderForm";
@@ -132,8 +133,8 @@ export default function Navbar() {
                                 style={{ color: "#3b58a2 ", fontSize: "8px" }}
                             ></i>
 
-                            <Link href={`/services/${item?.slug}`}
-                                className="service-menu-link !text-base"
+                            <Link href={getServicePath(item?.slug)}
+                                className="service-menu-link text-base!"
 
                             >
                                 {item.label}
@@ -218,7 +219,7 @@ export default function Navbar() {
         return (
             <div className="aboutSubMenu WesolveBox" key={data.id}>
                 <span className="about-item">
-                    <Link href={`/wesolve/${data?.page?.slug}`}
+                    <Link href={`/${data?.page?.slug}`}
                         onClick={() => HandleNavigate(data.object_id!)}
                     >{data.title}</Link>
                 </span>

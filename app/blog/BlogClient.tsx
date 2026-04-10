@@ -121,14 +121,14 @@ export default function BlogClient() {
 
 
   const popularReads = [
-    {
-      category: "Popular Reads",
-      title: "Designing Intelligence: How AI Is Transforming Digital Design, Navigation, and Experience in the Internet Age",
-      excerpt: "From Pretty Pages to Intelligent Journeys In the early days of the internet, website design was little more than digital...",
-      image: `${BASE_URL}/wp-content/uploads/2026/02/Designing-Intelligence.jpg`,
-      url: `${BASE_URL}/how-ai-is-transforming-digital-design-navigation-and-experience/`,
-      slug:"how-ai-is-transforming-digital-design-navigation-and-experience"
-    },
+    // {
+    //   category: "Popular Reads",
+    //   title: "Designing Intelligence: How AI Is Transforming Digital Design, Navigation, and Experience in the Internet Age",
+    //   excerpt: "From Pretty Pages to Intelligent Journeys In the early days of the internet, website design was little more than digital...",
+    //   image: `${BASE_URL}/wp-content/uploads/2026/02/Designing-Intelligence.jpg`,
+    //   url: `${BASE_URL}/how-ai-is-transforming-digital-design-navigation-and-experience/`,
+    //   slug:"how-ai-is-transforming-digital-design-navigation-and-experience"
+    // },
     {
       category: "Popular Reads",
       title: "CRM, AI, and the Future of Intelligent Customer Experience",
@@ -137,22 +137,22 @@ export default function BlogClient() {
       url: `${BASE_URL}/crm-ai-and-the-future-of-intelligent-customer-experience/`,
       slug:"crm-ai-and-the-future-of-intelligent-customer-experience"
     },
-    {
-      category: "Popular Reads",
-      title: "Dark Mode in Web Design: The Complete UX & Implementation Guide",
-      excerpt: "View this. It's late at night, the lights are dim, you pick up your phone to open Link website, and...",
-      image: `${BASE_URL}/wp-content/uploads/2026/01/Dark-Mode-in-Web-Design.png`,
-      url: `${BASE_URL}/the-complete-ux-implementation-guide-to-dark-mode-in-web-design/`,
-      slug:"the-complete-ux-implementation-guide-to-dark-mode-in-web-design"
-    },
-    {
-      category: "Popular Reads",
-      title: "The Role of Branding in E-commerce Web Design: Building Brand Trust to Drive Sales",
-      excerpt: "Most of us prefer shopping online, and to be Link bit precise around 33% of the world population shops online....",
-      image: `${BASE_URL}/wp-content/uploads/2026/01/Brand-Trust-to-Drive-Sales.jpg`,
-      url: `${BASE_URL}/the-role-of-branding-in-e-commerce-web-design/`,
-      slug:"the-role-of-branding-in-e-commerce-web-design"
-    },
+    // {
+    //   category: "Popular Reads",
+    //   title: "Dark Mode in Web Design: The Complete UX & Implementation Guide",
+    //   excerpt: "View this. It's late at night, the lights are dim, you pick up your phone to open Link website, and...",
+    //   image: `${BASE_URL}/wp-content/uploads/2026/01/Dark-Mode-in-Web-Design.png`,
+    //   url: `${BASE_URL}/the-complete-ux-implementation-guide-to-dark-mode-in-web-design/`,
+    //   slug:"the-complete-ux-implementation-guide-to-dark-mode-in-web-design"
+    // },
+    // {
+    //   category: "Popular Reads",
+    //   title: "The Role of Branding in E-commerce Web Design: Building Brand Trust to Drive Sales",
+    //   excerpt: "Most of us prefer shopping online, and to be Link bit precise around 33% of the world population shops online....",
+    //   image: `${BASE_URL}/wp-content/uploads/2026/01/Brand-Trust-to-Drive-Sales.jpg`,
+    //   url: `${BASE_URL}/the-role-of-branding-in-e-commerce-web-design/`,
+    //   slug:"the-role-of-branding-in-e-commerce-web-design"
+    // },
     {
       category: "Popular Reads",
       title: "Content Marketing in the Age of AI: Why the Human Edge Still Wins",
@@ -185,16 +185,16 @@ export default function BlogClient() {
                 <div className="row gy-4 justify-content-center align-items-center">
                   <div className="col-lg-6">
                     <div className="blog-about-img">
-                      <Link href={`/blog/${item?.slug}`}> <img src={item?.image} alt="blog-about-img" /></Link>
+                      <Link href={`/${item?.slug}`}> <img src={item?.image} alt="blog-about-img" /></Link>
                     </div>
                   </div>
                   <div className="col-lg-6 ">
                     <div className="left-side">
                       <h4 className="!text-[#8c92a1]">{item?.category}</h4>
-                      <Link href={`/blog/${item?.slug}`}><h2 className="blogbannerheading">{item.title}</h2></Link>
+                      <Link href={`/${item?.slug}`}><h2 className="blogbannerheading">{item.title}</h2></Link>
                       <p>{item?.excerpt}</p>
                       <div className="mb-0 text-lg-start pt-md-4 " data-aos="fade-up" data-aos-duration="800">
-                        <Link href={`/blog/${item?.slug}`} className="btn btn-primary orange-1">
+                        <Link href={`/${item?.slug}`} className="btn btn-primary orange-1">
                           Read More
                           <i className="fa-solid fa-arrow-right-long"></i>
                         </Link>
@@ -279,7 +279,7 @@ export default function BlogClient() {
                     <div className="col-lg-4 col-sm-6 col-12 content1 blogItem" key={index}>
                       <div className="card-parts-1">
                         <div className="card">
-                          <Link href={`/blog/${post?.slug}`}
+                          <Link href={`/${post?.slug}`}
                             onClick={() => setCategoryID(post?.categories)}
                           >
 
@@ -298,7 +298,7 @@ export default function BlogClient() {
                               </div>
                             </div>
 
-                            <Link href={`/blog/${post?.slug}`}
+                            <Link href={`/${post?.slug}`}
                               className="card-title mb-2 card-text-Link "
                               onClick={() => setCategoryID(post?.categories)}
                             >
@@ -312,7 +312,7 @@ export default function BlogClient() {
                               dangerouslySetInnerHTML={{ __html: post?.excerpt?.rendered }}
                             />
 
-                            <Link href={`/blog/${post?.slug}`}
+                            <Link href={`/${post?.slug}`}
                               className="d-flex align-items-center gap-2 clr-blk"
                               onClick={() => setCategoryID(post?.categories)}
                             >

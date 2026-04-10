@@ -12,6 +12,7 @@ import Link from "next/link";
 import { cache } from "react";
 import { Metadata } from "next";
 import { buildMetadata, getSeoFromPageData } from "@/lib/seo";
+import { getServicePath } from "@/lib/servicePath";
 
 
 const getPageData = cache(async () => {
@@ -60,7 +61,7 @@ const AiIntregation = async ({ params }: { params: { slug: string } }) => {
                     , we understand the unique challenges faced by small and
                     medium-sized businesses in the digital age...
                   </p>
-                  <Link href="/services/ai-integration" className="unq-free-cons">
+                  <Link href={getServicePath("ai-integration")} className="unq-free-cons">
                     Get a FREE Consultation{" "}
                     <i
                       className="fa-arrow-right fa-solid"

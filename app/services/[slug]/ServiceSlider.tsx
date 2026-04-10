@@ -11,6 +11,12 @@ type Props = {
 
 const ServiceSlider: React.FC<Props> = ({ pageData }) => {
   const cards = pageData?.acf?.data?.service_page_section_7_card ?? [];
+  const caseStudySlugs = [
+    "case-study-mattress-company-website-digital-marketing",
+    "case-study-tech-hardware-service-web-design-digital-marketing",
+    "case-study-automobile-parts-website-design-seo",
+    "case-study-tree-care-service-web-design-digital-marketing",
+  ];
   if (!cards.length) return null;
   return (
     <div>
@@ -53,7 +59,7 @@ const ServiceSlider: React.FC<Props> = ({ pageData }) => {
                         <div className="mt-4">
                           <Link
                             className="btn btn-orange"
-                            href={`/casestudy/${index==0?"case-study-flexus-comfort": index==1?"case-study-viage":index==2?"case-study-treecarearborists": index==3 ?"case-study-arc-lever" :"case-study-arc-lever"}`}
+                            href={`/${caseStudySlugs[index] ?? caseStudySlugs[0]}`}
                           >
                             <span className="btn_label_1">
                               Read More

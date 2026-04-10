@@ -109,7 +109,7 @@ const tabsRef = useRef<HTMLDivElement | null>(null);
                         <div className="tab-pane fade show active" id="pills-home">
                             <div
                                 className="portfolio-imgs blog-data"
-                                style={{ width: "90vw" }}
+                                
                             >
                                 <h2 className="text-center mb-4">More From The Author</h2>
 
@@ -131,7 +131,7 @@ const tabsRef = useRef<HTMLDivElement | null>(null);
                                                     <div className="card-parts-1">
                                                         <div className="card">
                                                             <Link
-                                                                href={`/blog/${data?.slug}`}
+                                                                href={`/${data?.slug}`}
                                                                 onClick={() => setCategoryID(data?.categories)}
 
                                                             >
@@ -158,7 +158,7 @@ const tabsRef = useRef<HTMLDivElement | null>(null);
                                                                 </div>
 
                                                                 <Link
-                                                                    href={`/blog/${data?.slug}`}
+                                                                    href={`/${data?.slug}`}
                                                                     onClick={() => setCategoryID(data?.categories)}
                                                                     className="card-title mb-2 card-text-a">
                                                                     {data?.title?.rendered}
@@ -171,7 +171,7 @@ const tabsRef = useRef<HTMLDivElement | null>(null);
                                                                 />
 
                                                                 <Link
-                                                                    href={`/blog/${data?.slug}`}
+                                                                    href={`/${data?.slug}`}
                                                                     onClick={() => setCategoryID(data?.categories)}
                                                                     className="d-flex align-items-center gap-2 clr-blk">
                                                                     READ MORE{" "}
