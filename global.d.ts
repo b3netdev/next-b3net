@@ -1,5 +1,9 @@
-declare namespace JSX {
-    interface IntrinsicElements {
-      "chat-widget": any;
+declare global {
+    namespace JSX {
+      interface IntrinsicElements {
+        "chat-widget": any;
+      }
     }
   }
+  
+  export {};
