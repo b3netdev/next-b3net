@@ -1,7 +1,7 @@
 "use client";
 
-import React, { useRef } from "react";
-import Image, { StaticImageData } from "next/image";
+import React, { useState } from "react";
+import Image from "next/image";
 
 import testImage1 from "../../assets/images/testi-img-1.webp";
 import testImage2 from "../../assets/images/testi-img-2.webp";
@@ -14,9 +14,6 @@ import { Navigation, Pagination, Autoplay } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
-
-
-
 
 const testimonials: any = [
   {
@@ -35,7 +32,7 @@ const testimonials: any = [
     name: "Scott D. Stewart",
     role: "Executive Producer",
     video: "https://www.youtube.com/watch?v=u9ftgf6V1QI&t=2s",
-    thumbnail_image: "https://img.youtube.com/vi/u9ftgf6V1QI/0.jpg"
+    thumbnail_image: "https://img.youtube.com/vi/u9ftgf6V1QI/0.jpg",
   },
   {
     id: 3,
@@ -44,7 +41,7 @@ const testimonials: any = [
     name: "David Schnieder",
     role: "CEO of americanrealestateschool.com",
     video: "https://www.youtube.com/watch?v=ey2r4hwa5yc&t=4s",
-    thumbnail_image: "https://img.youtube.com/vi/ey2r4hwa5yc/0.jpg"
+    thumbnail_image: "https://img.youtube.com/vi/ey2r4hwa5yc/0.jpg",
   },
   {
     id: 4,
@@ -69,15 +66,18 @@ const Stars: React.FC = () => (
   </div>
 );
 
-const TestimonialCard: React.FC<{ item: any }> = ({ item }) => {
-  const [isPlaying, setIsPlaying] = React.useState(false);
-
+const TestimonialCard: React.FC<{
+  item: any;
+  playingVideoId: number | null;
+  setPlayingVideoId: React.Dispatch<React.SetStateAction<number | null>>;
+}> = ({ item, playingVideoId, setPlayingVideoId }) => {
   const getYouTubeId = (url: string) => {
-    const match = url.match(/v=([^&]+)/);
+    const match = url.match(/(?:v=|youtu\.be\/)([^&?/]+)/);
     return match ? match[1] : "";
   };
 
   const videoId = item.type === "video" ? getYouTubeId(item.video) : "";
+  const isPlaying = playingVideoId === item.id;
 
   return (
     <div className={`tes-box ${item.type === "video" ? "video-box" : ""}`}>
@@ -94,26 +94,7 @@ const TestimonialCard: React.FC<{ item: any }> = ({ item }) => {
 
       <div className="testi-text pt-2 pt-md-4">
         {item.type === "video" ? (
-          !isPlaying ? (
-            <div
-              className="relative cursor-pointer testimonialvideo-thumbnail"
-              onClick={() => setIsPlaying(true)}
-            >
-
-              <img
-                src={item?.thumbnail_image}
-                alt={item.name}
-                className="w-full"
-              />
-
-
-              <div className="absolute inset-0 flex items-center justify-center">
-                <div className="w-16 h-16 rounded-full bg-black/60 flex items-center justify-center">
-                  <div className="w-0 h-0 border-l-[14px] border-l-white border-y-[10px] border-y-transparent ml-1"></div>
-                </div>
-              </div>
-            </div>
-          ) : (
+          isPlaying ? (
             <div className="video-container-iframe">
               <div className="video-container-iframe aspect-video">
                 <iframe
@@ -126,6 +107,23 @@ const TestimonialCard: React.FC<{ item: any }> = ({ item }) => {
                 />
               </div>
             </div>
+          ) : (
+            <div
+              className="relative cursor-pointer testimonialvideo-thumbnail"
+              onClick={() => setPlayingVideoId(item.id)}
+            >
+              <img
+                src={item?.thumbnail_image}
+                alt={item.name}
+                className="w-full"
+              />
+
+              <div className="absolute inset-0 flex items-center justify-center">
+                <div className="w-16 h-16 rounded-full bg-black/60 flex items-center justify-center">
+                  <div className="w-0 h-0 border-l-[14px] border-l-white border-y-[10px] border-y-transparent ml-1"></div>
+                </div>
+              </div>
+            </div>
           )
         ) : (
           <p>{item.text}</p>
@@ -136,21 +134,26 @@ const TestimonialCard: React.FC<{ item: any }> = ({ item }) => {
 };
 
 const TestimonoalCard: React.FC = () => {
+  const [playingVideoId, setPlayingVideoId] = useState<number | null>(null);
+
   return (
     <div className="testimonial-slider-col pe-0 ps-0">
       <div className="container">
         <Swiper
           modules={[Navigation, Pagination, Autoplay]}
           spaceBetween={10}
-          loop={true}
+          loop={playingVideoId === null}
           pagination={{ clickable: true }}
           autoplay={{ delay: 3000, disableOnInteraction: true }}
           slidesPerView="auto"
-
         >
           {testimonials.map((item: any) => (
             <SwiperSlide key={item.id}>
-              <TestimonialCard item={item} />
+              <TestimonialCard
+                item={item}
+                playingVideoId={playingVideoId}
+                setPlayingVideoId={setPlayingVideoId}
+              />
             </SwiperSlide>
           ))}
         </Swiper>
