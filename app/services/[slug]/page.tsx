@@ -114,8 +114,7 @@ export async function generateStaticParams() {
                         dangerouslySetInnerHTML={{
                             __html: JSON.stringify(schemaData),
                         }}
-                    />
-                ) : null}
+                    /> ) : null}
 
                 <div
                     className="seo-landing-wrap"
@@ -126,7 +125,7 @@ export async function generateStaticParams() {
                     <div className="container">
                         <div className="banner-caption">
                             <h1>{pageData?.acf?.data?.banner_heading}</h1>
-                            <span
+                            <div
                                 dangerouslySetInnerHTML={{
                                     __html: pageData?.acf?.data?.banner_description || "",
                                 }}
