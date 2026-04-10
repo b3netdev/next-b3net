@@ -126,35 +126,40 @@ export default function BlogClient() {
       title: "Designing Intelligence: How AI Is Transforming Digital Design, Navigation, and Experience in the Internet Age",
       excerpt: "From Pretty Pages to Intelligent Journeys In the early days of the internet, website design was little more than digital...",
       image: `${BASE_URL}/wp-content/uploads/2026/02/Designing-Intelligence.jpg`,
-      url: `${BASE_URL}/how-ai-is-transforming-digital-design-navigation-and-experience/`
+      url: `${BASE_URL}/how-ai-is-transforming-digital-design-navigation-and-experience/`,
+      slug:"how-ai-is-transforming-digital-design-navigation-and-experience"
     },
     {
       category: "Popular Reads",
       title: "CRM, AI, and the Future of Intelligent Customer Experience",
       excerpt: "A New Era of Customer Relationships Customer Relationship Management (CRM) has always been about one thing—building and nurturing meaningful relationships...",
       image: `${BASE_URL}/wp-content/uploads/2026/01/CRM-AI.jpg`,
-      url: `${BASE_URL}/crm-ai-and-the-future-of-intelligent-customer-experience/`
+      url: `${BASE_URL}/crm-ai-and-the-future-of-intelligent-customer-experience/`,
+      slug:"crm-ai-and-the-future-of-intelligent-customer-experience"
     },
     {
       category: "Popular Reads",
       title: "Dark Mode in Web Design: The Complete UX & Implementation Guide",
       excerpt: "View this. It's late at night, the lights are dim, you pick up your phone to open Link website, and...",
       image: `${BASE_URL}/wp-content/uploads/2026/01/Dark-Mode-in-Web-Design.png`,
-      url: `${BASE_URL}/the-complete-ux-implementation-guide-to-dark-mode-in-web-design/`
+      url: `${BASE_URL}/the-complete-ux-implementation-guide-to-dark-mode-in-web-design/`,
+      slug:"the-complete-ux-implementation-guide-to-dark-mode-in-web-design"
     },
     {
       category: "Popular Reads",
       title: "The Role of Branding in E-commerce Web Design: Building Brand Trust to Drive Sales",
       excerpt: "Most of us prefer shopping online, and to be Link bit precise around 33% of the world population shops online....",
       image: `${BASE_URL}/wp-content/uploads/2026/01/Brand-Trust-to-Drive-Sales.jpg`,
-      url: `${BASE_URL}/the-role-of-branding-in-e-commerce-web-design/`
+      url: `${BASE_URL}/the-role-of-branding-in-e-commerce-web-design/`,
+      slug:"the-role-of-branding-in-e-commerce-web-design"
     },
     {
       category: "Popular Reads",
       title: "Content Marketing in the Age of AI: Why the Human Edge Still Wins",
       excerpt: "A Shift We Can’t Ignore Every decade in marketing has its buzzword. In the 2000s, it was SEO. In the...",
       image: `${BASE_URL}/wp-content/uploads/2026/01/Content-Marketing-in-the-Age-of-AI.jpg`,
-      url: `${BASE_URL}/content-marketing-in-the-age-of-ai-why-the-human-edge-still-wins/`
+      url: `${BASE_URL}/content-marketing-in-the-age-of-ai-why-the-human-edge-still-wins/`,
+      slug:"content-marketing-in-the-age-of-ai-why-the-human-edge-still-wins"
     }
   ];
 
@@ -180,16 +185,16 @@ export default function BlogClient() {
                 <div className="row gy-4 justify-content-center align-items-center">
                   <div className="col-lg-6">
                     <div className="blog-about-img">
-                      <Link href="/"> <img src={item?.image} alt="blog-about-img" /></Link>
+                      <Link href={`/blog/${item?.slug}`}> <img src={item?.image} alt="blog-about-img" /></Link>
                     </div>
                   </div>
                   <div className="col-lg-6 ">
                     <div className="left-side">
                       <h4 className="!text-[#8c92a1]">{item?.category}</h4>
-                      <Link href="/"><h2 className="blogbannerheading">{item.title}</h2></Link>
+                      <Link href={`/blog/${item?.slug}`}><h2 className="blogbannerheading">{item.title}</h2></Link>
                       <p>{item?.excerpt}</p>
                       <div className="mb-0 text-lg-start pt-md-4 " data-aos="fade-up" data-aos-duration="800">
-                        <Link href="/" className="btn btn-primary orange-1">
+                        <Link href={`/blog/${item?.slug}`} className="btn btn-primary orange-1">
                           Read More
                           <i className="fa-solid fa-arrow-right-long"></i>
                         </Link>
