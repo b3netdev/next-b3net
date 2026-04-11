@@ -1,35 +1,82 @@
-import { MetadataRoute } from "next";
-import { SITE_URL, API_URL } from "@/lib/siteurl";
 
-// ⏱ cache for 1 hour
+import { MetadataRoute } from "next";
+import { SITE_URL } from "@/lib/siteurl";
+import { BASE_URL } from "@/lib/url";
+
+// ⏱ Revalidate every hour
 export const revalidate = 3600;
 
-export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
+interface SitemapEntry {
+  url: string;
+  lastmod: string;
+}
 
-  //  Ensure no trailing slash issue
+async function fetchSitemapUrls(): Promise<SitemapEntry[]> {
+  try {
+    const res = await fetch(
+      `${BASE_URL}/wp-json/custom/v1/full-sitemap`,
+      {
+        next: { revalidate: 3600 },
+      }
+    );
+
+    if (!res.ok) {
+      console.error(`Sitemap API failed: ${res.status} ${res.statusText}`);
+      return [];
+    }
+
+    const data: SitemapEntry[] = await res.json();
+
+    if (!Array.isArray(data)) {
+      console.error("Sitemap API did not return an array");
+      return [];
+    }
+
+    return data;
+  } catch (err) {
+    console.error("Failed to fetch sitemap from API:", err);
+    return [];
+  }
+}
+
+export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
+  // Ensure no trailing slash
   const BASE = SITE_URL.replace(/\/$/, "");
 
-  // ✅ STATIC ROUTES (ONLY CANONICAL)
-  const staticRoutes = [
-    "",
-    "/about-company",
-    "/contact",
-    "/portfolio",
-    "/blog",
-    "/services"
-  ];
 
-  const staticUrls: MetadataRoute.Sitemap = staticRoutes.map((route) => ({
-    url: `${BASE}${route}`,
-    lastModified: new Date(),
-    changeFrequency: "monthly",
-    priority: route === "" ? 1 : 0.7,
-  }));
+  const staticRoutes: {
+    path: string;
+    priority: number;
+    changeFrequency: MetadataRoute.Sitemap[number]["changeFrequency"];
+  }[] = [
+      { path: "", priority: 1.0, changeFrequency: "weekly" },
+      { path: "/services", priority: 0.9, changeFrequency: "monthly" },
+      { path: "/portfolio", priority: 0.8, changeFrequency: "monthly" },
+      { path: "/blog", priority: 0.8, changeFrequency: "weekly" },
+      { path: "/about-company", priority: 0.7, changeFrequency: "monthly" },
+      { path: "/contact", priority: 0.6, changeFrequency: "yearly" },
+    ];
+
+  const staticUrls: MetadataRoute.Sitemap = staticRoutes.map(
+    ({ path, priority, changeFrequency }) => ({
+      url: `${BASE}${path}`,
+      lastModified: new Date(),
+      changeFrequency,
+      priority,
+    })
+  );
 
 
+  const apiEntries = await fetchSitemapUrls();
 
-  return [
-    ...staticUrls,
+  const dynamicUrls: MetadataRoute.Sitemap = apiEntries
+    .filter((entry) => entry.url && entry.url.startsWith("http")) // guard bad entries
+    .map((entry) => ({
+      url: entry.url,
+      lastModified: new Date(entry.lastmod),
+      changeFrequency: "monthly" as const,
+      priority: 0.6,
+    }));
 
-  ];
+  return [...staticUrls, ...dynamicUrls];
 }

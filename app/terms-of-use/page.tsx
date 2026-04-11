@@ -8,28 +8,28 @@ import StructuredData from '@/components/server/StructuredData';
 
 
 const getBlogPageData = cache(async () => {
-  
+
     const data = await GetPageData("terms-of-use", "page");
     return data?.page ?? data;
-  });
-  
-  export async function generateMetadata(): Promise<Metadata> {
+});
+
+export async function generateMetadata(): Promise<Metadata> {
     const pageData = await getBlogPageData();
     const seo = getSeoFromPageData(pageData);
-  
+
     return buildMetadata(seo);
-  }
-  
+}
+
 const page = async () => {
     const pageData = await getBlogPageData();
-      const schemaData = getSchemaFromPageData(pageData);
-  
+    const schemaData = getSchemaFromPageData(pageData);
+
 
     return (
         <section className="product-details-sec shop-sec page_content default_content_class">
             <StructuredData data={schemaData} />
-            <ShowNav/>
-            <div className="port-landing-wrap details-page default-img">
+            <ShowNav />
+            <div className="port-landing-wrap details-page default-img commonbannercontainer">
                 <div className="menu-design"></div>
                 <div className="banner-img">
 
@@ -99,10 +99,10 @@ const page = async () => {
                         <strong>Dallas, TX 75240</strong><br />
                         <strong>[Located at Carillon Towers at Dallas Midtown]</strong></p> */}
 
-                        <div 
-                        
-                        dangerouslySetInnerHTML={{__html:pageData?.content || ""}}
-                        />
+                    <div
+
+                        dangerouslySetInnerHTML={{ __html: pageData?.content || "" }}
+                    />
                 </div>
             </div>
 

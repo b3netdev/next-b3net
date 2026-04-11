@@ -32,6 +32,7 @@ html {
     background-position: right center;
     background-size: cover;
 }
+
 .services-design-page .seo-landing-wrap .container {
     width: 100%;
     display: flex;
@@ -1429,7 +1430,7 @@ a.d-flex.align-items-center.gap-2.clr-blk {
     margin-right: 5px;
 }
 
-.navListMenu{
+.navListMenu {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -1438,7 +1439,7 @@ a.d-flex.align-items-center.gap-2.clr-blk {
     /* padding: 10px; */
 }
 
-.navListMenu span{
+.navListMenu span {
     width: 100%;
     border-bottom: 1px solid rgba(0, 0, 0, 0.312);
 }
@@ -1475,7 +1476,7 @@ a.d-flex.align-items-center.gap-2.clr-blk {
 
 .toc-text {
     text-align: center;
-    
+
     /* padding: 20px 20px 10px 20px; */
     /* background-color: #000; */
 }
@@ -1502,7 +1503,8 @@ a.d-flex.align-items-center.gap-2.clr-blk {
     border-radius: 10px;
     border: 2px solid #b8c0d4;
 }
-.sideNav{
+
+.sideNav {
     padding: 20px;
     border-radius: 10px;
     border: 2px solid #b8c0d4;
@@ -1513,7 +1515,7 @@ a.d-flex.align-items-center.gap-2.clr-blk {
     margin-top: 20px;
     font-size: 16px;
     padding: 10px;
-    
+
     border-radius: 5px;
 }
 
@@ -1525,7 +1527,7 @@ a.d-flex.align-items-center.gap-2.clr-blk {
 }
 
 .blog-container h2 {
-    
+
     font-size: 28px;
     font-weight: 600;
 }
@@ -2466,26 +2468,27 @@ section.product-details-sec.shop-sec.page_content.default_content_class ul li {
     border-radius: 15px;
 }
 
-.feature-clientWrapper .seo-landing-wrap .container{
-    
+.feature-clientWrapper .seo-landing-wrap .container {
+
     height: 100% !important;
-    width:100% !important;
+    width: 100% !important;
 }
 
 .banner-caption.featured-caption {
     width: 100% !important;
     height: 100% !important;
     display: flex;
-    justify-content: center; 
+    justify-content: center;
     align-items: center;
     text-align: center;
 }
 
-.feature-clientWrapper .seo-landing-wrap{
+.feature-clientWrapper .seo-landing-wrap {
     min-height: 600px;
     width: 100dvw !important;
     padding: 24px;
 }
+
 .banner-caption.featured-caption h1 {
     color: white;
     font-size: 60px !important;
@@ -2680,7 +2683,7 @@ end last css */
     }
 
     .banner-caption h2 {
-        font-size: 60px;
+        font-size: 60px !important;
     }
 
     .banner-caption {
@@ -3320,16 +3323,18 @@ section.product-details-sec.shop-sec.page_content.default_content_class ol.bread
 .new-bg-sec .contact-sec {
     background: none;
 }
+
 .blog-container {
     padding: 0px 30px 30px 30px;
-    border-radius: 10px    
-} 
+    border-radius: 10px
+}
 
 .blog-container ul {
     margin-bottom: 20PX;
     padding-left: 20px;
 
 }
+
 .blog-container ul li {
     list-style: disc;
 }
@@ -3364,6 +3369,14 @@ section.product-details-sec.shop-sec.page_content.default_content_class ol.bread
     .port-landing-wrap.details-page.default-img {
         padding: 70px 0;
 
+    }
+}
+
+
+
+@media (max-width:1054px) {
+    .commonbannercontainer {
+        margin-top: 200px;
     }
 }
 
@@ -3431,6 +3444,6 @@ section.product-details-sec.shop-sec.page_content.default_content_class ol.bread
     }
 }
 
-.addresssboxContainer{
+.addresssboxContainer {
     height: 450px;
 }

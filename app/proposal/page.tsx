@@ -30,7 +30,7 @@ const Proposal = async () => {
     <section className="product-details-sec shop-sec page_content default_content_class">
       <ShowNav />
       <StructuredData data={schemaData} />
-      <div className="port-landing-wrap details-page default-img">
+      <div className="port-landing-wrap details-page default-img commonbannercontainer">
         <div className="menu-design"></div>
         <div
           className="banner-img proposalBanner"
