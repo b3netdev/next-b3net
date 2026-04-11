@@ -3,6 +3,7 @@ import ServiceDetailPage, {
   generateStaticParams as generateServiceDetailStaticParams,
   isDynamicServiceSlug,
 } from "../services/service-detail-page";
+
 import BlogDetailPage, {
   generateMetadata as generateBlogDetailMetadata,
 } from "../blog/blog-detail-page";

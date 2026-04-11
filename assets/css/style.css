@@ -7017,7 +7017,8 @@ span.error-label {
 
 span.error-label span {
   color: #3b58a1;
-  font-family: "EASPORTS";
+  font-family: "Exo 2", sans-serif;
+  /* font-family: "EASPORTS"; */
 }
 
 .cont-error h3 {
@@ -7558,13 +7559,14 @@ div#signature-pad {
   height: 196px;
   overflow: hidden;
 }
+
 .relative.cursor-pointer.testimonialvideo-thumbnail img {
   object-fit: cover;
   height: 100%;
 }
 
 
-.proposalBanner{
+.proposalBanner {
   background: url(/images/proposal-bg.webp);
   background-size: cover;
   background-repeat: no-repeat;
