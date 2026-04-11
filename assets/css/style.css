@@ -6960,6 +6960,18 @@ li {
 .page-eerr h4 {
   color: white;
   font-weight: 600 !important;
+  padding: 10px 0;
+}
+
+.page-eerr h5 {
+  color: white;
+  font-weight: 600 !important;
+  padding: 10px 0;
+}
+
+.page-eerr h4 {
+  color: white;
+  font-weight: 600 !important;
 }
 
 .page-eerr span {
@@ -7571,4 +7583,28 @@ div#signature-pad {
   background-size: cover;
   background-repeat: no-repeat;
   padding: 90px;
+}
+
+
+.errorPagedetail {
+  background: url(/images/404-bg.webp);
+  background-size: cover;
+  width: 100dvw;
+  height: 500px;
+  display: flex;
+  justify-content: center;
+  /* align-items: center; */
+}
+
+.errorPagedetail div {
+  font-size: 20px;
+  font-weight: 600;
+  color: #000;
+  margin-top: 90px;
+}
+
+.errorPagedetail div span {
+  color: #fe4d03;
+  cursor: pointer;
+  margin: 5px
 }
