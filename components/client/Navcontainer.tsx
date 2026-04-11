@@ -6,6 +6,7 @@ import { getServicePath } from "../../lib/servicePath";
 import { useAppDispatch, useAppSelector } from "@/redux/hooks";
 import { setId } from "@/redux/slicers/idSlicer";
 import HeaderForm from "./HeaderForm";
+import { setAboutHover, setWesolveHover } from "@/redux/slicers/hoverSlicer";
 
 
 
@@ -61,17 +62,19 @@ type ServiceMegaMenuColumn = {
 };
 
 export default function Navbar() {
-    
-    const { showDefault,showLayout } = useAppSelector((state) => state.menu);
+
+    const { showDefault, showLayout } = useAppSelector((state) => state.menu);
+    const { abouthover, wesolvehover } = useAppSelector((state) => state.hoverMenu);
     const [hoverService, setHoverService] = useState(false);
-    const [aboutHover, setAboutHover] = useState(false);
-    const [wesolveHover, setWesolveHover] = useState(false);
+
+
     const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
     const dispatch = useAppDispatch();
-   
+
 
     const [isSticky, setIsSticky] = useState(false);
     const navRef = useRef<HTMLDivElement | null>(null);
+
 
 
 
@@ -108,7 +111,7 @@ export default function Navbar() {
     }
 
 
-    if(showLayout == false){
+    if (showLayout == false) {
         return null;
     }
 
@@ -168,7 +171,7 @@ export default function Navbar() {
                                                 industries.
                                             </p>
 
-                                            <HeaderForm  setHoverService={setHoverService} />
+                                            <HeaderForm setHoverService={setHoverService} />
                                         </div>
                                     </div>
 
@@ -191,7 +194,7 @@ export default function Navbar() {
 
 
     const AboutSubmenu = ({ data }: { data: any }) => {
-      
+
 
 
         return (
@@ -207,7 +210,7 @@ export default function Navbar() {
                         <i className="fa-solid fa-users-viewfinder"></i>
                     )}
                     <Link href={`/about-company/${data?.page?.slug !== "about-company" ? data?.page?.slug : ''}`}
-
+                        onClick={() => dispatch(setAboutHover(false))}
                     >{data.title}</Link>
                 </span>
             </div>
@@ -220,7 +223,11 @@ export default function Navbar() {
             <div className="aboutSubMenu WesolveBox" key={data.id}>
                 <span className="about-item">
                     <Link href={`/${data?.page?.slug}`}
-                        onClick={() => HandleNavigate(data.object_id!)}
+                        onClick={() => {
+                            dispatch(setWesolveHover(false))
+                            HandleNavigate(data.object_id!)
+                        }
+                        }
                     >{data.title}</Link>
                 </span>
             </div>
@@ -265,8 +272,8 @@ export default function Navbar() {
                                         <li
                                             key={item.id}
                                             className="has-children position-relative"
-                                            onMouseEnter={() => setAboutHover(true)}
-                                            onMouseLeave={() => setAboutHover(false)}
+                                            onMouseEnter={() => dispatch(setAboutHover(true))}
+                                            onMouseLeave={() => dispatch(setAboutHover(false))}
                                         >
                                             <span style={{ opacity: "1", color: labelColor }}>
                                                 <Link
@@ -285,7 +292,7 @@ export default function Navbar() {
                                                 ></i>
                                             </span>
 
-                                            <div className={`submenu-anim ${aboutHover ? "open" : ""}`}>
+                                            <div className={`submenu-anim ${abouthover ? "open" : ""}`}>
                                                 {item.children.map((data, index) => (
                                                     <AboutSubmenu key={index} data={data} />
                                                 ))}
@@ -326,8 +333,8 @@ export default function Navbar() {
                                         <li
                                             key={item.id}
                                             className="has-children position-relative"
-                                            onMouseEnter={() => setWesolveHover(true)}
-                                            onMouseLeave={() => setWesolveHover(false)}
+                                            onMouseEnter={() => dispatch(setWesolveHover(true))}
+                                            onMouseLeave={() => dispatch(setWesolveHover(false))}
                                         >
                                             <span style={{ opacity: "1", color: labelColor }}>
                                                 {/* <Link href={`/${pathUrl}`} className="nav-link" style={{ color: labelColor }}> */}
@@ -342,7 +349,7 @@ export default function Navbar() {
                                                 ></i>
                                             </span>
 
-                                            <div className={`submenu-anim ${wesolveHover ? "open" : ""}`}>
+                                            <div className={`submenu-anim ${wesolvehover ? "open" : ""}`}>
                                                 {item.children.map((subData, index) => (
                                                     <WesolveSubMenu key={index} data={subData} />
                                                 ))}

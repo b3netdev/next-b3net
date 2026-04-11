@@ -1,11 +1,13 @@
 import { configureStore } from "@reduxjs/toolkit";
 import menuReducer from "./slicers/menuSlicer"
 import idReducer from "./slicers/idSlicer"
+import hoverReducer from "./slicers/hoverSlicer"
 
 export const store = configureStore({
   reducer: {
     menu: menuReducer,
-    id:idReducer
+    id: idReducer,
+    hoverMenu: hoverReducer
   },
 });
 
