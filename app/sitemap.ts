@@ -3,7 +3,7 @@ import { MetadataRoute } from "next";
 import { SITE_URL } from "@/lib/siteurl";
 import { BASE_URL } from "@/lib/url";
 
-// ⏱ Revalidate every hour
+//  Revalidate every hour
 export const revalidate = 3600;
 
 interface SitemapEntry {
