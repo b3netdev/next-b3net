@@ -89,7 +89,7 @@ export default function RootLayout({
           `}
         </Script>
 
-        
+
         <Script id="gtm-wc2tss" strategy="beforeInteractive">
           {`
             (function(w,d,s,l,i){

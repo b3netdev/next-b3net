@@ -15,16 +15,16 @@ import StructuredData from "@/components/server/StructuredData";
 
 
 const getPageData = cache(async () => {
-  
-  const data = await GetPageData("services", "page");
-  return data?.page ?? data;
+
+    const data = await GetPageData("services", "page");
+    return data?.page ?? data;
 });
 
 export async function generateMetadata(): Promise<Metadata> {
-  const pageData = await getPageData();
-  const seo = getSeoFromPageData(pageData);
+    const pageData = await getPageData();
+    const seo = getSeoFromPageData(pageData);
 
-  return buildMetadata(seo);
+    return buildMetadata(seo);
 }
 
 
@@ -32,18 +32,18 @@ const Services = async () => {
 
 
     const pageData = await getPageData();
-      const schemaData = getSchemaFromPageData(pageData);
-     
-    
-    
-      if (!pageData) notFound();
-    
+    const schemaData = getSchemaFromPageData(pageData);
+
+
+
+    if (!pageData) notFound();
 
 
 
 
 
- 
+
+
     return (
         <main className="page_content services-design-page">
             {/* HERO */}
@@ -64,7 +64,7 @@ const Services = async () => {
                         />
                         <Link className="btn btn-orange"
                             style={{ marginTop: "20px" }}
-                            href="/proposal"
+                            href="/request-for-proposal"
 
                         >
                             <span className="btn_label_1">Get My Free Proposal</span>

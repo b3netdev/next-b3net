@@ -1,13 +1,13 @@
 import { getcaseStudiesData } from "@/lib/getdata";
 import Link from "next/link";
 import ServiceContact from "@/app/services/[slug]/ServiceContact";
-import CountUp from "@/components/client/CountUp"; 
+import CountUp from "@/components/client/CountUp";
 import { BASE_URL } from "@/lib/url";
 
 
 
 const CaseStudy1 = async ({ pageData }: any) => {
- 
+
 
   return (
     <div className="case-study-2">
@@ -28,7 +28,7 @@ const CaseStudy1 = async ({ pageData }: any) => {
                         <div className="organic-block" key={index}>
                           <h4>
                             <span className="count" data-target="176">
-                              <CountUp value={data?.number}  duration={3000}/>
+                              <CountUp value={data?.number} duration={3000} />
                             </span>
                             %
                           </h4>
@@ -49,7 +49,7 @@ const CaseStudy1 = async ({ pageData }: any) => {
                   alt="bnr-img "
                   decoding="async"
                   fetchPriority="high"
-                 srcSet={`${BASE_URL}/wp-content/uploads/2025/04/flexus-banner-img.png 710w, 
+                  srcSet={`${BASE_URL}/wp-content/uploads/2025/04/flexus-banner-img.png 710w, 
                   ${BASE_URL}/wp-content/uploads/2025/04/flexus-banner-img-300x300.png 300w, 
                   ${BASE_URL}/wp-content/uploads/2025/04/flexus-banner-img-150x150.png 150w, 
                   ${BASE_URL}/wp-content/uploads/2025/04/flexus-banner-img-24x24.png 24w, 
@@ -70,7 +70,7 @@ const CaseStudy1 = async ({ pageData }: any) => {
           </div>
           <div className="used-service-wrap">
             {pageData?.acf?.data?.first_section_content_repeater?.map(
-              (item:any, index:any) => (
+              (item: any, index: any) => (
                 <div className="services-block" key={index}>
                   <div className="service-icon">
                     <img src={item?.logo} alt="service-icon" />
@@ -266,7 +266,7 @@ const CaseStudy1 = async ({ pageData }: any) => {
               />
 
               <Link
-                href="/proposal"
+                href="/request-for-proposal"
                 className="get-result-btn btn btn-primary"
               >
                 Get Results <i className="fa-solid fa-arrow-right"></i>
@@ -275,7 +275,7 @@ const CaseStudy1 = async ({ pageData }: any) => {
             <div className="two-blocks f-block">
               <div className="seo-imgwrap">
                 <img src={pageData?.acf?.data?.sixth_section_image}
-                alt="seo-imgwrap"
+                  alt="seo-imgwrap"
                 />
               </div>
             </div>
@@ -288,8 +288,8 @@ const CaseStudy1 = async ({ pageData }: any) => {
           <div className="case-sec-ttl">
             <h2>Request For Quote</h2>
           </div>
-          <ServiceContact showTitle={false}  />
-           
+          <ServiceContact showTitle={false} />
+
         </div>
       </section>
     </div>

@@ -1,7 +1,7 @@
 import { getcaseStudiesData } from "@/lib/getdata";
 import Link from "next/link";
 import ServiceContact from "@/app/services/[slug]/ServiceContact";
- 
+
 import { BASE_URL } from "@/lib/url";
 import CountUp from "@/components/client/CountUp";
 
@@ -11,7 +11,7 @@ import CountUp from "@/components/client/CountUp";
 const CaseStudy = async ({ pageData }: any) => {
 
 
-    
+
 
 
 
@@ -35,7 +35,7 @@ const CaseStudy = async ({ pageData }: any) => {
                                                     <div className="organic-block" key={index}>
                                                         <h4>
                                                             <span className="count" data-target="176" style={{ color: "#35d1bd" }}>
-                                                            <CountUp value={data?.number}  duration={3000}/>%
+                                                                <CountUp value={data?.number} duration={3000} />%
                                                             </span>
                                                         </h4>
                                                         <p style={{ color: "white" }}>{data?.text}</p>
@@ -105,13 +105,13 @@ const CaseStudy = async ({ pageData }: any) => {
                             <div className="two-blocks f-block">
                                 <div className="client-imgwrap">
                                     <img src={`${BASE_URL}/wp-content/uploads/2023/07/hear-from-client.png`}
-                                    alt="client-imgwrap"
+                                        alt="client-imgwrap"
                                     />
                                     <div className="play-btn">
                                         <img
                                             src={`${BASE_URL}/old-site-2025/wp-content/themes/perfecti/case-3-assets/images/play-icon.png`}
-                                        alt="play-btn"
-                                        
+                                            alt="play-btn"
+
                                         />
                                     </div>
                                 </div>
@@ -141,8 +141,8 @@ const CaseStudy = async ({ pageData }: any) => {
 
                 <section className="old-design-pattern">
                     <div className="case-img-wrap">
-                        <img src={pageData?.acf?.data?.second_section_image_3} 
-                        alt="case-img-wrap"
+                        <img src={pageData?.acf?.data?.second_section_image_3}
+                            alt="case-img-wrap"
                         />
                     </div>
                 </section>
@@ -170,7 +170,7 @@ const CaseStudy = async ({ pageData }: any) => {
                             />
                             <div className="case-img-wrap">
                                 <img src={pageData?.acf?.data?.third_section_image}
-                                alt="case-img-wrap"
+                                    alt="case-img-wrap"
                                 />
                             </div>
 
@@ -241,8 +241,8 @@ const CaseStudy = async ({ pageData }: any) => {
                                     return (
                                         <div className="seo-block-1" key={index}>
                                             <p>{data?.content}</p>
-                                            <img src={data?.image?.url} 
-                                            alt="fifth_section_image"
+                                            <img src={data?.image?.url}
+                                                alt="fifth_section_image"
                                             />
                                         </div>
                                     );
@@ -276,7 +276,7 @@ const CaseStudy = async ({ pageData }: any) => {
                                 />
 
                                 <Link
-                                    href="/proposal"
+                                    href="/request-for-proposal"
                                     className="get-result-btn btn btn-primary"
                                 >
                                     Get Results <i className="fa-solid fa-arrow-right"></i>
@@ -284,8 +284,8 @@ const CaseStudy = async ({ pageData }: any) => {
                             </div>
                             <div className="two-blocks f-block">
                                 <div className="seo-imgwrap">
-                                    <img src={pageData?.acf?.data?.sixth_section_image} 
-                                    alt="seo-imgwrap"
+                                    <img src={pageData?.acf?.data?.sixth_section_image}
+                                        alt="seo-imgwrap"
                                     />
                                 </div>
                             </div>
@@ -299,7 +299,7 @@ const CaseStudy = async ({ pageData }: any) => {
                             <h2>Request For Quote</h2>
                         </div>
                         <ServiceContact showTitle={false} />
-                         
+
                     </div>
                 </section>
             </div>

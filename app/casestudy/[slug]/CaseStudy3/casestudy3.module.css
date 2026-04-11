@@ -1,26 +1,26 @@
 .casebannerSection {
-    background-image: url("https://www.b3net.com/wp-content/themes/b3net/assets/images/banner-img.png");
+    background-image: url("https://backend.b3net.com/wp-content/themes/b3net/assets/images/banner-img.png");
     background-repeat: no-repeat;
     padding: 100px 0;
     padding-top: 140px;
     font-family: 'Poppins', serif;
 }
 
-.organicBlock p{
+.organicBlock p {
     color: white;
 
 }
 
 .bannerCaption p:nth-of-type(2) {
-  color: white;
-  }
+    color: white;
+}
 
-  .summingdesc{
+.summingdesc {
     color: white;
     font-weight: 400;
 }
 
-  
+
 .casebannerWrap {
     display: flex;
     color: #fff;
@@ -267,7 +267,7 @@
     font-weight: 400;
 }
 
-.ownerName span{
+.ownerName span {
     color: white;
     font-weight: 400;
 }
@@ -295,7 +295,7 @@
 
 .summingUp p:last-child {
     text-align: center;
-    
+
 }
 
 .ownerQuote p:before {
@@ -444,15 +444,16 @@
     }
 }
 
-.Container{
-    padding:100px 60px 60px 60px;
+.Container {
+    padding: 100px 60px 60px 60px;
 }
 
-.MarketingOutput{
+.MarketingOutput {
     /* background-color: #000000; */
     padding: 60px;
 }
-.marketCircleContainer{
+
+.marketCircleContainer {
     display: flex;
     flex-direction: row;
 }

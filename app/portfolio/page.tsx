@@ -15,7 +15,7 @@ type PageProps = {
 
 
 const getBlogPageData = cache(async () => {
-  
+
   const data = await GetPageData("portfolio", "page");
   return data?.page ?? data;
 });
@@ -34,7 +34,7 @@ export default async function Portfolio() {
   const pageData = await getBlogPageData();
 
   if (!pageData) notFound();
-    const schemaData = getSchemaFromPageData(pageData);
+  const schemaData = getSchemaFromPageData(pageData);
 
   return (
     <main className="page_content">
@@ -102,7 +102,7 @@ export default async function Portfolio() {
                   <div className="col-lg-4 col-md-6 p-0" key={index}>
                     <div className="portfolio-list">
                       <div className="image image-anime reveal">
-                        <Link href="/proposal">
+                        <Link href="/request-for-proposal">
                           <img src={item?.image} alt="proposal" />
                           <div className="solutions-hover-box ">
                             <div

@@ -10,31 +10,31 @@ import { BASE_URL } from "@/lib/url";
 import StructuredData from "@/components/server/StructuredData";
 
 
-const getBlogPageData = cache(async (slug:string) => {
-    
-    const data = await  getportfoliodetail(slug);
+const getBlogPageData = cache(async (slug: string) => {
+
+    const data = await getportfoliodetail(slug);
     return data?.page ?? data;
-  });
-  
-  export async function generateMetadata({ params }: { params: { slug: string } }): Promise<Metadata> {
+});
+
+export async function generateMetadata({ params }: { params: { slug: string } }): Promise<Metadata> {
     const { slug } = await params;
-    
+
     const pageData = await getBlogPageData(slug);
     const seo = getSeoFromPageData(pageData);
-  
+
     return buildMetadata(seo);
-  }
+}
 
 const page = async ({ params }: { params: { slug: any } }) => {
     const { slug } = await params
 
     const pageData = await getBlogPageData(slug);
-      const schemaData = getSchemaFromPageData(pageData);
-    
+    const schemaData = getSchemaFromPageData(pageData);
+
     const relatedpost = await getPortFloioRelatedPost(pageData?.portfolio_category, pageData?.id)
 
 
-   
+
 
     return (
         <main className="page_content">
@@ -98,7 +98,7 @@ const page = async ({ params }: { params: { slug: any } }) => {
                                     />
 
                                     <Link
-                                        href="/proposal"
+                                        href="/request-for-proposal"
                                         className="custom-button mt-4"
                                     >
                                         Let’s Get Started{" "}
@@ -164,7 +164,7 @@ const page = async ({ params }: { params: { slug: any } }) => {
                     </div>
                 </div>
 
-                
+
                 <Expertise />
 
                 <section className="contact-sec bg-grey sp py-5">

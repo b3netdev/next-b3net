@@ -1,5 +1,5 @@
 .case-study-2 .casebanner-section {
-	background-image: url("https://www.b3net.com/wp-content/themes/b3net/assets/images/case-studies/banner-bg-c2.jpg");
+	background-image: url("https://backend.b3net.com/wp-content/themes/b3net/assets/images/case-studies/banner-bg-c2.jpg");
 	background-repeat: no-repeat;
 	padding: 90px 0;
 	padding-top: 130px;
@@ -8,13 +8,13 @@
 
 }
 
-.casestudy4content .bnr-subtile{
+.casestudy4content .bnr-subtile {
 	color: #feea5f !important;
 }
 
 
-.casestudy4hireus{
-	background-color:#feea5f !important ;
+.casestudy4hireus {
+	background-color: #feea5f !important;
 }
 
 .bnr-img img {
@@ -840,35 +840,40 @@
 }
 
 
-.casestudy1content .bnr-subtile{
+.casestudy1content .bnr-subtile {
 	color: white !important;
 	font-weight: 500;
-	}
+}
 
 .second_section_content_3 h2 {
-color: #000000 !important;
-}
-.second_section_content_4 h2 {
-color: #000000 !important;
-}
-
-.third_section_top_content h2{
 	color: #000000 !important;
 }
+
+.second_section_content_4 h2 {
+	color: #000000 !important;
+}
+
+.third_section_top_content h2 {
+	color: #000000 !important;
+}
+
 .fourth_section_top_content h2 {
 	color: #000000 !important;
 }
+
 .fourth_section_top_content p {
 	color: #363636 !important;
-    font-size: 16px;
-    font-family: 'Lato', sans-serif;
-    font-weight: 400;
-    margin: 0 0 10px 0;
+	font-size: 16px;
+	font-family: 'Lato', sans-serif;
+	font-weight: 400;
+	margin: 0 0 10px 0;
 }
+
 .innerwrap p {
 	color: #000000 !important;
 
 }
-.fifth_section_content .case-sec-ttl-v1 h2{
+
+.fifth_section_content .case-sec-ttl-v1 h2 {
 	color: #000000 !important;
 }

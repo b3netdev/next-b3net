@@ -17,7 +17,7 @@ export default function NotFound() {
                                 <h3>The page you requested could not be found</h3>
 
                                 <div className=" minn">
-                                    <Link className=" new-btnn error-bttn" href="/proposal">
+                                    <Link className=" new-btnn error-bttn" href="/request-for-proposal">
                                         <span className="btn_label error-label">Talk To A <span>B3NET</span> Expert</span>
                                     </Link>
                                 </div>
