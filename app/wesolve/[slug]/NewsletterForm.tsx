@@ -35,8 +35,7 @@ export default function NewsletterForm() {
     validate,
     onSubmit: async (values, { setSubmitting, resetForm }) => {
       try {
-        // 🔁 Replace this with your actual endpoint
-        // await fetch("/api/newsletter", { method: "POST", body: JSON.stringify(values) })
+       
        
 
         resetForm();

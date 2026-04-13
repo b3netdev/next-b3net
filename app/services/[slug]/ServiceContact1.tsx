@@ -1,14 +1,20 @@
 "use client";
-import React from 'react'
+import React, { useRef, useState } from 'react'
 import { useFormik } from "formik";
 import * as Yup from "yup";
 import { useForm } from '@/hooks/useForm';
 import { useRouter } from "next/navigation";
 import CircularProgress from '@mui/material/CircularProgress';
 import { Element } from 'react-scroll';
+import ReCAPTCHA from "react-google-recaptcha";
+
 const ServiceContact1 = () => {
     const { submitcontact, loading } = useForm()
     const router = useRouter()
+
+    const [captchaToken, setCaptchaToken] = useState("");
+    const [captchaError, setCaptchaError] = useState("");
+    const recaptchaRef = useRef<ReCAPTCHA | null>(null);
 
     const formik = useFormik({
         initialValues: {
@@ -53,12 +59,28 @@ const ServiceContact1 = () => {
         }),
         onSubmit: async (values, { resetForm, setSubmitting }) => {
             try {
-                
-                const data = await submitcontact(formik.values, 12066)
-                if (data?.status === "mail_sent") {
-                    router.push("/thankyou");
+                if (!captchaToken) {
+                    setCaptchaError("Please verify that you are not a robot.");
+                    setSubmitting(false);
+                    return;
                 }
-                
+
+                setCaptchaError("");
+
+                const data = await submitcontact(
+                    { ...formik.values, recaptcha_token: captchaToken },
+                    12066
+                )
+                if (data?.status === "mail_sent") {
+                    recaptchaRef.current?.reset();
+                    setCaptchaToken("");
+                    router.push("/thankyou");
+                } else {
+                    recaptchaRef.current?.reset();
+                    setCaptchaToken("");
+                    setCaptchaError("Captcha expired. Please verify again.");
+                }
+
             } finally {
                 setSubmitting(false);
             }
@@ -346,6 +368,44 @@ const ServiceContact1 = () => {
                                         }}
                                     >
                                         {formik.errors.Message}
+                                    </small>
+                                ) : null}
+                            </div>
+                        </div>
+                    </div>
+
+                    <div className="inputrow nitro-offscreen">
+                        <div className="inputcol f-w">
+                            <div
+                                style={{
+                                    display: "flex",
+                                    flexDirection: "column",
+                                    alignItems: "center",
+                                    marginBottom: "16px",
+                                }}
+                            >
+                                <ReCAPTCHA
+                                    ref={recaptchaRef}
+                                    sitekey={process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY!}
+                                    onChange={(token) => {
+                                        setCaptchaToken(token || "");
+                                        setCaptchaError("");
+                                    }}
+                                    onExpired={() => {
+                                        setCaptchaToken("");
+                                        setCaptchaError("Captcha expired. Please verify again.");
+                                    }}
+                                />
+
+                                {captchaError ? (
+                                    <small
+                                        style={{
+                                            color: "red",
+                                            display: "block",
+                                            marginTop: "6px",
+                                        }}
+                                    >
+                                        {captchaError}
                                     </small>
                                 ) : null}
                             </div>

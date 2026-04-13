@@ -1,11 +1,12 @@
 "use client";
 
-import React from "react";
+import React, { useRef, useState } from "react";
 import { useFormik } from "formik";
 import * as Yup from "yup";
 import { useForm } from "@/hooks/useForm";
 import { useRouter } from "next/navigation";
 import CircularProgress from '@mui/material/CircularProgress';
+import ReCAPTCHA from "react-google-recaptcha";
 
 type ContactUsFormValues = {
   fname: string;
@@ -25,6 +26,11 @@ const validationSchema: any = Yup.object({
 export default function ContactUsForm() {
   const { submitcontact, loading, error } = useForm()
   const router = useRouter()
+
+  const [captchaToken, setCaptchaToken] = useState("");
+  const [captchaError, setCaptchaError] = useState("");
+  const recaptchaRef = useRef<ReCAPTCHA | null>(null);
+
   const formik = useFormik<ContactUsFormValues>({
     initialValues: {
       fname: "",
@@ -35,10 +41,27 @@ export default function ContactUsForm() {
     },
     validationSchema,
     onSubmit: async (values) => {
-    
-      const data = await submitcontact(formik.values, 12474)
+
+      if (!captchaToken) {
+        setCaptchaError("Please verify that you are not a robot.");
+        return;
+      }
+
+      setCaptchaError("");
+
+      const data = await submitcontact(
+        { ...formik.values, recaptcha_token: captchaToken },
+        12474
+      );
+
       if (data?.status === "mail_sent") {
+        recaptchaRef.current?.reset();
+        setCaptchaToken("");
         router.push("/thankyou");
+      } else {
+        recaptchaRef.current?.reset();
+        setCaptchaToken("");
+        setCaptchaError("Captcha expired. Please verify again.");
       }
     },
   });
@@ -67,7 +90,6 @@ export default function ContactUsForm() {
                   type="text"
                   name="fname"
                   className="form-control"
-                  
                   onChange={formik.handleChange}
                   onBlur={formik.handleBlur}
                   value={formik.values.fname}
@@ -85,7 +107,6 @@ export default function ContactUsForm() {
                   type="email"
                   name="email"
                   className="form-control"
-                  
                   onChange={formik.handleChange}
                   onBlur={formik.handleBlur}
                   value={formik.values.email}
@@ -105,7 +126,6 @@ export default function ContactUsForm() {
                   type="tel"
                   name="phone"
                   className="form-control"
-                  
                   onChange={formik.handleChange}
                   onBlur={formik.handleBlur}
                   value={formik.values.phone}
@@ -123,7 +143,6 @@ export default function ContactUsForm() {
                   type="tel"
                   name="subject"
                   className="form-control"
-                  
                   onChange={formik.handleChange}
                   onBlur={formik.handleBlur}
                   value={formik.values.subject}
@@ -131,9 +150,9 @@ export default function ContactUsForm() {
                 {formik.touched.subject && formik.errors.subject && (
                   <small className="text-danger">{formik.errors.subject}</small>
                 )}
-
               </div>
             </div>
+
             <div className="row">
               <div className="col-12 form-group">
                 <label>
@@ -143,7 +162,6 @@ export default function ContactUsForm() {
                   name="Message"
                   className="form-control"
                   rows={5}
-                 
                   onChange={formik.handleChange}
                   onBlur={formik.handleBlur}
                   value={formik.values.Message}
@@ -154,10 +172,30 @@ export default function ContactUsForm() {
               </div>
             </div>
 
+            {/* ✅ ADDED ONLY THIS BLOCK */}
+            <div className="mt-3 d-flex flex-column align-items-center">
+              <ReCAPTCHA
+                ref={recaptchaRef}
+                sitekey={process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY!}
+                onChange={(token) => {
+                  setCaptchaToken(token || "");
+                  setCaptchaError("");
+                }}
+                onExpired={() => {
+                  setCaptchaToken("");
+                  setCaptchaError("Captcha expired. Please verify again.");
+                }}
+              />
+
+              {captchaError && (
+                <small className="text-danger mt-2">{captchaError}</small>
+              )}
+            </div>
+
             <div className="mb-0 text-center pt-md-3">
               <button type="submit" className="btn btn-primary" disabled={loading}>
                 {loading ? (
-                <CircularProgress size={20} sx={{ color: "#fff" }} className="mx-16" />
+                  <CircularProgress size={20} sx={{ color: "#fff" }} className="mx-16" />
                 ) : (
                   <>
                     Submit Now <i className="fa-solid fa-arrow-right-long"></i>
@@ -165,6 +203,7 @@ export default function ContactUsForm() {
                 )}
               </button>
             </div>
+
           </form>
         </div>
       </div>

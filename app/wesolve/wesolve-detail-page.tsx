@@ -122,7 +122,7 @@ export default async function WesolveDetailPage({
           <div className="row gy-5">
             <div className="col-lg-4 col-xl-3">
               <div id="blog-sidebar" className="sidebar">
-                <NewsletterForm />
+                {/* <NewsletterForm /> */}
 
                 <div className="solutions">
                   <h3>Explore Our Solutions</h3>

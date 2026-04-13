@@ -1,16 +1,12 @@
 "use client";
 
-import React, { useState } from "react";
-import { useFormik, FormikErrors } from "formik";
+import React, { useRef, useState } from "react";
+import { useFormik } from "formik";
 import * as Yup from "yup";
-import { ArrowRight } from "lucide-react";
+import ReCAPTCHA from "react-google-recaptcha";
 import { useRouter } from "next/navigation";
 import { useForm } from "@/hooks/useForm";
-
-import ContactFooter from "../server/ContactFooter";
 import CircularProgress from "@mui/material/CircularProgress";
-// import { useForm } from "../../hooks/useForm";
-
 
 type ContactProps = {
   data?: boolean;
@@ -48,31 +44,26 @@ const servicesList: ServiceItem[] = [
 
 const validationSchema: Yup.ObjectSchema<ContactFormValues> = Yup.object({
   firstName: Yup.string().required("First name is required"),
-
   lastName: Yup.string().required("Last name is required"),
-
   phone: Yup.string().required("Phone number is required"),
-
-  email: Yup.string()
-    .email("Invalid email")
-    .required("Email is required"),
-
+  email: Yup.string().email("Invalid email").required("Email is required"),
   cname: Yup.string().required("Company name is required"),
-
-  cwebsite: Yup.string()
-    .required("Website link is required"),
-
+  cwebsite: Yup.string().required("Website link is required"),
   message: Yup.string().required("Message is required"),
-
   services: Yup.array()
     .of(Yup.string().required())
     .min(1, "Please select at least one service")
     .required()
     .defined(),
 });
+
 const Contact: React.FC<ContactProps> = ({ data = false }) => {
   const [selectService, setSelectService] = useState<string[]>([]);
-  const { submitcontact, error, loading } = useForm()
+  const [captchaError, setCaptchaError] = useState("");
+  const [captchaToken, setCaptchaToken] = useState("");
+  const recaptchaRef = useRef<ReCAPTCHA | null>(null);
+
+  const { submitcontact, loading } = useForm();
   const router = useRouter();
 
   const formik = useFormik<ContactFormValues>({
@@ -88,9 +79,14 @@ const Contact: React.FC<ContactProps> = ({ data = false }) => {
     },
     validationSchema,
     onSubmit: async (values) => {
-      // keep your original behavior: build FormData and submit
-      const formData = new FormData();
+      if (!captchaToken) {
+        setCaptchaError("Please verify that you are not a robot.");
+        return;
+      }
 
+      setCaptchaError("");
+
+      const formData = new FormData();
       formData.append("fname", values.firstName);
       formData.append("lname", values.lastName);
       formData.append("phone", values.phone);
@@ -98,13 +94,22 @@ const Contact: React.FC<ContactProps> = ({ data = false }) => {
       formData.append("cname", values.cname);
       formData.append("cwebsite", values.cwebsite);
       formData.append("message", values.message);
+      formData.append("recaptcha_token", captchaToken);
 
       values.services.forEach((service) => {
         formData.append("services[]", service);
       });
+
       const res: any = await submitcontact(formData, 12634);
+
       if (res?.status === "mail_sent") {
+        recaptchaRef.current?.reset();
+        setCaptchaToken("");
         router.push("/thankyou");
+      } else {
+        recaptchaRef.current?.reset();
+        setCaptchaToken("");
+        setCaptchaError("Captcha expired. Please verify again.");
       }
     },
   });
@@ -150,12 +155,14 @@ const Contact: React.FC<ContactProps> = ({ data = false }) => {
                     value={formik.values.firstName}
                   />
                   {formik.touched.firstName && formik.errors.firstName && (
-                    <small className="text-danger font-semibold  text-lg">{formik.errors.firstName}</small>
+                    <small className="text-danger font-semibold text-lg">
+                      {formik.errors.firstName}
+                    </small>
                   )}
                 </div>
 
                 <div className="col-md-4 form-group">
-                <label className="font-normal text-lg">
+                  <label className="font-normal text-lg">
                     Last Name <span>*</span>
                   </label>
                   <input
@@ -167,12 +174,14 @@ const Contact: React.FC<ContactProps> = ({ data = false }) => {
                     value={formik.values.lastName}
                   />
                   {formik.touched.lastName && formik.errors.lastName && (
-                    <small className="text-danger font-semibold  text-lg">{formik.errors.lastName}</small>
+                    <small className="text-danger font-semibold text-lg">
+                      {formik.errors.lastName}
+                    </small>
                   )}
                 </div>
 
                 <div className="col-md-4 form-group">
-                <label className="font-normal text-lg">
+                  <label className="font-normal text-lg">
                     Phone Number <span>*</span>
                   </label>
                   <input
@@ -184,14 +193,16 @@ const Contact: React.FC<ContactProps> = ({ data = false }) => {
                     value={formik.values.phone}
                   />
                   {formik.touched.phone && formik.errors.phone && (
-                    <small className="text-danger font-semibold  text-lg">{formik.errors.phone}</small>
+                    <small className="text-danger font-semibold text-lg">
+                      {formik.errors.phone}
+                    </small>
                   )}
                 </div>
               </div>
 
               <div className="row">
                 <div className="col-md-4 form-group">
-                <label className="font-normal text-lg">
+                  <label className="font-normal text-lg">
                     Your Email <span>*</span>
                   </label>
                   <input
@@ -203,12 +214,14 @@ const Contact: React.FC<ContactProps> = ({ data = false }) => {
                     value={formik.values.email}
                   />
                   {formik.touched.email && formik.errors.email && (
-                    <small className="text-danger font-semibold  text-lg">{formik.errors.email}</small>
+                    <small className="text-danger font-semibold text-lg">
+                      {formik.errors.email}
+                    </small>
                   )}
                 </div>
 
                 <div className="col-md-4 form-group">
-                <label className="font-normal text-lg">
+                  <label className="font-normal text-lg">
                     Company Name <span>*</span>
                   </label>
                   <input
@@ -220,12 +233,14 @@ const Contact: React.FC<ContactProps> = ({ data = false }) => {
                     value={formik.values.cname}
                   />
                   {formik.touched.cname && formik.errors.cname && (
-                    <small className="text-danger font-semibold  text-lg">{formik.errors.cname}</small>
+                    <small className="text-danger font-semibold text-lg">
+                      {formik.errors.cname}
+                    </small>
                   )}
                 </div>
 
                 <div className="col-md-4 form-group">
-                <label className="font-normal text-lg">
+                  <label className="font-normal text-lg">
                     Company Website <span>*</span>
                   </label>
                   <input
@@ -237,7 +252,9 @@ const Contact: React.FC<ContactProps> = ({ data = false }) => {
                     value={formik.values.cwebsite}
                   />
                   {formik.touched.cwebsite && formik.errors.cwebsite && (
-                    <small className="text-danger font-semibold  text-lg" >{formik.errors.cwebsite}</small>
+                    <small className="text-danger font-semibold text-lg">
+                      {formik.errors.cwebsite}
+                    </small>
                   )}
                 </div>
               </div>
@@ -259,7 +276,6 @@ const Contact: React.FC<ContactProps> = ({ data = false }) => {
                         }
                       >
                         <input
-                          // className="!font-normal"
                           type="checkbox"
                           checked={selectService.includes(item.value)}
                           onChange={() => handleSelectService(item.value)}
@@ -272,7 +288,7 @@ const Contact: React.FC<ContactProps> = ({ data = false }) => {
                   </div>
 
                   {formik.touched.services && formik.errors.services && (
-                    <div className="text-danger mt-2 font-semibold  text-lg">
+                    <div className="text-danger mt-2 font-semibold text-lg">
                       {formik.errors.services as string}
                     </div>
                   )}
@@ -280,7 +296,7 @@ const Contact: React.FC<ContactProps> = ({ data = false }) => {
               </div>
 
               <div className="form-group">
-              <label className="font-normal text-lg">
+                <label className="font-normal text-lg">
                   Your Message <span>*</span>
                 </label>
                 <textarea
@@ -291,14 +307,41 @@ const Contact: React.FC<ContactProps> = ({ data = false }) => {
                   value={formik.values.message}
                 />
                 {formik.touched.message && formik.errors.message && (
-                  <small className="text-danger font-semibold  text-lg">{formik.errors.message}</small>
+                  <small className="text-danger font-semibold text-lg">
+                    {formik.errors.message}
+                  </small>
+                )}
+              </div>
+
+              <div className="mt-4 d-flex flex-column align-items-center">
+                <ReCAPTCHA
+                  ref={recaptchaRef}
+                  sitekey={process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY!}
+                  onChange={(token) => {
+                    setCaptchaToken(token || "");
+                    setCaptchaError("");
+                  }}
+                  onExpired={() => {
+                    setCaptchaToken("");
+                    setCaptchaError("Captcha expired. Please verify again.");
+                  }}
+                />
+
+                {captchaError && (
+                  <small className="text-danger font-semibold text-lg mt-2">
+                    {captchaError}
+                  </small>
                 )}
               </div>
 
               <div className="mb-0 text-center pt-md-5">
                 <button type="submit" className="btn btn-primary">
                   {loading ? (
-                    <CircularProgress size={20} sx={{ color: "#fff" }} className="mx-16" />
+                    <CircularProgress
+                      size={20}
+                      sx={{ color: "#fff" }}
+                      className="mx-16"
+                    />
                   ) : (
                     <>
                       Submit Now <i className="fa-solid fa-arrow-right-long"></i>
@@ -309,8 +352,6 @@ const Contact: React.FC<ContactProps> = ({ data = false }) => {
             </form>
           </div>
         </div>
-
-
       </div>
     </div>
   );

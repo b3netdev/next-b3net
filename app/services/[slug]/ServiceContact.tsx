@@ -1,12 +1,13 @@
 "use client";
 
-import React from "react";
+import React, { useRef, useState } from "react";
 import { useFormik } from "formik";
 import * as Yup from "yup";
 import { Element } from "react-scroll";
 import { useForm } from "@/hooks/useForm";
 import { useRouter } from "next/navigation";
 import CircularProgress from "@mui/material/CircularProgress";
+import ReCAPTCHA from "react-google-recaptcha";
 
 type FormValues = {
   first_name: string;
@@ -17,15 +18,23 @@ type FormValues = {
   companyWebsite: string;
   message: string;
 };
+
 type ServiceContactProps = {
   title?: string;
   showTitle?: boolean;
 };
 
-const ServiceContact: React.FC<ServiceContactProps> = ({ title = "Request a FREE Consultation", showTitle = true,
+const ServiceContact: React.FC<ServiceContactProps> = ({
+  title = "Request a FREE Consultation",
+  showTitle = true,
 }) => {
-  const { submitcontact, loading } = useForm()
-  const router = useRouter()
+  const { submitcontact, loading } = useForm();
+  const router = useRouter();
+
+  const [captchaToken, setCaptchaToken] = useState("");
+  const [captchaError, setCaptchaError] = useState("");
+  const recaptchaRef = useRef<ReCAPTCHA | null>(null);
+
   const formik = useFormik<FormValues>({
     initialValues: {
       first_name: "",
@@ -52,12 +61,29 @@ const ServiceContact: React.FC<ServiceContactProps> = ({ title = "Request a FREE
     }),
     onSubmit: async (values, { setSubmitting, resetForm }) => {
       try {
-      
-        const data = await submitcontact(formik?.values, 12129)
-        
-        if (data?.status === "mail_sent") {
-          router.push("/thankyou");
+        if (!captchaToken) {
+          setCaptchaError("Please verify that you are not a robot.");
+          setSubmitting(false);
+          return;
         }
+
+        setCaptchaError("");
+
+        const data = await submitcontact(
+          { ...formik.values, recaptcha_token: captchaToken },
+          12129
+        );
+
+        if (data?.status === "mail_sent") {
+          recaptchaRef.current?.reset();
+          setCaptchaToken("");
+          router.push("/thankyou");
+        } else {
+          recaptchaRef.current?.reset();
+          setCaptchaToken("");
+          setCaptchaError("Captcha expired. Please verify again.");
+        }
+
         resetForm();
       } catch (error) {
         console.error("Submit error:", error);
@@ -81,10 +107,7 @@ const ServiceContact: React.FC<ServiceContactProps> = ({ title = "Request a FREE
         <div className="container">
           <div className="common-form shadow-1 bg-white p-3 p-sm-5">
             <div className="heading5 mb-3 mb-md-5 text-center">
-              {
-                showTitle &&
-                <h2>{title}</h2>
-              }
+              {showTitle && <h2>{title}</h2>}
             </div>
 
             <div role="form" className="wpcf7" id="wpcf7-f12129-o3" lang="en-US" dir="ltr">
@@ -275,14 +298,28 @@ const ServiceContact: React.FC<ServiceContactProps> = ({ title = "Request a FREE
                   )}
                 </div>
 
+                <div className="mt-3 d-flex flex-column align-items-center">
+                  <ReCAPTCHA
+                    ref={recaptchaRef}
+                    sitekey={process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY!}
+                    onChange={(token) => {
+                      setCaptchaToken(token || "");
+                      setCaptchaError("");
+                    }}
+                    onExpired={() => {
+                      setCaptchaToken("");
+                      setCaptchaError("Captcha expired. Please verify again.");
+                    }}
+                  />
+
+                  {captchaError && (
+                    <small className="text-danger mt-2">{captchaError}</small>
+                  )}
+                </div>
+
                 <div className="mt-md-3 text-center">
-                  {/* <input
+                  <button
                     type="submit"
-                    className="wpcf7-form-control has-spinner wpcf7-submit services-button"
-                    value={formik.isSubmitting ? "Submitting..." : "SUBMIT NOW"}
-                    disabled={formik.isSubmitting}
-                  /> */}
-                  <button type="submit"
                     className="wpcf7-form-control has-spinner wpcf7-submit services-button"
                     disabled={loading}
                   >
