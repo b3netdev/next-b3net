@@ -29,6 +29,7 @@ export default function BlogClient() {
   const tabsRef = useRef<HTMLDivElement | null>(null);
   const [categoryloading, setCategoryLoading] = useState(false)
   const [pageCount, setPageCount] = useState<any>(null)
+  const [scroll , setScroll] = useState(true)
 
   const [selectTab, setSelectTab] = useState<any>({
     id: "",
@@ -87,7 +88,7 @@ export default function BlogClient() {
 
 
   useEffect(() => {
-    if (blogItems?.length > 0 && tabsRef?.current) {
+    if (blogItems?.length > 0 && tabsRef?.current && scroll==false) {
       const yOffset = -220;
 
       const y =
@@ -111,6 +112,7 @@ export default function BlogClient() {
 
 
   const HandleSelectnumbox = (num: number) => {
+    setScroll(false)
     setPageNumber(num);
   };
 

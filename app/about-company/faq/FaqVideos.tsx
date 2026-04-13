@@ -12,7 +12,7 @@ type Props = {
 };
 
 const FaqVideos = ({ video, index }: Props) => {
-    console.log(video)
+
   return (
     <div className="col-md-6 col-lg-4" key={index}>
       <div className="video-card text-center">

@@ -59,8 +59,6 @@ export default async function BlogPage() {
             </div>
           </div>
         </div>
-
-
         <BlogClient />
       </div>
     </main>
