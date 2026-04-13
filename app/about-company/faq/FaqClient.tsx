@@ -3,6 +3,7 @@
 import React, { useState } from "react";
 import Skeleton from "@mui/material/Skeleton";
 import Stack from "@mui/material/Stack";
+import FaqVideos from "./FaqVideos";
 
 type Props = {
   pageData: any;
@@ -39,9 +40,8 @@ function AccordionItem({
           aria-controls={`collapse-${id}`}
         >
           <i
-            className={`fa-solid fa-chevron-down icon transition-transform duration-300 ease-in-out ${
-              open ? "rotate-180" : "rotate-0"
-            }`}
+            className={`fa-solid fa-chevron-down icon transition-transform duration-300 ease-in-out ${open ? "rotate-180" : "rotate-0"
+              }`}
           ></i>
           <span className="text">{question}</span>
         </button>
@@ -50,9 +50,8 @@ function AccordionItem({
       <div
         id={`collapse-${id}`}
         aria-labelledby={`heading-${id}`}
-        className={`overflow-hidden transition-all duration-300 ease-in-out ${
-          open ? "max-h-[1000px] opacity-100" : "max-h-0 opacity-0"
-        }`}
+        className={`overflow-hidden transition-all duration-300 ease-in-out ${open ? "max-h-[1000px] opacity-100" : "max-h-0 opacity-0"
+          }`}
       >
         <div className="accordion-body">{answer}</div>
       </div>
@@ -93,35 +92,35 @@ export default function FaqClient({ pageData, loading = false }: Props) {
                 <div className="col-md-6 pe-md-4">
                   {loading
                     ? Array.from({ length: 8 }).map((_, i) => (
-                        <FaqSkeletonItem key={`left-skel-${i}`} />
-                      ))
+                      <FaqSkeletonItem key={`left-skel-${i}`} />
+                    ))
                     : pageData?.acf?.data?.faq_left?.map((item: any, index: number) => (
-                        <AccordionItem
-                          key={`left-${index}`}
-                          id={`left-${index}`}
-                          question={item?.question}
-                          answer={item?.answer}
-                          activeId={activeId}
-                          setActiveId={setActiveId}
-                        />
-                      ))}
+                      <AccordionItem
+                        key={`left-${index}`}
+                        id={`left-${index}`}
+                        question={item?.question}
+                        answer={item?.answer}
+                        activeId={activeId}
+                        setActiveId={setActiveId}
+                      />
+                    ))}
                 </div>
 
                 <div className="col-md-6">
                   {loading
                     ? Array.from({ length: 8 }).map((_, i) => (
-                        <FaqSkeletonItem key={`right-skel-${i}`} />
-                      ))
+                      <FaqSkeletonItem key={`right-skel-${i}`} />
+                    ))
                     : pageData?.acf?.data?.Faq_Right?.map((item: any, index: number) => (
-                        <AccordionItem
-                          key={`right-${index}`}
-                          id={`right-${index}`}
-                          question={item?.question}
-                          answer={item?.answer}
-                          activeId={activeId}
-                          setActiveId={setActiveId}
-                        />
-                      ))}
+                      <AccordionItem
+                        key={`right-${index}`}
+                        id={`right-${index}`}
+                        question={item?.question}
+                        answer={item?.answer}
+                        activeId={activeId}
+                        setActiveId={setActiveId}
+                      />
+                    ))}
                 </div>
               </div>
             </div>
@@ -139,26 +138,23 @@ export default function FaqClient({ pageData, loading = false }: Props) {
             <div className="row gy-4">
               {loading
                 ? Array.from({ length: 6 }).map((_, i) => (
-                    <div className="col-md-6 col-lg-4" key={`video-skel-${i}`}>
-                      <div className="video-card text-center">
-                        <div className="video-thumbnail">
-                          <Skeleton variant="rounded" height={190} />
-                        </div>
-                        <div style={{ marginTop: 10 }}>
-                          <Skeleton variant="text" height={22} width="70%" />
-                        </div>
+                  <div className="col-md-6 col-lg-4" key={`video-skel-${i}`}>
+                    <div className="video-card text-center">
+                      <div className="video-thumbnail">
+                        <Skeleton variant="rounded" height={190} />
+                      </div>
+                      <div style={{ marginTop: 10 }}>
+                        <Skeleton variant="text" height={22} width="70%" />
                       </div>
                     </div>
-                  ))
+                  </div>
+                ))
                 : pageData?.acf?.data?.video_repeater?.map((video: any, index: number) => (
-                    <div className="col-md-6 col-lg-4" key={index}>
-                      <div className="video-card text-center">
-                        <div className="video-thumbnail">
-                          <div dangerouslySetInnerHTML={{ __html: video?.video_link ?? "" }} />
-                        </div>
-                      </div>
-                    </div>
-                  ))}
+                  <FaqVideos
+                    index={index}
+                    video={video}
+                  />
+                ))}
             </div>
           </div>
         </div>
