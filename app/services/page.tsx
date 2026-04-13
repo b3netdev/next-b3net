@@ -92,6 +92,7 @@ const Services = async () => {
                                         <div className="card-body">
                                             <h4>{service.title}</h4>
                                             <div
+                                            className="primary-bodyText"
                                                 dangerouslySetInnerHTML={{
                                                     __html: service?.description,
                                                 }}
@@ -116,7 +117,7 @@ const Services = async () => {
                         <h2 className="sec-heading">
                             {pageData?.acf?.data?.service_page_section_6_title}
                         </h2>
-                        <p>
+                        <p className="primary-bodyText">
                             We are immensely grateful for our clients’ kind words. Here is
                             what they want to say about our overall services.
                         </p>

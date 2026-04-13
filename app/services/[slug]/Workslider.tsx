@@ -21,7 +21,7 @@ const Workslider: React.FC<WorkSliderProps> = ({ pageData }) => {
                 <h2 className="sec-heading">
                   {pageData?.acf?.data?.service_page_section_5_title}
                 </h2>
-                <p>{pageData?.acf?.data?.service_page_section_5_description}</p>
+                <p className="primary-bodyText">{pageData?.acf?.data?.service_page_section_5_description}</p>
               </div>
 
               <div className="new-slider-1 owl-carousel owl-theme">
