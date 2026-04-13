@@ -116,7 +116,7 @@ const BlogDetail = async ({ params }: { params: { slug: string } }) => {
                     <div className="navListMenu">
                       {sideNav?.map((item, index) => (
                         <div className="blogSidenavitemBox" key={index}>
-                          <Scroll to={item.id} className="blogSidenavitem p-2">
+                          <Scroll to={item.id} className="blogSidenavitem primary-bodyText p-2">
                             {item.text}
                           </Scroll>
                         </div>
@@ -148,7 +148,7 @@ const BlogDetail = async ({ params }: { params: { slug: string } }) => {
               <div className="col-lg-8 col-xl-9">
                 
                 <div
-                  className="blog-container"
+                  className="blog-container primary-bodyText"
                   dangerouslySetInnerHTML={{
                     __html: contentData,
                   }}

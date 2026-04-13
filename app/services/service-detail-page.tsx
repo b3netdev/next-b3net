@@ -176,9 +176,9 @@ export async function generateStaticParams() {
                             <div className="container nitro-offscreen">
                                 <div className="row dallasSeo-sec align-items-center">
                                     <div className="col-lg-6 left-column">
-                                        <div
-                                            dangerouslySetInnerHTML={{ __html: pageData?.acf?.data?.common_section_content_1 || "" }}
-                                        />
+                                            <div
+                                                dangerouslySetInnerHTML={{ __html: pageData?.acf?.data?.common_section_content_1 || "" }}
+                                            />
 
                                     </div>
                                     <div className="col-lg-6 right-column text-center">
@@ -205,6 +205,7 @@ export async function generateStaticParams() {
                                             {pageData?.acf?.data?.services_page_section_2_heading}
                                         </h2>
                                         <div
+                                        className="primary-bodyText"
                                             dangerouslySetInnerHTML={{
                                                 __html:
                                                     pageData?.acf?.data?.services_page_section_2_description || "",
@@ -404,6 +405,7 @@ export async function generateStaticParams() {
                             <div className="Comprehensive">
                                 <div className="container">
                                     <div
+                                    className="primary-bodyText"
                                         dangerouslySetInnerHTML={{
                                             __html:
                                                 pageData?.acf?.data
@@ -474,7 +476,7 @@ export async function generateStaticParams() {
                         <div className="container">
                             <div className="heading5 mb-4 text-center services-card-solution">
                                 <h2>{pageData?.acf?.data?.services_page_section_3_title}</h2>
-                                <p>{pageData?.acf?.data?.services_page_section_3_title_2}</p>
+                                <p className="primary-bodyText">{pageData?.acf?.data?.services_page_section_3_title_2}</p>
                             </div>
                             <div className="row gy-4">
                                 {pageData?.acf?.data?.services_page_section_3_card?.map(
@@ -564,6 +566,7 @@ export async function generateStaticParams() {
                                         <div className="col-md-6">
                                             <div className="outerwrap-text">
                                                 <div
+                                                className="primary-bodyText"
                                                     dangerouslySetInnerHTML={{
                                                         __html:
                                                             pageData?.acf?.data
@@ -613,7 +616,7 @@ export async function generateStaticParams() {
                                     <h2 className="sec-heading">
                                         {pageData?.acf?.data?.service_page_section_6_title}
                                     </h2>
-                                    <p>{pageData?.acf?.data?.service_page_section_6_short_title}</p>
+                                    <p className="primary-bodyText">{pageData?.acf?.data?.service_page_section_6_short_title}</p>
                                 </div>
 
                                 <div className=" new-slider-2  d-flex flex-wrap gap-5 justify-center ">
@@ -631,7 +634,7 @@ export async function generateStaticParams() {
                                                                 />
                                                             </div>
 
-                                                            <p className="clamp-3" >
+                                                            <p className="clamp-3 primary-bodyText" >
                                                                 {data?.post_content.slice(0, 197)}
                                                                 {/* <Link href={`/blog/${data?.post_name}`} className="text-[#ff6600] opacity-80"> ...Read More</Link> */}
                                                             </p>
@@ -668,7 +671,7 @@ export async function generateStaticParams() {
                                     <h2 className="sec-heading">
                                         {pageData?.acf?.data?.service_page_section_7_title}
                                     </h2>
-                                    <p>
+                                    <p className="primary-bodyText">
                                         Generating growth, improving ROI, and driving results for our
                                         clients. Check out our case studies to discover the value we
                                         add.

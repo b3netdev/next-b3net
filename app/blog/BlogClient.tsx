@@ -194,7 +194,7 @@ export default function BlogClient() {
                     <div className="left-side">
                       <h4 className="!text-[#8c92a1]">{item?.category}</h4>
                       <Link href={`/${item?.slug}`}><h2 className="blogbannerheading">{item.title}</h2></Link>
-                      <p>{item?.excerpt}</p>
+                      <p className="primary-bodyText">{item?.excerpt}</p>
                       <div className="mb-0 text-lg-start pt-md-4 " data-aos="fade-up" data-aos-duration="800">
                         <Link href={`/${item?.slug}`} className="btn btn-primary orange-1">
                           Read More
@@ -311,6 +311,7 @@ export default function BlogClient() {
                             </Link>
 
                             <div
+                            className="primary-bodyText"
                               dangerouslySetInnerHTML={{ __html: post?.excerpt?.rendered }}
                             />
 

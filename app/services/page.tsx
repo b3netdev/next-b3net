@@ -135,7 +135,7 @@ const Services = async () => {
                                                     alt="quotes"
                                                 />
                                             </div>
-                                            <span>
+                                            <span className="primary-bodyText">
                                                 {item?.post_content}
                                                 <Link
                                                     href="/"
@@ -168,7 +168,7 @@ const Services = async () => {
                             <h2 className="sec-heading">
                                 {pageData?.acf?.data?.service_page_section_7_title}
                             </h2>
-                            <p>{pageData?.acf?.data?.service_page_section_7_title}</p>
+                            <p className="primary-bodyText"> {pageData?.acf?.data?.service_page_section_7_title}</p>
                         </div>
                         <div className="ServiceKeyChanges">
                             {pageData?.acf?.data?.service_page_section_7_card?.map(
@@ -199,7 +199,7 @@ const Services = async () => {
                                                             {item?.title}
                                                         </h4>
 
-                                                        <p className="card-text">
+                                                        <p className="card-text primary-bodyText">
                                                             {item?.description}
                                                         </p>
 

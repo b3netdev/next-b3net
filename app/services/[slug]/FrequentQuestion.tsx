@@ -46,7 +46,7 @@ const FrequentQuestion = ({ pageData }: { pageData: any }) => {
               {/* </div> */}
               {isOpen && (
                 <div id={collapseId} className="accordion-collapse">
-                  <div className="accordion-body">{item?.answer}</div>
+                  <div className="accordion-body primary-bodyText">{item?.answer}</div>
                 </div>
               )}
             </div>

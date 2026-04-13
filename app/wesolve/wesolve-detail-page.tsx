@@ -143,6 +143,7 @@ export default async function WesolveDetailPage({
             <div className="col-lg-8 col-xl-9">
               <div className="blog-container">
                 <div
+                  className="primary-bodyText"
                   dangerouslySetInnerHTML={{
                     __html: pageData?.content || "",
                   }}
@@ -178,7 +179,7 @@ export default async function WesolveDetailPage({
                     <img src={author?.avatar_urls?.[256] || ""} alt={author?.name} />
                     <div>
                       <h3>{author?.name}</h3>
-                      <p>{author?.description}</p>
+                      <p className="primary-bodyText">{author?.description}</p>
                     </div>
                   </Link>
                 </div>
@@ -217,7 +218,9 @@ export default async function WesolveDetailPage({
                                 <span className="font-bold">{post.title?.rendered}</span>
                               </Link>
 
-                              <div dangerouslySetInnerHTML={{ __html: post?.excerpt?.rendered }} />
+                              <div
+                              className="primary-bodyText"
+                               dangerouslySetInnerHTML={{ __html: post?.excerpt?.rendered }} />
 
                               <Link href={`/${post?.slug}`} className="d-flex align-items-center gap-2 clr-blk">
                                 READ MORE <i className="fa-solid fa-arrow-right-long"></i>
