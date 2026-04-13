@@ -1,6 +1,6 @@
 import React from "react";
 import FooterClient from "../client/FooterClient";
-import { footerData, footerData1 } from "@/helper/Footer";
+import { footerData} from "@/helper/Footer";
 
 export type FooterLink = {
   label: string;
