@@ -28,6 +28,9 @@ input {
 .primary-bodyText{
   color: #5c5e66 !important;
 }
+.primary-bodyText p{
+  color: #5c5e66 !important;
+}
 
 .page_content {
   padding-top: 0;

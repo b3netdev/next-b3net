@@ -53,7 +53,7 @@ function AccordionItem({
         className={`overflow-hidden transition-all duration-300 ease-in-out ${open ? "max-h-[1000px] opacity-100" : "max-h-0 opacity-0"
           }`}
       >
-        <div className="accordion-body">{answer}</div>
+        <div className="accordion-body primary-bodyText">{answer}</div>
       </div>
     </div>
   );

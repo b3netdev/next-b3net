@@ -99,6 +99,7 @@ export default async function AboutUsPage({ params }: PageProps) {
 
             <div className="col-lg-8 col-md-6 mb-4 common-content new-colr">
               <div
+              className="primary-bodyText"
                 dangerouslySetInnerHTML={{
                   __html: pageData?.acf?.data?.content ?? "",
                 }}
@@ -132,6 +133,7 @@ export default async function AboutUsPage({ params }: PageProps) {
 
                       <div className="video-card-text">
                         <div
+                        className="primary-bodyText"
                           dangerouslySetInnerHTML={{
                             __html: data?.second_section_content || " ",
                           }}
@@ -175,6 +177,7 @@ export default async function AboutUsPage({ params }: PageProps) {
                         </div>
                         <div className="testi-text pt-2 pt-md-4"></div>
                         <div
+                        className="primary-bodyText"
                           dangerouslySetInnerHTML={{
                             __html: leader?.leader_content || "",
                           }}
@@ -289,7 +292,7 @@ export default async function AboutUsPage({ params }: PageProps) {
               </div>
             </div>
             <div className="col-lg-6">
-              <p>{pageData?.acf?.data?.testimonial_content}</p>
+              <p className="primary-bodyText">{pageData?.acf?.data?.testimonial_content}</p>
               <div className="mt-4">
                 <Link
                   className="btn btn-orange"

@@ -90,7 +90,7 @@ export default function AboutUsClient({ pageData }: Props) {
                     </svg>
                     <div className="progress-text">0%</div>
                   </div>
-                  <p className="mt-2">Web Development</p>
+                  <p className="mt-2 primary-bodyText">Web Development</p>
                 </div>
                 <div className="col-sm-4 col-6 mb-4 v-flex">
                   <div className="progress-container" data-progress="90">
@@ -110,7 +110,7 @@ export default function AboutUsClient({ pageData }: Props) {
                     </svg>
                     <div className="progress-text">0%</div>
                   </div>
-                  <p className="mt-2">Ecommerce Development</p>
+                  <p className="mt-2 primary-bodyText ">Ecommerce Development</p>
                 </div>
                 <div className="col-sm-4 col-6 mb-4 v-flex">
                   <div className="progress-container" data-progress="95">
@@ -130,7 +130,7 @@ export default function AboutUsClient({ pageData }: Props) {
                     </svg>
                     <div className="progress-text">0%</div>
                   </div>
-                  <p className="mt-2">Digital Marketing</p>
+                  <p className="mt-2 primary-bodyText">Digital Marketing</p>
                 </div>
                 <div className="col-sm-4 col-6 mb-4 v-flex">
                   <div className="progress-container" data-progress="95">
@@ -150,7 +150,7 @@ export default function AboutUsClient({ pageData }: Props) {
                     </svg>
                     <div className="progress-text">0%</div>
                   </div>
-                  <p className="mt-2">Responsive Web Design</p>
+                  <p className="mt-2 primary-bodyText">Responsive Web Design</p>
                 </div>
                 <div className="col-sm-4 col-6 mb-4 v-flex">
                   <div className="progress-container" data-progress="80">
@@ -170,7 +170,7 @@ export default function AboutUsClient({ pageData }: Props) {
                     </svg>
                     <div className="progress-text">0%</div>
                   </div>
-                  <p className="mt-2">Mobile Apps Development</p>
+                  <p className="mt-2 primary-bodyText">Mobile Apps Development</p>
                 </div>
               </div>
             </div>

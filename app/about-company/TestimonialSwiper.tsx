@@ -83,14 +83,14 @@ function TestimonialSwiper() {
                       <img src={item.image} alt={item.name} />
                     </div>
                     <div className="content">
-                      <strong>{item.name}</strong>
-                      <div>
+                      <strong className='primary-bodyText'>{item.name}</strong>
+                      <div className='primary-bodyText'> 
                         {item.designation}, {item.company}
                       </div>
                     </div>
                   </div>
                   <div className="testi-text pt-2 pt-md-4">
-                    <p>{item.message}</p>
+                    <p className='primary-bodyText'>{item.message}</p>
                   </div>
                 </div>
               </div>
