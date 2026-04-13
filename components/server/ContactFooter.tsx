@@ -13,7 +13,7 @@ const ContactFooter = () => {
           >
             <h2>
               Boost Your Revenue with
-              <span>AI-Powered</span>
+              <span> AI-Powered</span>
             </h2>
             <h3>Digital Transformation</h3>
           </div>

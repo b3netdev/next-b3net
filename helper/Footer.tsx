@@ -491,10 +491,10 @@ export const footerData: FooterData = {
                 label: "Digital Marketing Southlake TX",
                 url: "/services/digital-marketing-company-in-southlake-tx",
               },
-              {
-                label: "Southlake Website Design & Development",
-                url: "/services/southlake-website-design-development",
-              },
+              // {
+              //   label: "Southlake Website Design & Development",
+              //   url: "/services/southlake-website-design-development",
+              // },
             ],
           },
           {
