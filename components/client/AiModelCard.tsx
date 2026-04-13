@@ -125,7 +125,7 @@ export default function AiModelClient(): React.ReactElement {
                   </div>
                   <h5>{data.title}</h5>
                 </div>
-                <p>{data.desc}</p>
+                <p className="primary-bodyText">{data.desc}</p>
               </div>
             </div>
           );

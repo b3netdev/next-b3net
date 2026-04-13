@@ -18,7 +18,7 @@ const Testimonial = () => {
           </div>
 
           <div className="col-lg-6">
-            <p>
+            <p className="primary-bodyText"> 
               Our clients trust us to deliver results that matter. Hear how our
               AI-powered solutions have helped businesses grow, innovate, and
               stay ahead of the competition.

@@ -225,7 +225,7 @@ export default async function Home() {
                             <div className="heading-title heading-big-uppercase text-center">
                                 <p className="title">About Us</p>
                                 <h2>What <span style={{ color: "#3b58a1" }}>B3NET</span> Delivers for Your Business</h2>
-                                <p>B3NET helps businesses increase qualified leads, improve conversion rates, and operate more
+                                <p className="primary-bodyText" >B3NET helps businesses increase qualified leads, improve conversion rates, and operate more
                                     efficiently by building and optimizing digital platforms that are designed to drive
                                     measurable growth.</p>
                             </div>
@@ -244,14 +244,14 @@ export default async function Home() {
                                     </div>
                                 </div>
                                 <div className="abt-content common-content">
-                                    <ul>
+                                    <ul className="primary-bodyText">
                                         <li>Custom website design and development</li>
                                         <li>eCommerce platforms and online stores</li>
                                         <li>Search engine optimization (SEO) and answer engine optimization (AEO)</li>
                                         <li>Mobile application design and development</li>
                                         <li>CRM implementation, automation, and optimization</li>
                                     </ul>
-                                    <p>These foundations are then enhanced with AI-driven marketing, automation, and analytics
+                                    <p className="primary-bodyText">These foundations are then enhanced with AI-driven marketing, automation, and analytics
                                         to reduce manual effort, accelerate sales response, and improve visibility into
                                         performance and ROI.</p>
                                 </div>
@@ -269,14 +269,14 @@ export default async function Home() {
                                     </div>
                                 </div>
                                 <div className="abt-content common-content">
-                                    <ul>
+                                    <ul className="primary-bodyText">
                                         <li>Generate more inbound leads and demand</li>
                                         <li>Convert more website and eCommerce traffic into revenue</li>
                                         <li>Automate marketing and sales workflows</li>
                                         <li>Improve customer engagement across digital channels</li>
                                         <li>Scale digital operations without increasing complexity</li>
                                     </ul>
-                                    <p>With over 25 years of execution experience, B3NET combines proven digital
+                                    <p className="primary-bodyText">With over 25 years of execution experience, B3NET combines proven digital
                                         fundamentals with modern AI-powered systems to deliver results that are practical,
                                         trackable, and aligned with your business goals.</p>
                                 </div>

@@ -22,7 +22,7 @@ export default function AiModel() {
           <div className="row align-items-start">
             <div className="col-lg-6 mb-0 mb-lg-0">
               <div className="para-content">
-                <p>
+                <p className="primary-bodyText">
                   Artificial Intelligence is reshaping the way people search,
                   discover, and connect with businesses. The old rules of SEO
                   are no longer enough to capture attention in today’s
@@ -30,7 +30,7 @@ export default function AiModel() {
                   users are more selective, and competition is more intense than
                   ever.
                 </p>
-                <p>
+                <p className="primary-bodyText">
                   <strong>B3NET</strong> specializes in creating powerful
                   AI-driven SEO strategies built for this new era. We go beyond
                   traditional methods by combining advanced research, real-time
@@ -39,7 +39,7 @@ export default function AiModel() {
                   designed to keep your business visible and relevant in
                   AI-first search environments.
                 </p>
-                <p className="text-underlin">
+                <p className="text-underlin primary-bodyText">
                   With <strong>B3NET</strong>, you don’t just keep up with
                   change—you stay ahead of it. We position your brand where it
                   matters most in AI-powered search, helping you attract the

@@ -239,7 +239,7 @@ function AccordionItem({
           open ? "max-h-[1000px] opacity-100" : "max-h-0 opacity-0"
         }`}
       >
-        <div className="accordion-body">{item.answer}</div>
+        <div className="accordion-body primary-bodyText">{item.answer}</div>
       </div>
     </div>
   );

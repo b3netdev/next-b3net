@@ -87,7 +87,7 @@ const TestimonialCard: React.FC<{
         </div>
         <div className="content">
           <h4>{item.name}</h4>
-          <p>{item.role}</p>
+          <p className="primary-bodyText">{item.role}</p>
           <Stars />
         </div>
       </div>
@@ -126,7 +126,7 @@ const TestimonialCard: React.FC<{
             </div>
           )
         ) : (
-          <p>{item.text}</p>
+          <p className="primary-bodyText">{item.text}</p>
         )}
       </div>
     </div>

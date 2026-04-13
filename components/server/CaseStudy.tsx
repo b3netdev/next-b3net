@@ -56,7 +56,7 @@ const CaseStudy = () => {
                   Built for the Bold.
                   <span>Engineered for Growth.</span>
                 </h2>
-                <p style={{ textAlign: "justify" }}>
+                <p style={{ textAlign: "justify" }} className="primary-bodyText">
                   B3NET Inc. is a premier Digital Marketing, Web Design, Web Development,
                   and Mobile App Development company, proudly serving businesses from our
                   offices in Dallas, TX, Orange County, CA, and New York. With over 25
@@ -90,7 +90,7 @@ const CaseStudy = () => {
                       </div>
                       <div className="expert-text">
                         <h3 className="section-title">Expertise Backed by Experience</h3>
-                        <p>
+                        <p className="primary-bodyText">
                           Since 1999, B3NET has delivered innovative, data-driven solutions
                           to enhance customer experiences, boost efficiency, and maximize ROI.
                           From startups to enterprises, we craft tailored strategies for growth and success.
@@ -104,7 +104,7 @@ const CaseStudy = () => {
                       </div>
                       <div className="expert-text">
                         <h3 className="section-title">Staying Ahead with Technology</h3>
-                        <p>
+                        <p className="primary-bodyText">
                           We leverage the latest tools and trends to keep your business ahead,
                           creating future-ready solutions that adapt to the ever-changing digital landscape.
                         </p>
@@ -117,7 +117,7 @@ const CaseStudy = () => {
                       </div>
                       <div className="expert-text">
                         <h3 className="section-title">Commitment to Driving Transformation</h3>
-                        <p>
+                        <p className="primary-bodyText">
                           At B3NET, we empower businesses to thrive with Al-driven strategies that
                           boost visibility, streamline operations, and drive revenue. Partner with us
                           to embrace innovation, stay ahead, and redefine success in the Al era.

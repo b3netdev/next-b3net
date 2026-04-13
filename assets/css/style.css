@@ -25,6 +25,10 @@ input {
   max-width: 100%;
 }
 
+.primary-bodyText{
+  color: #5c5e66 !important;
+}
+
 .page_content {
   padding-top: 0;
   width: 100%;

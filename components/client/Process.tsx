@@ -108,7 +108,7 @@ const Process: React.FC = () => {
         <div className="row mb-4 mb-md-5">
           <div className="col-lg-12 text-center">
             <div className="heading-title">
-              <p>Our Process</p>
+              <p className="primary-bodyText">Our Process</p>
               <h2>
                 Intelligent. <span>Custom-Built.</span> Efficient.
               </h2>
@@ -158,7 +158,7 @@ const Process: React.FC = () => {
                         }}
                       >
                         <div className="accordion-body">
-                          <p>{step.description}</p>
+                          <p className="primary-bodyText">{step.description}</p>
                         </div>
                       </div>
                     </div>
