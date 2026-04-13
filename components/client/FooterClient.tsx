@@ -230,7 +230,9 @@ export default function FooterClient({ footerData }: Props) {
                         aria-expanded={open ? "true" : "false"}
                         aria-controls={collapseId}
                         onClick={() =>
-                          setOpenMobileAcc((p) => (p === loc.id ? "" : loc.id))
+                          setOpenMobileAcc((p) => 
+                            (p === loc.id ? "" : loc.id)
+                      )
                         }
                       >
                         {loc.label}

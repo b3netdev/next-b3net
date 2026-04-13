@@ -516,7 +516,45 @@ export const footerData: FooterData = {
     {
       id: "australia",
       label: "Australia",
-      columns: [[{ title: "Coming Soon...", links: [] }]],
+      columns: [
+        [
+          { title:"Sydney",
+            links:[
+              {
+                label:"SEO & PPC Services Sydney",
+                url:'https://au.b3net.com/seo-ppc-company-sydney/'
+              },
+              {
+                label:"Web Design and Development Sydney",
+                url:'https://au.b3net.com/sydney-website-design-development/'
+              },
+            ]
+          },
+          {
+            title:"Melbourne",
+            links:[
+              {
+                label:"SEO & PPC Services Melbourne",
+                url:'https://au.b3net.com/seo-ppc-company-melbourne/'
+              },
+              {
+                label:"Web Design and Development Melbourne – Future-Ready Websites That Deliver",
+                url:'https://au.b3net.com/melbourne-web-design-melbourne/'
+              },
+            ]
+          },
+          {
+            title:"Brisbane",
+            links:[
+              {
+                label:"Web Design and Development Brisbane",
+                url:'https://au.b3net.com/brisbane-website-design-development/'
+              },
+            ]
+          },
+
+        ]
+      ],
     },
     {
       id: "new-Zealand",
