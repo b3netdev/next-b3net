@@ -131,7 +131,7 @@ export default async function ContactUs() {
               <div className="col-lg-8 pe-lg-5 pe-0 orger-2">
                 <ContactUsForm />
 
-                <div style={{ marginTop: "20px" }}>
+                <div style={{ marginTop: "20px" }} className="primary-bodyText">
                   *The information you provide through this Contact Form will be
                   used solely for its intended purpose.
                 </div>
@@ -185,7 +185,7 @@ export default async function ContactUs() {
         </div>
       </div>
 
-      <div className="contact-address-sec">
+      <div className="contact-address-sec ">
         <div className="container">
           <div className="row gy-4">
             {offices.map((office: any, index: any) => (
@@ -202,7 +202,7 @@ export default async function ContactUs() {
                           <i className="fa-solid fa-location-dot"></i>
                           {loc.label && <strong>{loc.label} </strong>}
                           {loc.address.split("\n").map((line: any, idx: any) => (
-                            <span key={idx} className="font-semibold opacity-70" >
+                            <span key={idx} className="font-semibold opacity-80 primary-bodyText" >
                               {line} 
                               <br />
                             </span>
@@ -213,7 +213,7 @@ export default async function ContactUs() {
 
                     {office.phone && (
                       <li>
-                        <a href={`tel:${office.phone}`} className="font-semibold">
+                        <a href={`tel:${office.phone}`} className="font-semibold primary-bodyText">
                           <i className="fa-solid fa-phone"></i>
                           {office.phone}
                         </a>
@@ -222,7 +222,7 @@ export default async function ContactUs() {
 
                     {office.email && (
                       <li>
-                        <a href={`mailto:${office.email}`} className="font-semibold">
+                        <a href={`mailto:${office.email}`} className="font-semibold primary-bodyText">
                           <i className="fa-solid fa-envelope"></i>
                           info (@) b3net (dot) com
                         </a>

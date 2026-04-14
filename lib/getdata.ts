@@ -1,10 +1,11 @@
 // lib/post.ts
 import { fetcher } from "@/api/fether";
 
-export async function GetPageData(slug: string, type: string) {
+export async function GetPageData(slug: string, type?: string) {
 
+ 
   const data = await fetcher(`/wp-json/custom/v1/content/${slug}?_embed`, {
-    params: { type: type },
+    params: type ? { type } : {},
     revalidate: 60,
 
   });
@@ -89,3 +90,4 @@ export const getcaseStudiesData = async (id: number) => {
       return Array.isArray(data) ? data ?? null : data ?? null;
    
   };
+

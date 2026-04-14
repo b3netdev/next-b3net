@@ -43,5 +43,5 @@ export type FooterData = {
 
 
 export default function Footer() {
-  return <FooterClient footerData={footerData} />;
+  return <FooterClient />;
 }

@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Dot } from "lucide-react";
 import type { FooterData, FooterExploreItem, FooterLocationItem } from "../server/Footer";
 import Link from "next/link";
@@ -8,10 +8,9 @@ import ContactFooter from "../server/ContactFooter";
 import { useAppSelector } from "@/redux/hooks";
 import ChatBot from "./Chatbot";
 import { normalizeServicePath } from "@/lib/servicePath";
-
-type Props = {
-  footerData: FooterData;
-};
+// import { footerdata } from "@/helper/Footer";
+import { useFooter } from "@/hooks/useFooter";
+import { BASE_URL } from "@/lib/url";
 
 const makeDomId = (str: string) =>
   String(str)
@@ -21,7 +20,7 @@ const makeDomId = (str: string) =>
     .replace(/^-|-$/g, "");
 
 function LocationColumns({ columns }: { columns: FooterLocationItem[][] }) {
- 
+
   const [openKey, setOpenKey] = useState<string | null>(null);
 
   const colClassByCount = (count: number) =>
@@ -34,14 +33,14 @@ function LocationColumns({ columns }: { columns: FooterLocationItem[][] }) {
   };
 
 
-  
+
 
   return (
     <div className="row d-flex-2">
-      {columns.map((col, cIdx) => (
-        <div className={colClassByCount(columns.length)} key={cIdx}>
+      {columns?.map((col, cIdx) => (
+        <div className={colClassByCount(columns?.length)} key={cIdx}>
           <ul id="locationList">
-            {col.map((item, iIdx) => {
+            {col?.map((item, iIdx) => {
               const hasLinks = (item.links?.length ?? 0) > 0;
               const key = `${cIdx}-${iIdx}-${item.title}`;
               const isOpen = openKey === key;
@@ -78,18 +77,19 @@ function LocationColumns({ columns }: { columns: FooterLocationItem[][] }) {
                   {hasLinks && (
                     <div
                       className="dropdown-content"
-                      style={{ display: isOpen ? "block" : "none",transition: "0.3s ease", }}
+                      style={{ display: isOpen ? "block" : "none", transition: "0.3s ease", }}
                       onClick={(e) => e.stopPropagation()}
-                      
+
                     >
-                      {item.links.map((l) => (
+                      {item?.links?.map((l: any, index: any) => (
                         <div
-                          key={l.url}
+                          key={index}
                           className="d-flex align-items-cennter justify-content-center"
                         >
                           <Dot color="#ff4f02" strokeWidth={7} />
-                          <Link href={normalizeServicePath(l.url)} >
-                            {l.label}
+                          <Link href={l.url} >
+                            {/* {l.label} */}
+                            {l.url}
                           </Link>
                         </div>
                       ))}
@@ -117,7 +117,7 @@ function ExploreList({ items }: { items: any }) {
 
   return (
     <ul className="d-flx explore-list">
-      {items.map((item:any) => {
+      {items?.map((item: any) => {
         const hasLinks = "links" in item && (item.links?.length ?? 0) > 0;
         const isOpen = openItem == item.title;
 
@@ -126,7 +126,7 @@ function ExploreList({ items }: { items: any }) {
             {hasLinks ? (
               <>
                 <span
-                  
+
                   className="haslinksFooterExplore"
                   onClick={(e) => {
                     e.preventDefault();
@@ -159,7 +159,7 @@ function ExploreList({ items }: { items: any }) {
 
                 {isOpen && (
                   <span className="dropdown-content active">
-                    {item.links.map((l:any, index:any) => (
+                    {item?.links?.map((l: any, index: any) => (
                       <div
                         key={index}
                         style={{
@@ -170,7 +170,7 @@ function ExploreList({ items }: { items: any }) {
                         }}
                       >
                         <Dot color="#ff4f02" strokeWidth={7} />
-                        <Link href={normalizeServicePath(l.url)}>{l.label}</Link>
+                        <Link href={l.url}>{l.label}</Link>
                       </div>
                     ))}
                   </span>
@@ -181,7 +181,7 @@ function ExploreList({ items }: { items: any }) {
                 className="haslinksFooterExplore"
               >
                 <i className="fa-solid fa-caret-right"></i>
-                <Link href={normalizeServicePath(item.url)}>{item.title}</Link>
+                <Link href={item.url}>{item.title}</Link>
               </div>
             )}
           </li>
@@ -191,21 +191,47 @@ function ExploreList({ items }: { items: any }) {
   );
 }
 
-export default function FooterClient({ footerData }: Props) {
-   const { showLayout } = useAppSelector((state) => state.menu);
-  const firstLocationId = footerData.locations[0]?.id ?? "";
-  const [activeDesktopTab, setActiveDesktopTab] = useState<string>(firstLocationId);
-  const [openMobileAcc, setOpenMobileAcc] = useState<string>(firstLocationId);
+export default function FooterClient() {
+  const { showLayout } = useAppSelector((state) => state.menu);
+  const [footerdata, setFooterdata] = useState<any>({})
+  const { getFooterData } = useFooter()
+  const [activeDesktopTab, setActiveDesktopTab] = useState<string>();
+  const [openMobileAcc, setOpenMobileAcc] = useState<string>();
 
-   if(showLayout == false){
-        return null;
+  if (showLayout == false) {
+    return null;
+  }
+
+  useEffect(() => {
+    const getData = async () => {
+     
+      const data = await getFooterData()
+      setFooterdata(data)
     }
+    getData()
+  }, [])
+
+  useEffect(() => {
+    const firstLocationId = footerdata?.locations?.[0]?.id ?? "";
+    setActiveDesktopTab(firstLocationId)
+    setOpenMobileAcc(firstLocationId)
+  }, [footerdata])
+
+
+  const baseUrl =
+    typeof window !== "undefined"
+      ? window.location.origin
+      : "";
 
   return (
     <main className="page_content-1">
-       <ContactFooter/>
+      <ContactFooter />
       <div className="footer-col">
-        <div className="top-footer">
+        <div className="top-footer"
+          style={{
+            backgroundImage: `url(${BASE_URL}/wp-content/uploads/2026/04/footer-bg.webp)`,
+          }}
+        >
           <div className="container">
             <div className="menu-list">
               <h3>Serving Your Location</h3>
@@ -216,7 +242,7 @@ export default function FooterClient({ footerData }: Props) {
               className="accordion accordion-flush footer-accordian d-md-none"
               id="accordionFlushExample"
             >
-              {footerData.locations.map((loc) => {
+              {footerdata?.tabs?.map((loc: any) => {
                 const domId = makeDomId(loc.id);
                 const open = openMobileAcc === loc.id;
                 const collapseId = `flush-collapse-${domId}`;
@@ -230,9 +256,9 @@ export default function FooterClient({ footerData }: Props) {
                         aria-expanded={open ? "true" : "false"}
                         aria-controls={collapseId}
                         onClick={() =>
-                          setOpenMobileAcc((p) => 
+                          setOpenMobileAcc((p) =>
                             (p === loc.id ? "" : loc.id)
-                      )
+                          )
                         }
                       >
                         {loc.label}
@@ -246,7 +272,11 @@ export default function FooterClient({ footerData }: Props) {
                     >
                       <div className="accordion-body">
                         <div className="footer-col">
-                          <div className="top-footer new-footer">
+                          <div className="top-footer new-footer"
+                            style={{
+                              backgroundImage: `url(${BASE_URL}/wp-content/uploads/2026/04/footer-bg.webp)`,
+                            }}
+                          >
                             <div className="container">
                               <div className="row">
                                 <div className="col-lg-12 col-xl-12">
@@ -259,7 +289,7 @@ export default function FooterClient({ footerData }: Props) {
                           </div>
                         </div>
                       </div>
-                      
+
                     </div>
                   </div>
                 );
@@ -274,7 +304,8 @@ export default function FooterClient({ footerData }: Props) {
                 role="tablist"
                 style={{ gap: "10px" }}
               >
-                {footerData.locations.map((loc) => {
+                {footerdata?.tabs?.map((loc: any) => {
+
                   const domId = makeDomId(loc.id);
                   const isActive = activeDesktopTab === loc.id;
 
@@ -289,7 +320,7 @@ export default function FooterClient({ footerData }: Props) {
                         aria-selected={isActive ? "true" : "false"}
                         onClick={() => setActiveDesktopTab(loc.id)}
                       >
-                        {loc.label} <span className="icon">{isActive ? "−" : "+"}</span>
+                        {loc.name}  <span className="icon">{isActive ? "−" : "+"}</span>
                       </button>
                     </li>
                   );
@@ -297,7 +328,8 @@ export default function FooterClient({ footerData }: Props) {
               </ul>
 
               <div className="tab-content" id="myTabContent">
-                {footerData.locations.map((loc) => {
+                {footerdata?.locations?.map((loc: any) => {
+
                   const domId = makeDomId(loc.id);
                   const isActive = activeDesktopTab === loc.id;
 
@@ -310,7 +342,11 @@ export default function FooterClient({ footerData }: Props) {
                       aria-labelledby={`${domId}-tab`}
                     >
                       <div className="footer-col ">
-                        <div className="top-footer new-footer">
+                        <div className="top-footer new-footer"
+                          style={{
+                            backgroundImage: `url(${BASE_URL}/wp-content/uploads/2026/04/footer-bg.webp)`,
+                          }}
+                        >
                           <div className="container">
                             <div className="row">
                               <div className="col-lg-12 col-xl-12">
@@ -332,7 +368,7 @@ export default function FooterClient({ footerData }: Props) {
               <div className="col-12">
                 <div className="menu-list new-menu-list new-lst">
                   <h3>Explore</h3>
-                  <ExploreList items={footerData.explore} />
+                  {/* <ExploreList items={footerdata?.explore} /> */}
                 </div>
               </div>
             </div>
@@ -345,7 +381,7 @@ export default function FooterClient({ footerData }: Props) {
                     <div className="menu-list new-menu-list">
                       <h3 className="">Find us on Social Media</h3>
                       <ul className="footer-social">
-                        {footerData.socials.map((s) => (
+                        {footerdata?.socials?.map((s: any) => (
                           <li key={s.url}>
                             <Link href={s.url}>
                               <i className={`fa-brands ${s.icon}`}></i>
@@ -356,11 +392,11 @@ export default function FooterClient({ footerData }: Props) {
                     </div>
                   </div>
 
-                  <div className="col-sm-6">
+                  {/* <div className="col-sm-6">
                     <div className="menu-list">
                       <h3>Partners</h3>
                       <ul className="partners">
-                        {footerData.partners.map((p) => (
+                        {footerdata?.partners?.map((p:any) => (
                           <li key={p.img}>
                             <Link
                               href={p.url}
@@ -372,14 +408,14 @@ export default function FooterClient({ footerData }: Props) {
                         ))}
                       </ul>
                     </div>
-                  </div>
+                  </div> */}
                 </div>
               </div>
 
               <div className="col-md-3">
                 <div className="menu-list">
                   <div className="success">
-                    <img src={footerData.successImg} alt="" />
+                    <img src={footerdata?.successImg} alt="" />
                   </div>
                 </div>
               </div>
@@ -390,14 +426,14 @@ export default function FooterClient({ footerData }: Props) {
         </div>
       </div>
       <div className="copyright-sec">
-      <div className="container">
-      <div className="copyright-part">
-        <p><span>Copyright © 1999-2026, </span><Link href="/"><strong>B3net</strong> inc.</Link></p>
-        <p><Link href="/privacy-policy">Privacy Policy </Link> | <Link href="/terms-of-use">Terms of Use</Link></p>
+        <div className="container">
+          <div className="copyright-part">
+            <p><span>Copyright © 1999-2026, </span><Link href="/"><strong>B3net</strong> inc.</Link></p>
+            <p><Link href="/privacy-policy">Privacy Policy </Link> | <Link href="/terms-of-use">Terms of Use</Link></p>
+          </div>
+        </div>
       </div>
-      </div>
-    </div>
-    <ChatBot/>
+      <ChatBot />
     </main>
   );
 }

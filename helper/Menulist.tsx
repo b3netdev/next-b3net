@@ -440,7 +440,7 @@ export const serviceMegaMenuColumns: ServiceMegaMenuColumn[] = [
     {slug:"digital-marketing-frisco"},
     {slug:"web-design-services-in-frisco"},
     {slug:"digital-marketing-in-garland"},
-    {slug:"garland-website-design-development"},
+    // {slug:"garland-website-design-development"},
     {slug:"digital-marketing-in-grapevine"},
     {slug:"grapevine-website-design-development"},
     {slug:"digital-marketing-in-houston"},

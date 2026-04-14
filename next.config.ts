@@ -46,6 +46,15 @@ const nextConfig: NextConfig = {
       },
     ];
   },
+  async rewrites() {
+    return[
+      {
+        source:
+          "/:city(texas|california|new-york|new-mexico|nevada|tennessee|oklahoma|arizona)/:slug",
+        destination: "/location-pages/:city/:slug",
+      },
+    ]
+  },
 };
 
 export default nextConfig;

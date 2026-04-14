@@ -89,7 +89,7 @@
 
     .hire-us-section {
         max-width: 60%;
-        background-image: url(/images/hire-us-bg.webp);
+        background-image: url(/assets/images/hire-us-bg.webp);
         background-repeat: no-repeat;
         padding: 70px 30px;
         display: flex;
@@ -285,7 +285,7 @@
 
     .owner-quote p:before {
         content: '';
-        background-image: url(/images/qoute-start.png);
+        background-image: url(/assets/images/qoute-start.png);
         background-repeat: no-repeat;
         position: absolute;
         left: 0px;
@@ -303,7 +303,7 @@
 
     .quote-end:after {
         content: '';
-        background-image: url(/images/qoute-end.png);
+        background-image: url(/assets/images/qoute-end.png);
         background-repeat: no-repeat;
         position: absolute;
         right: -0px;
