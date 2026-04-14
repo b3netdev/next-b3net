@@ -3096,7 +3096,6 @@ body:has(.page_banner_section + .intro_about_section) .page_banner_section {
 .seo-landing-wrap .banner-caption li {
   list-style: inside;
   color: white;
-  padding: 5px 0;
 }
 
 #commentform textarea#comment {
@@ -4353,7 +4352,7 @@ p.form-submit input#submit {
   padding: 150px 0;
   background-repeat: no-repeat;
   background-position: center;
-  height: 90dvh;
+  /* height: 90dvh; */
 }
 
 .banner-caption {
@@ -7614,4 +7613,31 @@ div#signature-pad {
   color: #fe4d03;
   cursor: pointer;
   margin: 5px
+}
+
+.service-banner-caption h1{
+  color: #fff !important;
+  font-size: 30px !important;
+  margin: 0 0 20px !important;
+  text-transform: uppercase !important;
+  font-weight: 700 !important;
+  line-height: 30px !important;
+}
+.service-banner-caption div p{
+ font-size: 16px !important;
+ font-weight: 600 !important;
+}
+.service-banner-caption div {
+ font-size: 16px !important;
+ font-weight: 600 !important;
+}
+.service-banner-caption  {
+width: 50% !important;
+}
+
+@media (max-width:750px) {
+  .service-banner-caption  {
+    width: 90% !important;
+    }
+    
 }
