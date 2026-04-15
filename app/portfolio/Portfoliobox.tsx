@@ -98,7 +98,7 @@ export default function Portfoliobox() {
           role="tablist"
         >
           {categoryList.map((tab) => (
-            <li className="nav-item" role="presentation" key={tab.id}>
+            <li className="nav-item mb-3" role="presentation" key={tab.id}>
               <button
                 className={`nav-link${selectTab?.id === tab.id ? " active" : ""} blognavlink`}
                 type="button"

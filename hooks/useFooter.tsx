@@ -9,8 +9,9 @@ export const useFooter = () => {
 
   const getFooterData = async ()=>{
     try{
-        const data : any = await api.get('wp-json/custom/v1/footer-menus')
-        if(data?.status==200 && data?.data?.locations?.length>0) return data?.data
+        const data : any = await api.get('wp-json/custom/v1/menus')
+      
+        if(data?.status==200 ) return data?.data
         else return []
 
     }

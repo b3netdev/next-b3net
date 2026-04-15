@@ -28,14 +28,14 @@ export default async function FeaturedClients() {
     return (
         <div className="feature-clientWrapper">
             <StructuredData data={schemaData} />
-            <div className="seo-landing-wrap"
+            <div className="seo-landing-wrap  flex items-center"
                 style={{
                     backgroundImage: `url(${BASE_URL}/wp-content/uploads/2025/12/portfolio-banner-1.webp)`
                 }}
 
             >
-                <div className="container">
-                    <div className="banner-caption featured-caption">
+                <div className="container h-full">
+                    <div className="banner-caption featured-caption featureclient-heading h-full">
                         <h1>Our Featured Clients</h1>
                     </div>
                 </div>

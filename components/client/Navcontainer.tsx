@@ -138,7 +138,6 @@ export default function Navbar() {
 
                             <Link href={getServicePath(item?.slug)}
                                 className="service-menu-link text-base!"
-
                             >
                                 {item.label}
                             </Link>

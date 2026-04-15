@@ -125,7 +125,10 @@ export default function SideMenu({
 
                             return (
                                 <li key={item.id} className="sideMenuItem">
-                                    <div className="sideMenuRow">
+                                    
+                                    <div className="sideMenuRow"
+                                    
+                                    >
                                         {hasChildren ? (
                                             <div
                                                 style={{
@@ -149,7 +152,7 @@ export default function SideMenu({
                                         ) : (
                                             <Link
                                                 href={`/${item?.page?.slug !== "home" ?item?.page?.slug :'' }`}
-                                                className="sideMenuLink"
+                                                className="sideMenuLink w-full"
                                                 onClick={onClose}
                                             >
                                                 {item.title}
@@ -190,7 +193,7 @@ export default function SideMenu({
                                                                         }`
                                                                         : `/${child?.page?.slug}`
                                                                 }
-                                                                className="sideMenuSubLink"
+                                                                className="sideMenuSubLink w-full"
                                                                 onClick={onClose}
                                                             >
                                                                 {child.title}

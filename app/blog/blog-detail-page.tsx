@@ -117,7 +117,7 @@ const BlogDetail = async ({ params }: { params: { slug: string } }) => {
                       {sideNav?.map((item, index) => (
                         <div className="blogSidenavitemBox" key={index}>
                           <Scroll to={item.id} className="blogSidenavitem primary-bodyText p-2">
-                            {item.text}
+                            {item.text} {item.id}
                           </Scroll>
                         </div>
                       ))}

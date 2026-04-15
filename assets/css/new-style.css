@@ -2491,7 +2491,7 @@ section.product-details-sec.shop-sec.page_content.default_content_class ul li {
 
 .banner-caption.featured-caption h1 {
     color: white;
-    font-size: 60px !important;
+    font-size: 50px !important;
     margin: 0;
     padding: 0;
     text-transform: uppercase;
@@ -3226,13 +3226,20 @@ end last css */
     }
 
     .banner-caption.featured-caption h1 {
-        font-size: 28px;
+        font-size: 28px !important;
         margin-top: 20px;
+        line-height: 1;
     }
 
 }
 
-@media screen and (max-width: 410px) {}
+@media screen and (max-width: 581px) {
+    .banner-caption.featured-caption h1 {
+        font-size: 39px !important;
+        margin-top: 20px;
+      
+    }
+}
 
 
 

@@ -7641,3 +7641,21 @@ width: 50% !important;
     }
     
 }
+@media (max-width:750px) {
+  .featureclient-heading h1{
+    font-size: 40px !important;
+   }
+    
+}
+@media (max-width:400px) {
+  .featureclient-heading h1{
+    font-size: 20px !important;
+   }
+    
+}
+
+.featureclient-heading{
+
+  /* background-color: #00adef; */
+}
+

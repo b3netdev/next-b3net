@@ -44,6 +44,11 @@ const nextConfig: NextConfig = {
         destination: "/:slug",
         permanent: true, // 301 redirect (SEO)
       },
+      {
+        source: "/location-pages/images/:file*",
+        destination: "/images/:file*",
+        permanent: false,
+      },
     ];
   },
   async rewrites() {

@@ -51,13 +51,7 @@ const ServiceContact: React.FC<ServiceContactProps> = ({
       email: Yup.string().trim().email("Invalid email").required("Email is required"),
       phone: Yup.string().trim().required("Phone No is required"),
       companyName: Yup.string().trim().required("Company name required"),
-      companyWebsite: Yup.string()
-        .trim()
-        .test("is-valid-url-or-empty", "Invalid website URL (include https://)", (val) => {
-          if (!val) return true;
-          return Yup.string().url().isValidSync(val);
-        }),
-      message: Yup.string().trim().required("Message is required"),
+      companyWebsite: Yup.string().trim().required("Message is required"),
     }),
     onSubmit: async (values, { setSubmitting, resetForm }) => {
       try {
