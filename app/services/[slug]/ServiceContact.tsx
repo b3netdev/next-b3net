@@ -3,7 +3,6 @@
 import React, { useRef, useState } from "react";
 import { useFormik } from "formik";
 import * as Yup from "yup";
-import { Element } from "react-scroll";
 import { useForm } from "@/hooks/useForm";
 import { useRouter } from "next/navigation";
 import CircularProgress from "@mui/material/CircularProgress";
@@ -96,7 +95,7 @@ const ServiceContact: React.FC<ServiceContactProps> = ({
   const hasErr = (key: keyof FormValues) => !!fieldError(key);
 
   return (
-    <Element name="contact-form">
+   
       <div className="bottom-form" id="contact-form">
         <div className="container">
           <div className="common-form shadow-1 bg-white p-3 p-sm-5">
@@ -333,7 +332,6 @@ const ServiceContact: React.FC<ServiceContactProps> = ({
           </div>
         </div>
       </div>
-    </Element>
   );
 };
 

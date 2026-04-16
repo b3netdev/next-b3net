@@ -5,12 +5,12 @@ import ServiceContact from "@/app/services/[slug]/ServiceContact";
 import Link from "next/link";
 import ServiceContact1 from "@/app/services/[slug]/ServiceContact1";
 import FrequentQuestion from "@/components/client/FrequentQuestion";
-import Scroll from "@/components/client/Scroll";
 import Workslider from "@/app/services/[slug]/Workslider";
 import { sluglist } from "@/helper/Menulist";
 import { BASE_URL } from "@/lib/url";
 import { notFound } from "next/navigation";
 import { Metadata } from "next";
+import ScrollLink from "@/components/client/ScrollLink";
 
 
 type Props = {
@@ -58,15 +58,15 @@ const ServiceSubpage = async ({ params }: Props) => {
                         />
                         <div className="mt-4">
                             <span className="btn btn-orange">
-                                <Scroll
-                                    to="contact-form"
+                                <ScrollLink
+                                    targetId="contact-form"
                                     className="btn btn-orange"
 
                                 >
                                     <span className="btn_label_1">
                                         {pageData?.acf?.data?.banner_call_to_action?.title}
                                     </span>
-                                </Scroll>
+                                </ScrollLink>
                                 <span className="btn_icon">
                                     <i className="fa-solid fa-arrow-right"></i>
                                 </span>
@@ -116,17 +116,17 @@ const ServiceSubpage = async ({ params }: Props) => {
                                                 pageData?.acf?.data?.services_page_section_2_description || "",
                                         }}
                                     />
-                                    <Scroll
-                                        to="contact-form1"
+                                    <ScrollLink
+                                        targetId="contact-form1"
                                         className="get-intouch-btn nitro-offscreen cursor-pointer">
                                         Get in Touch{" "}
                                         <span className="btn_icon">
                                             <i className="fa-solid fa-arrow-right"></i>
                                         </span>{" "}
-                                    </Scroll>
+                                    </ScrollLink>
                                 </div>
                                 <div className="col-lg-6" id="request-proposal">
-                                    <div className="form-part">
+                                    <div className="form-part" id="contact-form1">
                                         <div className="heading-blocks">
                                             <h3 className="blue-heading font-color-bl text-center">
                                                 Request a Free Proposal
@@ -482,8 +482,8 @@ const ServiceSubpage = async ({ params }: Props) => {
                                             />
 
                                             <div className="mt-4">
-                                                <Scroll
-                                                    to="contact-form"
+                                                <ScrollLink
+                                                    targetId="contact-form"
                                                     className="btn btn-orange"
                                                 >
                                                     <span className="btn_label_1">
@@ -495,7 +495,7 @@ const ServiceSubpage = async ({ params }: Props) => {
                                                     <span className="btn_icon">
                                                         <i className="fa-solid fa-arrow-right"></i>
                                                     </span>
-                                                </Scroll>
+                                                </ScrollLink>
                                             </div>
                                         </div>
                                     </div>

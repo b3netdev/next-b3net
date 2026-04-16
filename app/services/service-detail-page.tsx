@@ -4,12 +4,12 @@ import ServiceSlider from "./[slug]/ServiceSlider";
 import ServiceContact from "./[slug]/ServiceContact";
 import ServiceContact1 from "./[slug]/ServiceContact1";
 import FrequentQuestion from "./[slug]/FrequentQuestion";
-import Scroll from "@/components/client/Scroll";
 import Workslider from "./[slug]/Workslider";
 import { sluglist } from "@/helper/Menulist";
 import { BASE_URL } from "@/lib/url";
 import { notFound } from "next/navigation";
 import { Metadata } from "next";
+import ScrollLink from "@/components/client/ScrollLink";
 
 const STATIC_SERVICE_ROUTE_SLUGS = new Set(["ai-integration", "ai-video"]);
 const VALID_SERVICE_SLUGS = new Set(sluglist.map((item) => item.slug));
@@ -69,6 +69,7 @@ export async function generateMetadata({
     }
 
     const pageData = await getServicePageData(slug);
+    console.log(pageData, "Helllo")
 
     if (!pageData) {
         return {};
@@ -152,14 +153,14 @@ const ServiceSubpage = async ({ params }: { params: { slug: string } }) => {
                         />
                         <div className="mt-4">
                             <span className="btn btn-orange">
-                                <Scroll
-                                    to="contact-form"
+                                <ScrollLink
+                                    targetId="contact-form"
                                     className="btn btn-orange"
                                 >
                                     <span className="btn_label_1">
                                         {pageData?.acf?.data?.banner_call_to_action?.title}
                                     </span>
-                                </Scroll>
+                                </ScrollLink>
                                 <span className="btn_icon">
                                     <i className="fa-solid fa-arrow-right"></i>
                                 </span>
@@ -209,17 +210,17 @@ const ServiceSubpage = async ({ params }: { params: { slug: string } }) => {
                                                 pageData?.acf?.data?.services_page_section_2_description || "",
                                         }}
                                     />
-                                    <Scroll
-                                        to="contact-form1"
+                                    <ScrollLink
+                                        targetId="contact-form1"
                                         className="get-intouch-btn nitro-offscreen cursor-pointer">
                                         Get in Touch{" "}
                                         <span className="btn_icon">
                                             <i className="fa-solid fa-arrow-right"></i>
                                         </span>{" "}
-                                    </Scroll>
+                                    </ScrollLink>
                                 </div>
                                 <div className="col-lg-6" id="request-proposal">
-                                    <div className="form-part">
+                                    <div className="form-part" id="contact-form1">
                                         <div className="heading-blocks">
                                             <h3 className="blue-heading font-color-bl text-center">
                                                 Request a Free Proposal
@@ -232,6 +233,7 @@ const ServiceSubpage = async ({ params }: { params: { slug: string } }) => {
                                             id="wpcf7-f12066-o2"
                                             lang="en-US"
                                             dir="ltr"
+                                            
                                         >
                                             <div className="screen-reader-response">
                                                 <p
@@ -280,10 +282,6 @@ const ServiceSubpage = async ({ params }: { params: { slug: string } }) => {
                                         )
                                     })
                                 }
-
-
-
-
                             </div>
                         </div>
                     </div>
@@ -454,9 +452,6 @@ const ServiceSubpage = async ({ params }: { params: { slug: string } }) => {
                                     <div
                                         dangerouslySetInnerHTML={{ __html: pageData?.acf?.data?.common_section_content_3 || " " }}
                                     />
-
-
-
                                 </div>
                                 <div className="col-lg-6 right-column text-center">
                                     <img src={pageData?.acf?.data?.common_section_image_3} className="img-fluid" alt="Data Cleansing Image" />
@@ -536,11 +531,6 @@ const ServiceSubpage = async ({ params }: { params: { slug: string } }) => {
                                         }
                                         )
                                     }
-
-
-
-
-
                                 </div>
                             </div>
                         </div>
@@ -573,20 +563,15 @@ const ServiceSubpage = async ({ params }: { params: { slug: string } }) => {
                                             />
 
                                             <div className="mt-4">
-                                                <Scroll
-                                                    to="contact-form"
-                                                    className="btn btn-orange"
-                                                >
+                                                
+                                                <ScrollLink targetId="contact-form" className="btn btn-orange">
                                                     <span className="btn_label_1">
-                                                        {
-                                                            pageData?.acf?.data?.services_page_section_4_link
-                                                                ?.title
-                                                        }
+                                                        {pageData?.acf?.data?.services_page_section_4_link?.title}
                                                     </span>
                                                     <span className="btn_icon">
                                                         <i className="fa-solid fa-arrow-right"></i>
                                                     </span>
-                                                </Scroll>
+                                                </ScrollLink>
                                             </div>
                                         </div>
                                     </div>

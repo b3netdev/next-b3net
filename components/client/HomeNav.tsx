@@ -1,7 +1,7 @@
 "use client";
 
 import React from "react";
-import { Link } from "react-scroll";
+import ScrollLink from "./ScrollLink";
 
 const HomeNav = () => {
     const offsetvariable = -150
@@ -12,33 +12,33 @@ const HomeNav = () => {
                 className="click-tab-added d-flex "
                 style={{ position: "sticky", zIndex: 999 }}
             >
-                <Link to="services" className="font-bold text-base" spy smooth offset={offsetvariable} duration={100} activeClass="active">
+                <ScrollLink targetId="services" className="font-bold text-base"   >
                     Our Services
-                </Link>
+                </ScrollLink>
 
-                <Link to="ai-integration-model" className="font-bold text-base" spy smooth offset={offsetvariable} duration={100} activeClass="active">
+                <ScrollLink targetId="ai-integration-model" className="font-bold text-base"   >
                     Ai Integration Model
-                </Link>
+                </ScrollLink>
 
-                <Link to="portfolio" className="font-bold text-base" spy smooth offset={offsetvariable} duration={100} activeClass="active">
+                <ScrollLink targetId="portfolio" className="font-bold text-base"   >
                     Our Portfolio
-                </Link>
+                </ScrollLink>
 
-                <Link to="testimonials" className="font-bold text-base" spy smooth offset={offsetvariable} duration={100} activeClass="active">
+                <ScrollLink targetId="testimonials" className="font-bold text-base"   >
                     Our Testimonials
-                </Link>
+                </ScrollLink>
 
-                <Link to="expertise-service" className="font-bold text-base" spy smooth offset={offsetvariable} duration={100} activeClass="active">
+                <ScrollLink targetId="expertise-service" className="font-bold text-base"   >
                     Our Expertise
-                </Link>
+                </ScrollLink>
 
-                <Link to="case-studies" className="font-bold text-base" spy smooth offset={offsetvariable} duration={100} activeClass="active">
+                <ScrollLink targetId="case-studies" className="font-bold text-base"   >
                     Case Studies
-                </Link>
+                </ScrollLink>
 
-                <Link to="contact" className="font-bold text-base" spy smooth offset={offsetvariable} duration={100} activeClass="active">
+                <ScrollLink targetId="contact" className="font-bold text-base"   >
                     Contact Us
-                </Link>
+                </ScrollLink>
             </nav>
         </div>
     );

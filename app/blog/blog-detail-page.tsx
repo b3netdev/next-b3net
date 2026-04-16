@@ -1,6 +1,5 @@
 import { GetRelatedPost, getBlogdetail } from "@/lib/getdata";
 import Link from "next/link";
-import Scroll from "@/components/client/Scroll";
 import ShowNav from "@/components/client/ShowNav";
 import { load } from "cheerio";
 import { cache } from "react";
@@ -8,6 +7,7 @@ import { notFound } from "next/navigation";
 import { buildMetadata, getSchemaFromPageData, getSeoFromPageData } from "@/lib/seo";
 import { Metadata } from "next";
 import StructuredData from "@/components/server/StructuredData";
+import ScrollLink from "@/components/client/ScrollLink";
 
 
 
@@ -114,21 +114,13 @@ const BlogDetail = async ({ params }: { params: { slug: string } }) => {
                       <h3>Table of Contents</h3>
                     </div>
 
-                    {/* <div className="navListMenu">
-                      {sideNav?.map((item, index) => (
-                        <div className="blogSidenavitemBox" key={index}>
-                          <Scroll to={item.id} className="blogSidenavitem primary-bodyText p-2">
-                            {item.text} 
-                          </Scroll>
-                        </div>
-                      ))}
-                    </div> */}
+                    
                     <div className="navListMenu">
                       {sideNav?.map((item, index) => (
                         <div className="blogSidenavitemBox" key={index}>
-                          <a href={`#${item.id}`} className="blogSidenavitem primary-bodyText p-2">
+                          <ScrollLink targetId={`${item.id}`} className="blogSidenavitem primary-bodyText p-2">
                             {item.text}
-                          </a>
+                          </ScrollLink>
                         </div>
                       ))}
                     </div>

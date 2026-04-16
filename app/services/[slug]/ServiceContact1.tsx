@@ -5,7 +5,6 @@ import * as Yup from "yup";
 import { useForm } from '@/hooks/useForm';
 import { useRouter } from "next/navigation";
 import CircularProgress from '@mui/material/CircularProgress';
-import { Element } from 'react-scroll';
 import ReCAPTCHA from "react-google-recaptcha";
 
 const ServiceContact1 = () => {
@@ -87,8 +86,8 @@ const ServiceContact1 = () => {
         },
     });
     return (
-        <Element name="contact-form1">
-            <form onSubmit={formik.handleSubmit} noValidate>
+       
+            <form onSubmit={formik.handleSubmit} noValidate >
                 <div className="quote-form">
                     <div className="inputrow">
                         <div className="inputcol">
@@ -436,7 +435,7 @@ const ServiceContact1 = () => {
                     aria-hidden="true"
                 ></div>
             </form>
-        </Element>
+        
     )
 }
 
