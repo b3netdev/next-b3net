@@ -128,7 +128,6 @@ const ServiceSubpage = async ({ params }: { params: { slug: string } }) => {
 
     const schemaData = pageData?.schema || pageData?.yoast_head_json?.schema || null;
 
-    console.log( pageData, "CAlling in service details page")
     return (
         <main className="page_content services-design-page  ">
             {schemaData ? (

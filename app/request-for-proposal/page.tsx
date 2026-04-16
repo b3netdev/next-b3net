@@ -10,7 +10,7 @@ import StructuredData from "@/components/server/StructuredData";
 
 const getBlogPageData = cache(async () => {
 
-  const data = await GetPageData("get-a-free-proposal", "page");
+  const data = await GetPageData("request-for-proposal", "page");
   return data?.page ?? data;
 });
 

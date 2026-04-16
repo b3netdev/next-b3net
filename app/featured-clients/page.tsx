@@ -8,7 +8,7 @@ import { cache } from "react";
 
 const getBlogPageData = cache(async () => {
   
-    const data = await GetPageData("featured-clients-html", "page");
+    const data = await GetPageData("featured-clients", "page");
     return data?.page ?? data;
   });
   

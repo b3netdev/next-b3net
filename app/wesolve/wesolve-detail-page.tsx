@@ -80,7 +80,6 @@ export default async function WesolveDetailPage({
   const relatedPosts = await GetRelatedPost(pageData?.categories, pageData?.id);
 
 
-  console.log(pageData?.content)
 
   return (
     <main className="page_content wesolveSub">

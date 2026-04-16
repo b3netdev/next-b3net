@@ -21,7 +21,7 @@ const getPageData = cache(async () => {
   return data?.page ?? data;
 });
 
-console.log("HELLO")
+
 
 export async function generateMetadata(): Promise<Metadata> {
   const pageData = await getPageData();
