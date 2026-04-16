@@ -38,7 +38,7 @@ function LocationColumns({ columns, country }: { columns: any[][]; country: stri
   const toggle = (key: string) => {
     setOpenKey((prev) => (prev === key ? null : key));
   };
-  
+
 
   return (
     <div className="row d-flex-2">
@@ -78,6 +78,7 @@ function LocationColumns({ columns, country }: { columns: any[][]; country: stri
                       <span>{item.title}</span>
                     </div>
                   </Link>
+
 
                   {hasLinks && (
                     <div
@@ -331,6 +332,12 @@ export default function FooterClient() {
                                 <div className="col-lg-12 col-xl-12">
                                   <div className="menu-list">
                                     <LocationColumns columns={columns} country={loc.title} />
+                                    {
+                                    columns?.length == 0 &&
+                                    <div className="w-full">
+                                      <p className="font-semibold ">Comming soon....</p>
+                                    </div>
+                                  }
                                   </div>
                                 </div>
                               </div>
@@ -405,6 +412,12 @@ export default function FooterClient() {
                               <div className="col-lg-12 col-xl-12">
                                 <div className="menu-list desktopFooterMenu">
                                   <LocationColumns columns={columns} country={loc.title} />
+                                  {
+                                    columns?.length == 0 &&
+                                    <div className="w-full">
+                                      <p className="font-semibold ">Comming soon....</p>
+                                    </div>
+                                  }
                                 </div>
                               </div>
                             </div>

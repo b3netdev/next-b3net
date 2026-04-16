@@ -30,7 +30,7 @@ const getPageData = cache(async (slug:string) => {
 });
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
-    const { slug } = params;
+    const { slug } =  await params;
   
     const pageData = await getPageData(slug);
     const seo = getSeoFromPageData(pageData);
@@ -49,6 +49,7 @@ const ServiceSubpage = async ({ params }: Props) => {
         notFound();
     }
 
+    console.log("CAlling in location page")
     const schemaData = pageData?.schema || pageData?.yoast_head_json?.schema || null;
 
     return (

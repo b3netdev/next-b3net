@@ -69,7 +69,7 @@ export async function generateMetadata({
     }
 
     const pageData = await getServicePageData(slug);
-    console.log(pageData, "Helllo")
+ 
 
     if (!pageData) {
         return {};
@@ -112,6 +112,8 @@ export async function generateMetadata({
 const ServiceSubpage = async ({ params }: { params: { slug: string } }) => {
     const { slug } = await params;
 
+
+
     if (!isDynamicServiceSlug(slug)) {
         notFound();
     }
@@ -126,9 +128,9 @@ const ServiceSubpage = async ({ params }: { params: { slug: string } }) => {
 
     const schemaData = pageData?.schema || pageData?.yoast_head_json?.schema || null;
 
-
+    console.log( pageData, "CAlling in service details page")
     return (
-        <main className="page_content services-design-page ">
+        <main className="page_content services-design-page  ">
             {schemaData ? (
                 <script
                     type="application/ld+json"
@@ -414,7 +416,7 @@ const ServiceSubpage = async ({ params }: { params: { slug: string } }) => {
                 </div>
             ) : null}
 
-            {
+            {/* {
                 pageData?.acf?.data?.common_section_content_2 && (
 
                     <section className="section-second sec-pad pb-0">
@@ -441,7 +443,7 @@ const ServiceSubpage = async ({ params }: { params: { slug: string } }) => {
                         </div>
                     </section>
                 )
-            }
+            } */}
 
             {
                 pageData?.acf?.data?.common_section_content_3 && (
