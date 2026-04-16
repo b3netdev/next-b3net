@@ -79,6 +79,9 @@ export default async function WesolveDetailPage({
   const authorSlug = author?.name?.split(" ")?.[0]?.toLowerCase();
   const relatedPosts = await GetRelatedPost(pageData?.categories, pageData?.id);
 
+
+  console.log(pageData?.content)
+
   return (
     <main className="page_content wesolveSub">
       <StructuredData data={schemaData} />
@@ -143,7 +146,7 @@ export default async function WesolveDetailPage({
             <div className="col-lg-8 col-xl-9">
               <div className="blog-container">
                 <div
-                  className="primary-bodyText"
+                  className="primary-bodyText wesolve-container"
                   dangerouslySetInnerHTML={{
                     __html: pageData?.content || "",
                   }}
@@ -155,17 +158,17 @@ export default async function WesolveDetailPage({
                 <div className="social-icons">
                   <ul className="d-flex align-items-center justify-content-start">
                     <li>
-                      <a href="#">
+                      <a href="https://www.linkedin.com/company/b3net-inc/"  target="_blank">
                         <i className="fa-brands fa-linkedin-in"></i>
                       </a>
                     </li>
                     <li>
-                      <a href="#">
+                      <a href="https://x.com/b3net"   target="_blank">
                         <i className="fa-brands fa-x-twitter"></i>
                       </a>
                     </li>
                     <li>
-                      <a href="#">
+                      <a href="https://www.facebook.com/B3NET"  target="_blank">
                         <i className="fa-brands fa-facebook-f"></i>
                       </a>
                     </li>

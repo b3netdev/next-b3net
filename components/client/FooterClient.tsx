@@ -232,7 +232,7 @@ export default function FooterClient() {
   const { getFooterData } = useFooter();
   const [activeDesktopTab, setActiveDesktopTab] = useState<string>("");
   const [openMobileAcc, setOpenMobileAcc] = useState<string>("");
-  // console.log(activeDesktopTab)
+
   useEffect(() => {
     const getData = async () => {
       const data = await getFooterData();

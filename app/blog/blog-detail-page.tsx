@@ -73,7 +73,6 @@ const BlogDetail = async ({ params }: { params: { slug: string } }) => {
     contentData = $.html();
   }
 
-  console.log(sideNav)
   return (
     <>
       <ShowNav />
@@ -114,7 +113,7 @@ const BlogDetail = async ({ params }: { params: { slug: string } }) => {
                       <h3>Table of Contents</h3>
                     </div>
 
-                    
+
                     <div className="navListMenu">
                       {sideNav?.map((item, index) => (
                         <div className="blogSidenavitemBox" key={index}>
@@ -162,17 +161,17 @@ const BlogDetail = async ({ params }: { params: { slug: string } }) => {
                   <div className="social-icons">
                     <ul className="d-flex align-items-center justify-content-start">
                       <li>
-                        <a href="#">
+                        <a href="https://www.linkedin.com/company/b3net-inc/" target="_blank">
                           <i className="fa-brands fa-linkedin-in"></i>
                         </a>
                       </li>
                       <li>
-                        <a href="#">
+                        <a href="https://x.com/b3net" target="_blank">
                           <i className="fa-brands fa-x-twitter"></i>
                         </a>
                       </li>
                       <li>
-                        <a href="#">
+                        <a href="https://www.facebook.com/B3NET" target="_blank">
                           <i className="fa-brands fa-facebook-f"></i>
                         </a>
                       </li>
