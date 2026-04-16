@@ -7,14 +7,14 @@ import { cache } from "react";
 export { default } from "../services/ai-integration/page";
 
 const getPageData = cache(async () => {
-  const data = await GetPageData("ai-integration", "page");
+  const data = await GetPageData("ai-integration-services", "page");
   return data?.page ?? data;
 });
 
 export async function generateMetadata(): Promise<Metadata> {
   const pageData = await getPageData();
   const seo = getSeoFromPageData(pageData);
-  const canonical = BASE_URL ? new URL("/ai-integration", BASE_URL).toString() : "/ai-integration";
+  const canonical = BASE_URL ? new URL("/ai-integration-services", BASE_URL).toString() : "/ai-integration-services";
 
   return buildMetadata({
     ...seo,

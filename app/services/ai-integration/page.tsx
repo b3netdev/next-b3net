@@ -17,9 +17,11 @@ import { getServicePath } from "@/lib/servicePath";
 
 const getPageData = cache(async () => {
   
-  const data = await GetPageData("ai-integration", "page");
+  const data = await GetPageData("ai-integration-services", "page");
   return data?.page ?? data;
 });
+
+console.log("HELLO")
 
 export async function generateMetadata(): Promise<Metadata> {
   const pageData = await getPageData();

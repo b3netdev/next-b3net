@@ -11,6 +11,8 @@ import { BASE_URL } from "@/lib/url";
 import { notFound } from "next/navigation";
 import { Metadata } from "next";
 import ScrollLink from "@/components/client/ScrollLink";
+import { buildMetadata, getSeoFromPageData } from "@/lib/seo";
+import StructuredData from "@/components/server/StructuredData";
 
 
 type Props = {
@@ -19,10 +21,27 @@ type Props = {
         slug: string;
     };
 };
+
+
+const getPageData = cache(async (slug:string) => {
+  
+  const data = await GetPageData(slug);
+  return data?.page ?? data;
+});
+
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+    const { slug } = params;
+  
+    const pageData = await getPageData(slug);
+    const seo = getSeoFromPageData(pageData);
+  
+    return buildMetadata(seo);
+  }
+
 const ServiceSubpage = async ({ params }: Props) => {
     const { city, slug } = await params;
 
-    const data = await GetPageData(slug);
+    const data = await getPageData(slug);
 
     const pageData = data?.page ?? data;
 
@@ -34,13 +53,7 @@ const ServiceSubpage = async ({ params }: Props) => {
 
     return (
         <main className="page_content services-design-page ">
-            {schemaData ? (
-                <script
-                    type="application/ld+json"
-                    dangerouslySetInnerHTML={{
-                        __html: JSON.stringify(schemaData),
-                    }}
-                />) : null}
+           <StructuredData data={schemaData} />
 
             <div
                 className="seo-landing-wrap"
