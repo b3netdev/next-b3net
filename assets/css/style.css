@@ -4477,6 +4477,7 @@ i.fa-solid.fa-arrow-right {
   border: none;
   border-radius: 15px;
   height: 100%;
+  max-width: 350px;
 }
 
 .card-parts-2 .card {

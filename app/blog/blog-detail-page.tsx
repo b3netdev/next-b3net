@@ -59,7 +59,7 @@ const BlogDetail = async ({ params }: { params: { slug: string } }) => {
     const $ = load(contentData);
 
     $("h2, h3").each((index, el) => {
-      const tag = "toc"; 
+      const tag = "toc";
       const id = `${tag}-${index}`;
 
       $(el).attr("id", id);
@@ -73,6 +73,7 @@ const BlogDetail = async ({ params }: { params: { slug: string } }) => {
     contentData = $.html();
   }
 
+  console.log(sideNav)
   return (
     <>
       <ShowNav />
@@ -113,12 +114,21 @@ const BlogDetail = async ({ params }: { params: { slug: string } }) => {
                       <h3>Table of Contents</h3>
                     </div>
 
-                    <div className="navListMenu">
+                    {/* <div className="navListMenu">
                       {sideNav?.map((item, index) => (
                         <div className="blogSidenavitemBox" key={index}>
                           <Scroll to={item.id} className="blogSidenavitem primary-bodyText p-2">
-                            {item.text} {item.id}
+                            {item.text} 
                           </Scroll>
+                        </div>
+                      ))}
+                    </div> */}
+                    <div className="navListMenu">
+                      {sideNav?.map((item, index) => (
+                        <div className="blogSidenavitemBox" key={index}>
+                          <a href={`#${item.id}`} className="blogSidenavitem primary-bodyText p-2">
+                            {item.text}
+                          </a>
                         </div>
                       ))}
                     </div>
@@ -146,7 +156,7 @@ const BlogDetail = async ({ params }: { params: { slug: string } }) => {
               </div>
 
               <div className="col-lg-8 col-xl-9">
-                
+
                 <div
                   className="blog-container primary-bodyText"
                   dangerouslySetInnerHTML={{

@@ -38,7 +38,7 @@ function LocationColumns({ columns, country }: { columns: any[][]; country: stri
   const toggle = (key: string) => {
     setOpenKey((prev) => (prev === key ? null : key));
   };
-  console.log(columns, "Colums")
+  
 
   return (
     <div className="row d-flex-2">

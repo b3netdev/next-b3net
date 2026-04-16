@@ -1807,6 +1807,16 @@ a.card-title.mb-2.card-text-a {
     scrollbar-width: none;
 }
 
+@media (max-width: 998px) {
+    .sidebar {
+        position: static !important;
+        top: auto !important;
+        height: auto !important;
+        max-height: none !important;
+        overflow: visible !important;
+    }
+}
+
 /* 
 [id^="toc-"]::before {
     content: "";
@@ -3453,4 +3463,31 @@ section.product-details-sec.shop-sec.page_content.default_content_class ol.bread
 
 .addresssboxContainer {
     height: 450px;
+}
+
+
+
+.blog-details .sidebar {
+    position: sticky;
+    top: 150px;
+    height: 100vh;
+    overflow-y: auto;
+    scroll-behavior: smooth;
+    scrollbar-width: none;
+}
+
+@media screen and (max-width: 998px) {
+    .blog-details .sidebar {
+        position: static !important;
+        top: auto !important;
+        height: auto !important;
+        min-height: auto !important;
+        max-height: none !important;
+        overflow: visible !important;
+        overflow-y: visible !important;
+    }
+}
+.blog-container h2,
+.blog-container h3 {
+    scroll-margin-top: 180px;
 }
