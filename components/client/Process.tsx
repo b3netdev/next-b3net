@@ -8,6 +8,7 @@ import Select2 from "../../assets/images/select-2.webp";
 import Select3 from "../../assets/images/select-3.webp";
 import Select4 from "../../assets/images/select-4.webp";
 import Select5 from "../../assets/images/select-5.webp";
+import Select0 from "../../assets/images/select-0.webp";
 
 type ProcessStep = {
   id: string;
@@ -99,6 +100,11 @@ const Process: React.FC = () => {
 
   const toggle = (step: ProcessStep) => {
     console.log(step)
+    if (activeId == step.id) {
+      setActiveImage(Select0)
+      setActiveId((prev) => (prev === step.id ? "" : step.id));
+      return  
+    }
     setActiveImage(step.image);
     setActiveId((prev) => (prev === step.id ? "" : step.id));
   };
@@ -171,7 +177,7 @@ const Process: React.FC = () => {
 
           <div className="col-md-6 text-center">
             <div className="image-container d-none d-md-block pt-5 process-img-col">
-              <Image src={activeImage} alt="Process Step" unoptimized/>
+              <Image src={activeImage} alt="Process Step" unoptimized />
             </div>
           </div>
         </div>

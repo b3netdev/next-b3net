@@ -1220,7 +1220,6 @@ a.d-flex.align-items-center.gap-2.clr-blk {
 
 .accordion-button:not(.collapsed) {
     background-color: #e3f2fd;
-    color: #007bff;
 }
 
 .accordion-button:focus {
@@ -1268,7 +1267,7 @@ a.d-flex.align-items-center.gap-2.clr-blk {
 
 .accordion-button:not(.collapsed) {
     background-color: #e3f2fd;
-    color: #007bff;
+    /* color: #007bff; */
 }
 
 .accordion-button:focus {
