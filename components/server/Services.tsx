@@ -32,21 +32,21 @@ const Services = () => {
           description: "Increase visibility on Google, ChatGPT",
           image: `${BASE_URL}/wp-content/uploads/2026/02/SEO-AEO.webp`,
           link: `${BASE_URL}/seo-services.html`,
-          slug: "seo-services-2"
+          slug: "seo-services"
         },
         {
           title: "Social Media Marketing",
           description: "Turn attention into engagement",
           image: `${BASE_URL}/wp-content/uploads/2026/02/Social-Media-Marketing.webp`,
           link: `${BASE_URL}/social-media-marketing-services.html`,
-          slug: "social-media-marketing-service"
+          slug: "social-media-marketing-services"
         },
         {
           title: "Pay-Per-Click Advertising (PPC)",
           description: "Capture high-intent demand and track ROI with precision.",
           image: `${BASE_URL}/wp-content/uploads/2026/02/Pay-Per-Click-Advertising.webp`,
           link: `${BASE_URL}/ppc-management-services.html`,
-          slug: "ppc-management"
+          slug: "ppc-management-services"
         },
         {
           title: "Custom Web & Mobile Applications",
@@ -55,20 +55,8 @@ const Services = () => {
           link: `${BASE_URL}/custom-web-application-development.html`,
           slug: "custom-web-application-development"
         },
-        {
-          title: "Data Engineering & Analytics",
-          description: "Clean data pipelines. Power smarter decisions",
-          image: `${BASE_URL}/wp-content/uploads/2026/02/Data-Engineering-Analytics.webp`,
-          link: `${BASE_URL}/data-engineering-services.html`,
-          slug: "data-engineering"
-        },
-        {
-          title: "Data Strategy & Governance",
-          description: "Structured data. Secure and scale",
-          image: `${BASE_URL}/wp-content/uploads/2026/02/Data-Strategy-Governance.webp`,
-          link: `${BASE_URL}/data-governance.html`,
-          slug: "data-governance"
-        },
+       
+        
         {
           title: "Analytics & Business Insights",
           description: "Transform data into clear, actionable growth insights",

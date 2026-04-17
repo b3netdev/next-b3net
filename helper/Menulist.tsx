@@ -400,6 +400,9 @@ export const serviceMegaMenuColumns: ServiceMegaMenuColumn[] = [
     { slug: "gohighlevel-expert-services" },
     { slug: "online-reputation-management" },
     { slug: "amazon-sales-consultant" },
+    { slug: "digital-marketing-agency-services" },
+    { slug: "data-governance" },
+    { slug: "custom-web-application-development" },
     // { slug: "data-governance" },
     { slug: "data-solutions" },
 

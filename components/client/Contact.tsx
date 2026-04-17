@@ -7,6 +7,7 @@ import ReCAPTCHA from "react-google-recaptcha";
 import { useRouter } from "next/navigation";
 import { useForm } from "@/hooks/useForm";
 import CircularProgress from "@mui/material/CircularProgress";
+import ContactFooter from "../server/ContactFooter";
 
 type ContactProps = {
   data?: boolean;
@@ -125,235 +126,241 @@ const Contact: React.FC<ContactProps> = ({ data = false }) => {
   };
 
   return (
-    <div id="contact" style={{ paddingTop: data ? "" : "50px" }}>
-      <div className="container">
-        <div className="row justify-content-center mb-5">
-          {!data && (
-            <div className="col-lg-8 text-center">
-              <div className="heading-title">
-                <p>Request for a Service</p>
-                <h2>Get Your Free Proposal</h2>
-              </div>
-            </div>
-          )}
-        </div>
-
-        <div className="common-form pb-5">
-          <div className="common-form pb-5">
-            <form onSubmit={formik.handleSubmit}>
-              <div className="row">
-                <div className="col-md-4 form-group">
-                  <label className="font-normal text-lg">
-                    First Name <span>*</span>
-                  </label>
-                  <input
-                    type="text"
-                    name="firstName"
-                    className="form-control"
-                    onChange={formik.handleChange}
-                    onBlur={formik.handleBlur}
-                    value={formik.values.firstName}
-                  />
-                  {formik.touched.firstName && formik.errors.firstName && (
-                    <small className="text-danger font-semibold text-lg">
-                      {formik.errors.firstName}
-                    </small>
-                  )}
-                </div>
-
-                <div className="col-md-4 form-group">
-                  <label className="font-normal text-lg">
-                    Last Name <span>*</span>
-                  </label>
-                  <input
-                    type="text"
-                    name="lastName"
-                    className="form-control"
-                    onChange={formik.handleChange}
-                    onBlur={formik.handleBlur}
-                    value={formik.values.lastName}
-                  />
-                  {formik.touched.lastName && formik.errors.lastName && (
-                    <small className="text-danger font-semibold text-lg">
-                      {formik.errors.lastName}
-                    </small>
-                  )}
-                </div>
-
-                <div className="col-md-4 form-group">
-                  <label className="font-normal text-lg">
-                    Phone Number <span>*</span>
-                  </label>
-                  <input
-                    type="text"
-                    name="phone"
-                    className="form-control"
-                    onChange={formik.handleChange}
-                    onBlur={formik.handleBlur}
-                    value={formik.values.phone}
-                  />
-                  {formik.touched.phone && formik.errors.phone && (
-                    <small className="text-danger font-semibold text-lg">
-                      {formik.errors.phone}
-                    </small>
-                  )}
+    <>
+      <div id="contact" style={{ paddingTop: data ? "" : "50px" }}>
+        <div className="container">
+          <div className="row justify-content-center mb-5">
+            {!data && (
+              <div className="col-lg-8 text-center">
+                <div className="heading-title">
+                  <p>Request for a Service</p>
+                  <h2>Get Your Free Proposal</h2>
                 </div>
               </div>
+            )}
+          </div>
 
-              <div className="row">
-                <div className="col-md-4 form-group">
-                  <label className="font-normal text-lg">
-                    Your Email <span>*</span>
-                  </label>
-                  <input
-                    type="email"
-                    name="email"
-                    className="form-control"
-                    onChange={formik.handleChange}
-                    onBlur={formik.handleBlur}
-                    value={formik.values.email}
-                  />
-                  {formik.touched.email && formik.errors.email && (
-                    <small className="text-danger font-semibold text-lg">
-                      {formik.errors.email}
-                    </small>
-                  )}
-                </div>
-
-                <div className="col-md-4 form-group">
-                  <label className="font-normal text-lg">
-                    Company Name <span>*</span>
-                  </label>
-                  <input
-                    type="text"
-                    name="cname"
-                    className="form-control"
-                    onChange={formik.handleChange}
-                    onBlur={formik.handleBlur}
-                    value={formik.values.cname}
-                  />
-                  {formik.touched.cname && formik.errors.cname && (
-                    <small className="text-danger font-semibold text-lg">
-                      {formik.errors.cname}
-                    </small>
-                  )}
-                </div>
-
-                <div className="col-md-4 form-group">
-                  <label className="font-normal text-lg">
-                    Company Website <span>*</span>
-                  </label>
-                  <input
-                    type="text"
-                    name="cwebsite"
-                    className="form-control"
-                    onChange={formik.handleChange}
-                    onBlur={formik.handleBlur}
-                    value={formik.values.cwebsite}
-                  />
-                  {formik.touched.cwebsite && formik.errors.cwebsite && (
-                    <small className="text-danger font-semibold text-lg">
-                      {formik.errors.cwebsite}
-                    </small>
-                  )}
-                </div>
-              </div>
-
-              <div className="select-part">
-                <div className="container p-0 text-center mt-4 mb-4">
-                  <h5 className="text-prim">
-                    Let Us Know What Services You're Looking For <span>*</span>
-                  </h5>
-
-                  <div className="choose-services-row">
-                    {servicesList.map((item) => (
-                      <label
-                        key={item.id}
-                        className={
-                          selectService.includes(item.value)
-                            ? "activeServiceButton"
-                            : "service-btn"
-                        }
-                      >
-                        <input
-                          type="checkbox"
-                          checked={selectService.includes(item.value)}
-                          onChange={() => handleSelectService(item.value)}
-                        />
-                        <span className="text-black font-normal">
-                          {item.label}
-                        </span>
-                      </label>
-                    ))}
+          <div className="common-form ">
+            <div className="common-form pb-5">
+              <form onSubmit={formik.handleSubmit}>
+                <div className="row">
+                  <div className="col-md-4 form-group">
+                    <label className="font-normal text-lg">
+                      First Name <span>*</span>
+                    </label>
+                    <input
+                      type="text"
+                      name="firstName"
+                      className="form-control"
+                      onChange={formik.handleChange}
+                      onBlur={formik.handleBlur}
+                      value={formik.values.firstName}
+                    />
+                    {formik.touched.firstName && formik.errors.firstName && (
+                      <small className="text-danger font-semibold text-lg">
+                        {formik.errors.firstName}
+                      </small>
+                    )}
                   </div>
 
-                  {formik.touched.services && formik.errors.services && (
-                    <div className="text-danger mt-2 font-semibold text-lg">
-                      {formik.errors.services as string}
+                  <div className="col-md-4 form-group">
+                    <label className="font-normal text-lg">
+                      Last Name <span>*</span>
+                    </label>
+                    <input
+                      type="text"
+                      name="lastName"
+                      className="form-control"
+                      onChange={formik.handleChange}
+                      onBlur={formik.handleBlur}
+                      value={formik.values.lastName}
+                    />
+                    {formik.touched.lastName && formik.errors.lastName && (
+                      <small className="text-danger font-semibold text-lg">
+                        {formik.errors.lastName}
+                      </small>
+                    )}
+                  </div>
+
+                  <div className="col-md-4 form-group">
+                    <label className="font-normal text-lg">
+                      Phone Number <span>*</span>
+                    </label>
+                    <input
+                      type="text"
+                      name="phone"
+                      className="form-control"
+                      onChange={formik.handleChange}
+                      onBlur={formik.handleBlur}
+                      value={formik.values.phone}
+                    />
+                    {formik.touched.phone && formik.errors.phone && (
+                      <small className="text-danger font-semibold text-lg">
+                        {formik.errors.phone}
+                      </small>
+                    )}
+                  </div>
+                </div>
+
+                <div className="row">
+                  <div className="col-md-4 form-group">
+                    <label className="font-normal text-lg">
+                      Your Email <span>*</span>
+                    </label>
+                    <input
+                      type="email"
+                      name="email"
+                      className="form-control"
+                      onChange={formik.handleChange}
+                      onBlur={formik.handleBlur}
+                      value={formik.values.email}
+                    />
+                    {formik.touched.email && formik.errors.email && (
+                      <small className="text-danger font-semibold text-lg">
+                        {formik.errors.email}
+                      </small>
+                    )}
+                  </div>
+
+                  <div className="col-md-4 form-group">
+                    <label className="font-normal text-lg">
+                      Company Name <span>*</span>
+                    </label>
+                    <input
+                      type="text"
+                      name="cname"
+                      className="form-control"
+                      onChange={formik.handleChange}
+                      onBlur={formik.handleBlur}
+                      value={formik.values.cname}
+                    />
+                    {formik.touched.cname && formik.errors.cname && (
+                      <small className="text-danger font-semibold text-lg">
+                        {formik.errors.cname}
+                      </small>
+                    )}
+                  </div>
+
+                  <div className="col-md-4 form-group">
+                    <label className="font-normal text-lg">
+                      Company Website <span>*</span>
+                    </label>
+                    <input
+                      type="text"
+                      name="cwebsite"
+                      className="form-control"
+                      onChange={formik.handleChange}
+                      onBlur={formik.handleBlur}
+                      value={formik.values.cwebsite}
+                    />
+                    {formik.touched.cwebsite && formik.errors.cwebsite && (
+                      <small className="text-danger font-semibold text-lg">
+                        {formik.errors.cwebsite}
+                      </small>
+                    )}
+                  </div>
+                </div>
+
+                <div className="select-part">
+                  <div className="container p-0 text-center mt-4 mb-4">
+                    <h5 className="text-prim">
+                      Let Us Know What Services You're Looking For <span>*</span>
+                    </h5>
+
+                    <div className="choose-services-row">
+                      {servicesList.map((item) => (
+                        <label
+                          key={item.id}
+                          className={
+                            selectService.includes(item.value)
+                              ? "activeServiceButton"
+                              : "service-btn"
+                          }
+                        >
+                          <input
+                            type="checkbox"
+                            checked={selectService.includes(item.value)}
+                            onChange={() => handleSelectService(item.value)}
+                          />
+                          <span className="text-black font-normal">
+                            {item.label}
+                          </span>
+                        </label>
+                      ))}
                     </div>
+
+                    {formik.touched.services && formik.errors.services && (
+                      <div className="text-danger mt-2 font-semibold text-lg">
+                        {formik.errors.services as string}
+                      </div>
+                    )}
+                  </div>
+                </div>
+
+                <div className="form-group">
+                  <label className="font-normal text-lg">
+                    Your Message <span>*</span>
+                  </label>
+                  <textarea
+                    name="message"
+                    className="form-control"
+                    onChange={formik.handleChange}
+                    onBlur={formik.handleBlur}
+                    value={formik.values.message}
+                  />
+                  {formik.touched.message && formik.errors.message && (
+                    <small className="text-danger font-semibold text-lg">
+                      {formik.errors.message}
+                    </small>
                   )}
                 </div>
-              </div>
+                <div className="flex  items-center flex-wrap contactButtonContainer ">
 
-              <div className="form-group">
-                <label className="font-normal text-lg">
-                  Your Message <span>*</span>
-                </label>
-                <textarea
-                  name="message"
-                  className="form-control"
-                  onChange={formik.handleChange}
-                  onBlur={formik.handleBlur}
-                  value={formik.values.message}
-                />
-                {formik.touched.message && formik.errors.message && (
-                  <small className="text-danger font-semibold text-lg">
-                    {formik.errors.message}
-                  </small>
-                )}
-              </div>
-
-              <div className="mt-4 d-flex flex-column align-items-center">
-                <ReCAPTCHA
-                  ref={recaptchaRef}
-                  sitekey={process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY!}
-                  onChange={(token) => {
-                    setCaptchaToken(token || "");
-                    setCaptchaError("");
-                  }}
-                  onExpired={() => {
-                    setCaptchaToken("");
-                    setCaptchaError("Captcha expired. Please verify again.");
-                  }}
-                />
-
-                {captchaError && (
-                  <small className="text-danger font-semibold text-lg mt-2">
-                    {captchaError}
-                  </small>
-                )}
-              </div>
-
-              <div className="mb-0 text-center pt-md-5">
-                <button type="submit" className="btn btn-primary">
-                  {loading ? (
-                    <CircularProgress
-                      size={20}
-                      sx={{ color: "#fff" }}
-                      className="mx-16"
+                  <div className="d-flex flex-column align-items-center">
+                    <ReCAPTCHA
+                      ref={recaptchaRef}
+                      sitekey={process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY!}
+                      onChange={(token) => {
+                        setCaptchaToken(token || "");
+                        setCaptchaError("");
+                      }}
+                      onExpired={() => {
+                        setCaptchaToken("");
+                        setCaptchaError("Captcha expired. Please verify again.");
+                      }}
                     />
-                  ) : (
-                    <>
-                      Submit Now <i className="fa-solid fa-arrow-right-long"></i>
-                    </>
-                  )}
-                </button>
-              </div>
-            </form>
+
+                    {captchaError && (
+                      <small className="text-danger font-semibold text-lg mt-2">
+                        {captchaError}
+                      </small>
+                    )}
+                  </div>
+
+                  <div className="mb-0 text-center mx-auto contact-submit-button">
+                    <button type="submit" className="btn btn-primary">
+                      {loading ? (
+                        <CircularProgress
+                          size={20}
+                          sx={{ color: "#fff" }}
+                          className="mx-16"
+                        />
+                      ) : (
+                        <>
+                          Submit Now <i className="fa-solid fa-arrow-right-long"></i>
+                        </>
+                      )}
+                    </button>
+                  </div>
+
+                </div>
+              </form>
+              
+            </div>
           </div>
         </div>
       </div>
-    </div>
+    </>
   );
 };
 

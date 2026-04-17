@@ -469,14 +469,33 @@ export default function FooterClient() {
                       </ul>
                     </div>
                   </div>
+                  <div className="col-sm-6">
+                  <div className="menu-list">
+                    <h3>Partners</h3>
+                    <ul className="partners">
+                      <li>
+                        <a
+                          href="https://www.zoho.com/partners/find-partner-profile.html?partnerid=d1b91bec8996f03d23320e2caa316b72">
+                          <img src="https://old.b3net.com/wp-content/themes/b3net/assets/images/zoho.png" />
+                        </a>
+                      </li>
+                      <li>
+                        <a href="#">
+                          <img
+                            src="https://old.b3net.com/wp-content/themes/b3net/assets/images/google-authorised.png" />
+                        </a>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
                 </div>
               </div>
 
-              <div className="col-md-3">
+              <div className="col-md-3 success-container">
                 <div className="menu-list">
                   <div className="success">
                     <img
-                      src={`${BASE_URL}/wp-content/uploads/2026/04/footer-success-img.webp`}
+                      src={`${BASE_URL}/wp-content/themes/b3net/assets/images/success-img.png`}
                       alt=""
                     />
                   </div>

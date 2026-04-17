@@ -7673,3 +7673,20 @@ width: 50% !important;
   pointer-events: none;
   cursor: default;
 } */
+
+@media(max-width:600px){
+  .contactButtonContainer{
+    justify-content: center;
+  }
+ .contact-submit-button{
+  margin-top: 15px;
+ } 
+} 
+@media(max-width:800px){
+  
+ .success-container{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+ } 
+} 

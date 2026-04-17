@@ -304,7 +304,7 @@ export default async function Home() {
             <section id="expertise-service"><Expertise /></section>
             <section id="case-studies"><CaseStudy /></section>
             <FrequentQuestion />
-            <section id="contact"><Contact /></section>
+            <section id="contact" className="contact-sec bg-grey"><Contact /></section>
         </main>
     );
 }

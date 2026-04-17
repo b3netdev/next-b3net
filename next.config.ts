@@ -6,7 +6,6 @@ const nextConfig: NextConfig = {
   images: {
     domains: [domain],
   },
-  allowedDevOrigins: ['192.168.1.141'],
 
   async redirects() {
     return [
