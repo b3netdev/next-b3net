@@ -126,7 +126,7 @@ const TestimonialCard: React.FC<{
             </div>
           )
         ) : (
-          <p className="primary-bodyText">{item.text}</p>
+          <p className="primary-bodyText testimonial-text">{item.text}</p>
         )}
       </div>
     </div>
@@ -138,15 +138,15 @@ const TestimonoalCard: React.FC = () => {
 
   return (
     <div className="testimonial-slider-col pe-0 ps-0">
-      <div className="container">
+      <div className="container testimonial-container">
         <Swiper
           modules={[Navigation, Pagination, Autoplay]}
           spaceBetween={10}
           loop={playingVideoId === null}
           pagination={{ clickable: true }}
-          autoplay={{ delay: 3000, disableOnInteraction: true,
-            pauseOnMouseEnter: true,
-           }}
+          // autoplay={{ delay: 3000, disableOnInteraction: true,
+          //   pauseOnMouseEnter: true,
+          //  }}
           slidesPerView="auto"
         >
           {testimonials.map((item: any) => (

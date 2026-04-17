@@ -103,7 +103,7 @@ const Process: React.FC = () => {
     if (activeId == step.id) {
       setActiveImage(Select0)
       setActiveId((prev) => (prev === step.id ? "" : step.id));
-      return  
+      return
     }
     setActiveImage(step.image);
     setActiveId((prev) => (prev === step.id ? "" : step.id));
@@ -138,13 +138,16 @@ const Process: React.FC = () => {
                         onClick={() => toggle(step)}
                         aria-expanded={isOpen}
                       >
-                        <span className="icon-1">
-                          <i className="fa-solid fa-check"></i>
-                        </span>
-                        {index + 1}. {step.title}
-                        <span className="icon-2">
-                          <i className="fa-solid fa-chevron-down"></i>
-                        </span>
+                        <div className={`${index==3?"process-sm-text":""}`}>
+
+                          <span className="icon-1">
+                            <i className="fa-solid fa-check"></i>
+                          </span>
+                          {index + 1}.{step.title}
+                          <span className="icon-2">
+                            <i className="fa-solid fa-chevron-down"></i>
+                          </span>
+                        </div>
                       </button>
                     </h2>
 

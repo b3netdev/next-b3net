@@ -4,7 +4,7 @@ import ServiceSlider from "@/app/services/[slug]/ServiceSlider";
 import ServiceContact from "@/app/services/[slug]/ServiceContact";
 import Link from "next/link";
 import ServiceContact1 from "@/app/services/[slug]/ServiceContact1";
-import FrequentQuestion from "@/components/client/FrequentQuestion";
+
 import Workslider from "@/app/services/[slug]/Workslider";
 import { sluglist } from "@/helper/Menulist";
 import { BASE_URL } from "@/lib/url";
@@ -13,6 +13,7 @@ import { Metadata } from "next";
 import ScrollLink from "@/components/client/ScrollLink";
 import { buildMetadata, getSeoFromPageData } from "@/lib/seo";
 import StructuredData from "@/components/server/StructuredData";
+import FrequentQuestion from "@/app/services/[slug]/FrequentQuestion";
 
 
 type Props = {
@@ -62,7 +63,7 @@ const ServiceSubpage = async ({ params }: Props) => {
                 }}
             >
                 <div className="container">
-                    <div className="banner-caption">
+                    <div className="banner-caption service-banner-caption">
                         <h1>{pageData?.acf?.data?.banner_heading}</h1>
                         <div
                             dangerouslySetInnerHTML={{
@@ -459,10 +460,6 @@ const ServiceSubpage = async ({ params }: Props) => {
                                         )
                                     }
 
-
-
-
-
                                 </div>
                             </div>
                         </div>
@@ -605,10 +602,10 @@ const ServiceSubpage = async ({ params }: Props) => {
             <ServiceContact
                 title={pageData?.acf?.data?.service_page_section_8_title || "Request a FREE Consultation"}
             />
-            {/* {
+            {
                     pageData?.acf?.data?.faq_repeater &&
                     <FrequentQuestion pageData={pageData} />
-                } */}
+                }
         </main>
 
     );

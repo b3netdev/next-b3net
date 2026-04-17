@@ -619,8 +619,7 @@ const ServiceSubpage = async ({ params }: { params: { slug: string } }) => {
                                                         </div>
 
                                                         <p className="clamp-3 primary-bodyText" >
-                                                            {data?.post_content.slice(0, 197)}
-                                                            {/* <Link href={`/blog/${data?.post_name}`} className="text-[#ff6600] opacity-80"> ...Read More</Link> */}
+                                                            {data?.post_content.slice(0, 180)} {data?.post_content?.length>180 &&<span>...</span>}
                                                         </p>
 
                                                         <div className="testi-icon-wrap">

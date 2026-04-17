@@ -55,49 +55,49 @@ import { BASE_URL } from "@/lib/url";
 
 const caseStudiesData: any = [
     {
-      img: CaseStudies,
-      link: `${BASE_URL}/case-study-mattress-company-website-digital-marketing.html`,
-      title: "Mattress Manufacturing Company",
-      percent: "95%",
-      desc: "Increase in Average Website Visitors",
-      path: "/services/casestudies/",
-      id: 13074,
-      slug: "case-study-mattress-company-website-digital-marketing",
+        img: CaseStudies,
+        link: `${BASE_URL}/case-study-mattress-company-website-digital-marketing.html`,
+        title: "Mattress Manufacturing Company",
+        percent: "95%",
+        desc: "Increase in Average Website Visitors",
+        path: "/services/casestudies/",
+        id: 13074,
+        slug: "case-study-mattress-company-website-digital-marketing",
     },
     {
-      img: CaseStudies4,
-      link: `${BASE_URL}/case-study-tech-hardware-service-web-design-digital-marketing.html`,
-      title: "Viage Solutions",
-      percent: "370%",
-      desc: "Increase in Average Monthly Sale",
-      path: "/services/casestudies1/",
-      id: 13037,
-      slug: "case-study-tech-hardware-service-web-design-digital-marketing",
+        img: CaseStudies4,
+        link: `${BASE_URL}/case-study-tech-hardware-service-web-design-digital-marketing.html`,
+        title: "Viage Solutions",
+        percent: "370%",
+        desc: "Increase in Average Monthly Sale",
+        path: "/services/casestudies1/",
+        id: 13037,
+        slug: "case-study-tech-hardware-service-web-design-digital-marketing",
     },
     {
-      img: CaseStudies3,
-      link: `${BASE_URL}/case-study-automobile-parts-website-design-seo.html`,
-      title: "Motorcycle Parts Manufacturer",
-      percent: "275%",
-      desc: "Increase In Average Monthly Sales",
-      path: "/services/casestudies2/",
-      id: 13121,
-      slug: "case-study-automobile-parts-website-design-seo",
+        img: CaseStudies3,
+        link: `${BASE_URL}/case-study-automobile-parts-website-design-seo.html`,
+        title: "Motorcycle Parts Manufacturer",
+        percent: "275%",
+        desc: "Increase In Average Monthly Sales",
+        path: "/services/casestudies2/",
+        id: 13121,
+        slug: "case-study-automobile-parts-website-design-seo",
     },
     {
-      img: CaseStudies5,
-      link: `${BASE_URL}/case-study-tree-care-service-web-design-digital-marketing.html`,
-      title: "Tree Care Company",
-      percent: "103%",
-      desc: "Increase In Average Monthly Sales",
-      path: "/services/casestudies3/",
-      id: 12949,
-      slug: "case-study-tree-care-service-web-design-digital-marketing",
+        img: CaseStudies5,
+        link: `${BASE_URL}/case-study-tree-care-service-web-design-digital-marketing.html`,
+        title: "Tree Care Company",
+        percent: "103%",
+        desc: "Increase In Average Monthly Sales",
+        path: "/services/casestudies3/",
+        id: 12949,
+        slug: "case-study-tree-care-service-web-design-digital-marketing",
     },
-  ];
+];
 
 
-export default function     CaseStudiesSlider() {
+export default function CaseStudiesSlider() {
     return (
         <div className="w-full">
 
@@ -106,6 +106,10 @@ export default function     CaseStudiesSlider() {
                 slidesPerView={4}
                 autoplay
                 breakpoints={{
+
+                    0: {
+                        slidesPerView: 1,
+                    },
                     320: {
                         slidesPerView: 1,
                     },
@@ -162,6 +166,6 @@ export default function     CaseStudiesSlider() {
             </Swiper>
 
         </div>
-    
+
     );
 }

@@ -3125,6 +3125,12 @@ end last css */
 
 }
 
+@media(max-width:375px){
+    .related-post .card-parts-1 .card {
+        width: 90dvw;
+    }
+}
+
 @media screen and (max-width: 480px) {
     .faq-page .banner-caption h1 {
         font-size: 18px;
