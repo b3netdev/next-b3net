@@ -6700,6 +6700,12 @@ li {
   color: #fff;
 }
 
+@media (max-width:414px)  {
+  .blognavlink{
+    /* width: 300px; */
+  }
+}
+
 .blogContainer {
   padding-bottom: 20px;
 }
