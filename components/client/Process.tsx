@@ -98,6 +98,7 @@ const Process: React.FC = () => {
   }, []);
 
   const toggle = (step: ProcessStep) => {
+    console.log(step)
     setActiveImage(step.image);
     setActiveId((prev) => (prev === step.id ? "" : step.id));
   };

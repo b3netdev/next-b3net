@@ -6,6 +6,9 @@ html {
   font-family: "Poppins", serif;
   color: #8c92a1;
 }
+html {
+  scroll-behavior: smooth;
+}
 
 a {
   color: #3b58a1;

@@ -8,6 +8,7 @@ import { useAppSelector } from "@/redux/hooks";
 import ChatBot from "./Chatbot";
 import { useFooter } from "@/hooks/useFooter";
 import { BASE_URL } from "@/lib/url";
+import ScrollLink from "./ScrollLink";
 
 const makeDomId = (str: string | number) =>
   String(str)
@@ -333,11 +334,11 @@ export default function FooterClient() {
                                   <div className="menu-list">
                                     <LocationColumns columns={columns} country={loc.title} />
                                     {
-                                    columns?.length == 0 &&
-                                    <div className="w-full">
-                                      <p className="font-semibold ">Comming soon....</p>
-                                    </div>
-                                  }
+                                      columns?.length == 0 &&
+                                      <div className="w-full">
+                                        <p className="font-semibold ">Comming soon....</p>
+                                      </div>
+                                    }
                                   </div>
                                 </div>
                               </div>
@@ -470,24 +471,24 @@ export default function FooterClient() {
                     </div>
                   </div>
                   <div className="col-sm-6">
-                  <div className="menu-list">
-                    <h3>Partners</h3>
-                    <ul className="partners">
-                      <li>
-                        <a
-                          href="https://www.zoho.com/partners/find-partner-profile.html?partnerid=d1b91bec8996f03d23320e2caa316b72">
-                          <img src="https://old.b3net.com/wp-content/themes/b3net/assets/images/zoho.png" />
-                        </a>
-                      </li>
-                      <li>
-                        <a href="#">
-                          <img
-                            src="https://old.b3net.com/wp-content/themes/b3net/assets/images/google-authorised.png" />
-                        </a>
-                      </li>
-                    </ul>
+                    <div className="menu-list">
+                      <h3>Partners</h3>
+                      <ul className="partners">
+                        <li>
+                          <a
+                            href="https://www.zoho.com/partners/find-partner-profile.html?partnerid=d1b91bec8996f03d23320e2caa316b72">
+                            <img src="https://old.b3net.com/wp-content/themes/b3net/assets/images/zoho.png" />
+                          </a>
+                        </li>
+                        <li>
+                          <a href="#">
+                            <img
+                              src="https://old.b3net.com/wp-content/themes/b3net/assets/images/google-authorised.png" />
+                          </a>
+                        </li>
+                      </ul>
+                    </div>
                   </div>
-                </div>
                 </div>
               </div>
 
@@ -511,9 +512,9 @@ export default function FooterClient() {
           <div className="copyright-part">
             <p>
               <span>Copyright © 1999-2026, </span>
-              <Link href="/">
+              <a href="#">
                 <strong>B3net</strong> inc.
-              </Link>
+              </a>
             </p>
             <p>
               <Link href="/privacy-policy">Privacy Policy </Link> |{" "}
