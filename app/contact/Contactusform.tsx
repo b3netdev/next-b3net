@@ -172,24 +172,26 @@ export default function ContactUsForm() {
               </div>
             </div>
 
-           
-            <div className="mt-3 d-flex flex-column align-items-center">
-              <ReCAPTCHA
-                ref={recaptchaRef}
-                sitekey={process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY!}
-                onChange={(token) => {
-                  setCaptchaToken(token || "");
-                  setCaptchaError("");
-                }}
-                onExpired={() => {
-                  setCaptchaToken("");
-                  setCaptchaError("Captcha expired. Please verify again.");
-                }}
-              />
 
-              {captchaError && (
-                <small className="text-danger mt-2">{captchaError}</small>
-              )}
+            <div className="mt-3 d-flex flex-column align-items-center">
+              <div className="scale-100 sm:scale-100 max-[400px]:scale-90 max-[350px]:scale-75 origin-center">
+                <ReCAPTCHA
+                  ref={recaptchaRef}
+                  sitekey={process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY!}
+                  onChange={(token) => {
+                    setCaptchaToken(token || "");
+                    setCaptchaError("");
+                  }}
+                  onExpired={() => {
+                    setCaptchaToken("");
+                    setCaptchaError("Captcha expired. Please verify again.");
+                  }}
+                />
+
+                {captchaError && (
+                  <small className="text-danger mt-2">{captchaError}</small>
+                )}
+              </div>
             </div>
 
             <div className="mb-0 text-center pt-md-3">

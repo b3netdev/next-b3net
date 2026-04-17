@@ -314,9 +314,11 @@ const Contact: React.FC<ContactProps> = ({ data = false }) => {
                     </small>
                   )}
                 </div>
-                <div className="flex  items-center flex-wrap contactButtonContainer ">
+                <div className="flex  items-center flex-wrap contactButton ">
 
-                  <div className="d-flex flex-column align-items-center">
+                  <div className="d-flex flex-column align-items-center w-full">
+                  <div className="scale-100 sm:scale-100 max-[400px]:scale-90 max-[350px]:scale-75 origin-center">
+
                     <ReCAPTCHA
                       ref={recaptchaRef}
                       sitekey={process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY!}
@@ -335,6 +337,7 @@ const Contact: React.FC<ContactProps> = ({ data = false }) => {
                         {captchaError}
                       </small>
                     )}
+                    </div>
                   </div>
 
                   <div className="mb-0 text-center mx-auto contact-submit-button">

@@ -7699,3 +7699,19 @@ width: 50% !important;
   align-items: center;
  } 
 } 
+
+
+@media (max-width:407px) {
+  .servicebannerbtn span{
+    font-size: 14px;
+  }
+  .servicebannerbtn {
+    padding: 0px 10px 0px 0px ;
+  }
+}
+
+.servicebannerbtn span{
+
+}
+
+

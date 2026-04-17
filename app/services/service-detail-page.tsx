@@ -153,7 +153,7 @@ const ServiceSubpage = async ({ params }: { params: { slug: string } }) => {
                             }}
                         />
                         <div className="mt-4">
-                            <span className="btn btn-orange">
+                            <span className="btn btn-orange servicebannerbtn">
                                 <ScrollLink
                                     targetId="contact-form"
                                     className="btn btn-orange"

@@ -86,303 +86,297 @@ const ServiceContact1 = () => {
         },
     });
     return (
-       
-            <form onSubmit={formik.handleSubmit} noValidate >
-                <div className="quote-form">
-                    <div className="inputrow">
-                        <div className="inputcol">
-                            <div className="inputsblocks">
-                                <span
-                                    className="wpcf7-form-control-wrap"
-                                    data-name="fname"
-                                >
-                                    <input
-                                        type="text"
-                                        name="fname"
-                                        value={formik.values.fname}
-                                        onChange={formik.handleChange}
-                                        onBlur={formik.handleBlur}
-                                        size={40}
-                                        className="wpcf7-form-control wpcf7-text wpcf7-validates-as-required input-control"
-                                        aria-required="true"
-                                        aria-invalid={
-                                            formik.touched.fname && formik.errors.fname
-                                                ? "true"
-                                                : "false"
-                                        }
-                                        placeholder="Your name"
-                                    />
-                                </span>
 
-                                {formik.touched.fname && formik.errors.fname ? (
-                                    <small
-                                        style={{
-                                            color: "red",
-                                            display: "block",
-                                            marginTop: "6px",
-                                        }}
-                                    >
-                                        {formik.errors.fname}
-                                    </small>
-                                ) : null}
-                            </div>
-                        </div>
-                    </div>
-
-                    <div className="inputrow nitro-offscreen">
-                        <div className="inputcol">
-                            <div className="inputsblocks">
-                                <span
-                                    className="wpcf7-form-control-wrap"
-                                    data-name="phone"
-                                >
-                                    <input
-                                        type="tel"
-                                        name="phone"
-                                        value={formik.values.phone}
-                                        onChange={formik.handleChange}
-                                        onBlur={formik.handleBlur}
-                                        size={40}
-                                        className="wpcf7-form-control wpcf7-text wpcf7-tel wpcf7-validates-as-required wpcf7-validates-as-tel input-control"
-                                        aria-required="true"
-                                        aria-invalid={
-                                            formik.touched.phone && formik.errors.phone
-                                                ? "true"
-                                                : "false"
-                                        }
-                                        placeholder="Phone no"
-                                    />
-                                </span>
-
-                                {formik.touched.phone && formik.errors.phone ? (
-                                    <small
-                                        style={{
-                                            color: "red",
-                                            display: "block",
-                                            marginTop: "6px",
-                                        }}
-                                    >
-                                        {formik.errors.phone}
-                                    </small>
-                                ) : null}
-                            </div>
-                        </div>
-                    </div>
-
-                    <div className="inputrow nitro-offscreen">
-                        <div className="inputcol">
-                            <div className="inputsblocks">
-                                <span
-                                    className="wpcf7-form-control-wrap"
-                                    data-name="company"
-                                >
-                                    <input
-                                        type="text"
-                                        name="company"
-                                        value={formik.values.company}
-                                        onChange={formik.handleChange}
-                                        onBlur={formik.handleBlur}
-                                        size={40}
-                                        className="wpcf7-form-control wpcf7-text input-control"
-                                        aria-invalid={
-                                            formik.touched.company &&
-                                                formik.errors.company
-                                                ? "true"
-                                                : "false"
-                                        }
-                                        placeholder="Company"
-                                    />
-                                </span>
-
-                                {formik.touched.company &&
-                                    formik.errors.company ? (
-                                    <small
-                                        style={{
-                                            color: "red",
-                                            display: "block",
-                                            marginTop: "6px",
-                                        }}
-                                    >
-                                        {formik.errors.company}
-                                    </small>
-                                ) : null}
-                            </div>
-                        </div>
-
-                        <div className="inputcol">
-                            <div className="inputsblocks">
-                                <span
-                                    className="wpcf7-form-control-wrap"
-                                    data-name="website"
-                                >
-                                    <input
-                                        type="text"
-                                        name="website"
-                                        value={formik.values.website}
-                                        onChange={formik.handleChange}
-                                        onBlur={formik.handleBlur}
-                                        size={40}
-                                        className="wpcf7-form-control wpcf7-text input-control"
-                                        aria-invalid={
-                                            formik.touched.website &&
-                                                formik.errors.website
-                                                ? "true"
-                                                : "false"
-                                        }
-                                        placeholder="Website"
-                                    />
-                                </span>
-
-                                {formik.touched.website &&
-                                    formik.errors.website ? (
-                                    <small
-                                        style={{
-                                            color: "red",
-                                            display: "block",
-                                            marginTop: "6px",
-                                        }}
-                                    >
-                                        {formik.errors.website}
-                                    </small>
-                                ) : null}
-                            </div>
-                        </div>
-                    </div>
-
-                    <div className="inputrow nitro-offscreen">
-                        <div className="inputcol">
-                            <div className="inputsblocks">
-                                <span
-                                    className="wpcf7-form-control-wrap"
-                                    data-name="email"
-                                >
-                                    <input
-                                        type="email"
-                                        name="email"
-                                        value={formik.values.email}
-                                        onChange={formik.handleChange}
-                                        onBlur={formik.handleBlur}
-                                        size={40}
-                                        className="wpcf7-form-control wpcf7-text wpcf7-email wpcf7-validates-as-required wpcf7-validates-as-email input-control"
-                                        aria-required="true"
-                                        aria-invalid={
-                                            formik.touched.email && formik.errors.email
-                                                ? "true"
-                                                : "false"
-                                        }
-                                        placeholder="Email Address"
-                                    />
-                                </span>
-
-                                {formik.touched.email && formik.errors.email ? (
-                                    <small
-                                        style={{
-                                            color: "red",
-                                            display: "block",
-                                            marginTop: "6px",
-                                        }}
-                                    >
-                                        {formik.errors.email}
-                                    </small>
-                                ) : null}
-                            </div>
-                        </div>
-                    </div>
-
-                    <div className="inputrow nitro-offscreen">
-                        <div className="inputcol f-w">
-                            <div className="inputsblocks">
-                                <span
-                                    className="wpcf7-form-control-wrap"
-                                    data-name="subject"
-                                >
-                                    <input
-                                        type="text"
-                                        name="subject"
-                                        value={formik.values.subject}
-                                        onChange={formik.handleChange}
-                                        onBlur={formik.handleBlur}
-                                        size={40}
-                                        className="wpcf7-form-control wpcf7-text wpcf7-validates-as-required input-control"
-                                        aria-required="true"
-                                        aria-invalid={
-                                            formik.touched.subject &&
-                                                formik.errors.subject
-                                                ? "true"
-                                                : "false"
-                                        }
-                                        placeholder="Subject"
-                                    />
-                                </span>
-
-                                {formik.touched.subject &&
-                                    formik.errors.subject ? (
-                                    <small
-                                        style={{
-                                            color: "red",
-                                            display: "block",
-                                            marginTop: "6px",
-                                        }}
-                                    >
-                                        {formik.errors.subject}
-                                    </small>
-                                ) : null}
-                            </div>
-                        </div>
-                    </div>
-
-                    <div className="inputrow nitro-offscreen">
-                        <div className="inputcol f-w">
-                            <div className="inputsblocks">
-                                <span
-                                    className="wpcf7-form-control-wrap"
-                                    data-name="Message"
-                                >
-                                    <textarea
-                                        name="Message"
-                                        value={formik.values.Message}
-                                        onChange={formik.handleChange}
-                                        onBlur={formik.handleBlur}
-                                        cols={40}
-                                        rows={10}
-                                        className="wpcf7-form-control wpcf7-textarea wpcf7-validates-as-required input-control"
-                                        aria-required="true"
-                                        aria-invalid={
-                                            formik.touched.Message &&
-                                                formik.errors.Message
-                                                ? "true"
-                                                : "false"
-                                        }
-                                        placeholder="Message"
-                                    ></textarea>
-                                </span>
-
-                                {formik.touched.Message &&
-                                    formik.errors.Message ? (
-                                    <small
-                                        style={{
-                                            color: "red",
-                                            display: "block",
-                                            marginTop: "6px",
-                                        }}
-                                    >
-                                        {formik.errors.Message}
-                                    </small>
-                                ) : null}
-                            </div>
-                        </div>
-                    </div>
-
-                    <div className="inputrow nitro-offscreen">
-                        <div className="inputcol f-w">
-                            <div
-                                style={{
-                                    display: "flex",
-                                    flexDirection: "column",
-                                    alignItems: "center",
-                                    marginBottom: "16px",
-                                }}
+        <form onSubmit={formik.handleSubmit} noValidate >
+            <div className="quote-form">
+                <div className="inputrow">
+                    <div className="inputcol">
+                        <div className="inputsblocks">
+                            <span
+                                className="wpcf7-form-control-wrap"
+                                data-name="fname"
                             >
+                                <input
+                                    type="text"
+                                    name="fname"
+                                    value={formik.values.fname}
+                                    onChange={formik.handleChange}
+                                    onBlur={formik.handleBlur}
+                                    size={40}
+                                    className="wpcf7-form-control wpcf7-text wpcf7-validates-as-required input-control"
+                                    aria-required="true"
+                                    aria-invalid={
+                                        formik.touched.fname && formik.errors.fname
+                                            ? "true"
+                                            : "false"
+                                    }
+                                    placeholder="Your name"
+                                />
+                            </span>
+
+                            {formik.touched.fname && formik.errors.fname ? (
+                                <small
+                                    style={{
+                                        color: "red",
+                                        display: "block",
+                                        marginTop: "6px",
+                                    }}
+                                >
+                                    {formik.errors.fname}
+                                </small>
+                            ) : null}
+                        </div>
+                    </div>
+                </div>
+
+                <div className="inputrow nitro-offscreen">
+                    <div className="inputcol">
+                        <div className="inputsblocks">
+                            <span
+                                className="wpcf7-form-control-wrap"
+                                data-name="phone"
+                            >
+                                <input
+                                    type="tel"
+                                    name="phone"
+                                    value={formik.values.phone}
+                                    onChange={formik.handleChange}
+                                    onBlur={formik.handleBlur}
+                                    size={40}
+                                    className="wpcf7-form-control wpcf7-text wpcf7-tel wpcf7-validates-as-required wpcf7-validates-as-tel input-control"
+                                    aria-required="true"
+                                    aria-invalid={
+                                        formik.touched.phone && formik.errors.phone
+                                            ? "true"
+                                            : "false"
+                                    }
+                                    placeholder="Phone no"
+                                />
+                            </span>
+
+                            {formik.touched.phone && formik.errors.phone ? (
+                                <small
+                                    style={{
+                                        color: "red",
+                                        display: "block",
+                                        marginTop: "6px",
+                                    }}
+                                >
+                                    {formik.errors.phone}
+                                </small>
+                            ) : null}
+                        </div>
+                    </div>
+                </div>
+
+                <div className="inputrow nitro-offscreen">
+                    <div className="inputcol">
+                        <div className="inputsblocks">
+                            <span
+                                className="wpcf7-form-control-wrap"
+                                data-name="company"
+                            >
+                                <input
+                                    type="text"
+                                    name="company"
+                                    value={formik.values.company}
+                                    onChange={formik.handleChange}
+                                    onBlur={formik.handleBlur}
+                                    size={40}
+                                    className="wpcf7-form-control wpcf7-text input-control"
+                                    aria-invalid={
+                                        formik.touched.company &&
+                                            formik.errors.company
+                                            ? "true"
+                                            : "false"
+                                    }
+                                    placeholder="Company"
+                                />
+                            </span>
+
+                            {formik.touched.company &&
+                                formik.errors.company ? (
+                                <small
+                                    style={{
+                                        color: "red",
+                                        display: "block",
+                                        marginTop: "6px",
+                                    }}
+                                >
+                                    {formik.errors.company}
+                                </small>
+                            ) : null}
+                        </div>
+                    </div>
+
+                    <div className="inputcol">
+                        <div className="inputsblocks">
+                            <span
+                                className="wpcf7-form-control-wrap"
+                                data-name="website"
+                            >
+                                <input
+                                    type="text"
+                                    name="website"
+                                    value={formik.values.website}
+                                    onChange={formik.handleChange}
+                                    onBlur={formik.handleBlur}
+                                    size={40}
+                                    className="wpcf7-form-control wpcf7-text input-control"
+                                    aria-invalid={
+                                        formik.touched.website &&
+                                            formik.errors.website
+                                            ? "true"
+                                            : "false"
+                                    }
+                                    placeholder="Website"
+                                />
+                            </span>
+
+                            {formik.touched.website &&
+                                formik.errors.website ? (
+                                <small
+                                    style={{
+                                        color: "red",
+                                        display: "block",
+                                        marginTop: "6px",
+                                    }}
+                                >
+                                    {formik.errors.website}
+                                </small>
+                            ) : null}
+                        </div>
+                    </div>
+                </div>
+
+                <div className="inputrow nitro-offscreen">
+                    <div className="inputcol">
+                        <div className="inputsblocks">
+                            <span
+                                className="wpcf7-form-control-wrap"
+                                data-name="email"
+                            >
+                                <input
+                                    type="email"
+                                    name="email"
+                                    value={formik.values.email}
+                                    onChange={formik.handleChange}
+                                    onBlur={formik.handleBlur}
+                                    size={40}
+                                    className="wpcf7-form-control wpcf7-text wpcf7-email wpcf7-validates-as-required wpcf7-validates-as-email input-control"
+                                    aria-required="true"
+                                    aria-invalid={
+                                        formik.touched.email && formik.errors.email
+                                            ? "true"
+                                            : "false"
+                                    }
+                                    placeholder="Email Address"
+                                />
+                            </span>
+
+                            {formik.touched.email && formik.errors.email ? (
+                                <small
+                                    style={{
+                                        color: "red",
+                                        display: "block",
+                                        marginTop: "6px",
+                                    }}
+                                >
+                                    {formik.errors.email}
+                                </small>
+                            ) : null}
+                        </div>
+                    </div>
+                </div>
+
+                <div className="inputrow nitro-offscreen">
+                    <div className="inputcol f-w">
+                        <div className="inputsblocks">
+                            <span
+                                className="wpcf7-form-control-wrap"
+                                data-name="subject"
+                            >
+                                <input
+                                    type="text"
+                                    name="subject"
+                                    value={formik.values.subject}
+                                    onChange={formik.handleChange}
+                                    onBlur={formik.handleBlur}
+                                    size={40}
+                                    className="wpcf7-form-control wpcf7-text wpcf7-validates-as-required input-control"
+                                    aria-required="true"
+                                    aria-invalid={
+                                        formik.touched.subject &&
+                                            formik.errors.subject
+                                            ? "true"
+                                            : "false"
+                                    }
+                                    placeholder="Subject"
+                                />
+                            </span>
+
+                            {formik.touched.subject &&
+                                formik.errors.subject ? (
+                                <small
+                                    style={{
+                                        color: "red",
+                                        display: "block",
+                                        marginTop: "6px",
+                                    }}
+                                >
+                                    {formik.errors.subject}
+                                </small>
+                            ) : null}
+                        </div>
+                    </div>
+                </div>
+
+                <div className="inputrow nitro-offscreen">
+                    <div className="inputcol f-w">
+                        <div className="inputsblocks">
+                            <span
+                                className="wpcf7-form-control-wrap"
+                                data-name="Message"
+                            >
+                                <textarea
+                                    name="Message"
+                                    value={formik.values.Message}
+                                    onChange={formik.handleChange}
+                                    onBlur={formik.handleBlur}
+                                    cols={40}
+                                    rows={10}
+                                    className="wpcf7-form-control wpcf7-textarea wpcf7-validates-as-required input-control"
+                                    aria-required="true"
+                                    aria-invalid={
+                                        formik.touched.Message &&
+                                            formik.errors.Message
+                                            ? "true"
+                                            : "false"
+                                    }
+                                    placeholder="Message"
+                                ></textarea>
+                            </span>
+
+                            {formik.touched.Message &&
+                                formik.errors.Message ? (
+                                <small
+                                    style={{
+                                        color: "red",
+                                        display: "block",
+                                        marginTop: "6px",
+                                    }}
+                                >
+                                    {formik.errors.Message}
+                                </small>
+                            ) : null}
+                        </div>
+                    </div>
+                </div>
+
+                <div className="inputrow nitro-offscreen">
+                    <div className="inputcol f-w">
+                        <div className="flex flex-col items-center mb-4 sm:mb-6 w-full">
+                            <div className="scale-100 sm:scale-100 max-[400px]:scale-90 max-[350px]:scale-75 origin-center">
                                 <ReCAPTCHA
                                     ref={recaptchaRef}
                                     sitekey={process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY!}
@@ -395,47 +389,42 @@ const ServiceContact1 = () => {
                                         setCaptchaError("Captcha expired. Please verify again.");
                                     }}
                                 />
-
-                                {captchaError ? (
-                                    <small
-                                        style={{
-                                            color: "red",
-                                            display: "block",
-                                            marginTop: "6px",
-                                        }}
-                                    >
-                                        {captchaError}
-                                    </small>
-                                ) : null}
                             </div>
-                        </div>
+
+                            {captchaError && (
+                                <small className="text-red-500 mt-2 text-sm sm:text-base text-center px-2">
+                                    {captchaError}
+                                </small>
+                            )}
+                        </div>  
                     </div>
+                </div>
 
-                    <div className="inputrow nitro-offscreen">
-                        <div className="inputcol f-w">
-                            <div className="submit-btn-sec">
-                                <button type="submit" 
-                                 className="wpcf7-form-control has-spinner wpcf7-submit submit-btn btn btn-primary"
+                <div className="inputrow nitro-offscreen">
+                    <div className="inputcol f-w">
+                        <div className="submit-btn-sec">
+                            <button type="submit"
+                                className="wpcf7-form-control has-spinner wpcf7-submit submit-btn btn btn-primary"
                                 disabled={loading}
-                                >
-                                    {loading ? (
-                                        <CircularProgress size={20} sx={{ color: "#fff" }} className="mx-16" />
-                                    ) : (
-                                        <>
-                                            Submit Now <i className="fa-solid fa-arrow-right-long"></i>
-                                        </>
-                                    )}
-                                </button>
-                            </div>
+                            >
+                                {loading ? (
+                                    <CircularProgress size={20} sx={{ color: "#fff" }} className="mx-16" />
+                                ) : (
+                                    <>
+                                        Submit Now <i className="fa-solid fa-arrow-right-long"></i>
+                                    </>
+                                )}
+                            </button>
                         </div>
                     </div>
                 </div>
-                <div
-                    className="wpcf7-response-output"
-                    aria-hidden="true"
-                ></div>
-            </form>
-        
+            </div>
+            <div
+                className="wpcf7-response-output"
+                aria-hidden="true"
+            ></div>
+        </form>
+
     )
 }
 
