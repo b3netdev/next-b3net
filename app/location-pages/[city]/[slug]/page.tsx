@@ -24,20 +24,20 @@ type Props = {
 };
 
 
-const getPageData = cache(async (slug:string) => {
-  
-  const data = await GetPageData(slug);
-  return data?.page ?? data;
+const getPageData = cache(async (slug: string) => {
+
+    const data = await GetPageData(slug);
+    return data?.page ?? data;
 });
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
-    const { slug } =  await params;
-  
+    const { slug } = await params;
+
     const pageData = await getPageData(slug);
     const seo = getSeoFromPageData(pageData);
-  
+
     return buildMetadata(seo);
-  }
+}
 
 const ServiceSubpage = async ({ params }: Props) => {
     const { city, slug } = await params;
@@ -54,7 +54,7 @@ const ServiceSubpage = async ({ params }: Props) => {
 
     return (
         <main className="page_content services-design-page ">
-           <StructuredData data={schemaData} />
+            <StructuredData data={schemaData} />
 
             <div
                 className="seo-landing-wrap"
@@ -400,7 +400,7 @@ const ServiceSubpage = async ({ params }: Props) => {
                         <div className="row gy-4">
                             {pageData?.acf?.data?.services_page_section_3_card?.map(
                                 (item: any, index: any) => (
-                                    <div className="col-lg-4 col-sm-6" key={index}>
+                                    <div className="col-lg-4 col-sm-6 service-detail-card-solution" key={index}>
                                         <div className="card-parts-1">
                                             <div className="card">
                                                 {item.image && (
@@ -603,9 +603,9 @@ const ServiceSubpage = async ({ params }: Props) => {
                 title={pageData?.acf?.data?.service_page_section_8_title || "Request a FREE Consultation"}
             />
             {
-                    pageData?.acf?.data?.faq_repeater &&
-                    <FrequentQuestion pageData={pageData} />
-                }
+                pageData?.acf?.data?.faq_repeater &&
+                <FrequentQuestion pageData={pageData} />
+            }
         </main>
 
     );

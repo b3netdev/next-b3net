@@ -27,7 +27,7 @@ const Workslider: React.FC<WorkSliderProps> = ({ pageData }) => {
               <div className="new-slider-1 owl-carousel owl-theme">
                 <Swiper
                   modules={[Autoplay]}
-                  slidesPerView={4}
+
                   spaceBetween={36}
                   loop={true}
                   speed={4000}
@@ -37,6 +37,24 @@ const Workslider: React.FC<WorkSliderProps> = ({ pageData }) => {
                   }}
                   grabCursor={true}
                   style={{ width: "100%", maxWidth: "100vw" }}
+                  breakpoints={{
+                    0: {
+                      slidesPerView: 1,
+                      spaceBetween: 20,
+                    },
+                    640: {
+                      slidesPerView: 2,
+                      spaceBetween: 20,
+                    },
+                    768: {
+                      slidesPerView: 3,
+                      spaceBetween: 30,
+                    },
+                    1024: {
+                      slidesPerView: 4,
+                      spaceBetween: 40,
+                    },
+                  }}
                 >
                   {pageData?.acf?.data?.service_page_section_5_images?.map(
                     (item: any, index: number) => (

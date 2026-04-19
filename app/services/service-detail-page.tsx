@@ -69,7 +69,7 @@ export async function generateMetadata({
     }
 
     const pageData = await getServicePageData(slug);
- 
+
 
     if (!pageData) {
         return {};
@@ -234,7 +234,7 @@ const ServiceSubpage = async ({ params }: { params: { slug: string } }) => {
                                             id="wpcf7-f12066-o2"
                                             lang="en-US"
                                             dir="ltr"
-                                            
+
                                         >
                                             <div className="screen-reader-response">
                                                 <p
@@ -466,17 +466,17 @@ const ServiceSubpage = async ({ params }: { params: { slug: string } }) => {
 
 
             {pageData?.acf?.data?.services_page_section_3_title && (
-                <div className="related-post py-5 ">
-                    <div className="container">
-                        <div className="heading5 mb-4 text-center services-card-solution">
+                <div className="related-post py-5  ">
+                    <div className="container  p-0 flex w-full flex-col items-center justify-center">
+                        <div className="heading5 mb-4 text-center services-card-solution  ">
                             <h2>{pageData?.acf?.data?.services_page_section_3_title}</h2>
                             <p className="primary-bodyText">{pageData?.acf?.data?.services_page_section_3_title_2}</p>
                         </div>
-                        <div className="row gy-4">
+                        <div className="row w-full flex flex-wrap justify-center items-center gap-4 ">
                             {pageData?.acf?.data?.services_page_section_3_card?.map(
                                 (item: any, index: any) => (
-                                    <div className="col-lg-4 col-sm-6" key={index}>
-                                        <div className="card-parts-1">
+                                    <div className="service-detail-card-solution" key={index}>
+                                        <div className="card-parts-1 w-full">
                                             <div className="card">
                                                 <img
                                                     src={item.image}
@@ -486,11 +486,11 @@ const ServiceSubpage = async ({ params }: { params: { slug: string } }) => {
                                                 <div className="card-body heading5">
                                                     <h4 className="card-title mb-3">{item.title}</h4>
                                                     <p className="card-text py-3">
-                                                        <span
+                                                        <div
                                                             dangerouslySetInnerHTML={{
                                                                 __html: item?.description || " ",
                                                             }}
-                                                        ></span>
+                                                        ></div>
                                                     </p>
                                                 </div>
                                             </div>
@@ -564,7 +564,7 @@ const ServiceSubpage = async ({ params }: { params: { slug: string } }) => {
                                             />
 
                                             <div className="mt-4">
-                                                
+
                                                 <ScrollLink targetId="contact-form" className="btn btn-orange">
                                                     <span className="btn_label_1">
                                                         {pageData?.acf?.data?.services_page_section_4_link?.title}
@@ -619,7 +619,7 @@ const ServiceSubpage = async ({ params }: { params: { slug: string } }) => {
                                                         </div>
 
                                                         <p className="clamp-3 primary-bodyText" >
-                                                            {data?.post_content.slice(0, 180)} {data?.post_content?.length>180 &&<span>...</span>}
+                                                            {data?.post_content.slice(0, 180)} {data?.post_content?.length > 180 && <span>...</span>}
                                                         </p>
 
                                                         <div className="testi-icon-wrap">
