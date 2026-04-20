@@ -16,7 +16,7 @@
 }
 
 .summingdesc {
-    color: white;
+    color: white !important;
     font-weight: 400;
 }
 

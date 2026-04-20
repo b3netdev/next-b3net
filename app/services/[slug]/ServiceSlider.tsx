@@ -12,10 +12,10 @@ type Props = {
 const ServiceSlider: React.FC<Props> = ({ pageData }) => {
   const cards = pageData?.acf?.data?.service_page_section_7_card ?? [];
   const caseStudySlugs = [
-    "case-study-mattress-company-website-digital-marketing",
     "case-study-tech-hardware-service-web-design-digital-marketing",
-    "case-study-automobile-parts-website-design-seo",
+    "case-study-mattress-company-website-digital-marketing",
     "case-study-tree-care-service-web-design-digital-marketing",
+    "case-study-automobile-parts-website-design-seo",
   ];
   if (!cards.length) return null;
   return (

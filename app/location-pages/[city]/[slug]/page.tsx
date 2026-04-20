@@ -392,32 +392,30 @@ const ServiceSubpage = async ({ params }: Props) => {
 
             {pageData?.acf?.data?.services_page_section_3_title && (
                 <div className="related-post py-5 ">
-                    <div className="container">
-                        <div className="heading5 mb-4 text-center services-card-solution">
+                    <div className="container flex w-full flex-col items-center justify-center">
+                        <div className="heading5  text-center services-card-solution">
                             <h2>{pageData?.acf?.data?.services_page_section_3_title}</h2>
                             <p className="primary-bodyText">{pageData?.acf?.data?.services_page_section_3_title_2}</p>
                         </div>
                         <div className="row gy-4">
                             {pageData?.acf?.data?.services_page_section_3_card?.map(
                                 (item: any, index: any) => (
-                                    <div className="col-lg-4 col-sm-6 service-detail-card-solution" key={index}>
-                                        <div className="card-parts-1">
-                                            <div className="card">
-                                                {item.image && (
-                                                    <img
-                                                        src={item.image}
-                                                        className="card-img-top"
-                                                        alt="card-img-top"
-                                                    />
-                                                )}
+                                    <div className="service-detail-card-solution col-md-6 col-lg-4 col-sm-6 mb-4" key={index}>
+                                        <div className="card-parts-1 w-full">
+                                            <div className="card services_page_section_3_card">
+                                                <img
+                                                    src={item.image}
+                                                    className="card-img-top"
+                                                    alt="card-img-top"
+                                                />
                                                 <div className="card-body heading5">
                                                     <h4 className="card-title mb-3">{item.title}</h4>
                                                     <p className="card-text py-3">
-                                                        <span
+                                                        <div
                                                             dangerouslySetInnerHTML={{
                                                                 __html: item?.description || " ",
                                                             }}
-                                                        ></span>
+                                                        ></div>
                                                     </p>
                                                 </div>
                                             </div>

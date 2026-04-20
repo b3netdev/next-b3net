@@ -3505,14 +3505,48 @@ section.product-details-sec.shop-sec.page_content.default_content_class ol.bread
         display: flex;
         justify-content: center;
     }
+    .service-detail-card-solution {
+      
+        width: 90vw;
+    }
+    .service-detail-card-solution-container{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 86dvw !important;
+    }
+    .service-detail-card-solution .card-parts-1 .card{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 80vw;
+    }
+    .service-detail-card-solution .card-parts-1 .card img{
+       width: 95vw !important;
+    }
+    .services-card-solution {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center !important;
+        text-align: center;
+    }
+    .related-post.py-5 .heading5 p {
+        text-align: center  !important;
+    }
+   
 }
+
+.service-detail-card-solution .card {
+    width: 100%;
+    max-width: 320px;
+    height: 100%; 
+  }
 
 .service-detail-card-solution {
     display: flex;
     justify-content: center;
     align-items: center;
-    max-width: 400px;
-
 }
 
 
@@ -3526,14 +3560,48 @@ section.product-details-sec.shop-sec.page_content.default_content_class ol.bread
 }
 
 .service-detail-card-solution .card-parts-1 .card {
-    display: flex !important;
     justify-content: center !important;
     align-items: center;
-    width: 100% !important;
+    min-width: auto;
     height: 100% !important;
 
 }
 
+/* .service-detail-card-solution-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px; 
+  } */
+  .service-detail-card-solution {
+    display: flex;
+ 
+  }
+  .service-detail-card-solution .card {
+ 
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+  }
+  .card-body {
+    flex-grow: 1; 
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  
+
+
+@media (max-width: 992px) {
+    .service-detail-card-solution-container {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (max-width: 576px) {
+    .service-detail-card-solution-container {
+      grid-template-columns: 1fr;
+    }
+  }
 .service-detail-card-solution .card-parts-1 .card .card-body {
     width: 100% !important;
     height: 100% !important;
@@ -3550,7 +3618,7 @@ section.product-details-sec.shop-sec.page_content.default_content_class ol.bread
     display: flex !important;
     flex-direction: column;
     width: 100% !important;
-    padding: 8px !important;
+    padding: 6px !important;
     justify-content: center !important;
     align-items: center;
 
@@ -3602,15 +3670,17 @@ section.product-details-sec.shop-sec.page_content.default_content_class ol.bread
 
     }
 }
+.services_page_section_3_card {
+    /* width: 380px !important; */
+    width: 100% !important;
+}
 
 @media(max-width:600px) {
     .service-detail-card-solution {
-
         display: flex !important;
-        /* margin: 0; */
         padding: 0 !important;
         justify-content: center !important;
-        /* width: 95dvw; */
+       
     }
 }
 
@@ -3618,4 +3688,53 @@ section.product-details-sec.shop-sec.page_content.default_content_class ol.bread
     .service-detail-card-solution .card {
         width: 90% !important;
     }
+}
+
+
+
+.data-solutions .section-second .sec-heading {
+    font-size: 35px;
+    line-height: 38px;
+    background: linear-gradient(to top, #f18d27 0%, #fd654e 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin: 0 0 15px 0;
+}
+
+
+.dataCleansing-blocks{
+   
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.wp-services-include-sec {
+    /* width: 100dvw */
+}
+
+.data-solutions .sec-heading-blue {
+    color: #10309a;
+    font-size: 22px;
+}
+
+
+.data-solutions .section-second .sec-heading {
+    font-size: 35px;
+    line-height: 38px;
+    background: linear-gradient(to top, #f18d27 0%, #fd654e 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin: 0 0 15px 0;
+}
+.data-solutions .section-second .sec-heading {
+    font-size: 35px;
+    line-height: 38px;
+    background: linear-gradient(to top, #f18d27 0%, #fd654e 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin: 0 0 15px 0;
+}
+.data-dashboarding ul{
+    list-style: disc;
+    margin-left: 25px;
 }

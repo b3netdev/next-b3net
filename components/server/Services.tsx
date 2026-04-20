@@ -54,9 +54,21 @@ const Services = () => {
           image: `${BASE_URL}/wp-content/uploads/2026/02/Custom-Web-Mobile-Applications.webp`,
           link: `${BASE_URL}/custom-web-application-development.html`,
           slug: "custom-web-application-development"
-        },
-       
-        
+        },  
+        {
+            title: "Data Engineering & Analytics",
+            description: "Clean data pipelines. Power smarter decisions",
+            image: `${BASE_URL}/wp-content/uploads/2026/02/Data-Engineering-Analytics.webp`,
+            link: `${BASE_URL}/data-engineering-services.html`,
+            slug: "#"
+          },
+          {
+            title: "Data Strategy & Governance",
+            description: "Structured data. Secure and scale",
+            image: `${BASE_URL}/wp-content/uploads/2026/02/Data-Strategy-Governance.webp`,
+            link: `${BASE_URL}/data-governance.html`,
+            slug: "#"
+          },
         {
           title: "Analytics & Business Insights",
           description: "Transform data into clear, actionable growth insights",

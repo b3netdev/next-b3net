@@ -121,6 +121,7 @@ const ServiceSubpage = async ({ params }: { params: { slug: string } }) => {
     const data = await GetPageData(slug, "page");
 
     const pageData = data?.page ?? data;
+ 
 
     if (!pageData) {
         notFound();
@@ -171,22 +172,26 @@ const ServiceSubpage = async ({ params }: { params: { slug: string } }) => {
                 </div>
             </div>
             {
-                pageData?.acf?.data?.common_section_content_1 && (
-                    <section className="section-second sec-pad pb-0">
-                        <div className="container nitro-offscreen">
-                            <div className="row dallasSeo-sec align-items-center">
-                                <div className="col-lg-6 left-column">
-                                    <div
-                                        dangerouslySetInnerHTML={{ __html: pageData?.acf?.data?.common_section_content_1 || "" }}
-                                    />
 
-                                </div>
-                                <div className="col-lg-6 right-column text-center">
-                                    <img src={pageData?.acf?.data?.common_section_image_1} className="img-fluid" alt="Data Cleansing Image" />
+                pageData?.acf?.data?.common_section_content_1 && (
+                    <div className="data-solutions">
+
+                        <section className="section-second sec-pad pb-0">
+                            <div className="container nitro-offscreen">
+                                <div className="row dallasSeo-sec align-items-center">
+                                    <div className="col-lg-6 left-column">
+                                        <div
+                                            dangerouslySetInnerHTML={{ __html: pageData?.acf?.data?.common_section_content_1 || "" }}
+                                        />
+
+                                    </div>
+                                    <div className="col-lg-6 right-column text-center">
+                                        <img src={pageData?.acf?.data?.common_section_image_1} className="img-fluid" alt="Data Cleansing Image" />
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                    </section>
+                        </section>
+                    </div>
                 )
 
             }
@@ -259,34 +264,37 @@ const ServiceSubpage = async ({ params }: { params: { slug: string } }) => {
 
 
             {pageData?.acf?.data?.common_repeater_heading_1 && (
-                <div className="wp-services-include-sec sec-pad pb-0 nitro-offscreen my-5 py-0 my-sm-5 py-sm-5">
-                    <div className="container">
-                        <div className="services-wrap">
-                            <div className="heading-blocks text-center mb-5">
-                                <h2 className="sec-heading-blue">
-                                    {pageData?.acf?.data?.common_repeater_heading_1}
-                                </h2>
-                            </div>
-                            <div className="row gy-4 justify-content-center">
-                                {
-                                    pageData?.acf?.data?.common_repeater_1?.map((item: any, index: any) => {
-                                        return (
-                                            <div className=" col-sm-6 col-md-4  col-lg-3 dataCleansing-blocks" key={index}>
-                                                <div className="include-services-imgwrap text-center mb-3">
-                                                    <img src={item?.logo} className="img-fluid" alt="Data Quality Audit" />
-                                                </div>
-                                                <div className="include-services-desc text-center">
-                                                    <h4 style={{ color: "#F9764A" }}>{item?.title}</h4>
-                                                    <p>{item?.content}</p>
-                                                </div>
+
+
+                <div className=" data-solutions sec-pad pb-0 nitro-offscreen my-5 py-0 my-sm-5 py-sm-5">
+                    {/* <div className="container w-full"> */}
+                    <div className="services-wrap w-full">
+                        <div className="heading-blocks text-center mb-5">
+                            <h2 className="sec-heading-blue ">
+                                {pageData?.acf?.data?.common_repeater_heading_1}
+                            </h2>
+                        </div>
+                        <div className="row gy-4 justify-center gap-1 wp-services-include-sec wp-services-include-sec w-full">
+                            {
+                                pageData?.acf?.data?.common_repeater_1?.map((item: any, index: any) => {
+                                    return (
+                                        <div className=" col-sm-6 col-md-4  col-lg-3 dataCleansing-blocks" key={index}>
+                                            <div className="include-services-imgwrap text-center mb-3">
+                                                <img src={item?.logo} className="img-fluid" alt="Data Quality Audit" />
                                             </div>
-                                        )
-                                    })
-                                }
-                            </div>
+                                            <div className="include-services-desc text-center">
+                                                <h4 style={{ color: "#F9764A" }}>{item?.title}</h4>
+                                                <p>{item?.content}</p>
+                                            </div>
+                                        </div>
+                                    )
+                                })
+                            }
                         </div>
                     </div>
+                    {/* </div>   */}
                 </div>
+
             )}
 
 
@@ -306,7 +314,7 @@ const ServiceSubpage = async ({ params }: { params: { slug: string } }) => {
                                 </div>
 
 
-                                <div className="col-md-6 right-column">
+                                <div className="col-md-6 right-column data-solutions">
                                     <h3 className="sec-heading mb-4"></h3>
                                     <div className="tech-stacks-lists d-flex flex-wrap gap-2">
                                         <div className="row">
@@ -333,25 +341,27 @@ const ServiceSubpage = async ({ params }: { params: { slug: string } }) => {
 
             {
                 pageData?.acf?.data?.common_section_content_2 && (
+                    <div className="data-solutions">
 
-                    <section className="section-second sec-pad pb-0">
-                        <div className="container nitro-offscreen">
-                            <div className="row dallasSeo-sec align-items-center">
-                                <div className="col-lg-6 left-column">
-                                    <div
+                        <section className="section-second sec-pad pb-0">
+                            <div className="container nitro-offscreen">
+                                <div className="row dallasSeo-sec align-items-center">
+                                    <div className="col-lg-6 left-column">
+                                        <div
 
-                                        dangerouslySetInnerHTML={{ __html: pageData?.acf?.data?.common_section_content_2 || "" }}
-                                    />
+                                            dangerouslySetInnerHTML={{ __html: pageData?.acf?.data?.common_section_content_2 || "" }}
+                                        />
 
-                                </div>
-                                <div className="col-lg-6 right-column text-center">
-                                    <img
-                                        src={`${BASE_URL}/wp-content/uploads/2024/06/Why-B3NET-3.jpg`}
-                                        className="img-fluid" alt="Data Cleansing Image" />
+                                    </div>
+                                    <div className="col-lg-6 right-column text-center">
+                                        <img
+                                            src={`${BASE_URL}/wp-content/uploads/2024/06/Why-B3NET-3.jpg`}
+                                            className="img-fluid" alt="Data Cleansing Image" />
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                    </section>
+                        </section>
+                    </div>
                 )
             }
 
@@ -415,51 +425,26 @@ const ServiceSubpage = async ({ params }: { params: { slug: string } }) => {
                 </div>
             ) : null}
 
-            {/* {
-                pageData?.acf?.data?.common_section_content_2 && (
-
-                    <section className="section-second sec-pad pb-0">
-                        <div className="container nitro-offscreen">
-                            <div className="row dallasSeo-sec align-items-center">
-                                <div className="col-lg-6 left-column">
-                                    <div
-                                        dangerouslySetInnerHTML={{ __html: pageData?.acf?.data?.common_section_content_2 || "" }}
-
-                                    />
-                                    <div className="data-dashboarding">
-                                        <ul>
-                                            <li>PowerBI</li>
-                                            <li>Tableau</li>
-                                            <li>OBIEE</li>
-                                        </ul>
-                                    </div>
-
-                                </div>
-                                <div className="col-lg-6 right-column text-center">
-                                    <img src={pageData?.acf?.data?.common_section_image_2} className="img-fluid" alt="Data Cleansing Image" />
-                                </div>
-                            </div>
-                        </div>
-                    </section>
-                )
-            } */}
 
             {
                 pageData?.acf?.data?.common_section_content_3 && (
-                    <section className="section-second sec-pad pb-0">
-                        <div className="container nitro-offscreen">
-                            <div className="row dallasSeo-sec align-items-center">
-                                <div className="col-lg-6 left-column">
-                                    <div
-                                        dangerouslySetInnerHTML={{ __html: pageData?.acf?.data?.common_section_content_3 || " " }}
-                                    />
-                                </div>
-                                <div className="col-lg-6 right-column text-center">
-                                    <img src={pageData?.acf?.data?.common_section_image_3} className="img-fluid" alt="Data Cleansing Image" />
+                    <div className="data-solutions">
+
+                        <section className="section-second sec-pad pb-0">
+                            <div className="container nitro-offscreen">
+                                <div className="row dallasSeo-sec align-items-center">
+                                    <div className="col-lg-6 left-column">
+                                        <div
+                                            dangerouslySetInnerHTML={{ __html: pageData?.acf?.data?.common_section_content_3 || " " }}
+                                        />
+                                    </div>
+                                    <div className="col-lg-6 right-column text-center">
+                                        <img src={pageData?.acf?.data?.common_section_image_3} className="img-fluid" alt="Data Cleansing Image" />
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                    </section>
+                        </section>
+                    </div>
                 )
             }
 
@@ -467,17 +452,17 @@ const ServiceSubpage = async ({ params }: { params: { slug: string } }) => {
 
             {pageData?.acf?.data?.services_page_section_3_title && (
                 <div className="related-post py-5  ">
-                    <div className="container  p-0 flex w-full flex-col items-center justify-center">
-                        <div className="heading5 mb-4 text-center services-card-solution  ">
+                    <div className="container flex w-full flex-col items-center justify-center">
+                        <div className="heading5 text-center services-card-solution  ">
                             <h2>{pageData?.acf?.data?.services_page_section_3_title}</h2>
                             <p className="primary-bodyText">{pageData?.acf?.data?.services_page_section_3_title_2}</p>
                         </div>
-                        <div className="row w-full flex flex-wrap justify-center items-center gap-4 ">
+                        <div className="service-detail-card-solution-container row ">
                             {pageData?.acf?.data?.services_page_section_3_card?.map(
                                 (item: any, index: any) => (
-                                    <div className="service-detail-card-solution" key={index}>
+                                    <div className="service-detail-card-solution col-md-6 col-lg-4 col-sm-6 mb-4" key={index}>
                                         <div className="card-parts-1 w-full">
-                                            <div className="card">
+                                            <div className="card services_page_section_3_card">
                                                 <img
                                                     src={item.image}
                                                     className="card-img-top"
@@ -507,31 +492,34 @@ const ServiceSubpage = async ({ params }: { params: { slug: string } }) => {
 
             {
                 pageData?.acf?.data?.common_repeater_2 && (
-                    <div className="wp-services-include-sec sec-pad pb-0 nitro-offscreen my-5 py-0 my-sm-5 py-sm-5">
-                        <div className="container">
-                            <div className="services-wrap">
-                                <div className="heading-blocks text-center mb-5">
-                                    <h2 className="sec-heading-blue">
-                                        HERE’S WHAT YOU CAN EXPECT FROM OUR CUSTOMER SEGMENTATION SERVICES:                      </h2>
-                                </div>
-                                <div className="row g-4 justify-content-between">
-                                    {
-                                        pageData?.acf?.data?.common_repeater_2?.map((data: any, index: any) => {
-                                            return (
-                                                <div className=" col-sm-6 col-md-4  col-lg-2 dataCleansing-blocks" key={index}>
-                                                    <div className="include-services-imgwrap text-center mb-3">
-                                                        <img src={data?.logo} className="img-fluid" alt="Data Quality Audit" />
+                    <div className="data-solutions">
+
+                        <div className="wp-services-include-sec sec-pad pb-0 nitro-offscreen my-5 py-0 my-sm-5 py-sm-5">
+                            <div className="container">
+                                <div className="services-wrap">
+                                    <div className="heading-blocks text-center mb-5">
+                                        <h2 className="sec-heading-blue">
+                                            HERE’S WHAT YOU CAN EXPECT FROM OUR CUSTOMER SEGMENTATION SERVICES:                      </h2>
+                                    </div>
+                                    <div className="row g-4 justify-content-between">
+                                        {
+                                            pageData?.acf?.data?.common_repeater_2?.map((data: any, index: any) => {
+                                                return (
+                                                    <div className=" col-sm-6 col-md-4  col-lg-2 dataCleansing-blocks" key={index}>
+                                                        <div className="include-services-imgwrap text-center mb-3">
+                                                            <img src={data?.logo} className="img-fluid" alt="Data Quality Audit" />
+                                                        </div>
+                                                        <div className="include-services-desc text-center">
+                                                            <h4 style={{ color: '#FB6C47' }}>{data?.title}</h4>
+                                                            <p>{data?.content}.
+                                                            </p>
+                                                        </div>
                                                     </div>
-                                                    <div className="include-services-desc text-center">
-                                                        <h4 style={{ color: '#FB6C47' }}>{data?.title}</h4>
-                                                        <p>{data?.content}.
-                                                        </p>
-                                                    </div>
-                                                </div>
+                                                )
+                                            }
                                             )
                                         }
-                                        )
-                                    }
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -567,7 +555,8 @@ const ServiceSubpage = async ({ params }: { params: { slug: string } }) => {
 
                                                 <ScrollLink targetId="contact-form" className="btn btn-orange">
                                                     <span className="btn_label_1">
-                                                        {pageData?.acf?.data?.services_page_section_4_link?.title}
+                                                       
+                                                        {pageData?.acf?.data?.services_page_section_4_link?.title ||  "Get in touch"}
                                                     </span>
                                                     <span className="btn_icon">
                                                         <i className="fa-solid fa-arrow-right"></i>

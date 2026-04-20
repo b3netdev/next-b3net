@@ -541,14 +541,26 @@ body.body {
   transition: 0.4s;
   border: 1px solid #d4d5da;
   width: 100%;
-  height: 420px;
+  height: 500px;
 
   /* margin-left: 4px; */
 }
+.testimonial-page-sec .video-box{
+  margin-top: 30px;
+  border-radius: 30px;
+  background-color: #fff;
+  padding: 28px 30px;
+  transition: 0.4s;
+  border: 1px solid #d4d5da;
+  width: 100%;
+  height: 500px;
+}
 
 .testimonial-slider-col .swiper-slide {
-  width: min(413px, 85vw) !important;
-  margin: 0 10px
+  width: min(500px, 85vw) !important;
+  margin: 0 10px;
+
+  
 }
 
 .testimonial-page-sec .video-box {
@@ -562,7 +574,8 @@ body.body {
 .testimonial-page-sec .tes-box .bottom .image {
   border: 0px solid #e6e7ea;
   border-radius: 100%;
-  max-width: 110px;
+  height: 100%;
+  /* max-width: 110px; */
   overflow: hidden;
 }
 
@@ -2255,9 +2268,9 @@ body:has(.page_banner_section + .intro_about_section) .page_banner_section {
   padding-bottom: 56.25%;
   height: 0;
   overflow: hidden;
-  aspect-ratio: 16 / 9;
+  /* aspect-ratio: 16 / 9; */
   max-width: 100%;
-  background: #000;
+  /* background: #000; */
   width: 640px;
   border-radius: 30px;
 }
@@ -3566,7 +3579,7 @@ p.form-submit input#submit {
   }
 
   .testimonial-page-sec .tes-box {
-    /* max-width: 420px; */
+    /* max-width: 550px !; */
   }
 
   .choose-services-row {
@@ -3810,7 +3823,8 @@ p.form-submit input#submit {
   }
 
   .testimonial-page-sec .video-box {
-    max-width: 500px;
+    max-width: 600px;
+    /* background-color: #007aeb; */
   }
 
   .expertise-list-images .solutions-hover-box {
@@ -3937,6 +3951,7 @@ p.form-submit input#submit {
     }
   
   }
+  
 
   .footer-col .coppyright {
     font-size: 13px;
@@ -4523,6 +4538,7 @@ i.fa-solid.fa-arrow-right {
   background: #ffffff;
   border-radius: 10px;
   overflow: hidden;
+  max-width: 100%;
 }
 
 .related-post {
@@ -7616,7 +7632,7 @@ div#signature-pad {
 }
 
 .testimonialvideo-thumbnail {
-  height: 196px;
+  height:247px;
   overflow: hidden;
 }
 
@@ -7747,3 +7763,10 @@ width: 50% !important;
   }
 }
 
+
+@media (max-width :500px) {
+
+  .contactButton{
+    justify-content: center;
+  }
+}

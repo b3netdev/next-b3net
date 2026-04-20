@@ -10,8 +10,7 @@ import CountUp from "@/components/client/CountUp";
 
 const CaseStudy = async ({ pageData }: any) => {
 
-
-
+  
 
 
 
@@ -19,13 +18,15 @@ const CaseStudy = async ({ pageData }: any) => {
     return (
         <main className="page_content">
             <div className="case-study-3">
-                <section className={`casebanner-section `}>
+                <section className={`casebanner-section `}
+
+                >
                     <div className="bannerwrap">
                         <div className="container">
                             <div className="casebanner-wrap">
                                 <div className="banner-caption order-sec">
                                     <div
-                                        dangerouslySetInnerHTML={{ __html: pageData?.content }}
+                                        dangerouslySetInnerHTML={{ __html: pageData?.content || "" }}
                                     />
 
                                     <div className="three-blocks">
@@ -49,7 +50,7 @@ const CaseStudy = async ({ pageData }: any) => {
                                     <img
                                         width="810"
                                         height="706"
-                                        src={`${BASE_URL}/wp-content/uploads/2023/07/viage-banner-img.png`}
+                                        src={`https://backend.b3net.com/wp-content/uploads/2025/04/flexus-banner-img.png`}
                                         className="attachment-full size-full wp-post-image"
                                         alt="bnr-img"
                                         decoding="async"
@@ -77,7 +78,7 @@ const CaseStudy = async ({ pageData }: any) => {
                                         </div>
 
                                         <div className="service-desc">
-                                            <div dangerouslySetInnerHTML={{ __html: item?.text }} />
+                                            <div dangerouslySetInnerHTML={{ __html: item?.text || " " }} />
                                         </div>
                                     </div>
                                 )
@@ -87,7 +88,7 @@ const CaseStudy = async ({ pageData }: any) => {
                             <div className="hire-left">
                                 <div
                                     dangerouslySetInnerHTML={{
-                                        __html: pageData?.acf?.data?.first_section_box_content,
+                                        __html: pageData?.acf?.data?.first_section_box_content || " ",
                                     }}
                                 />
                             </div>
@@ -119,12 +120,13 @@ const CaseStudy = async ({ pageData }: any) => {
                             <div className="two-blocks s-block">
                                 <div
                                     dangerouslySetInnerHTML={{
-                                        __html: pageData?.acf?.data?.second_section_content_1,
+                                        __html: pageData?.custom_fields?.second_section_content_1 || " ",
                                     }}
                                 />
                             </div>
+                           
                         </div>
-                    </div>
+                        </div>
                 </section>
 
                 <section className="ecofriendly-sec sec-pad">
@@ -132,11 +134,13 @@ const CaseStudy = async ({ pageData }: any) => {
                         <div className="innerwrap">
                             <div
                                 dangerouslySetInnerHTML={{
-                                    __html: pageData?.acf?.data?.second_section_content_2,
+                                    __html: pageData?.acf?.data?.second_section_content_2 || " ",
                                 }}
                             />
                         </div>
+
                     </div>
+
                 </section>
 
                 <section className="old-design-pattern">
@@ -153,7 +157,7 @@ const CaseStudy = async ({ pageData }: any) => {
                             <div
                                 className="valueDrivenArc"
                                 dangerouslySetInnerHTML={{
-                                    __html: pageData?.acf?.data?.second_section_content_4,
+                                    __html: pageData?.acf?.data?.second_section_content_4 || " ",
                                 }}
                             />
                         </div>
@@ -165,7 +169,7 @@ const CaseStudy = async ({ pageData }: any) => {
                         <div className="innerwrap">
                             <div
                                 dangerouslySetInnerHTML={{
-                                    __html: pageData?.acf?.data?.third_section_top_content,
+                                    __html: pageData?.acf?.data?.third_section_top_content || " ",
                                 }}
                             />
                             <div className="case-img-wrap">
@@ -178,7 +182,7 @@ const CaseStudy = async ({ pageData }: any) => {
                             <p style={{ textAlign: "center" }}>
                                 <span
                                     dangerouslySetInnerHTML={{
-                                        __html: pageData?.acf?.data?.third_section_bottom_content,
+                                        __html: pageData?.acf?.data?.third_section_bottom_content || " ",
                                     }}
                                 />
                             </p>
@@ -192,7 +196,7 @@ const CaseStudy = async ({ pageData }: any) => {
                         <div className="innerwrap">
                             <div
                                 dangerouslySetInnerHTML={{
-                                    __html: pageData?.custom_fields?.fourth_section_top_content,
+                                    __html: pageData?.custom_fields?.fourth_section_top_content || " ",
                                 }}
                             />
 
@@ -202,7 +206,7 @@ const CaseStudy = async ({ pageData }: any) => {
                                         <div className="step-process first-step" key={index}>
                                             <div
                                                 className="d-flex"
-                                                dangerouslySetInnerHTML={{ __html: data?.content }}
+                                                dangerouslySetInnerHTML={{ __html: data?.content || " " }}
                                             />
                                         </div>
                                     );
@@ -212,28 +216,31 @@ const CaseStudy = async ({ pageData }: any) => {
                     </div>
                 </section>
 
-                <section className="sec-pad">
+                {/* <section className="sec-pad">
                     <div className="container">
                         <div
                             dangerouslySetInnerHTML={{
-                                __html: pageData?.custom_fields?.fifth_section_top_content,
+                                __html: pageData?.custom_fields?.fifth_section_top_content || " "
                             }}
                         />
 
-                        <div className="sales-graph-wrap">
-                            {pageData?.custom_fields?.fifth_section_number_repeater?.map(
-                                (data: any, index: any) => {
-                                    return (
-                                        <div className="sales-rectangle bg-blue" key={index}>
-                                            <div className="sales-count" data-target="370" style={{ color: "white" }}>
-                                                {data?.number}%
+                        {
+                            pageData?.custom_fields?.fifth_section_number_repeater?.length >0 &&
+                            <div className="sales-graph-wrap">
+                                {pageData?.custom_fields?.fifth_section_number_repeater?.map(
+                                    (data: any, index: any) => {
+                                        return (
+                                            <div className="sales-rectangle bg-blue" key={index}>
+                                                <div className="sales-count" data-target="370" style={{ color: "white" }}>
+                                                    {data?.number}%
+                                                </div>
+                                                <div className="sales-text" style={{ color: "white" }}>{data?.text}</div>
                                             </div>
-                                            <div className="sales-text" style={{ color: "white" }}>{data?.text}</div>
-                                        </div>
-                                    );
-                                }
-                            )}
-                        </div>
+                                        );
+                                    }
+                                )}
+                            </div>
+                        }
 
                         <div className="seo-effort-sec">
                             {pageData?.custom_fields?.fifth_section_image_repeater?.map(
@@ -250,7 +257,7 @@ const CaseStudy = async ({ pageData }: any) => {
                             )}
                         </div>
                     </div>
-                </section>
+                </section> */}
 
                 <section className="value-driven-sec sec-pad">
                     <div className="container">
@@ -258,7 +265,7 @@ const CaseStudy = async ({ pageData }: any) => {
                             <div
                                 className="fifthButtomContent"
                                 dangerouslySetInnerHTML={{
-                                    __html: pageData?.acf?.data?.fifth_section_bottom_content,
+                                    __html: pageData?.acf?.data?.fifth_section_bottom_content || " ",
                                 }}
                             />
                         </div>
@@ -271,7 +278,7 @@ const CaseStudy = async ({ pageData }: any) => {
                             <div className="two-blocks s-block">
                                 <div
                                     dangerouslySetInnerHTML={{
-                                        __html: pageData?.acf?.data?.sixth_section_content,
+                                        __html: pageData?.acf?.data?.sixth_section_content || " ",
                                     }}
                                 />
 

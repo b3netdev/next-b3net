@@ -18,7 +18,7 @@ const CaseStudy1 = async ({ pageData }: any) => {
               <div className="banner-caption order-part-1">
                 <div
                   className="casestudy1content"
-                  dangerouslySetInnerHTML={{ __html: pageData?.content }}
+                  dangerouslySetInnerHTML={{ __html: pageData?.content || "" }}
                 />
 
                 <div className="three-blocks">
@@ -77,7 +77,7 @@ const CaseStudy1 = async ({ pageData }: any) => {
                   </div>
 
                   <div className="service-desc">
-                    <div dangerouslySetInnerHTML={{ __html: item?.text }} />
+                    <div dangerouslySetInnerHTML={{ __html: item?.text || " " }} />
                   </div>
                 </div>
               )
@@ -87,8 +87,8 @@ const CaseStudy1 = async ({ pageData }: any) => {
             <div className="hire-left">
               <div
                 dangerouslySetInnerHTML={{
-                  __html: pageData?.acf?.data?.first_section_box_content,
-                }}
+                  __html: pageData?.acf?.data?.first_section_box_content || "",
+                }} 
               />
             </div>
             <div className="hire-right">
@@ -105,7 +105,7 @@ const CaseStudy1 = async ({ pageData }: any) => {
             <div className="two-blocks s-block">
               <div
                 dangerouslySetInnerHTML={{
-                  __html: pageData?.acf?.data?.second_section_content_1,
+                  __html: pageData?.acf?.data?.second_section_content_1 || " ",
                 }}
               />
             </div>
@@ -119,7 +119,7 @@ const CaseStudy1 = async ({ pageData }: any) => {
             <div
               className="custom-html-content"
               dangerouslySetInnerHTML={{
-                __html: pageData?.acf?.data?.second_section_content_1,
+                __html: pageData?.acf?.data?.second_section_content_1 || " ",
               }}
             />
           </div>
@@ -132,7 +132,7 @@ const CaseStudy1 = async ({ pageData }: any) => {
             <div
               className="custom-html-content"
               dangerouslySetInnerHTML={{
-                __html: pageData?.acf?.data?.second_section_content_2,
+                __html: pageData?.acf?.data?.second_section_content_2 || " ",
               }}
             />
           </div>
@@ -147,7 +147,7 @@ const CaseStudy1 = async ({ pageData }: any) => {
               <div
                 className="second_section_content_3"
                 dangerouslySetInnerHTML={{
-                  __html: pageData?.acf?.data?.second_section_content_3,
+                  __html: pageData?.acf?.data?.second_section_content_3 || " ", 
                 }}
               />
             </div>
@@ -161,7 +161,7 @@ const CaseStudy1 = async ({ pageData }: any) => {
                 <div
                   className="second_section_content_4"
                   dangerouslySetInnerHTML={{
-                    __html: pageData?.acf?.data?.second_section_content_4,
+                    __html: pageData?.acf?.data?.second_section_content_4 || " ",
                   }}
                 />
               </div>
@@ -176,7 +176,7 @@ const CaseStudy1 = async ({ pageData }: any) => {
             <div
               className="third_section_top_content"
               dangerouslySetInnerHTML={{
-                __html: pageData?.acf?.data?.third_section_top_content,
+                __html: pageData?.acf?.data?.third_section_top_content || " ",
               }}
             />
 
@@ -190,7 +190,7 @@ const CaseStudy1 = async ({ pageData }: any) => {
                       </div>
                       <div className="sales-text">
                         <div
-                          dangerouslySetInnerHTML={{ __html: data?.text }}
+                          dangerouslySetInnerHTML={{ __html: data?.text || " " }}
                         />
                       </div>
                     </div>
@@ -202,7 +202,7 @@ const CaseStudy1 = async ({ pageData }: any) => {
             <p>
               <div
                 dangerouslySetInnerHTML={{
-                  __html: pageData?.acf?.data?.third_section_bottom_content,
+                  __html: pageData?.acf?.data?.third_section_bottom_content || " ",
                 }}
               />
             </p>
@@ -216,7 +216,7 @@ const CaseStudy1 = async ({ pageData }: any) => {
             <div
               className="fourth_section_top_content"
               dangerouslySetInnerHTML={{
-                __html: pageData?.acf?.data?.fourth_section_top_content,
+                __html: pageData?.acf?.data?.fourth_section_top_content || " ",
               }}
             />
 
@@ -230,7 +230,7 @@ const CaseStudy1 = async ({ pageData }: any) => {
                       </div>
                       <div className="sales-text">
                         <div
-                          dangerouslySetInnerHTML={{ __html: data?.text }}
+                          dangerouslySetInnerHTML={{ __html: data?.text || " " }}
                         />
                       </div>
                     </div>
@@ -248,7 +248,7 @@ const CaseStudy1 = async ({ pageData }: any) => {
             <div
               className="fifth_section_content"
               dangerouslySetInnerHTML={{
-                __html: pageData?.acf?.data?.fifth_section_content,
+                __html: pageData?.acf?.data?.fifth_section_content || " ",
               }}
             />
           </div>
@@ -261,7 +261,7 @@ const CaseStudy1 = async ({ pageData }: any) => {
             <div className="two-blocks s-block">
               <div
                 dangerouslySetInnerHTML={{
-                  __html: pageData?.acf?.data?.sixth_section_content,
+                  __html: pageData?.acf?.data?.sixth_section_content || " ",
                 }}
               />
 
