@@ -52,7 +52,7 @@ const CaseStudy3 = async ({ pageData }: any) => {
                 </div>
                 <div className="bnr-img">
                   <img src={`${BASE_URL}/wp-content/themes/b3net/assets/images/banner-tree-care-logo.png`}
-                  alt="bnr-img"
+                    alt="bnr-img"
                   />
                   <p>
                     <a href="https://treecarearborists.com/">
@@ -102,7 +102,7 @@ const CaseStudy3 = async ({ pageData }: any) => {
             </p>
             <div className="case-img-wrap">
               <img src={`${BASE_URL}/wp-content/themes/b3net/assets/images/old-website-design.png`}
-              alt="case-img-wrap"
+                alt="case-img-wrap"
               />
             </div>
           </div>
@@ -119,7 +119,7 @@ const CaseStudy3 = async ({ pageData }: any) => {
           </div>
           <div className="hire-right">
             <Link
-              href="/"
+              href={"/request-for-proposal"}
               className={`${styles.hireusBtn} btn btn-primary`}>
               HIRE US NOW
             </Link>
@@ -241,7 +241,7 @@ const CaseStudy3 = async ({ pageData }: any) => {
             </p>
             <div className="case-img-wrap">
               <img src={`${BASE_URL}/wp-content/themes/b3net/assets/images/new-website-design.png`}
-              alt="case-img-wrap"
+                alt="case-img-wrap"
               />
             </div>
             <p>
@@ -263,7 +263,7 @@ const CaseStudy3 = async ({ pageData }: any) => {
             </p>
             <div className="case-img-wrap">
               <img src={`${BASE_URL}/wp-content/themes/b3net/assets/images/form-design.png`}
-              alt="case-img-wrap"
+                alt="case-img-wrap"
               />
             </div>
           </div>

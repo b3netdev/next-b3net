@@ -94,13 +94,13 @@ const CaseStudy2 = async ({ pageData }: any) => {
               </div>
 
               <div className={styles.hireRight}>
-                <a
-                  href="#caserequest-qoute"
+                <Link
+                  href={"/request-for-proposal"}
                   className={`btn btn-primary ${styles.hireusBtn} ${styles.btnPrimaryIconFix}`}
                 >
                   {pageData?.acf?.data?.first_section_box_content_button_name}{" "}
                   <i className="fa-solid fa-arrow-right"></i>
-                </a>
+                </Link>
               </div>
             </div>
 

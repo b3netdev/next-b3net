@@ -82,7 +82,7 @@ const Services = async () => {
                     <div className="row gy-4">
                         {pageData?.acf?.data?.services_page_section_3_card?.map(
                             (service: any, i: any) => (
-                                <div className="col-lg-4 col-sm-6" key={i}>
+                                <div className=" col-md-6 col-lg-4 col-sm-6 " key={i}>
                                     <div className="Servicecard">
                                         <img
                                             src={service.image}

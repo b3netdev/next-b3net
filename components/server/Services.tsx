@@ -44,7 +44,7 @@ const Services = () => {
         {
           title: "Pay-Per-Click Advertising (PPC)",
           description: "Capture high-intent demand and track ROI with precision.",
-          image: `${BASE_URL}/wp-content/uploads/2026/02/Pay-Per-Click-Advertising.webp`,
+          image: "https://backend.b3net.com/wp-content/uploads/2026/04/pay-per-click.webp",
           link: `${BASE_URL}/ppc-management-services.html`,
           slug: "ppc-management-services"
         },
