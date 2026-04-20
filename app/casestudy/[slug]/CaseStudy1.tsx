@@ -93,7 +93,7 @@ const CaseStudy1 = async ({ pageData }: any) => {
             </div>
             <div className="hire-right">
               <Link
-                href="/"
+                 href={"/request-for-proposal"}
                 className="hireus-btn btn btn-primary">
                 {pageData?.acf?.data?.first_section_box_button_name}{" "}
                 <i className="fa-solid fa-arrow-right"></i>
