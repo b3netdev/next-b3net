@@ -52,6 +52,7 @@ export default function AiSlider({ carouselData }: AiCarouselProps) {
         simulateTouch
         allowTouchMove
         grabCursor
+        className="ai-swiper"
         touchStartPreventDefault={false}
         mousewheel={{
           forceToAxis: true,
@@ -94,10 +95,13 @@ export default function AiSlider({ carouselData }: AiCarouselProps) {
                     }}
                   />
                   {item.caption && (
-                    <div className="carousel-caption">
+                    <div className="carousel-caption ai-carousel-banner">
                       <h2>{item.caption?.h2}</h2>
                       <h4>{item.caption?.h4}</h4>
-                      {item.caption?.text}
+                      <div>
+
+                        {item.caption?.text}
+                      </div>
                     </div>
                   )}
                 </>

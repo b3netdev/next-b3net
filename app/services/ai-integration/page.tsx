@@ -16,7 +16,7 @@ import { getServicePath } from "@/lib/servicePath";
 
 
 const getPageData = cache(async () => {
-  
+
   const data = await GetPageData("ai-integration-services", "page");
   return data?.page ?? data;
 });
@@ -35,7 +35,7 @@ export async function generateMetadata(): Promise<Metadata> {
 
 const AiIntregation = async ({ params }: { params: { slug: string } }) => {
 
-   const data = await getPageData();
+  const data = await getPageData();
 
   const pageData = data?.page ?? data;
 
@@ -243,7 +243,7 @@ const AiIntregation = async ({ params }: { params: { slug: string } }) => {
                     <h3>
                       <span>AI</span> Deployment
                     </h3>
-                    <div className="d-flex gap-3">
+                    <div className="d-flex gap-4 flex-wrap">
                       <div className="devcoldiv">
                         <div>
                           <i className="fa-solid fa-check"></i>
