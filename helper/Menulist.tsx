@@ -176,7 +176,7 @@ export const menulist = [
                     "id": 7731,
                     "type": "post",
                     "title": "Why Is My Website Not Generating Leads and How To Fix It?",
-                    
+
                     "excerpt": "Today&#8217;s digital age demands a robust online presence for any brand to be successful. While your website serves as a [&hellip;]",
                     "slug": "website-not-generating-leads-how-to-fix-it",
                     "status": "publish",
@@ -371,7 +371,7 @@ export const serviceMegaMenuColumns: ServiceMegaMenuColumn[] = [
     },
 ];
 
-    export const sluglist = [
+export const sluglist = [
     ///Today
     { slug: "web-design-services" },
     { slug: "web-development-agency" },
@@ -403,7 +403,7 @@ export const serviceMegaMenuColumns: ServiceMegaMenuColumn[] = [
     { slug: "digital-marketing-agency-services" },
     { slug: "data-governance" },
     { slug: "custom-web-application-development" },
-    // { slug: "data-governance" },
     { slug: "data-solutions" },
+    { slug: "data-engineering-services" },
 
 ]

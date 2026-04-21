@@ -12,7 +12,7 @@ import ShowNav from "@/components/client/ShowNav";
 
 
 const getPageData = cache(async () => {
-  
+
   const data = await GetPageData("ai-video", "page");
   return data?.page ?? data;
 });
