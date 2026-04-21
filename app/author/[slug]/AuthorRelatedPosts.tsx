@@ -17,42 +17,42 @@ const AuthorRelatedPosts = ({ id }: { id: number }) => {
     const dispatch = useDispatch()
     const [pageNumber, setPageNumber] = useState<number>(1)
     const [pageCount, setpageCount] = useState<any>()
-const tabsRef = useRef<HTMLDivElement | null>(null);
+    const tabsRef = useRef<HTMLDivElement | null>(null);
     useEffect(() => {
         const getposts = async () => {
             setLoading(true)
-            const params : any = {
+            const params: any = {
                 categories: categoryId,
                 author: String(id),
                 per_page: "6",
                 page: String(pageNumber),
             };
-            const {data,totalPosts} = await getRelatedPosts(params)
+            const { data, totalPosts } = await getRelatedPosts(params)
             setRelatedpost(data)
             setpageCount(totalPosts)
             setLoading(false)
         }
         getposts()
 
-    }, [categoryId,pageNumber])
+    }, [categoryId, pageNumber])
 
 
-      useEffect(() => {
+    useEffect(() => {
         if (relatedpost?.length > 0 && tabsRef?.current) {
-          const yOffset = -220;
-    
-          const y =
-            tabsRef.current.getBoundingClientRect().top +
-            window.pageYOffset +
-            yOffset;
-    
-          window.scrollTo({
-            top: y,
-            behavior: "smooth",
-          });
+            const yOffset = -220;
+
+            const y =
+                tabsRef.current.getBoundingClientRect().top +
+                window.pageYOffset +
+                yOffset;
+
+            window.scrollTo({
+                top: y,
+                behavior: "smooth",
+            });
         }
-      }, [relatedpost]);
-    
+    }, [relatedpost]);
+
 
 
     const setCategoryID = (id: any) => {
@@ -61,35 +61,35 @@ const tabsRef = useRef<HTMLDivElement | null>(null);
 
     const HandleSelectnumbox = (num: number) => {
         setPageNumber(num);
-      };
-    
+    };
+
 
 
 
     const PostCardSkeleton = () => (
         <div className="card-parts-1">
             <div className="card">
-                
+
                 <Skeleton variant="rectangular" width="100%" height={220} />
 
                 <div className="card-body heading5">
-                   
+
                     <div className="calender d-flex justify-content-between">
                         <div className="mb-2 mb-sm-3 calender-size">
                             <Skeleton variant="text" width={140} height={22} />
                         </div>
                     </div>
 
-                
+
                     <Skeleton variant="text" width="90%" height={28} />
                     <Skeleton variant="text" width="70%" height={28} />
 
-                    
+
                     <Skeleton variant="text" width="100%" height={20} />
                     <Skeleton variant="text" width="95%" height={20} />
                     <Skeleton variant="text" width="80%" height={20} />
 
-                  
+
                     <div
                         className="d-flex align-items-center gap-2 clr-blk"
                         style={{ marginTop: 12 }}
@@ -109,11 +109,11 @@ const tabsRef = useRef<HTMLDivElement | null>(null);
                         <div className="tab-pane fade show active" id="pills-home">
                             <div
                                 className="portfolio-imgs blog-data"
-                                
+
                             >
                                 <h2 className="text-center mb-4">More From The Author</h2>
 
-                                <div className="row gy-4">
+                                <div className="blog-container-box">
                                     {loading
                                         ? Array.from({ length: 6 }).map((_, index) => (
                                             <div className="col-lg-4 col-sm-6" key={index}>
@@ -124,12 +124,12 @@ const tabsRef = useRef<HTMLDivElement | null>(null);
                                             // const categoryId = data?.categories.join("")
                                             return (
                                                 <div
-                                                    className="col-lg-4 col-sm-6"
+                                                    className="blogItem"
                                                     key={index}
-                                                
+
                                                 >
-                                                    <div className="card-parts-1">
-                                                        <div className="card">
+                                                    <div className="card-parts-1 blog-box">
+                                                        <div className="card blog-box-card">
                                                             <Link
                                                                 href={`/${data?.slug}`}
                                                                 onClick={() => setCategoryID(data?.categories)}

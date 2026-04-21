@@ -201,12 +201,12 @@ const BlogDetail = async ({ params }: { params: { slug: string } }) => {
           <div className="portfolio-imgs blog-data pb-4">
             <div className="container">
               <h2 className="text-center mb-4 mb-lg-5">RELATED POST</h2>
-              <div className="row gy-4">
-                <div className="relatedpostcontainer">
+              <div className="row ">
+                <div className="blog-container-box">
                   {relatedpost?.map((data: any, index: number) => {
                     return (
-                      <div className="card-parts-1" key={data?.id || index}>
-                        <div className="card">
+                      <div className="card-parts-1 blog-box" key={data?.id || index}>
+                        <div className="card blog-box-card">
                           <img
                             src={data?.featured_image_url}
                             className="card-img-top"

@@ -29,7 +29,7 @@ export default function BlogClient() {
   const tabsRef = useRef<HTMLDivElement | null>(null);
   const [categoryloading, setCategoryLoading] = useState(false)
   const [pageCount, setPageCount] = useState<any>(null)
-  const [scroll , setScroll] = useState(true)
+  const [scroll, setScroll] = useState(true)
 
   const [selectTab, setSelectTab] = useState<any>({
     id: "",
@@ -88,7 +88,7 @@ export default function BlogClient() {
 
 
   useEffect(() => {
-    if (blogItems?.length > 0 && tabsRef?.current && scroll==false) {
+    if (blogItems?.length > 0 && tabsRef?.current && scroll == false) {
       const yOffset = -220;
 
       const y =
@@ -137,7 +137,7 @@ export default function BlogClient() {
       excerpt: "A New Era of Customer Relationships Customer Relationship Management (CRM) has always been about one thing—building and nurturing meaningful relationships...",
       image: `${BASE_URL}/wp-content/uploads/2026/01/CRM-AI.jpg`,
       url: `${BASE_URL}/crm-ai-and-the-future-of-intelligent-customer-experience/`,
-      slug:"crm-ai-and-the-future-of-intelligent-customer-experience"
+      slug: "crm-ai-and-the-future-of-intelligent-customer-experience"
     },
     // {
     //   category: "Popular Reads",
@@ -161,7 +161,7 @@ export default function BlogClient() {
       excerpt: "A Shift We Can’t Ignore Every decade in marketing has its buzzword. In the 2000s, it was SEO. In the...",
       image: `${BASE_URL}/wp-content/uploads/2026/01/Content-Marketing-in-the-Age-of-AI.jpg`,
       url: `${BASE_URL}/content-marketing-in-the-age-of-ai-why-the-human-edge-still-wins/`,
-      slug:"content-marketing-in-the-age-of-ai-why-the-human-edge-still-wins"
+      slug: "content-marketing-in-the-age-of-ai-why-the-human-edge-still-wins"
     }
   ];
 
@@ -241,28 +241,29 @@ export default function BlogClient() {
 
 
 
-        <div className="tab-content d-flex justify-center" id="pills-tabContent">
+        <div className="tab-content  d-flex justify-center" id="pills-tabContent">
           <div
             className="tab-pane fade show active"
             id="pills-home"
             role="tabpanel"
             aria-labelledby="pills-home-tab"
           >
-            <div className="portfolio-imgs blog-data" id="content-section">
-              <div ref={tabsRef} className="row gy-4 p-4" id="jar1">
+            <div className="portfolio-imgs blog-data " id="content-section">
+              <div className="blog-container-box" id="jar1">
                 {loading ? (
                   Array.from({ length: 6 }, (_, index) => (
-                    <div className="col-lg-4 col-sm-6 col-12 content1 blogItem" key={index}>
-                      <div className="card-parts-1">
-                        <div className="card">
+                    <div className="blogItem" key={index}>
+                      <div className="card-parts-1 blog-box">
+                        <div className="card blog-box-card">
                           <Skeleton
                             variant="rectangular"
                             height={300}
-                            width={350}
+                            width="100%"
+                            sx={{ borderRadius: '10px' }}
                             animation="wave"
                           />
                           <div className="card-body heading5">
-                            <Skeleton width="50%" height={20} sx={{ mb: 1 }} />
+                            <Skeleton width="50%" height={30} sx={{ mb: 1 }} />
                             <Skeleton width="90%" height={28} sx={{ mb: 1 }} />
                             <Skeleton width="70%" height={28} sx={{ mb: 2 }} />
                             <Skeleton width="100%" height={18} />
@@ -278,9 +279,9 @@ export default function BlogClient() {
 
                   blogItems.map((post: any, index: any) => (
 
-                    <div className="col-lg-4 col-sm-6 col-12 content1 blogItem" key={index}>
-                      <div className="card-parts-1">
-                        <div className="card">
+                    <div className="blogItem" key={index}>
+                      <div className="card-parts-1 blog-box">
+                        <div className="card blog-box-card">
                           <Link href={`/${post?.slug}`}
                             onClick={() => setCategoryID(post?.categories)}
                           >
@@ -311,7 +312,7 @@ export default function BlogClient() {
                             </Link>
 
                             <div
-                            className="primary-bodyText"
+                              className="primary-bodyText"
                               dangerouslySetInnerHTML={{ __html: post?.excerpt?.rendered }}
                             />
 
