@@ -344,7 +344,7 @@ export const serviceMegaMenuColumns: ServiceMegaMenuColumn[] = [
                 icon: menuList4,
                 listType: "ul",
                 items: [
-                    // { label: "Data Governance and Data Strategy Services", slug: "data-governance" },
+                    { label: "Data Governance and Data Strategy Services", slug: "data-governance" },
                     { label: "Data Solutions", slug: "data-solutions" },
                 ],
             },

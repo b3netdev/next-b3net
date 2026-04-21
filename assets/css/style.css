@@ -7828,3 +7828,9 @@ div#signature-pad {
 .item {
   height: 100%;
 }
+
+@media(max-width:1000px) {
+  .data-goveranance .seo-landing-wrap .container .banner-caption {
+    margin-top: 10%;
+  }
+}

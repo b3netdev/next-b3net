@@ -10,6 +10,7 @@ import { BASE_URL } from "@/lib/url";
 import { notFound } from "next/navigation";
 import { Metadata } from "next";
 import ScrollLink from "@/components/client/ScrollLink";
+import DataGoverence from "./DataGoverence";
 
 const STATIC_SERVICE_ROUTE_SLUGS = new Set(["ai-integration", "ai-video"]);
 const VALID_SERVICE_SLUGS = new Set(sluglist.map((item) => item.slug));
@@ -120,14 +121,33 @@ const ServiceSubpage = async ({ params }: { params: { slug: string } }) => {
 
     const data = await GetPageData(slug, "page");
 
+
+
     const pageData = data?.page ?? data;
- 
+
 
     if (!pageData) {
         notFound();
     }
 
     const schemaData = pageData?.schema || pageData?.yoast_head_json?.schema || null;
+
+
+    if (slug === "data-governance") {
+        return (
+            <main className="page_content services-design-page  ">
+                {schemaData ? (
+                    <script
+                        type="application/ld+json"
+                        dangerouslySetInnerHTML={{
+                            __html: JSON.stringify(schemaData),
+                        }}
+                    />) : null}
+
+                <DataGoverence />
+            </main>
+        )
+    }
 
     return (
         <main className="page_content services-design-page  ">
@@ -154,19 +174,15 @@ const ServiceSubpage = async ({ params }: { params: { slug: string } }) => {
                             }}
                         />
                         <div className="mt-4">
-                            <span className="btn btn-orange servicebannerbtn">
-                                <ScrollLink
-                                    targetId="contact-form"
-                                    className="btn btn-orange"
-                                >
-                                    <span className="btn_label_1">
-                                        {pageData?.acf?.data?.banner_call_to_action?.title}
-                                    </span>
-                                </ScrollLink>
+                            <ScrollLink
+                                targetId="contact-form"
+                                className="btn btn-orange"
+                            >
+                                <span className="btn_label_1">Get Started Today</span>
                                 <span className="btn_icon">
-                                    <i className="fa-solid fa-arrow-right"></i>
+                                    <i className="fa-arrow-right fa-solid"></i>
                                 </span>
-                            </span>
+                            </ScrollLink>
                         </div>
                     </div>
                 </div>
@@ -555,8 +571,8 @@ const ServiceSubpage = async ({ params }: { params: { slug: string } }) => {
 
                                                 <ScrollLink targetId="contact-form" className="btn btn-orange">
                                                     <span className="btn_label_1">
-                                                       
-                                                        {pageData?.acf?.data?.services_page_section_4_link?.title ||  "Get in touch"}
+
+                                                        {pageData?.acf?.data?.services_page_section_4_link?.title || "Get in touch"}
                                                     </span>
                                                     <span className="btn_icon">
                                                         <i className="fa-solid fa-arrow-right"></i>

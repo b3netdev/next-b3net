@@ -71,20 +71,15 @@ const ServiceSubpage = async ({ params }: Props) => {
                             }}
                         />
                         <div className="mt-4">
-                            <span className="btn btn-orange">
-                                <ScrollLink
-                                    targetId="contact-form"
-                                    className="btn btn-orange"
-
-                                >
-                                    <span className="btn_label_1">
-                                        {pageData?.acf?.data?.banner_call_to_action?.title}
-                                    </span>
-                                </ScrollLink>
+                            <ScrollLink
+                                targetId="contact-form"
+                                className="btn btn-orange"
+                            >
+                                <span className="btn_label_1">Get Started Today</span>
                                 <span className="btn_icon">
-                                    <i className="fa-solid fa-arrow-right"></i>
+                                    <i className="fa-arrow-right fa-solid"></i>
                                 </span>
-                            </span>
+                            </ScrollLink>
                         </div>
                     </div>
                 </div>
