@@ -194,7 +194,7 @@ const TechStacks: React.FC = () => {
   const renderItems = () => {
     if (selectStack === "dev") return technologies;
     if (selectStack === "seo") return seoTools;
-    // ai
+
     return aiDesignImages;
   };
 
@@ -225,9 +225,8 @@ const TechStacks: React.FC = () => {
                     onClick={() => setSelectStack(data.id)}
                   >
                     <button
-                      className={`nav-link ${
-                        selectStack === data.id ? "active" : ""
-                      }`}
+                      className={`nav-link ${selectStack === data.id ? "active" : ""
+                        }`}
                       id="tech-tab"
                       data-bs-toggle="tab"
                       data-bs-target="#tech"
@@ -247,7 +246,7 @@ const TechStacks: React.FC = () => {
                   <div className="item" key={data.id ?? index}>
                     <div className="tech-list-col">
                       {"name" in data ? (
-                        <Image src={data.image} alt={data.name} unoptimized/>
+                        <Image src={data.image} alt={data.name} unoptimized />
                       ) : (
                         <Image src={data.image} alt={`Item ${index + 1}`} unoptimized />
                       )}
@@ -275,12 +274,12 @@ const TechStacks: React.FC = () => {
           </div>
 
           <div className="full-tech-list-1">
-            <div className="tech-list-new-slide d-flex new-b">
+            <div className="d-flex new-b">
               <div className="tech-list-new-slide d-flex">
                 {clientLogos.map((item) => (
                   <div className="item" key={item.id}>
                     <div className="tech-list-col">
-                      <Image src={item.image} alt={`Client ${item.id}`} unoptimized />
+                      <Image src={item.image} alt={`Client ${item.id}`} unoptimized className="h-20" />
                     </div>
                   </div>
                 ))}

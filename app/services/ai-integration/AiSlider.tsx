@@ -52,7 +52,7 @@ export default function AiSlider({ carouselData }: AiCarouselProps) {
         simulateTouch
         allowTouchMove
         grabCursor
-        className="ai-swiper"
+        className="ai-intregation-swiper"
         touchStartPreventDefault={false}
         mousewheel={{
           forceToAxis: true,
@@ -63,7 +63,7 @@ export default function AiSlider({ carouselData }: AiCarouselProps) {
       >
         {dataToRender.map((item: any, index: number) => (
           <SwiperSlide key={index}>
-            <div className="item" style={{ width: "100%" }}>
+            <div className="intregation-item" style={{ width: "100%" }}>
               {item.type === "video" ? (
                 <div style={{ width: "100%", height: "100%" }}>
                   <video

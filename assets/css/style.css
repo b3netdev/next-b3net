@@ -6766,7 +6766,7 @@ li {
 
 .tab-content {
   width: 100%;
-  display: flex;
+  /* display: flex; */
   height: auto;
   min-height: 200px;
 }
@@ -7772,9 +7772,9 @@ div#signature-pad {
   }
 }
 
-@media(max-width:300px) {
+@media(max-width:320px) {
   .process-sm-text {
-    font-size: 14px;
+    font-size: 15px !important;
   }
 }
 
@@ -7813,19 +7813,19 @@ div#signature-pad {
 
 
 
-.ai-swiper {
+.ai-intregation-swiper {
   height: 100%;
 }
 
-.ai-swiper .swiper-wrapper {
+.ai-intregation-swiper .swiper-wrapper {
   height: 100%;
 }
 
-.ai-swiper .swiper-slide {
+.ai-intregation-swiper .swiper-slide {
   height: 100%;
 }
 
-.item {
+.intregation-item {
   height: 100%;
 }
 

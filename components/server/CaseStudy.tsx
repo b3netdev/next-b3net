@@ -24,7 +24,7 @@ type CaseStudyItem = {
 };
 
 const CaseStudy = () => {
- 
+
   return (
     <>
       <div className="case-studies-service pt-5 mb-4 mt-0  new-gap" id="case-studies">
@@ -42,7 +42,7 @@ const CaseStudy = () => {
         </div>
 
         <div className="case-studies-slider owl-carousel owl-theme d-flex justify-between">
-          <CaseStudiesSlider  />
+          <CaseStudiesSlider />
         </div>
       </div>
 
