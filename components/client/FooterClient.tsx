@@ -27,7 +27,7 @@ function chunkArray<T>(arr: T[], chunkSize: number): T[][] {
 
 function LocationColumns({ columns, country }: { columns: any[][]; country: string }) {
   const [openKey, setOpenKey] = useState<string | null>(null);
-  const isUSA = country?.toLowerCase() === "usa";
+
 
 
 
@@ -261,15 +261,38 @@ export default function FooterClient() {
   useEffect(() => {
     if (!footerTabs.length) return;
 
-    const firstLocationId = String(footerTabs[0].id);
+    if (typeof window !== "undefined") {
+      const screenWidth = window.innerWidth;
 
-    setActiveDesktopTab((prev) => prev || firstLocationId);
-    setOpenMobileAcc((prev) => prev || firstLocationId);
+      if (screenWidth > 500) {
+        const firstLocationId = String(footerTabs[0].id);
+
+        setActiveDesktopTab((prev) => prev || firstLocationId);
+        setOpenMobileAcc((prev) => prev || firstLocationId);
+      }
+    }
   }, [footerTabs]);
+
 
   if (showLayout === false) {
     return null;
   }
+
+
+  const handleTabClick = (tabId: string) => {
+    setActiveDesktopTab(tabId);
+    setOpenMobileAcc(tabId);
+
+    if (typeof window !== "undefined" && window.innerWidth <= 500) {
+
+      setTimeout(() => {
+        const el = document.getElementById(`tab-section-${tabId}`);
+        if (el) {
+          el.scrollIntoView({ behavior: "smooth", block: "start" });
+        }
+      }, 300);
+    }
+  };
 
   return (
     <main className="page_content-1">
@@ -298,23 +321,22 @@ export default function FooterClient() {
                 const columns = chunkArray(loc.children ?? [], 6);
 
                 return (
-                  <div className="accordion-item" key={loc.id}>
+                  <div className="accordion-item"
+                    id={`tab-section-${loc.id}`}
+                    key={loc.id}>
                     <h2 className="accordion-header">
                       <button
                         className={`accordion-button ${open ? "" : "collapsed"}`}
                         type="button"
                         aria-expanded={open ? "true" : "false"}
                         aria-controls={collapseId}
-                        onClick={() =>
-                          setOpenMobileAcc((p) =>
-                            p === String(loc.id) ? "" : String(loc.id)
-                          )
-                        }
+                        onClick={() => handleTabClick(String(loc.id))}
                       >
                         {loc.title}
                       </button>
                     </h2>
 
+                    {/* ///mobile devices */}
                     <div
                       id={collapseId}
                       className={`accordion-collapse ${open ? "show" : ""} bg-amber-700`}

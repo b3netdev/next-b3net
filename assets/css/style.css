@@ -2228,6 +2228,11 @@ body:has(.page_banner_section + .intro_about_section) .page_banner_section {
   background-position: top right;
   background-size: cover;
 }
+@media (max-width:550px){
+  .industry-sec {
+    background: none;
+  }
+}
 
 .video-container {
   position: relative;
@@ -2796,6 +2801,11 @@ body:has(.page_banner_section + .intro_about_section) .page_banner_section {
   background-repeat: no-repeat;
   background-position: bottom right;
   background-size: cover;
+}
+@media (max-width:550px){
+  .contact-sec {
+    background: none;
+  }
 }
 
 .common-form .form-control,
@@ -3583,6 +3593,11 @@ p.form-submit input#submit {
     font-size: 30px;
   }
 
+  @media (max-width: 1400px) {
+    .heading-big-uppercase h2 {
+        font-size: 42px;
+    }
+}
   .testimonial-page-sec .tes-box {
     /* max-width: 550px !; */
   }
@@ -7969,6 +7984,20 @@ div#signature-pad {
     justify-content: center;
     width: 90% !important;
     height: 80% !important;
+  }
+  .casestudy-tech-hardware-olddesign .value-driven-sec {
+    width: 100% !important;
+    padding: 10px;
+  }
+  
+}
+@media (max-width:400px) {
+  .casestudy-tech-hardware-olddesign .old-design-pattern img {
+    
+    display: flex !important;
+    justify-content: center;
+    width: 100% !important;
+    height: 100% !important;
   }
   .casestudy-tech-hardware-olddesign .value-driven-sec {
     width: 100% !important;

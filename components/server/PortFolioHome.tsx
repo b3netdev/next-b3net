@@ -54,7 +54,7 @@ const PortFolio: React.FC = () => {
     <div className="service">
       <div className="service-items service-items2 sp portfolio" id="portfolio">
         <div className="container">
-          <div className="row align-items-center justify-content-between mb-5">
+          <div className="row flex  justify-content-between mb-5">
             <div className="col-lg-6 pe-lg-5">
               <div className="heading-title heading-big-uppercase text-white">
                 <p className="title">Our Portfolio</p>
