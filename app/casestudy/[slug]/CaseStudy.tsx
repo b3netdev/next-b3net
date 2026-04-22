@@ -10,8 +10,9 @@ import CountUp from "@/components/client/CountUp";
 
 const CaseStudy = async ({ pageData }: any) => {
 
-  
 
+
+    console.log(pageData?.acf?.data?.second_section_image, "LLLL")
 
 
 
@@ -19,7 +20,6 @@ const CaseStudy = async ({ pageData }: any) => {
         <main className="page_content">
             <div className="case-study-3">
                 <section className={`casebanner-section `}
-
                 >
                     <div className="bannerwrap">
                         <div className="container">
@@ -78,13 +78,18 @@ const CaseStudy = async ({ pageData }: any) => {
                                         </div>
 
                                         <div className="service-desc">
-                                            <div dangerouslySetInnerHTML={{ __html: item?.text || " " }} />
+
+                                            <div
+                                                className="casestudy-tech-hardware-first_section_content_repeater"
+                                                dangerouslySetInnerHTML={{ __html: item?.text || " " }} />
                                         </div>
                                     </div>
                                 )
                             )}
                         </div>
-                        <div className="hire-us-section">
+                        <div className="hire-us-section casestudy-tech-hardware-hire-us-section "
+                            style={{ background: `url(${BASE_URL}//wp-content/themes/b3net/assets/images/case-studies/hire-us-bg-c3.png)` }}
+                        >
                             <div className="hire-left">
                                 <div
                                     dangerouslySetInnerHTML={{
@@ -92,10 +97,12 @@ const CaseStudy = async ({ pageData }: any) => {
                                     }}
                                 />
                             </div>
-                            <div className="hire-right">
+                            <div className="hire-right "
+
+                            >
                                 <Link
-                                href={"/request-for-proposal"}
-                                    className="hireus-btn btn btn-primary"
+                                    href={"/request-for-proposal"}
+                                    className="hireus-btn btn btn-primary   casestudy-tech-hardware-hire-us-btn"
                                 >
                                     {pageData?.acf?.data?.first_section_box_button_name}{" "}
                                     <i className="fa-solid fa-arrow-right"></i>
@@ -124,10 +131,35 @@ const CaseStudy = async ({ pageData }: any) => {
                                     }}
                                 />
                             </div>
-                           
+
                         </div>
-                        </div>
+                    </div>
                 </section>
+                <div className="flex flex-wrap justify-center casestudy-tech-hardware-olddesign ">
+
+                    <section className="old-design-pattern ">
+                        <div className="case-img-wrap">
+                            <img
+                                src={pageData?.acf?.data?.second_section_image || ""}
+                                alt="case-img-wrap"
+                            />
+                        </div>
+                    </section>
+
+                    <section className="value-driven-sec sec-pad w-[50%] casestudy-tech-hardware-valuedriven">
+                        <div className="container !w-full ">
+                            <div className="innerwrap ! w-full">
+                                {/* Always render the wrapper div */}
+                                <div
+                                className="primary-bodyText font-semibold"
+                                    dangerouslySetInnerHTML={{
+                                        __html: pageData?.custom_fields?.second_section_content_1 || "",
+                                    }}
+                                />
+                            </div>
+                        </div>
+                    </section>
+                </div>
 
                 <section className="ecofriendly-sec sec-pad">
                     <div className="container">
@@ -143,9 +175,10 @@ const CaseStudy = async ({ pageData }: any) => {
 
                 </section>
 
-                <section className="old-design-pattern">
+                {/* <section className="old-design-pattern">
                     <div className="case-img-wrap">
-                        <img src={pageData?.acf?.data?.second_section_image_3}
+                        <img
+                            src={pageData?.acf?.data?.second_section_image} 
                             alt="case-img-wrap"
                         />
                     </div>
@@ -155,14 +188,14 @@ const CaseStudy = async ({ pageData }: any) => {
                     <div className="container">
                         <div className="innerwrap">
                             <div
-                                className="valueDrivenArc"
                                 dangerouslySetInnerHTML={{
-                                    __html: pageData?.acf?.data?.second_section_content_4 || " ",
+                                    __html: pageData?.acf?.data?.second_section_content_1 || "",
                                 }}
                             />
                         </div>
                     </div>
-                </section>
+                </section> */}
+
 
                 <section className="web-planning-sec sec-pad">
                     <div className="container">

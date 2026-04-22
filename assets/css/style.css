@@ -7905,3 +7905,74 @@ div#signature-pad {
     margin-top: 10%;
   }
 }
+
+.casestudy-tech-hardware-first_section_content_repeater span{
+  color: #32c7b3 !important;
+}
+.casestudy-tech-hardware-hire-us-section{
+ 
+  background-repeat: no-repeat !important;
+  padding: 40px !important;
+  display: flex !important;
+  justify-content: space-between  !important;
+  width: 80% !important;
+  align-items: center;
+  background-position: bottom center;
+  margin: 60px auto 60px !important;
+  border-radius: 10px !important;
+  box-shadow: 0 9px 10px rgba(0, 0, 0, 0.2) !important;
+  background-size: cover !important; 
+}
+
+.casestudy-tech-hardware-hire-us-btn{
+  background: #32c7b3 !important;
+  padding: 12px 20px !important;
+  font-size: 16px !important;
+  font-weight: 700  !important;
+  text-align: center !important;
+  border: 1px solid #32c7b3 !important;
+}
+
+.casestudy-tech-hardware-valuedriven{
+  background: none !important;
+  /* margin-bottom: 20px !important; */
+}
+.casestudy-tech-hardware-olddesign {
+  margin-bottom: 40px;
+  flex-shrink: inherit;
+}
+.casestudy-tech-hardware-valuedriven h2{
+  font-weight: 700 !important;
+  width: 100% !important;
+    text-align: left !important;
+    font-size: 40px !important;
+    text-transform: initial !important;
+    margin: 0 0 30px !important;
+    color: #1a76bd !important;
+}
+@media (max-width:1188px) {
+  .casestudy-tech-hardware-olddesign .old-design-pattern {
+    /* background: #000; */
+    display: flex;
+    justify-content: center;
+    width: 100% !important;
+  }
+  .casestudy-tech-hardware-olddesign .old-design-pattern .case-img-wrap {
+    /* background: #000 !important; */
+    display: flex !important;
+    justify-content: center !important;
+    width: 100% !important;
+  }
+  .casestudy-tech-hardware-olddesign .old-design-pattern img {
+    
+    display: flex !important;
+    justify-content: center;
+    width: 90% !important;
+    height: 80% !important;
+  }
+  .casestudy-tech-hardware-olddesign .value-driven-sec {
+    width: 100% !important;
+    padding: 10px;
+  }
+  
+}
