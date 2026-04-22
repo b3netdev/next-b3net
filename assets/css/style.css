@@ -1245,7 +1245,7 @@ body:has(.page_banner_section + .intro_about_section) .page_banner_section {
   transition: 0.4s;
   font-family: "Poppins", serif;
   position: relative;
-  padding-left: 16px;
+  /* padding-left: 16px; */
 }
 
 .footer-col .menu-list.new-menu-list ul li a {
