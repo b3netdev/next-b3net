@@ -102,9 +102,10 @@ function LocationColumns({ columns, country }: { columns: any[][]; country: stri
                         return (
                           <div
                             key={l.id || index}
-                            className="d-flex items-cennter gap-0 justify-content-center pl-3.5"
+                            className="flex !items-cennter gap-0 !justifycenter pl-3.5"
                           >
-                            <Dot color="#ff4f02" strokeWidth={7} />
+                            <Dot color="#ff4f02" strokeWidth={7}  className="mt-2"/>
+                            
 
                             {isExternal ? (
                               <a
@@ -194,7 +195,7 @@ function ExploreList({ items }: { items: any[] }) {
                           paddingLeft: "20px",
                         }}
                       >
-                        <Dot color="#ff4f02" strokeWidth={7} />
+                        <Dot color="#ff4f02" strokeWidth={7} className="mt-2" />
                         <Link
                           href={l.slug || l.url || "/"}
                           target={l.target || undefined}
