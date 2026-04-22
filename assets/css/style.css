@@ -7863,13 +7863,17 @@ div#signature-pad {
     width: 90% !important;
   }
 }
+.service-banner-caption{
+  /* background-color: #000; */
+  padding-bottom: 0 !important;
+}
 @media (max-width:760px){
   .service-landing-wrap{
-    height: 60dvh;
+    height: auto;
+    /* background-color: #000000; */
   }
   .service-banner-caption{
     display: flex !important;
-    /* background-color: #000; */
     flex-direction: column;
     justify-content: space-around !important;
 
@@ -7877,19 +7881,19 @@ div#signature-pad {
 }
 @media (max-width:405px){
   .service-landing-wrap{
-    height: 65dvh;
+    /* height: 65dvh; */
   }
   
 }
 @media (max-width:339px){
   .service-landing-wrap{
-    height: 70dvh;
+    /* height: 70dvh; */
   }
   
 }
 @media (max-width:290px){
   .service-landing-wrap{
-    height: 75dvh;
+    /* height: 75dvh; */
   }
   
 }
@@ -7909,7 +7913,7 @@ div#signature-pad {
 }
 
 .service-landing-wrap{
-  background: #000000;
+  /* background: #000000; */
 }
 
 .featureclient-heading {
