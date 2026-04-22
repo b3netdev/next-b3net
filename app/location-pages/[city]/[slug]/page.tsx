@@ -57,7 +57,7 @@ const ServiceSubpage = async ({ params }: Props) => {
             <StructuredData data={schemaData} />
 
             <div
-                className="seo-landing-wrap"
+                className="seo-landing-wrap service-landing-wrap"
                 style={{
                     backgroundImage: `url(${pageData?.acf?.data?.banner_image})`,
                 }}

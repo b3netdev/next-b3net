@@ -167,17 +167,18 @@ export default async function Home() {
             {/* RATINGS */}
             <div className="industry-sec sp pb-0">
                 <div className="container">
-                    <div className="row align-items-center justify-content-center rating-section gy-md-4 gy-xl-0">
+                    <div className="row  justify-content-center rating-section gy-md-4 gy-xl-0">
 
                         {[
                             { img: "/images/google-logo.png", rating: "4.9 Out of 5", stars: 5 },
                             { img: "/images/facebook-logo.png", rating: "4.4 Out of 5", stars: 4.5 },
                             { img: "/images/dbest-logo.png", rating: "Our Rating: B+", stars: 4.5 },
+                            { img: `${BASE_URL}/wp-content/uploads/2025/11/goodfirms-logo.png`, height:60, width:60,  rating: "Our Rating: B+", stars: 4.5 },
                         ].map((item, i) => (
-                            <div key={i} className="col-lg-3 col-sm-6 rating-box">
-                                <div className="d-flex align-items-center">
+                            <div key={i} className="col-lg-3 col-sm-6  rating-box ">
+                                <div className="d-flex justify-center rating-box-contain ">
                                     <div className="rating-logo pe-3">
-                                        <Image src={item.img} unoptimized alt="rating" width={100} height={100} />
+                                        <Image src={item.img} unoptimized alt="rating" width={item?.width || 100} height={ item?.height || 100} />
                                     </div>
                                     <div className="rating-content ps-3 text-left">
                                         <div className="stars">
@@ -193,30 +194,7 @@ export default async function Home() {
                             </div>
                         ))}
 
-                        <div className="col-lg-3 col-sm-6 rating-box">
-                            <div className="d-flex align-items-center">
-                                <div className="rating-logo pe-3 goodsfirms">
-                                    <Image
-                                        src={`${BASE_URL}/wp-content/uploads/2025/11/goodfirms-logo.png`}
-                                        alt="GoodFirms"
-                                        width={60}
-                                        height={60}
-                                        unoptimized
-                                    />
-                                </div>
-                                <div className="rating-content ps-3 text-left">
-                                    <div className="stars">
-                                        <i className="fa-solid fa-star"></i>
-                                        <i className="fa-solid fa-star"></i>
-                                        <i className="fa-solid fa-star"></i>
-                                        <i className="fa-solid fa-star"></i>
-                                        <i className="fa-solid fa-star"></i>
-                                    </div>
-                                    <p className="rating-text">5 Out of 5</p>
-                                </div>
-                            </div>
-                        </div>
-
+                
                     </div>
                 </div>
                 <div className="container mt-md-5">

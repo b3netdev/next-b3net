@@ -51,8 +51,8 @@ export default async function AboutUsPage({ params }: PageProps) {
             alt="about-banner"
           />
           <div className="container">
-            <div className="banner-caption">
-              <h1>Are You Digital?</h1>
+            <div className="banner-caption flex !justify-start ">
+              <h1 className="!ml-9 "> Are You Digital?</h1>
             </div>
           </div>
         </div>
@@ -79,6 +79,7 @@ export default async function AboutUsPage({ params }: PageProps) {
             <div className="col-lg-9 pe-lg-4">
               <div className="heading-title heading-big-uppercase int-className">
                 <h2
+                className="!leading-none"
                   dangerouslySetInnerHTML={{
                     __html: pageData?.acf?.data?.heading ?? "",
                   }}
@@ -224,7 +225,7 @@ export default async function AboutUsPage({ params }: PageProps) {
                   achieve remarkable growth and digital transformation.
                 </p>
                 <div className="mt-4">
-                  <Link href="/testimonial"
+                  <Link href="/portfolio"
                     className="btn btn-orange"
 
 

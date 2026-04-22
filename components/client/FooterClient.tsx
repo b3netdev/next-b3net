@@ -1,5 +1,5 @@
 "use client";
-
+import { usePathname } from "next/navigation";
 import React, { useEffect, useMemo, useState } from "react";
 import { Dot } from "lucide-react";
 import Link from "next/link";
@@ -293,14 +293,18 @@ export default function FooterClient() {
       }, 300);
     }
   };
+  const pathname = usePathname()
+  const showContactfooter = pathname != "/request-for-proposal"
 
   return (
     <main className="page_content-1">
-      <ContactFooter />
+      { showContactfooter?
+        <ContactFooter />
+        : null}
 
       <div className="footer-col">
         <div
-          className="top-footer"
+          className={`top-footer ${!showContactfooter ? "pt-5":""}`}
           style={{
             backgroundImage: `url(${BASE_URL}/wp-content/uploads/2026/04/footer-bg.webp)`,
           }}

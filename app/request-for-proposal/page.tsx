@@ -35,8 +35,8 @@ const Proposal = async () => {
         <div
           className="banner-img proposalBanner"
         >
-          <div className="container">
-            <div className="banner-caption">
+          <div className="container getfree-proporsl-bannertxtbox">
+            <div className="banner-caption getfree-proporsl-bannertxt">
               <h2>Get A Free Proposal</h2>
             </div>
           </div>

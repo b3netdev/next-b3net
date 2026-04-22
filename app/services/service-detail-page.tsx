@@ -160,7 +160,7 @@ const ServiceSubpage = async ({ params }: { params: { slug: string } }) => {
                 />) : null}
 
             <div
-                className="seo-landing-wrap"
+                className="seo-landing-wrap service-landing-wrap"
                 style={{
                     backgroundImage: `url(${pageData?.acf?.data?.banner_image})`,
                 }}
