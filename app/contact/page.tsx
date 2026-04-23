@@ -73,16 +73,6 @@ export default async function ContactUs() {
       email: "info@b3net.com",
     },
     {
-      title: "New York Office:",
-      locations: [
-        {
-          address: `30 Wall Street, 8th Floor, 
-  New York City, NY 10005`,
-        },
-      ],
-      email: "info@b3net.com",
-    },
-    {
       title: "India Office:",
       locations: [
         {
