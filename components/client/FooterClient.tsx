@@ -309,6 +309,7 @@ export default function FooterClient() {
         <div
           className={`top-footer ${!showContactfooter ? "pt-5":""}`}
           style={{
+            backgroundColor:"#09102d",
             backgroundImage: `url(${BASE_URL}/wp-content/uploads/2026/04/footer-bg.webp)`,
           }}
         >
