@@ -23,8 +23,6 @@ export async function generateMetadata(): Promise<Metadata> {
 const page = async () => {
     const pageData = await getBlogPageData();
     const schemaData = getSchemaFromPageData(pageData);
-    console.log(pageData,"KKK")
-
 
     return (
         <section className="product-details-sec shop-sec page_content default_content_class">

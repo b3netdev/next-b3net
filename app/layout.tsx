@@ -52,8 +52,10 @@ export default function RootLayout({
         <Script
           id="cookieyes"
           src="https://cdn-cookieyes.com/client_data/0e730defc91657a6459d9c46/script.js"
-          strategy="beforeInteractive"
+          strategy="lazyOnload"
         />
+
+
         <noscript>
           <iframe
             src="https://www.googletagmanager.com/ns.html?id=GTM-TQVC5NS"
@@ -63,18 +65,7 @@ export default function RootLayout({
           />
         </noscript>
 
-
-        <noscript>
-          <iframe
-            src="https://www.googletagmanager.com/ns.html?id=GTM-WC2TSS"
-            height="0"
-            width="0"
-            style={{ display: "none", visibility: "hidden" }}
-          />
-        </noscript>
-
-        {/* Google Tag Manager - Container 1 */}
-        <Script id="gtm-tqvc5ns" strategy="beforeInteractive">
+        <Script id="gtm-tqvc5ns" strategy="afterInteractive">
           {`
             (function(w,d,s,l,i){
               w[l]=w[l]||[];
@@ -89,49 +80,12 @@ export default function RootLayout({
           `}
         </Script>
 
-
-        <Script id="gtm-wc2tss" strategy="beforeInteractive">
-          {`
-            (function(w,d,s,l,i){
-              w[l]=w[l]||[];
-              w[l].push({'gtm.start': new Date().getTime(), event:'gtm.js'});
-              var f=d.getElementsByTagName(s)[0],
-                  j=d.createElement(s),
-                  dl=l!='dataLayer' ? '&l='+l : '';
-              j.async=true;
-              j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;
-              f.parentNode.insertBefore(j,f);
-            })(window,document,'script','dataLayer','GTM-WC2TSS');
-          `}
-        </Script>
-
-        {/* Legacy Universal Analytics - usually remove unless you truly still need UA */}
-        <Script id="legacy-ua" strategy="afterInteractive">
-          {`
-            (function(i,s,o,g,r,a,m){
-              i['GoogleAnalyticsObject']=r;
-              i[r]=i[r]||function(){ (i[r].q=i[r].q||[]).push(arguments) };
-              i[r].l=1*new Date();
-              a=s.createElement(o);
-              m=s.getElementsByTagName(o)[0];
-              a.async=1;
-              a.src=g;
-              m.parentNode.insertBefore(a,m);
-            })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-
-            ga('create', 'UA-6536820-1', 'b3net.com');
-            ga('send', 'pageview');
-          `}
-        </Script>
-
-        {/* Google Ads / gtag.js loader */}
         <Script
           id="google-ads-gtag-src"
           src="https://www.googletagmanager.com/gtag/js?id=AW-1070943410"
           strategy="afterInteractive"
         />
 
-        {/* Optional gtag bootstrap for Ads if needed */}
         <Script id="google-ads-gtag-init" strategy="afterInteractive">
           {`
             window.dataLayer = window.dataLayer || [];
@@ -141,22 +95,13 @@ export default function RootLayout({
           `}
         </Script>
 
-        {/* Heatmap tracking */}
-        <Script id="b3net-heatmap" strategy="afterInteractive">
-          {`
-            if (typeof hmtracker == 'undefined') {
-              var hmt_script = document.createElement('script'),
-                  hmt_purl = encodeURIComponent(location.href).replace('.', '~');
-              hmt_script.type = 'text/javascript';
-              hmt_script.src =
-                'https://www.b3net.com/hmt/?hmtrackerjs=B3NET.com&uid=05cf75d64f067a6d500fd2e96f09939f637e676d&purl=' + hmt_purl;
-              document.getElementsByTagName('head')[0].appendChild(hmt_script);
-            }
-          `}
-        </Script>
+        <Script
+          id="b3net-heatmap"
+          strategy="lazyOnload"
+          src="https://www.b3net.com/hmt/?hmtrackerjs=B3NET.com&uid=05cf75d64f067a6d500fd2e96f09939f637e676d"
+        />
 
-        {/* Microsoft Clarity */}
-        <Script id="microsoft-clarity" strategy="afterInteractive">
+        <Script id="microsoft-clarity" strategy="lazyOnload">
           {`
             (function(c,l,a,r,i,t,y){
               c[a]=c[a]||function(){ (c[a].q=c[a].q||[]).push(arguments) };
@@ -169,8 +114,7 @@ export default function RootLayout({
           `}
         </Script>
 
-        {/* AdRoll */}
-        <Script id="adroll-init" strategy="afterInteractive">
+        <Script id="adroll-init" strategy="lazyOnload">
           {`
             window.adroll_adv_id = "IXSTBEWES5CEBBCQAA2O2T";
             window.adroll_pix_id = "FAZBXTQYPRE2LP6RVHDOLR";

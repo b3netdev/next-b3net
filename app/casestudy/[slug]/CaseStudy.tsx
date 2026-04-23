@@ -11,11 +11,6 @@ import CountUp from "@/components/client/CountUp";
 const CaseStudy = async ({ pageData }: any) => {
 
 
-
-    console.log(pageData?.acf?.data?.second_section_image, "LLLL")
-
-
-
     return (
         <main className="page_content">
             <div className="case-study-3">

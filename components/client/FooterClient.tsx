@@ -282,16 +282,18 @@ export default function FooterClient() {
 
   const handleTabClick = (tabId: string) => {
     setActiveDesktopTab(tabId);
-    setOpenMobileAcc(tabId);
-
+  
     if (typeof window !== "undefined" && window.innerWidth <= 500) {
-
+      setOpenMobileAcc((prev) => (prev === tabId ? "" : tabId));
+  
       setTimeout(() => {
         const el = document.getElementById(`tab-section-${tabId}`);
         if (el) {
           el.scrollIntoView({ behavior: "smooth", block: "start" });
         }
       }, 300);
+    } else {
+      setOpenMobileAcc(tabId);
     }
   };
   const pathname = usePathname()
