@@ -340,7 +340,7 @@ export default function FooterClient() {
                         onClick={() => handleTabClick(String(loc.id))}
                       >
                         {loc.title}
-                        <span className="icon">{open ? "−" : "+"}</span>
+                        <span className="text-white font-bold">{open ? "−" : "+"}</span>
                       </button>
                     </h2>
 
