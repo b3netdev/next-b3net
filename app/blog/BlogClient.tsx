@@ -346,20 +346,7 @@ export default function BlogClient() {
               const totalPages = Math.ceil(pageCount / 6) || 0;
               const pages = [];
 
-              const visiblePages =
-                pagenumber <= 4 ? 4 : Math.min(pagenumber, totalPages);
-
-              pages.push(
-                <div
-                  key="prev"
-                  className="paginationbox prev size-10"
-                  onClick={() => pagenumber > 1 && HandleSelectnumbox(pagenumber - 1)}
-                >
-                  Prev
-                </div>
-              );
-
-              for (let i = 1; i <= visiblePages; i++) {
+              const addPage = (i:any) => {
                 pages.push(
                   <div
                     key={i}
@@ -369,45 +356,119 @@ export default function BlogClient() {
                     {i}
                   </div>
                 );
-              }
+              };
 
-              if (visiblePages < totalPages - 2) {
+              if (pagenumber > 1) {
                 pages.push(
-                  <div key="dots" className="paginationbox">
-                    ...
+                  <div
+                    key="first"
+                    className="paginationbox prev"
+                    onClick={() => HandleSelectnumbox(1)}
+                  >
+                    First
                   </div>
                 );
+              }
 
-                for (let i = totalPages - 1; i <= totalPages; i++) {
+              if (pagenumber > 1) {
+                pages.push(
+                  <div
+                    key="prev"
+                    className="paginationbox prev size-10"
+                    onClick={() => HandleSelectnumbox(pagenumber - 1)}
+                  >
+                    <span>{"<"}</span>
+                  </div>
+                );
+              }
+
+              if (totalPages <= 6) {
+                for (let i = 1; i <= totalPages; i++) {
+                  addPage(i);
+                }
+              } else {
+                if (pagenumber <= 3) {
+               
+                  addPage(1);
+                  addPage(2);
+                  addPage(3);
+
                   pages.push(
-                    <div
-                      key={i}
-                      className={pagenumber === i ? "paginationactive" : "paginationbox"}
-                      onClick={() => HandleSelectnumbox(i)}
-                    >
-                      {i}
+                    <div key="dots-end" className="paginationbox">
+                      ...
                     </div>
                   );
+
+                  addPage(totalPages - 2);
+                  addPage(totalPages - 1);
+                  addPage(totalPages);
+                } else if (pagenumber >= totalPages - 2) {
+                  // 1 2 3 ... last-2 last-1 last
+                  addPage(1);
+                  addPage(2);
+                  addPage(3);
+
+                  pages.push(
+                    <div key="dots-start" className="paginationbox">
+                      ...
+                    </div>
+                  );
+
+                  addPage(totalPages - 2);
+                  addPage(totalPages - 1);
+                  addPage(totalPages);
+                } else {
+                  
+                  addPage(1);
+
+                  pages.push(
+                    <div key="dots-left" className="paginationbox">
+                      ...
+                    </div>
+                  );
+
+                  addPage(pagenumber - 1);
+                  addPage(pagenumber);
+                  addPage(pagenumber + 1);
+
+                  pages.push(
+                    <div key="dots-right" className="paginationbox">
+                      ...
+                    </div>
+                  );
+
+                  addPage(totalPages);
                 }
               }
 
-              pages.push(
-                <div
-                  key="next"
-                  className="paginationbox prev"
-                  onClick={() =>
-                    pagenumber < totalPages && HandleSelectnumbox(pagenumber + 1)
-                  }
-                >
-                  Next
-                </div>
-              );
+              if (pagenumber < totalPages) {
+                pages.push(
+                  <div
+                    key="next"
+                    className="paginationbox prev"
+                    onClick={() => HandleSelectnumbox(pagenumber + 1)}
+                  >
+                    {">"}
+                  </div>
+                );
+              }
+
+              if (pagenumber < totalPages) {
+                pages.push(
+                  <div
+                    key="last"
+                    className="paginationbox prev"
+                    onClick={() => HandleSelectnumbox(totalPages)}
+                  >
+                    Last
+                  </div>
+                );
+              }
 
               return pages;
             })()}
           </div>
         )}
-
       </div>
     </>
   );

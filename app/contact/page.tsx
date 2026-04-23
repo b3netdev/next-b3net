@@ -179,7 +179,7 @@ export default async function ContactUs() {
         <div className="container">
           <div className="row gy-4">
             {offices.map((office: any, index: any) => (
-              <div key={index} className="col-xxl-3 col-xl-4 col-md-6">
+              <div key={index} className="col-xxl-4 col-xl-4 col-md-6">
                 <div className="address-box">
                   <div className="address-box-heading">
                     <h4>{office.title}</h4>

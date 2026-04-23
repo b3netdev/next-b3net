@@ -88,12 +88,12 @@ export default function Portfoliobox() {
   };
 
   return (
-    <div 
-    ref={tabsRef}
-    className="portfolio-content">
+    <div
+      ref={tabsRef}
+      className="portfolio-content">
       <div className="container">
         <ul
-         
+
           className="nav nav-pills mb-3 justify-content-center"
           role="tablist"
         >
@@ -114,57 +114,57 @@ export default function Portfoliobox() {
           <div className="row gy-4" id="jar1">
             {loading
               ? Array.from({ length: 6 }).map((_, index) => (
-                  <div
-                    className="col-lg-4 col-sm-6 bg-hover content1"
-                    key={`sk-${index}`}
-                  >
-                    <div className="portfolio-list">
-                      <div className="image reveal">
-                        <Skeleton variant="rectangular" width="100%" height={220} />
-                      </div>
+                <div
+                  className="col-lg-4 col-sm-6 bg-hover content1"
+                  key={`sk-${index}`}
+                >
+                  <div className="portfolio-list">
+                    <div className="image reveal">
+                      <Skeleton variant="rectangular" width="100%" height={220} />
+                    </div>
 
-                      <div className="portfolio-details">
-                        <div className="d-flex align-items-center justify-content-between">
-                          <Skeleton variant="text" width="70%" height={28} />
-                          <Skeleton variant="circular" width={18} height={18} />
-                        </div>
+                    <div className="portfolio-details">
+                      <div className="d-flex align-items-center justify-content-between">
+                        <Skeleton variant="text" width="70%" height={28} />
+                        <Skeleton variant="circular" width={18} height={18} />
                       </div>
                     </div>
                   </div>
-                ))
+                </div>
+              ))
               : portfolioItems.map((item) => (
-                  <div className="col-lg-4 col-sm-6 bg-hover content1" key={item.id}>
-                    <div className="portfolio-list">
-                      <div className="image reveal">
-                        <Link href={`/portfolio/${item?.slug}`}>
-                          <img src={item.featured_media_url || ""} alt="featured_media" />
-                        </Link>
-                      </div>
+                <div className="col-lg-4 col-sm-6 bg-hover content1" key={item.id}>
+                  <div className="portfolio-list">
+                    <div className="image reveal">
+                      <Link href={`/portfolio/${item?.slug}`}>
+                        <img src={item.featured_media_url || ""} alt="featured_media" />
+                      </Link>
+                    </div>
 
-                      <div className="portfolio-details">
-                        <Link
-                          href={`/portfolio/${item?.slug}`}
-                          className="d-flex align-items-center justify-content-between"
-                        >
-                          {item?.title?.rendered ?? ""}
-                          <span>
-                            <i
-                              className="fa-solid fa-arrow-right"
-                              style={{
-                                transform: "rotate(-45deg)",
-                                display: "inline-block",
-                              }}
-                            />
-                          </span>
-                        </Link>
-                      </div>
+                    <div className="portfolio-details">
+                      <Link
+                        href={`/portfolio/${item?.slug}`}
+                        className="d-flex align-items-center justify-content-between"
+                      >
+                        {item?.title?.rendered ?? ""}
+                        <span>
+                          <i
+                            className="fa-solid fa-arrow-right"
+                            style={{
+                              transform: "rotate(-45deg)",
+                              display: "inline-block",
+                            }}
+                          />
+                        </span>
+                      </Link>
                     </div>
                   </div>
-                ))}
+                </div>
+              ))}
           </div>
         </div>
 
-        {selectTab?.count! > 6 && (
+        {/* {selectTab?.count! > 6 && (
           <div className="paginationContainer">
             {(() => {
               const totalPages = Math.ceil(selectTab?.count! / 6) || 0;
@@ -229,8 +229,139 @@ export default function Portfoliobox() {
               return pages;
             })()}
           </div>
+        )} */}
+
+        {selectTab?.count! > 6 && (
+          <div className="paginationContainer">
+            {(() => {
+              const totalPages = Math.ceil(selectTab?.count! / 6) || 0;
+              const pages = [];
+
+              const addPage = (i: any) => {
+                pages.push(
+                  <div
+                    key={i}
+                    className={pagenumber === i ? "paginationactive" : "paginationbox"}
+                    onClick={() => HandleSelectnumbox(i)}
+                  >
+                    {i}
+                  </div>
+                );
+              };
+
+              if (pagenumber > 1) {
+                pages.push(
+                  <div
+                    key="first"
+                    className="paginationbox prev"
+                    onClick={() => HandleSelectnumbox(1)}
+                  >
+                    First
+                  </div>
+                );
+              }
+
+              if (pagenumber > 1) {
+                pages.push(
+                  <div
+                    key="prev"
+                    className="paginationbox prev size-10"
+                    onClick={() => HandleSelectnumbox(pagenumber - 1)}
+                  >
+                    <span>{"<"}</span>
+                  </div>
+                );
+              }
+
+              if (totalPages <= 6) {
+                for (let i = 1; i <= totalPages; i++) {
+                  addPage(i);
+                }
+              } else {
+                if (pagenumber <= 3) {
+
+                  addPage(1);
+                  addPage(2);
+                  addPage(3);
+
+                  pages.push(
+                    <div key="dots-end" className="paginationbox">
+                      ...
+                    </div>
+                  );
+
+                  addPage(totalPages - 2);
+                  addPage(totalPages - 1);
+                  addPage(totalPages);
+                } else if (pagenumber >= totalPages - 2) {
+                  // 1 2 3 ... last-2 last-1 last
+                  addPage(1);
+                  addPage(2);
+                  addPage(3);
+
+                  pages.push(
+                    <div key="dots-start" className="paginationbox">
+                      ...
+                    </div>
+                  );
+
+                  addPage(totalPages - 2);
+                  addPage(totalPages - 1);
+                  addPage(totalPages);
+                } else {
+
+                  addPage(1);
+
+                  pages.push(
+                    <div key="dots-left" className="paginationbox">
+                      ...
+                    </div>
+                  );
+
+                  addPage(pagenumber - 1);
+                  addPage(pagenumber);
+                  addPage(pagenumber + 1);
+
+                  pages.push(
+                    <div key="dots-right" className="paginationbox">
+                      ...
+                    </div>
+                  );
+
+                  addPage(totalPages);
+                }
+              }
+
+              if (pagenumber < totalPages) {
+                pages.push(
+                  <div
+                    key="next"
+                    className="paginationbox prev"
+                    onClick={() => HandleSelectnumbox(pagenumber + 1)}
+                  >
+                    {">"}
+                  </div>
+                );
+              }
+
+              if (pagenumber < totalPages) {
+                pages.push(
+                  <div
+                    key="last"
+                    className="paginationbox prev"
+                    onClick={() => HandleSelectnumbox(totalPages)}
+                  >
+                    Last
+                  </div>
+                );
+              }
+
+              return pages;
+            })()}
+          </div>
         )}
       </div>
+
     </div>
   );
 }
