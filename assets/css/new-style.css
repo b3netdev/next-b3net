@@ -3473,6 +3473,20 @@ section.product-details-sec.shop-sec.page_content.default_content_class ol.bread
     height: 450px;
 }
 
+@media(max-width:700px){
+    .addresssboxContainer {
+        height: 300px;
+    }
+    
+}
+@media(max-width:500px){
+    .addresssboxContainer {
+        height: auto    ;
+        min-height: 300px;
+        max-height: 400px;
+    }
+    
+}
 
 
 .blog-details .sidebar {
