@@ -238,6 +238,7 @@ const BlogDetail = async ({ params }: { params: { slug: string } }) => {
                             </Link>
 
                             <div
+                            className="primary-bodyText"
                               dangerouslySetInnerHTML={{
                                 __html: data?.excerpt?.rendered || " ",
                               }}
