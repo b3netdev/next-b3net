@@ -33,11 +33,11 @@ const Proposal = async () => {
       <div className="port-landing-wrap details-page default-img commonbannercontainer">
         <div className="menu-design"></div>
         <div
-          className="banner-img proposalBanner"
+          className="proposalBanner"
         >
           <div className="container getfree-proporsl-bannertxtbox">
-            <div className="banner-caption getfree-proporsl-bannertxt">
-              <h2>Get A Free Proposal</h2>
+            <div className=" getfree-proporsl-bannertxt">
+              <h2 className="getfree-proporsl-header-bannertxt">Get A Free Proposal</h2>
             </div>
           </div>
         </div>
@@ -66,8 +66,8 @@ const Proposal = async () => {
               </h1>
             </div>
 
-            <div className="eva-column-wrap" style={{ paddingBottom: "0px" }}>
-              <p>
+            <div className="eva-column-wrap primary-bodyText" style={{ paddingBottom: "0px" }}>
+              <p className="primary-bodyText">
                 B3NET INC. will provide you with a free, no obligation price
                 quote.
                 <br />

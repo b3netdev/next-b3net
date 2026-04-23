@@ -8121,8 +8121,24 @@ div#signature-pad {
   width: 100% !important;
 }
 
-@media(max-width:341px){
-  .getfree-proporsl-bannertxt h2{
-    font-size: 10px !important;
+.getfree-proporsl-header-bannertxt {
+  font-size: 20px;
+  color: white;
+  text-align: center;
+}
+
+@media (max-width: 400px) {
+  .default-img h2.getfree-proporsl-header-bannertxt {
+    font-size: 30px !important;
+  }
+}
+@media (max-width: 334px) {
+  .default-img h2.getfree-proporsl-header-bannertxt {
+    font-size: 25px !important;
+  }
+}
+@media (max-width: 280px) {
+  .default-img h2.getfree-proporsl-header-bannertxt {
+    font-size: 20px !important;
   }
 }

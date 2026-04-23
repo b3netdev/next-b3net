@@ -331,13 +331,14 @@ export default function FooterClient() {
                     key={loc.id}>
                     <h2 className="accordion-header">
                       <button
-                        className={`accordion-button ${open ? "" : "collapsed"}`}
+                        className={`accordion-button !flex !justify-between ${open ? "" : "collapsed"}`}
                         type="button"
                         aria-expanded={open ? "true" : "false"}
                         aria-controls={collapseId}
                         onClick={() => handleTabClick(String(loc.id))}
                       >
                         {loc.title}
+                        <span className="icon">{open ? "−" : "+"}</span>
                       </button>
                     </h2>
 

@@ -53,6 +53,7 @@ const page = async () => {
 
 
                     <div
+                    className='primary-bodyText'
                         dangerouslySetInnerHTML={{ __html: pageData?.content || "" }}
 
                     />
