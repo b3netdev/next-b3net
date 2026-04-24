@@ -51,7 +51,7 @@ export default async function AboutUsPage({ params }: PageProps) {
             alt="about-banner"
           />
           <div className="container">
-            <div className="banner-caption flex !justify-start ">
+            <div className="banner-caption new-banner-caption  ">
               <h1 className="!ml-9 "> Are You Digital?</h1>
             </div>
           </div>

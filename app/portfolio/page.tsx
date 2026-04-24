@@ -47,8 +47,9 @@ export default async function Portfolio() {
               alt="banner-img"
             />
             <div className="container">
-              <div className="banner-caption">
+              <div className="banner-caption new-banner-caption">
                 <div
+                className="flex flex-wrap items-center"
                   dangerouslySetInnerHTML={{ __html: pageData?.content ?? "" }}
                 />
               </div>

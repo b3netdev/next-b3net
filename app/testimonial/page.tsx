@@ -41,7 +41,7 @@ const Testimonial = async () => {
                             alt=""
                         />
                         <div className="container">
-                            <div className="banner-caption">
+                            <div className="banner-caption flex flex-wrap new-banner-caption">
                                 <h2>What Our</h2>
                                 <h1>
                                     Clients Say About <span> B3NET</span>

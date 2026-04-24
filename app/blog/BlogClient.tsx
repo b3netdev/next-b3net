@@ -89,6 +89,7 @@ export default function BlogClient() {
 
   useEffect(() => {
     if (blogItems?.length > 0 && tabsRef?.current && scroll == false) {
+      console.log("calling")
       const yOffset = -220;
 
       const y =
@@ -112,7 +113,7 @@ export default function BlogClient() {
 
 
   const HandleSelectnumbox = (num: number) => {
-    setScroll(false)
+    setScroll(false) 
     setPageNumber(num);
   };
 
@@ -210,10 +211,12 @@ export default function BlogClient() {
           ))}
         </Swiper>
       </div>
-      <div className="blog-banner-slide owl-carousel owl-theme mt-10 pb-10">
-
-
-        <ul className="nav nav-pills mb-3 justify-content-center gap-2">
+      <div 
+      ref={tabsRef}
+      className="blog-banner-slide owl-carousel owl-theme mt-10 pb-10">
+        <ul 
+        
+        className="nav nav-pills mb-3 justify-content-center gap-2">
           {categoryloading
             ? Array.from({ length: 15 }).map((_, index) => (
               <li key={index}>
@@ -229,7 +232,7 @@ export default function BlogClient() {
             : category.map((tab: any, index: number) => (
               <li key={index}>
                 <button
-                  className={`nav-link ${selectTab.id == tab.id ? "active" : ""
+                  className={`nav-link category-navlink ${selectTab.id == tab.id ? "active" : ""
                     }`}
                   onClick={() => HandleSelectTab(tab)}
                 >

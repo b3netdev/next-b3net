@@ -7778,6 +7778,17 @@ div#signature-pad {
   font-size: 47px;
 }
 
+@media(max-width:500px){
+  .blogbannerheading{
+    font-size: 37px;
+  }
+}
+@media(max-width:400px){
+  .blogbannerheading{
+    font-size: 27px;
+  }
+}
+
 .testimonialvideo-thumbnail img {
   border-radius: 30px;
 }
@@ -8142,3 +8153,33 @@ div#signature-pad {
     font-size: 20px !important;
   }
 }
+  .new-banner-caption{
+    /* background-color: #000; */
+    display: flex;
+    /* justify-content: flex-end; */
+  }
+
+  .banner-caption.new-banner-caption h1{
+    font-size: 50px !important;
+  
+  }
+  @media(max-width:1167px){
+    .new-banner-caption{
+      padding-right: 10% !important;
+    }
+    .banner-caption.new-banner-caption h1{
+      font-size: 20px !important;
+    
+    }
+  }
+
+  @media(max-width:500px){
+    .banner-caption.new-banner-caption h1{
+      font-size: 15px !important;
+    
+    }
+    .banner-caption.new-banner-caption h2{
+      font-size: 20px !important;
+    
+    }
+  }

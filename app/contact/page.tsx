@@ -94,7 +94,7 @@ export default async function ContactUs() {
             alt="banner-img"
           />
           <div className="container">
-            <div className="banner-caption">
+            <div className="banner-caption new-banner-caption">
               <h1>Request for a Service</h1>
             </div>
           </div>

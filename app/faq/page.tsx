@@ -44,7 +44,7 @@ export default async function FaqPage() {
                                     alt="banner_image"
                                 />
                                 <div className="container">
-                                    <div className="banner-caption">
+                                    <div className="banner-caption new-banner-caption">
                                         <div
                                             dangerouslySetInnerHTML={{
                                                 __html: pageData?.content ?? "",

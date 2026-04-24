@@ -35,7 +35,7 @@ export default async function BlogPage() {
           <div className="banner-img">
             <img src={`${BASE_URL}/wp-content/themes/b3net/assets/images/blog-hero-banner.jpg`} alt="blog-hero-banner" />
             <div className="container">
-              <div className="banner-caption">
+              <div className="banner-caption new-banner-caption">
                 <h1>Web Design & <br />
                   Digital Marketing Blog</h1>
               </div>

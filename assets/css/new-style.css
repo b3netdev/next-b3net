@@ -427,6 +427,8 @@ h4.card-title.mb-2 {
 
     }
 
+
+
     .card-parts-1 {
         height: 100%;
     }
@@ -3772,5 +3774,10 @@ section.product-details-sec.shop-sec.page_content.default_content_class ol.bread
 @media (max-width:760px) {
     .ai-video-wrapper {
         margin-top: 10%;
+    }
+}
+@media(max-width:325px){
+    .category-navlink {
+        font-size: 17px !important;
     }
 }
