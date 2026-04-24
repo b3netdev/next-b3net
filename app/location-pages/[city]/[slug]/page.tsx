@@ -386,13 +386,13 @@ const ServiceSubpage = async ({ params }: Props) => {
 
 
             {pageData?.acf?.data?.services_page_section_3_title && (
-                <div className="related-post py-5 ">
+                <div className="related-post py-5  ">
                     <div className="container flex w-full flex-col items-center justify-center">
-                        <div className="heading5  text-center services-card-solution">
+                        <div className="heading5 text-center services-card-solution  ">
                             <h2>{pageData?.acf?.data?.services_page_section_3_title}</h2>
                             <p className="primary-bodyText">{pageData?.acf?.data?.services_page_section_3_title_2}</p>
                         </div>
-                        <div className="row gy-4">
+                        <div className="service-detail-card-solution-container row ">
                             {pageData?.acf?.data?.services_page_section_3_card?.map(
                                 (item: any, index: any) => (
                                     <div className="service-detail-card-solution col-md-6 col-lg-4 col-sm-6 mb-4" key={index}>
@@ -444,7 +444,7 @@ const ServiceSubpage = async ({ params }: Props) => {
                                                     </div>
                                                     <div className="include-services-desc text-center">
                                                         <h4 style={{ color: '#FB6C47' }}>{data?.title}</h4>
-                                                        <p>{data?.content}.
+                                                        <p>{data?.content}
                                                         </p>
                                                     </div>
                                                 </div>
