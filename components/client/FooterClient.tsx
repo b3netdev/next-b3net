@@ -543,9 +543,9 @@ export default function FooterClient() {
           <div className="copyright-part">
             <p>
               <span>Copyright © 1999-2026, </span>
-              <a href="#">
+              <Link href="/home">
                 <strong>B3net</strong> inc.
-              </a>
+              </Link>
             </p>
             <p>
               <Link href="/privacy-policy">Privacy Policy </Link> |{" "}
