@@ -8183,3 +8183,20 @@ div#signature-pad {
     
     }
   }
+
+  @media(max-width:1050px){
+    .auther-box{
+      margin-top: 10% !important;
+    }
+  }
+
+  @media(max-width:650px){
+    .auther-box{
+      margin-top: 20% !important;
+    }
+  }
+  @media(max-width:350px){
+    .auther-box{
+      margin-top: 25% !important;
+    }
+  }

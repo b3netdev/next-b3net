@@ -15,7 +15,7 @@ const AuthorRelatedPosts = ({ id }: { id: number }) => {
     const [loading, setLoading] = useState(false)
     const [relatedpost, setRelatedpost] = useState<any>([])
     const dispatch = useDispatch()
-    const [pageNumber, setPageNumber] = useState<number>(1)
+    const [pagenumber, setPageNumber] = useState<number>(1)
     const [pageCount, setpageCount] = useState<any>()
     const tabsRef = useRef<HTMLDivElement | null>(null);
     useEffect(() => {
@@ -25,7 +25,7 @@ const AuthorRelatedPosts = ({ id }: { id: number }) => {
                 categories: categoryId,
                 author: String(id),
                 per_page: "6",
-                page: String(pageNumber),
+                page: String(pagenumber),
             };
             const { data, totalPosts } = await getRelatedPosts(params)
             setRelatedpost(data)
@@ -34,7 +34,7 @@ const AuthorRelatedPosts = ({ id }: { id: number }) => {
         }
         getposts()
 
-    }, [categoryId, pageNumber])
+    }, [categoryId, pagenumber])
 
 
     useEffect(() => {
@@ -186,20 +186,20 @@ const AuthorRelatedPosts = ({ id }: { id: number }) => {
                                 </div>
 
 
-                                {pageCount > 6 && (
+                                {/* {pageCount > 6 && (
                                     <div className="paginationContainer">
                                         {(() => {
                                             const totalPages = Math.ceil(pageCount / 6) || 0;
                                             const pages = [];
 
                                             const visiblePages =
-                                                pageNumber <= 4 ? 4 : Math.min(pageNumber, totalPages);
+                                                pagenumber <= 4 ? 4 : Math.min(pagenumber, totalPages);
 
                                             pages.push(
                                                 <div
                                                     key="prev"
                                                     className="paginationbox prev size-10"
-                                                    onClick={() => pageNumber > 1 && HandleSelectnumbox(pageNumber - 1)}
+                                                    onClick={() => pagenumber > 1 && HandleSelectnumbox(pagenumber - 1)}
                                                 >
                                                     Prev
                                                 </div>
@@ -209,7 +209,7 @@ const AuthorRelatedPosts = ({ id }: { id: number }) => {
                                                 pages.push(
                                                     <div
                                                         key={i}
-                                                        className={pageNumber === i ? "paginationactive" : "paginationbox"}
+                                                        className={pagenumber === i ? "paginationactive" : "paginationbox"}
                                                         onClick={() => HandleSelectnumbox(i)}
                                                     >
                                                         {i}
@@ -228,7 +228,7 @@ const AuthorRelatedPosts = ({ id }: { id: number }) => {
                                                     pages.push(
                                                         <div
                                                             key={i}
-                                                            className={pageNumber === i ? "paginationactive" : "paginationbox"}
+                                                            className={pagenumber === i ? "paginationactive" : "paginationbox"}
                                                             onClick={() => HandleSelectnumbox(i)}
                                                         >
                                                             {i}
@@ -242,12 +242,142 @@ const AuthorRelatedPosts = ({ id }: { id: number }) => {
                                                     key="next"
                                                     className="paginationbox prev"
                                                     onClick={() =>
-                                                        pageNumber < totalPages && HandleSelectnumbox(pageNumber + 1)
+                                                        pagenumber < totalPages && HandleSelectnumbox(pagenumber + 1)
                                                     }
                                                 >
                                                     Next
                                                 </div>
                                             );
+
+                                            return pages;
+                                        })()}
+                                    </div>
+                                )} */}
+
+                                {pageCount > 6 && (
+                                    <div className="paginationContainer">
+                                        {(() => {
+                                            const totalPages = Math.ceil(pageCount / 6) || 0;
+                                            const pages = [];
+
+                                            const addPage = (i: any) => {
+                                                pages.push(
+                                                    <div
+                                                        key={i}
+                                                        className={pagenumber === i ? "paginationactive" : "paginationbox"}
+                                                        onClick={() => HandleSelectnumbox(i)}
+                                                    >
+                                                        {i}
+                                                    </div>
+                                                );
+                                            };
+
+                                            if (pagenumber > 1) {
+                                                pages.push(
+                                                    <div
+                                                        key="first"
+                                                        className="paginationbox prev"
+                                                        onClick={() => HandleSelectnumbox(1)}
+                                                    >
+                                                        First
+                                                    </div>
+                                                );
+                                            }
+
+                                            if (pagenumber > 1) {
+                                                pages.push(
+                                                    <div
+                                                        key="prev"
+                                                        className="paginationbox prev size-10"
+                                                        onClick={() => HandleSelectnumbox(pagenumber - 1)}
+                                                    >
+                                                        <span>{"<"}</span>
+                                                    </div>
+                                                );
+                                            }
+
+                                            if (totalPages <= 6) {
+                                                for (let i = 1; i <= totalPages; i++) {
+                                                    addPage(i);
+                                                }
+                                            } else {
+                                                if (pagenumber <= 3) {
+
+                                                    addPage(1);
+                                                    addPage(2);
+                                                    addPage(3);
+
+                                                    pages.push(
+                                                        <div key="dots-end" className="paginationbox">
+                                                            ...
+                                                        </div>
+                                                    );
+
+                                                    addPage(totalPages - 2);
+                                                    addPage(totalPages - 1);
+                                                    addPage(totalPages);
+                                                } else if (pagenumber >= totalPages - 2) {
+                                                    // 1 2 3 ... last-2 last-1 last
+                                                    addPage(1);
+                                                    addPage(2);
+                                                    addPage(3);
+
+                                                    pages.push(
+                                                        <div key="dots-start" className="paginationbox">
+                                                            ...
+                                                        </div>
+                                                    );
+
+                                                    addPage(totalPages - 2);
+                                                    addPage(totalPages - 1);
+                                                    addPage(totalPages);
+                                                } else {
+
+                                                    addPage(1);
+
+                                                    pages.push(
+                                                        <div key="dots-left" className="paginationbox">
+                                                            ...
+                                                        </div>
+                                                    );
+
+                                                    addPage(pagenumber - 1);
+                                                    addPage(pagenumber);
+                                                    addPage(pagenumber + 1);
+
+                                                    pages.push(
+                                                        <div key="dots-right" className="paginationbox">
+                                                            ...
+                                                        </div>
+                                                    );
+
+                                                    addPage(totalPages);
+                                                }
+                                            }
+
+                                            if (pagenumber < totalPages) {
+                                                pages.push(
+                                                    <div
+                                                        key="next"
+                                                        className="paginationbox prev"
+                                                        onClick={() => HandleSelectnumbox(pagenumber + 1)}
+                                                    >
+                                                        {">"}
+                                                    </div>
+                                                );
+                                            }
+
+                                            if (pagenumber < totalPages) {
+                                                pages.push(
+                                                    <div
+                                                        key="last"
+                                                        className="paginationbox prev"
+                                                        onClick={() => HandleSelectnumbox(totalPages)}
+                                                    >
+                                                        Last
+                                                    </div>
+                                                );
+                                            }
 
                                             return pages;
                                         })()}
