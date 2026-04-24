@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
-
+import { SITE_URL } from "./siteurl";
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL;
 export function buildMetadata(seo?: any): Metadata {
   if (!seo) return {};
 
@@ -7,19 +8,24 @@ export function buildMetadata(seo?: any): Metadata {
     title: seo.title || "",
     description: seo.description || "",
     alternates: {
-      canonical: seo.canonical || undefined,
+      canonical: seo.canonical || siteUrl,
     },
     robots: seo.robots
-      ? {
-          index: seo.robots.index === "index",
-          follow: seo.robots.follow === "follow",
-          googleBot: {
-            "max-snippet": seo.robots["max-snippet"],
-            "max-image-preview": seo.robots["max-image-preview"],
-            "max-video-preview": seo.robots["max-video-preview"],
-          },
-        }
-      : undefined,
+    ? {
+        index: seo.robots.index !== "noindex",
+        follow: seo.robots.follow !== "nofollow",
+        googleBot: {
+          index: seo.robots.index !== "noindex",
+          follow: seo.robots.follow !== "nofollow",
+          "max-snippet": seo.robots["max-snippet"],
+          "max-image-preview": seo.robots["max-image-preview"],
+          "max-video-preview": seo.robots["max-video-preview"],
+        },
+      }
+    : {
+        index: true,
+        follow: true,
+      },
     openGraph: {
       title: seo.og_title || seo.title || "",
       description: seo.og_description || seo.description || "",
