@@ -88,19 +88,33 @@ export default function BlogClient() {
 
 
   useEffect(() => {
-    if (blogItems?.length > 0 && tabsRef?.current && scroll == false) {
-      console.log("calling")
-      const yOffset = -220;
-
-      const y =
-        tabsRef.current.getBoundingClientRect().top +
-        window.pageYOffset +
-        yOffset;
-
-      window.scrollTo({
-        top: y,
-        behavior: "smooth",
-      });
+    if (blogItems?.length > 0 && scroll === false) {
+      const isMobile = window.innerWidth <= 768;
+  
+      setTimeout(() => {
+        if (isMobile) {
+          const el = document.getElementById("blog-category-section");
+  
+          if (el) {
+            el.scrollIntoView({
+              behavior: "smooth",
+              block: "start",
+            });
+          }
+        } else if (tabsRef?.current) {
+          const yOffset = -220;
+  
+          const y =
+            tabsRef.current.getBoundingClientRect().top +
+            window.pageYOffset +
+            yOffset;
+  
+          window.scrollTo({
+            top: y,
+            behavior: "smooth",
+          });
+        }
+      }, 300);
     }
   }, [blogItems]);
 
@@ -212,6 +226,7 @@ export default function BlogClient() {
         </Swiper>
       </div>
       <div 
+       id="blog-category-section"
       ref={tabsRef}
       className="blog-banner-slide owl-carousel owl-theme mt-10 pb-10">
         <ul 

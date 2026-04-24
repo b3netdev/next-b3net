@@ -18,6 +18,7 @@ const AuthorRelatedPosts = ({ id }: { id: number }) => {
     const [pagenumber, setPageNumber] = useState<number>(1)
     const [pageCount, setpageCount] = useState<any>()
     const tabsRef = useRef<HTMLDivElement | null>(null);
+      const [scroll, setScroll] = useState(true)
     useEffect(() => {
         const getposts = async () => {
             setLoading(true)
@@ -36,23 +37,36 @@ const AuthorRelatedPosts = ({ id }: { id: number }) => {
 
     }, [categoryId, pagenumber])
 
-
     useEffect(() => {
-        if (relatedpost?.length > 0 && tabsRef?.current) {
-            const yOffset = -220;
+        if (relatedpost?.length > 0 && scroll == false) {
+            const isMobile = window.innerWidth <= 768;
 
-            const y =
-                tabsRef.current.getBoundingClientRect().top +
-                window.pageYOffset +
-                yOffset;
+            setTimeout(() => {
+                if (isMobile) {
+                    const el = document.getElementById("relatedpost-section");
 
-            window.scrollTo({
-                top: y,
-                behavior: "smooth",
-            });
+                    if (el) {
+                        el.scrollIntoView({
+                            behavior: "smooth",
+                            block: "start",
+                        });
+                    }
+                } else if (tabsRef?.current) {
+                    const yOffset = -220;
+
+                    const y =
+                        tabsRef.current.getBoundingClientRect().top +
+                        window.pageYOffset +
+                        yOffset;
+
+                    window.scrollTo({
+                        top: y,
+                        behavior: "smooth",
+                    });
+                }
+            }, 300);
         }
     }, [relatedpost]);
-
 
 
     const setCategoryID = (id: any) => {
@@ -60,6 +74,7 @@ const AuthorRelatedPosts = ({ id }: { id: number }) => {
     }
 
     const HandleSelectnumbox = (num: number) => {
+        setScroll(false) 
         setPageNumber(num);
     };
 
@@ -102,8 +117,8 @@ const AuthorRelatedPosts = ({ id }: { id: number }) => {
     );
 
     return (
-        <div >
-            <div className="portfolio-content blog-content" ref={tabsRef}>
+       
+            <div id="relatedpost-section" className="portfolio-content blog-content" ref={tabsRef}>
                 <div className="container">
                     <div className="tab-content" id="pills-tabContent">
                         <div className="tab-pane fade show active" id="pills-home">
@@ -389,7 +404,7 @@ const AuthorRelatedPosts = ({ id }: { id: number }) => {
                 </div>
             </div>
 
-        </div >
+       
 
     );
 };
