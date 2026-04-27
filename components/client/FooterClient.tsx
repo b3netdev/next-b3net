@@ -104,8 +104,8 @@ function LocationColumns({ columns, country }: { columns: any[][]; country: stri
                             key={l.id || index}
                             className="flex !items-cennter gap-0 !justifycenter pl-3.5"
                           >
-                            <Dot color="#ff4f02" strokeWidth={7}  className="mt-2"/>
-                            
+                            <Dot color="#ff4f02" strokeWidth={7} className="mt-2" />
+
 
                             {isExternal ? (
                               <a
@@ -235,6 +235,18 @@ export default function FooterClient() {
   const { getFooterData } = useFooter();
   const [activeDesktopTab, setActiveDesktopTab] = useState<string>("");
   const [openMobileAcc, setOpenMobileAcc] = useState<string>("");
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const checkWidth = () => {
+      setIsMobile(window.innerWidth < 450);
+    };
+
+    checkWidth();
+    window.addEventListener("resize", checkWidth);
+
+    return () => window.removeEventListener("resize", checkWidth);
+  }, []);
 
   useEffect(() => {
     const getData = async () => {
@@ -282,10 +294,10 @@ export default function FooterClient() {
 
   const handleTabClick = (tabId: string) => {
     setActiveDesktopTab(tabId);
-  
+
     if (typeof window !== "undefined" && window.innerWidth <= 500) {
       setOpenMobileAcc((prev) => (prev === tabId ? "" : tabId));
-  
+
       setTimeout(() => {
         const el = document.getElementById(`tab-section-${tabId}`);
         if (el) {
@@ -297,19 +309,19 @@ export default function FooterClient() {
     }
   };
   const pathname = usePathname()
-  const showContactfooter = pathname != "/request-for-proposal"
+  const showContactfooter = pathname != "/request-for-proposal" && !isMobile
 
   return (
     <main className="page_content-1">
-      { showContactfooter?
+      {showContactfooter ?
         <ContactFooter />
         : null}
 
       <div className="footer-col">
         <div
-          className={`top-footer ${!showContactfooter ? "pt-5":""}`}
+          className={`top-footer ${!showContactfooter ? "pt-5" : ""}`}
           style={{
-            backgroundColor:"#09102d",
+            backgroundColor: "#09102d",
             backgroundImage: `url(${BASE_URL}/wp-content/uploads/2026/04/footer-bg.webp)`,
           }}
         >

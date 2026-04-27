@@ -125,9 +125,9 @@ export default function SideMenu({
 
                             return (
                                 <li key={item.id} className="sideMenuItem">
-                                    
+
                                     <div className="sideMenuRow"
-                                    
+
                                     >
                                         {hasChildren ? (
                                             <div
@@ -151,7 +151,7 @@ export default function SideMenu({
                                             </div>
                                         ) : (
                                             <Link
-                                                href={`/${item?.page?.slug !== "home" ?item?.page?.slug :'' }`}
+                                                href={`/${item?.page?.slug !== "home" ? item?.page?.slug : ''}`}
                                                 className="sideMenuLink w-full"
                                                 onClick={onClose}
                                             >
@@ -170,10 +170,10 @@ export default function SideMenu({
                                                     <ServiceSubMenu />
                                                 }
                                                 <ul className="sideMenuSubList">
-                                                    {item.children.map((child: any,index:any) => (
+                                                    {item.children.map((child: any, index: any) => (
 
                                                         <li key={index} className="sideMenuSubItem">
-                                                            {child.parent_id == 13477 &&
+                                                            {child.parent_id == 13477 ?
                                                                 (child.id == 13477 ? (
                                                                     <i className="fa-solid fa-bullhorn"></i>
                                                                 ) : child.id == 13484 ? (
@@ -182,7 +182,10 @@ export default function SideMenu({
                                                                     <i className="fa-regular fa-pen-to-square"></i>
                                                                 ) : (
                                                                     <i className="fa-solid fa-users-viewfinder"></i>
-                                                                ))}
+                                                                ))
+                                                                :
+                                                                <i className="fa-solid fa-circle !text-[6px]"></i>
+                                                            }
 
                                                             <Link
                                                                 href={

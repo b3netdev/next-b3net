@@ -11,6 +11,7 @@ import { notFound } from "next/navigation";
 import { Metadata } from "next";
 import ScrollLink from "@/components/client/ScrollLink";
 import DataGoverence from "./DataGoverence";
+import ServiceTestimonial from "./ServiceTestimonial";
 
 const STATIC_SERVICE_ROUTE_SLUGS = new Set(["ai-integration", "ai-video"]);
 const VALID_SERVICE_SLUGS = new Set(sluglist.map((item) => item.slug));
@@ -159,14 +160,35 @@ const ServiceSubpage = async ({ params }: { params: { slug: string } }) => {
                     }}
                 />) : null}
 
-            <div
-                className="seo-landing-wrap service-landing-wrap"
-                style={{
-                    backgroundImage: `url(${pageData?.acf?.data?.banner_image})`,
-                }}
-            >
-                <div className="container">
-                    <div className="banner-caption service-banner-caption">
+            <div className="seo-landing-wrap service-landing-wrap ">
+                <style
+                    dangerouslySetInnerHTML={{
+                        __html: `
+                        @media (min-width: 451px) {
+                        .service-landing-wrap {
+                            background-image: url("${pageData?.acf?.data?.banner_image}") !important;
+                            background-size: cover;
+                            background-position: center;
+                            background-repeat: no-repeat;
+                        }
+                        }
+
+                        @media (max-width: 450px) {
+                        .service-landing-wrap {
+                            background-image: none !important;
+                            background: linear-gradient(
+                            to right,
+                            #0a3ea4,
+                            #192f78,
+                            #3a2b6e
+                            ) !important;
+                        }
+                        }
+                    `,
+                    }}
+                />
+                <div className="container  !h-auto">
+                    <div className="banner-caption service-banner-caption ">
                         <h1 className="">{pageData?.acf?.data?.banner_heading}</h1>
                         <div
                             dangerouslySetInnerHTML={{
@@ -485,7 +507,7 @@ const ServiceSubpage = async ({ params }: { params: { slug: string } }) => {
                                                     alt="card-img-top"
                                                 />
                                                 <div className="card-body heading5">
-                                                    <h4 className="card-title mb-3">{item.title}</h4>
+                                                    <h4 className="card-title mt-3">{item.title}</h4>
                                                     <p className="card-text py-3">
                                                         <div
                                                             dangerouslySetInnerHTML={{
@@ -598,57 +620,7 @@ const ServiceSubpage = async ({ params }: { params: { slug: string } }) => {
             <Workslider pageData={pageData} />
 
             {pageData?.acf?.data?.service_page_section_6_title && (
-                <div className="client-testimonials outerwrap">
-                    <div className="our-work-section  lazyloaded">
-                        <div className="container">
-                            <div className="heading-blocks text-center mb-5">
-                                <h2 className="sec-heading">
-                                    {pageData?.acf?.data?.service_page_section_6_title}
-                                </h2>
-                                <p className="primary-bodyText">{pageData?.acf?.data?.service_page_section_6_short_title}</p>
-                            </div>
-
-                            <div className=" new-slider-2  d-flex flex-wrap gap-5 justify-center ">
-                                {pageData?.acf?.data?.service_page_section_6_testimonial?.map(
-                                    (data: any, index: any) => {
-
-                                        return (
-                                            <div className="item" key={index}>
-                                                <div className=" border-testi">
-                                                    <div className="testimonial-wrapper lazyloaded">
-                                                        <div className="quote-icon">
-                                                            <img
-                                                                src={`${BASE_URL}/wp-content/themes/perfecti/assets/seo-assets/images/tetimonial-quote-icon.png`}
-                                                                alt="quotes"
-                                                            />
-                                                        </div>
-
-                                                        <p className="clamp-3 primary-bodyText" >
-                                                            {data?.post_content.slice(0, 180)} {data?.post_content?.length > 180 && <span>...</span>}
-                                                        </p>
-
-                                                        <div className="testi-icon-wrap">
-                                                            <div className="testi-icon">
-                                                                {" "}
-                                                                <img src={data?.featured_image_url}
-                                                                    alt="testi-icon"
-                                                                />
-                                                            </div>
-                                                        </div>
-                                                        <div className="testi-client-desc">
-                                                            <div className="testiclient-name"> </div>
-                                                            <div className="testiclient-project"> </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        );
-                                    }
-                                )}
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                <ServiceTestimonial pageData={pageData} />
             )}
 
             {pageData?.acf?.data?.service_page_section_7_title && (

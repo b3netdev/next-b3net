@@ -14,6 +14,7 @@ import ScrollLink from "@/components/client/ScrollLink";
 import { buildMetadata, getSeoFromPageData } from "@/lib/seo";
 import StructuredData from "@/components/server/StructuredData";
 import FrequentQuestion from "@/app/services/[slug]/FrequentQuestion";
+import ServiceTestimonial from "@/app/services/ServiceTestimonial";
 
 
 type Props = {
@@ -56,12 +57,33 @@ const ServiceSubpage = async ({ params }: Props) => {
         <main className="page_content services-design-page ">
             <StructuredData data={schemaData} />
 
-            <div
-                className="seo-landing-wrap service-landing-wrap"
-                style={{
-                    backgroundImage: `url(${pageData?.acf?.data?.banner_image})`,
-                }}
-            >
+            <div className="seo-landing-wrap service-landing-wrap ">
+                <style
+                    dangerouslySetInnerHTML={{
+                        __html: `
+                        @media (min-width: 451px) {
+                        .service-landing-wrap {
+                            background-image: url("${pageData?.acf?.data?.banner_image}") !important;
+                            background-size: cover;
+                            background-position: center;
+                            background-repeat: no-repeat;
+                        }
+                        }
+
+                        @media (max-width: 450px) {
+                        .service-landing-wrap {
+                            background-image: none !important;
+                            background: linear-gradient(
+                            to right,
+                            #0a3ea4,
+                            #192f78,
+                            #3a2b6e
+                            ) !important;
+                        }
+                        }
+                    `,
+                    }}
+                />
                 <div className="container">
                     <div className="banner-caption service-banner-caption">
                         <h1>{pageData?.acf?.data?.banner_heading}</h1>
@@ -519,58 +541,7 @@ const ServiceSubpage = async ({ params }: Props) => {
             <Workslider pageData={pageData} />
 
             {pageData?.acf?.data?.service_page_section_6_title && (
-                <div className="client-testimonials outerwrap">
-                    <div className="our-work-section  lazyloaded">
-                        <div className="container">
-                            <div className="heading-blocks text-center mb-5">
-                                <h2 className="sec-heading">
-                                    {pageData?.acf?.data?.service_page_section_6_title}
-                                </h2>
-                                <p className="primary-bodyText">{pageData?.acf?.data?.service_page_section_6_short_title}</p>
-                            </div>
-
-                            <div className=" new-slider-2  d-flex flex-wrap gap-5 justify-center ">
-                                {pageData?.acf?.data?.service_page_section_6_testimonial?.map(
-                                    (data: any, index: any) => {
-
-                                        return (
-                                            <div className="item" key={index}>
-                                                <div className=" border-testi">
-                                                    <div className="testimonial-wrapper lazyloaded">
-                                                        <div className="quote-icon">
-                                                            <img
-                                                                src={`${BASE_URL}/wp-content/themes/perfecti/assets/seo-assets/images/tetimonial-quote-icon.png`}
-                                                                alt="quotes"
-                                                            />
-                                                        </div>
-
-                                                        <p className="clamp-3 primary-bodyText" >
-                                                            {data?.post_content.slice(0, 197)}
-                                                            {/* <Link href={`/blog/${data?.post_name}`} className="text-[#ff6600] opacity-80"> ...Read More</Link> */}
-                                                        </p>
-
-                                                        <div className="testi-icon-wrap">
-                                                            <div className="testi-icon">
-                                                                {" "}
-                                                                <img src={data?.featured_image_url}
-                                                                    alt="testi-icon"
-                                                                />
-                                                            </div>
-                                                        </div>
-                                                        <div className="testi-client-desc">
-                                                            <div className="testiclient-name"> </div>
-                                                            <div className="testiclient-project"> </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        );
-                                    }
-                                )}
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                <ServiceTestimonial pageData={pageData} />
             )}
 
             {pageData?.acf?.data?.service_page_section_7_title && (

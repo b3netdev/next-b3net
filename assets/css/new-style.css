@@ -25,13 +25,7 @@ html {
     /* padding: 230px 0; */
 }
 
-.services-design-page .seo-landing-wrap {
-    background: darkblue;
-    padding: 200px 0;
-    background-repeat: no-repeat;
-    background-position: right center;
-    background-size: cover;
-}
+
 
 .services-design-page .seo-landing-wrap .container {
     width: 100%;
@@ -3014,13 +3008,6 @@ end last css */
         width: 80%;
     }
 
-    .services-design-page .seo-landing-wrap {
-        background: darkblue;
-        padding: 120px 0;
-        background-repeat: no-repeat;
-        background-position: center;
-    }
-
 
 }
 
@@ -3475,19 +3462,20 @@ section.product-details-sec.shop-sec.page_content.default_content_class ol.bread
     height: 450px;
 }
 
-@media(max-width:700px){
+@media(max-width:700px) {
     .addresssboxContainer {
         height: 300px;
     }
-    
+
 }
-@media(max-width:500px){
+
+@media(max-width:500px) {
     .addresssboxContainer {
-        height: auto    ;
+        height: auto;
         min-height: 300px;
         max-height: 400px;
     }
-    
+
 }
 
 
@@ -3776,8 +3764,23 @@ section.product-details-sec.shop-sec.page_content.default_content_class ol.bread
         margin-top: 10%;
     }
 }
-@media(max-width:325px){
+
+@media(max-width:325px) {
     .category-navlink {
         font-size: 17px !important;
+    }
+}
+
+.services-design-page .seo-landing-wrap {
+    height: auto;
+    min-height: 300px;
+}
+
+@media (max-width: 500px) {
+    .services-design-page .seo-landing-wrap {
+        height: auto;
+        min-height: auto;
+        padding-top: 80px;
+        padding-bottom: 30px !important;
     }
 }
