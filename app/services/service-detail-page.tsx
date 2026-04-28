@@ -12,6 +12,8 @@ import { Metadata } from "next";
 import ScrollLink from "@/components/client/ScrollLink";
 import DataGoverence from "./DataGoverence";
 import ServiceTestimonial from "./ServiceTestimonial";
+import { buildMetadata, getSeoFromPageData } from "@/lib/seo";
+import StructuredData from "@/components/server/StructuredData";
 
 const STATIC_SERVICE_ROUTE_SLUGS = new Set(["ai-integration", "ai-video"]);
 const VALID_SERVICE_SLUGS = new Set(sluglist.map((item) => item.slug));
@@ -44,72 +46,13 @@ const getServicePageData = cache(async (slug: string) => {
 });
 
 
-function buildRobots(robots: any) {
-    if (!robots) return undefined;
-
-    return {
-        index: robots?.index === "index",
-        follow: robots?.follow === "follow",
-        googleBot: {
-            "max-snippet": robots?.["max-snippet"],
-            "max-image-preview": robots?.["max-image-preview"],
-            "max-video-preview": robots?.["max-video-preview"],
-        },
-    };
-}
-
-
-export async function generateMetadata({
-    params,
-}: {
-    params: { slug: string };
-}): Promise<Metadata> {
+export async function generateMetadata({ params }: any): Promise<Metadata> {
     const { slug } = await params;
 
-    if (!isDynamicServiceSlug(slug)) {
-        return {};
-    }
-
     const pageData = await getServicePageData(slug);
+    const seo = getSeoFromPageData(pageData);
 
-
-    if (!pageData) {
-        return {};
-    }
-
-    const canonicalUrl = buildCanonicalUrl(slug);
-    const seo = pageData?.yoast_head_json ?? pageData;
-
-    return {
-        title: seo?.title || pageData?.title?.rendered || "B3NET",
-        description: seo?.description || "",
-        alternates: {
-            canonical: canonicalUrl,
-        },
-        robots: buildRobots(seo?.robots),
-        openGraph: {
-            title: seo?.og_title || seo?.title || pageData?.title?.rendered || "B3NET",
-            description: seo?.og_description || seo?.description || "",
-            url: canonicalUrl,
-            siteName: seo?.og_site_name || "B3NET",
-            locale: seo?.og_locale || "en_US",
-            type: (seo?.og_type as "website" | "article") || "website",
-            images:
-                seo?.og_image?.map((img: any) => ({
-                    url: img?.url,
-                    width: img?.width,
-                    height: img?.height,
-                    type: img?.type,
-                })) || [],
-        },
-        twitter: {
-            card: seo?.twitter_card || "summary_large_image",
-            site: seo?.twitter_site || undefined,
-            title: seo?.og_title || seo?.title || pageData?.title?.rendered || "B3NET",
-            description: seo?.og_description || seo?.description || "",
-            images: seo?.og_image?.map((img: any) => img?.url) || [],
-        },
-    };
+    return buildMetadata(seo);
 }
 const ServiceSubpage = async ({ params }: { params: { slug: string } }) => {
     const { slug } = await params;
@@ -120,9 +63,7 @@ const ServiceSubpage = async ({ params }: { params: { slug: string } }) => {
         notFound();
     }
 
-    const data = await GetPageData(slug, "page");
-
-
+    const data = await getServicePageData(slug);
 
     const pageData = data?.page ?? data;
 
@@ -152,13 +93,7 @@ const ServiceSubpage = async ({ params }: { params: { slug: string } }) => {
 
     return (
         <main className="page_content services-design-page  ">
-            {schemaData ? (
-                <script
-                    type="application/ld+json"
-                    dangerouslySetInnerHTML={{
-                        __html: JSON.stringify(schemaData),
-                    }}
-                />) : null}
+            <StructuredData data={schemaData} />
 
             <div className="seo-landing-wrap service-landing-wrap ">
                 <style

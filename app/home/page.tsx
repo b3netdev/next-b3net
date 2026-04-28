@@ -26,106 +26,106 @@ export default async function Home() {
     const homeSchemaData = {
         "@context": "https://schema.org",
         "@graph": [
-          {
-            "@type": "WebPage",
-            "@id": "https://backend.b3net.com/",
-            "url": "https://backend.b3net.com/",
-            "name": "Top Web Design & AI Digital Marketing Company | B3NET",
-            "isPartOf": {
-              "@id": "https://backend.b3net.com/#website"
-            },
-            "datePublished": "2025-03-04T09:15:06+00:00",
-            "dateModified": "2026-03-16T08:48:52+00:00",
-            "description": "B3NET offers cutting-edge web design, AI-powered digital marketing, mobile app development, and OpenAI integration services. Transform your brand with our expert solutions.",
-            "breadcrumb": {
-              "@id": "https://backend.b3net.com/#breadcrumb"
-            },
-            "inLanguage": "en-US",
-            "potentialAction": [
-              {
-                "@type": "ReadAction",
-                "target": [
-                  "https://backend.b3net.com/"
-                ]
-              }
-            ]
-          },
-          {
-            "@type": "BreadcrumbList",
-            "@id": "https://backend.b3net.com/#breadcrumb",
-            "itemListElement": [
-              {
-                "@type": "ListItem",
-                "position": 1,
-                "name": "Home",
-                "item": "https://backend.b3net.com/"
-              },
-              {
-                "@type": "ListItem",
-                "position": 2,
-                "name": "Home"
-              }
-            ]
-          },
-          {
-            "@type": "WebSite",
-            "@id": "https://backend.b3net.com/#website",
-            "url": "https://backend.b3net.com/",
-            "name": "B3NET",
-            "description": "Think Digital!",
-            "publisher": {
-              "@id": "https://backend.b3net.com/#organization"
-            },
-            "alternateName": "B3net",
-            "potentialAction": [
-              {
-                "@type": "SearchAction",
-                "target": {
-                  "@type": "EntryPoint",
-                  "urlTemplate": "https://backend.b3net.com/?s={search_term_string}"
+            {
+                "@type": "WebPage",
+                "@id": "https://b3net.com/",
+                "url": "https://b3net.com/",
+                "name": "Top Web Design & AI Digital Marketing Company | B3NET",
+                "isPartOf": {
+                    "@id": "https://b3net.com/#website"
                 },
-                "query-input": {
-                  "@type": "PropertyValueSpecification",
-                  "valueRequired": true,
-                  "valueName": "search_term_string"
-                }
-              }
-            ],
-            "inLanguage": "en-US"
-          },
-          {
-            "@type": "Organization",
-            "@id": "https://backend.b3net.com/#organization",
-            "name": "B3NET",
-            "alternateName": "B3net",
-            "url": "https://backend.b3net.com/",
-            "logo": {
-              "@type": "ImageObject",
-              "inLanguage": "en-US",
-              "@id": "https://backend.b3net.com/#/schema/logo/image/",
-              "url": "https://www.b3net.com/wp-content/uploads/2025/12/B3NET-Square-Logo-New.png",
-              "contentUrl": "https://www.b3net.com/wp-content/uploads/2025/12/B3NET-Square-Logo-New.png",
-              "width": 800,
-              "height": 800,
-              "caption": "B3NET"
+                "datePublished": "2025-03-04T09:15:06+00:00",
+                "dateModified": "2026-03-16T08:48:52+00:00",
+                "description": "B3NET offers cutting-edge web design, AI-powered digital marketing, mobile app development, and OpenAI integration services. Transform your brand with our expert solutions.",
+                "breadcrumb": {
+                    "@id": "https://b3net.com/#breadcrumb"
+                },
+                "inLanguage": "en-US",
+                "potentialAction": [
+                    {
+                        "@type": "ReadAction",
+                        "target": [
+                            "https://b3net.com/"
+                        ]
+                    }
+                ]
             },
-            "image": {
-              "@id": "https://backend.b3net.com/#/schema/logo/image/"
+            {
+                "@type": "BreadcrumbList",
+                "@id": "https://b3net.com/#breadcrumb",
+                "itemListElement": [
+                    {
+                        "@type": "ListItem",
+                        "position": 1,
+                        "name": "Home",
+                        "item": "https://b3net.com/"
+                    },
+                    {
+                        "@type": "ListItem",
+                        "position": 2,
+                        "name": "Home"
+                    }
+                ]
             },
-            "sameAs": [
-              "https://www.facebook.com/B3NET",
-              "https://x.com/b3net",
-              "https://www.linkedin.com/company/b3net-inc/",
-              "https://www.youtube.com/@b3netinc",
-              "https://www.instagram.com/b3netinc/"
-            ],
-            "description": "B3NET helps businesses grow smarter. With 25+ years of experience, we use cutting-edge AI to power marketing, web development, mobile apps, and CRM strategies that deliver real results.",
-            "email": "info@b3net.com",
-            "telephone": "(214) 586-0650",
-            "legalName": "B3NET Inc."
-          }
+            {
+                "@type": "WebSite",
+                "@id": "https://b3net.com/#website",
+                "url": "https://b3net.com/",
+                "name": "B3NET",
+                "description": "Think Digital!",
+                "publisher": {
+                    "@id": "https://b3net.com/#organization"
+                },
+                "alternateName": "B3net",
+                "potentialAction": [
+                    {
+                        "@type": "SearchAction",
+                        "target": {
+                            "@type": "EntryPoint",
+                            "urlTemplate": "https://b3net.com/?s={search_term_string}"
+                        },
+                        "query-input": {
+                            "@type": "PropertyValueSpecification",
+                            "valueRequired": true,
+                            "valueName": "search_term_string"
+                        }
+                    }
+                ],
+                "inLanguage": "en-US"
+            },
+            {
+                "@type": "Organization",
+                "@id": "https://b3net.com/#organization",
+                "name": "B3NET",
+                "alternateName": "B3net",
+                "url": "https://b3net.com/",
+                "logo": {
+                    "@type": "ImageObject",
+                    "inLanguage": "en-US",
+                    "@id": "https://b3net.com/#/schema/logo/image/",
+                    "url": "https://www.b3net.com/wp-content/uploads/2025/12/B3NET-Square-Logo-New.png",
+                    "contentUrl": "https://www.b3net.com/wp-content/uploads/2025/12/B3NET-Square-Logo-New.png",
+                    "width": 800,
+                    "height": 800,
+                    "caption": "B3NET"
+                },
+                "image": {
+                    "@id": "https://b3net.com/#/schema/logo/image/"
+                },
+                "sameAs": [
+                    "https://www.facebook.com/B3NET",
+                    "https://x.com/b3net",
+                    "https://www.linkedin.com/company/b3net-inc/",
+                    "https://www.youtube.com/@b3netinc",
+                    "https://www.instagram.com/b3netinc/"
+                ],
+                "description": "B3NET helps businesses grow smarter. With 25+ years of experience, we use cutting-edge AI to power marketing, web development, mobile apps, and CRM strategies that deliver real results.",
+                "email": "info@b3net.com",
+                "telephone": "(214) 586-0650",
+                "legalName": "B3NET Inc."
+            }
         ]
-      };
+    };
 
     return (
         <main className="page_content relative">
@@ -173,12 +173,12 @@ export default async function Home() {
                             { img: "/images/google-logo.png", rating: "4.9 Out of 5", stars: 5 },
                             { img: "/images/facebook-logo.png", rating: "4.4 Out of 5", stars: 4.5 },
                             { img: "/images/dbest-logo.png", rating: "Our Rating: B+", stars: 4.5 },
-                            { img: `${BASE_URL}/wp-content/uploads/2025/11/goodfirms-logo.png`, height:60, width:60,  rating: "Our Rating: B+", stars: 4.5 },
+                            { img: `${BASE_URL}/wp-content/uploads/2025/11/goodfirms-logo.png`, height: 60, width: 60, rating: "Our Rating: B+", stars: 4.5 },
                         ].map((item, i) => (
                             <div key={i} className="col-lg-3 col-sm-6  rating-box ">
                                 <div className="d-flex justify-center rating-box-contain ">
                                     <div className="rating-logo pe-3">
-                                        <Image src={item.img} unoptimized alt="rating" width={item?.width || 100} height={ item?.height || 100} />
+                                        <Image src={item.img} unoptimized alt="rating" width={item?.width || 100} height={item?.height || 100} />
                                     </div>
                                     <div className="rating-content ps-3 text-left">
                                         <div className="stars">
@@ -194,7 +194,7 @@ export default async function Home() {
                             </div>
                         ))}
 
-                
+
                     </div>
                 </div>
                 <div className="container mt-md-5">

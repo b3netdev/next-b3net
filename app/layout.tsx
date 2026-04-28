@@ -29,7 +29,7 @@ const poppins = Poppins({
   display: "swap",
 });
 
-const siteUrl =  process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000";
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000";
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
@@ -38,7 +38,10 @@ export const metadata: Metadata = {
     template: "%s | B3NET",
   },
   description:
-  "B3NET offers cutting-edge web design, AI-powered digital marketing, mobile app development, and OpenAI integration services. Transform your brand with our expert solutions.",
+    "B3NET offers cutting-edge web design, AI-powered digital marketing, mobile app development, and OpenAI integration services. Transform your brand with our expert solutions.",
+  alternates: {
+    canonical: siteUrl,
+  },
 };
 
 export default function RootLayout({
