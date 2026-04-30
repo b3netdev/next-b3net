@@ -17,7 +17,7 @@ function toFrontendUrl(url?: string) {
 
   return url
     .replace(BACKEND, FRONTEND)
-    .replace(/\.html$/, ""); // optional: remove .html
+    .replace(/\.html$/, ""); 
 }
 
 

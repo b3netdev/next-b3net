@@ -11,23 +11,49 @@ import StructuredData from '@/components/server/StructuredData';
 
 
 const getBlogPageData = cache(async () => {
-  
+
     const data = await GetPageData("testimonial", "page");
     return data?.page ?? data;
-  });
-  
-  export async function generateMetadata(): Promise<Metadata> {
+});
+
+export async function generateMetadata(): Promise<Metadata> {
     const pageData = await getBlogPageData();
     const seo = getSeoFromPageData(pageData);
-  
+
     return buildMetadata(seo);
-  }
+}
 
 const Testimonial = async () => {
 
     const pageData = await getBlogPageData();
-      const schemaData = getSchemaFromPageData(pageData);
+    const schemaData = getSchemaFromPageData(pageData);
 
+    const videos = [
+        {
+            src: "https://www.youtube.com/embed/u9ftgf6V1QI?si=lveHhHVKAHX4ipeA",
+            title: "Scott Stewart, Executive Producer, What's up Orange Country",
+        },
+        {
+            src: "https://www.youtube.com/embed/zHExyh38CsE?si=RavhVD-kngwyzvtn",
+            title: "James LeBloch, Business and Estate Planning & Litigation",
+        },
+        {
+            src: "https://www.youtube.com/embed/ey2r4hwa5yc?si=iEB3zaVcQ_f2Tsu0",
+            title: "David Schnieder, CEO, American Real Estate",
+        },
+        {
+            src: "https://www.youtube.com/embed/PmiegQ9TlQA?si=nfWm2Rgcl1mYAHQB",
+            title: "Brian Reece, Founder & CEO of Sitters4Charities.org",
+        },
+        {
+            src: "https://www.youtube.com/embed/OsvGa2ZzlFk?si=k7MISuNZNM6VkFVl",
+            title: "Bob Burnet, Founder & CEO of Arclevers.com",
+        },
+        {
+            src: "https://www.youtube.com/embed/RwMs03qs6Yg?si=kA8k7e5gXQ9n4Tzn",
+            title: "Juan Montejand, CEO of UltimateExplorers.com",
+        },
+    ];
 
 
     return (
@@ -599,227 +625,29 @@ const Testimonial = async () => {
                     <div className="container">
                         <h2 className="text-center">Video Testimonials</h2>
                         <div className="row gy-4">
-                            <div className="col-md-6 col-lg-4">
-                                <div className="video-card p-3  text-center">
-                                    <div className="video-thumbnail">
-                                        <p>
-                                            <iframe
-                                                loading="lazy"
-                                                title="YouTube video player"
-                                                src="https://www.youtube.com/embed/u9ftgf6V1QI?si=lveHhHVKAHX4ipeA"
-                                                width="320"
-                                                height="200"
-                                                frameBorder="0"
-                                                allowFullScreen={true}
-                                            ></iframe>
+                            {videos.map((video, index) => (
+                                <div className="col-md-6 col-lg-4" key={index}>
+                                    <div className="video-card p-3  text-center">
+                                        <div className="video-thumbnail">
+                                            <p>
+                                                <iframe
+                                                    loading="lazy"
+                                                    title="YouTube video player"
+                                                    src={video.src}
+                                                    width="320"
+                                                    height="200"
+                                                    frameBorder="0"
+                                                    allowFullScreen={true}
+                                                ></iframe>
+                                            </p>
+                                           
+                                        </div>
+                                        <p className="video-title mt-3">
+                                            {video.title}
                                         </p>
-                                        <a href="https://www.youtube.com/watch?v=video3">
-                                            <img
-                                                src="/images/test-video-img-1.png"
-                                                alt="Video 3"
-                                            />
-                                            <span className="play-button">▶</span>
-                                        </a>
                                     </div>
-                                    <p className="video-title mt-3">
-                                        Scott Stewart, Executive Producer, What's up Orange Country{" "}
-                                    </p>
                                 </div>
-                            </div>
-
-                            <div className="col-md-6 col-lg-4">
-                                <div className="video-card p-3  text-center">
-                                    <div className="video-thumbnail">
-                                        <p>
-                                            <iframe
-                                                loading="lazy"
-                                                title="YouTube video player"
-                                                src="https://www.youtube.com/embed/zHExyh38CsE?si=RavhVD-kngwyzvtn"
-                                                width="320"
-                                                height="200"
-                                                frameBorder="0"
-                                                allowFullScreen={true}
-                                            >
-                                                <span
-                                                    data-mce-type="bookmark"
-                                                    style={{
-                                                        display: "inline-block",
-                                                        width: "0px",
-                                                        overflow: "hidden",
-                                                        lineHeight: "0",
-                                                    }}
-                                                    className="mce_SELRES_start"
-                                                >
-
-                                                </span>
-                                            </iframe>
-                                        </p>
-                                        <a href="https://www.youtube.com/watch?v=video3">
-                                            <img
-                                                src="/images/test-video-img-1.png"
-                                                alt="Video 3"
-                                            />
-                                            <span className="play-button">▶</span>
-                                        </a>
-                                    </div>
-                                    <p className="video-title mt-3">
-                                        James LeBloch, Business and Estate Planning &amp; Litigation{" "}
-                                    </p>
-                                </div>
-                            </div>
-
-                            <div className="col-md-6 col-lg-4">
-                                <div className="video-card p-3  text-center">
-                                    <div className="video-thumbnail">
-                                        <p>
-                                            <iframe
-                                                loading="lazy"
-                                                width="320"
-                                                height="200"
-                                                src="https://www.youtube.com/embed/ey2r4hwa5yc?si=iEB3zaVcQ_f2Tsu0"
-                                                title="YouTube video player"
-                                                frameBorder="0"
-                                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                                                referrerPolicy="strict-origin-when-cross-origin"
-                                                allowFullScreen={true}
-                                            ></iframe>
-                                        </p>
-                                        <a href="https://www.youtube.com/watch?v=video3">
-                                            <img
-                                                src="/images/test-video-img-1.png"
-                                                alt="Video 3"
-                                            />
-                                            <span className="play-button">▶</span>
-                                        </a>
-                                    </div>
-                                    <p className="video-title mt-3">
-                                        David Schnieder, CEO, American Real Estate{" "}
-                                    </p>
-                                </div>
-                            </div>
-
-                            <div className="col-md-6 col-lg-4">
-                                <div className="video-card p-3  text-center">
-                                    <div className="video-thumbnail">
-                                        <p>
-                                            <iframe
-                                                loading="lazy"
-                                                title="YouTube video player"
-                                                src="https://www.youtube.com/embed/PmiegQ9TlQA?si=nfWm2Rgcl1mYAHQB"
-                                                width="320"
-                                                height="200"
-                                                frameBorder="0"
-                                                allowFullScreen={true}
-                                            >
-                                                <span
-                                                    data-mce-type="bookmark"
-                                                    style={{
-                                                        display: "inline-block",
-                                                        width: 0,
-                                                        overflow: "hidden",
-                                                        lineHeight: 0,
-                                                    }}
-                                                    className="mce_SELRES_start"
-                                                >
-
-                                                </span>
-                                            </iframe>
-                                        </p>
-                                        <a href="https://www.youtube.com/watch?v=video3">
-                                            <img
-                                                src="/images/test-video-img-1.png"
-                                                alt="Video 3"
-                                            />
-                                            <span className="play-button">▶</span>
-                                        </a>
-                                    </div>
-                                    <p className="video-title mt-3">
-                                        Brian Reece, Founder &amp; CEO of Sitters4Charities.org{" "}
-                                    </p>
-                                </div>
-                            </div>
-
-                            <div className="col-md-6 col-lg-4">
-                                <div className="video-card p-3  text-center">
-                                    <div className="video-thumbnail">
-                                        <p>
-                                            <iframe
-                                                loading="lazy"
-                                                title="YouTube video player"
-                                                src="https://www.youtube.com/embed/OsvGa2ZzlFk?si=k7MISuNZNM6VkFVl"
-                                                width="320"
-                                                height="200"
-                                                frameBorder="0"
-                                                allowFullScreen={true}
-                                            >
-                                                <span
-                                                    data-mce-type="bookmark"
-                                                    style={{
-                                                        display: "inline-block",
-                                                        width: "0px",
-                                                        overflow: "hidden",
-                                                        lineHeight: "0",
-                                                    }}
-                                                    className="mce_SELRES_start"
-                                                >
-
-                                                </span>
-                                            </iframe>
-                                        </p>
-                                        <a href="https://www.youtube.com/watch?v=video3">
-                                            <img
-                                                src="/images/test-video-img-1.png"
-                                                alt="Video 3"
-                                            />
-                                            <span className="play-button">▶</span>
-                                        </a>
-                                    </div>
-                                    <p className="video-title mt-3">
-                                        Bob Burnet, Founder &amp; CEO of Arclevers.com{" "}
-                                    </p>
-                                </div>
-                            </div>
-
-                            <div className="col-md-6 col-lg-4">
-                                <div className="video-card p-3  text-center">
-                                    <div className="video-thumbnail">
-                                        <p>
-                                            <iframe
-                                                loading="lazy"
-                                                title="YouTube video player"
-                                                src="https://www.youtube.com/embed/RwMs03qs6Yg?si=kA8k7e5gXQ9n4Tzn"
-                                                width="320"
-                                                height="200"
-                                                frameBorder="0"
-                                                allowFullScreen={true}
-                                            >
-                                                <span
-                                                    data-mce-type="bookmark"
-                                                    style={{
-                                                        display: "inline-block",
-                                                        width: "0px",
-                                                        overflow: "hidden",
-                                                        lineHeight: "0",
-                                                    }}
-                                                    className="mce_SELRES_start"
-                                                >
-
-                                                </span>
-                                            </iframe>
-                                        </p>
-                                        <a href="https://www.youtube.com/watch?v=video3">
-                                            <img
-                                                src="/images/test-video-img-1.png"
-                                                alt="Video 3"
-                                            />
-                                            <span className="play-button">▶</span>
-                                        </a>
-                                    </div>
-                                    <p className="video-title mt-3">
-                                        Juan Montejand, CEO of UltimateExplorers.com{" "}
-                                    </p>
-                                </div>
-                            </div>
+                            ))}
                         </div>
                     </div>
                 </div>
@@ -845,11 +673,11 @@ const Testimonial = async () => {
                     </div>
                 </div>
 
-          
+
                 <TestimonialsClientsSlider pageData={pageData} />
             </div>
 
-             
+
         </main>
     )
 }
