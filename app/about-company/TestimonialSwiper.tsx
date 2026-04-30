@@ -64,11 +64,10 @@ function TestimonialSwiper() {
     <div className="container">
       <div className="testimonial-slider-col pe-0 ps-0">
         <Swiper
-          modules={[Autoplay, Pagination]}
+          modules={[Autoplay]}
           spaceBetween={30}
           slidesPerView={3}
           autoplay={{ delay: 1000 }}
-          pagination={{ clickable: true }}
           breakpoints={{
             768: { slidesPerView: 2 },
             1024: { slidesPerView: 3 },
