@@ -329,12 +329,6 @@ const ServiceSubpage = async ({ params }: Props) => {
                 )
             }
 
-
-
-
-
-
-
             {pageData?.acf?.data?.services_page_section_9_additional_section ? (
                 <div className="additional_content">
                     <div className="container">
@@ -405,8 +399,6 @@ const ServiceSubpage = async ({ params }: Props) => {
                 )
             }
 
-
-
             {pageData?.acf?.data?.services_page_section_3_title && (
                 <div className="related-post py-5  ">
                     <div className="container flex w-full flex-col items-center justify-center">
@@ -426,7 +418,7 @@ const ServiceSubpage = async ({ params }: Props) => {
                                                     alt="card-img-top"
                                                 />
                                                 <div className="card-body heading5">
-                                                    <h4 className="card-title mb-3">{item.title}</h4>
+                                                    <h4 className="card-title mt-3">{item.title}</h4>
                                                     <p className="card-text py-3">
                                                         <div
                                                             dangerouslySetInnerHTML={{
