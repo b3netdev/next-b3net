@@ -73,12 +73,7 @@ export default async function Portfolio() {
             </div>
           </div>
         </div>
-
-
         <Portfoliobox />
-
-
-
         <div className="expertise-service sp pb-0 new-gap mt-5">
           <div className="container">
             <div className="row mb-4 mb-md-5">

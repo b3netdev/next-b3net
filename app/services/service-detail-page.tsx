@@ -233,7 +233,7 @@ const ServiceSubpage = async ({ params }: { params: { slug: string } }) => {
 
 
                 <div className=" data-solutions sec-pad pb-0 nitro-offscreen my-5 py-0 my-sm-5 py-sm-5">
-                    {/* <div className="container w-full"> */}
+                    
                     <div className="services-wrap w-full">
                         <div className="heading-blocks text-center mb-5">
                             <h2 className="sec-heading-blue ">
@@ -258,7 +258,7 @@ const ServiceSubpage = async ({ params }: { params: { slug: string } }) => {
                             }
                         </div>
                     </div>
-                    {/* </div>   */}
+                    
                 </div>
 
             )}

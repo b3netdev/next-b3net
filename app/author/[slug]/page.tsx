@@ -78,7 +78,6 @@ export default async function Author({ params }: { params: { slug: string } }) {
             <AuthorRelatedPosts
                 id={pageData?.id}
             />
-
         </main>
     );
 }

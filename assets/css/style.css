@@ -5966,7 +5966,7 @@ li {
   top: 0;
   left: 0;
   margin-top: -20px;
-  width: min(360px, 90vw);
+  width: min(320px, 80vw);
   background: #ffffff;
   transform: translateX(-105%);
   transition: transform 280ms ease;
