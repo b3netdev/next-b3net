@@ -8226,3 +8226,10 @@ div#signature-pad {
   display: flex;
   justify-content: center;
 }
+
+@media(max-width:500px){
+  .quote-icon img{
+    height: 35px;
+    width: 35px;
+  }
+}
