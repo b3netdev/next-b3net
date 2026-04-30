@@ -78,14 +78,7 @@ const ServiceSubpage = async ({ params }: { params: { slug: string } }) => {
     if (slug === "data-governance") {
         return (
             <main className="page_content services-design-page  ">
-                {schemaData ? (
-                    <script
-                        type="application/ld+json"
-                        dangerouslySetInnerHTML={{
-                            __html: JSON.stringify(schemaData),
-                        }}
-                    />) : null}
-
+                <StructuredData data={schemaData} />
                 <DataGoverence />
             </main>
         )

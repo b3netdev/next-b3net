@@ -13,6 +13,7 @@ import { cache } from "react";
 import { Metadata } from "next";
 import { buildMetadata, getSeoFromPageData } from "@/lib/seo";
 import { getServicePath } from "@/lib/servicePath";
+import StructuredData from "@/components/server/StructuredData";
 
 
 const getPageData = cache(async () => {
@@ -20,7 +21,6 @@ const getPageData = cache(async () => {
   const data = await GetPageData("ai-integration-services", "page");
   return data?.page ?? data;
 });
-
 
 
 export async function generateMetadata(): Promise<Metadata> {
@@ -38,14 +38,16 @@ const AiIntregation = async ({ params }: { params: { slug: string } }) => {
   const data = await getPageData();
 
   const pageData = data?.page ?? data;
+  const schemaData = pageData?.schema || pageData?.yoast_head_json?.schema || null;
 
 
 
   return (
     <main className="page_content">
+       <StructuredData data={schemaData} />
       <div className="ai-integration-page ai-landing-wrap">
         <AiSlider />
-        {/* rest of your page unchanged */}
+        
         <div className="ai-col-1">
           <div className="container">
             <div className="row align-items-center gy-3">

@@ -126,8 +126,7 @@ export default function SideMenu({
                             return (
                                 <li key={item.id} className="sideMenuItem">
 
-                                    <div className="sideMenuRow"
-
+                                    <div className="sideMenuRow "
                                     >
                                         {hasChildren ? (
                                             <div
@@ -146,7 +145,12 @@ export default function SideMenu({
                                                 </button>
 
                                                 <span onClick={() => toggle(item.id)}>
-                                                    <i className="fa-solid fa-angle-down"></i>
+                                                    {
+                                                        expanded ?
+                                                        <i className="fa-solid fa-angle-up"></i>
+                                                        :
+                                                        <i className="fa-solid fa-angle-down"></i>  
+                                                    }
                                                 </span>
                                             </div>
                                         ) : (
@@ -158,52 +162,53 @@ export default function SideMenu({
                                                 {item.title}
                                             </Link>
                                         )}
-
-
                                     </div>
 
                                     {hasChildren ? (
                                         <div className={`sideMenuPanel ${expanded ? "open" : ""}`}>
-                                            <div className="sideMenuPanelInner">
+                                            <div className="">
                                                 {
-                                                    item?.object_id == 12050 &&
-                                                    <ServiceSubMenu />
+                                                    item?.object_id == 12050 ?
+                                                        <ServiceSubMenu />
+                                                        :
+
+                                                        <ul className="sideMenuSubList">
+                                                            {item.children.map((child: any, index: any) => (
+
+                                                                <li key={index} className="sideMenuSubItem">
+                                                                    {child.parent_id == 13477 ? (
+                                                                        child.id == 13477 ? (
+                                                                            <i className="fa-solid fa-bullhorn"></i>
+                                                                        ) : child.id == 13484 ? (
+                                                                            <i className="fa-solid fa-circle-question"></i>
+                                                                        ) : child.id == 13485 ? (
+                                                                            <i className="fa-regular fa-pen-to-square"></i>
+                                                                        ) : (
+                                                                            <i className="fa-solid fa-users-viewfinder"></i>
+                                                                        )
+                                                                    ) : child.parent_id == 13479 ? (
+                                                                        <i className="fa-solid fa-circle !text-[6px]"></i>
+                                                                    ) : (
+                                                                        null
+                                                                    )}
+                                                                    <Link
+                                                                        href={
+                                                                            child.parent_id == 13477
+                                                                                ? `/about-company/${child?.page?.slug !== "about-company"
+                                                                                    ? child?.page?.slug
+                                                                                    : ""
+                                                                                }`
+                                                                                : `/${child?.page?.slug}`
+                                                                        }
+                                                                        className="sideMenuSubLink w-full"
+                                                                        onClick={onClose}
+                                                                    >
+                                                                        {child.title}
+                                                                    </Link>
+                                                                </li>
+                                                            ))}
+                                                        </ul>
                                                 }
-                                                <ul className="sideMenuSubList">
-                                                    {item.children.map((child: any, index: any) => (
-
-                                                        <li key={index} className="sideMenuSubItem">
-                                                            {child.parent_id == 13477 ?
-                                                                (child.id == 13477 ? (
-                                                                    <i className="fa-solid fa-bullhorn"></i>
-                                                                ) : child.id == 13484 ? (
-                                                                    <i className="fa-solid fa-circle-question"></i>
-                                                                ) : child.id == 13485 ? (
-                                                                    <i className="fa-regular fa-pen-to-square"></i>
-                                                                ) : (
-                                                                    <i className="fa-solid fa-users-viewfinder"></i>
-                                                                ))
-                                                                :
-                                                                <i className="fa-solid fa-circle !text-[6px]"></i>
-                                                            }
-
-                                                            <Link
-                                                                href={
-                                                                    child.parent_id == 13477
-                                                                        ? `/about-company/${child?.page?.slug !== "about-company"
-                                                                            ? child?.page?.slug
-                                                                            : ""
-                                                                        }`
-                                                                        : `/${child?.page?.slug}`
-                                                                }
-                                                                className="sideMenuSubLink w-full"
-                                                                onClick={onClose}
-                                                            >
-                                                                {child.title}
-                                                            </Link>
-                                                        </li>
-                                                    ))}
-                                                </ul>
                                             </div>
                                         </div>
                                     ) : null}

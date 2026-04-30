@@ -8,6 +8,7 @@ import { buildMetadata, getSeoFromPageData } from "@/lib/seo";
 import { Metadata } from "next";
 import { cache } from "react";
 import ShowNav from "@/components/client/ShowNav";
+import StructuredData from "@/components/server/StructuredData";
 
 
 
@@ -31,10 +32,12 @@ const Aivideo = async () => {
 
   const pageData = data?.page ?? data;
 
+  const schemaData = pageData?.schema || pageData?.yoast_head_json?.schema || null;
 
 
   return (
     <section className="email-col py-md-5 mt-5 py-3">
+       <StructuredData data={schemaData} />
       <ShowNav />
       <div className="container">
         <div className="email-market-gap">
