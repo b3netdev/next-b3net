@@ -1,3 +1,4 @@
+"use client"
 import React from 'react'
 import { useFormik } from "formik";
 import * as Yup from "yup";
@@ -9,10 +10,10 @@ type HeaderFormProps = {
     setHoverService: React.Dispatch<React.SetStateAction<boolean>>;
 };
 
-
 const HeaderForm = ({ setHoverService }: HeaderFormProps) => {
     const { submitcontact, loading } = useForm()
     const router = useRouter()
+
     const validationSchema = Yup.object({
         fname: Yup.string().trim().required("First name is required"),
         lname: Yup.string().trim().required("Last name is required"),
@@ -37,8 +38,25 @@ const HeaderForm = ({ setHoverService }: HeaderFormProps) => {
             }
         },
     });
+
     return (
-        <form onSubmit={formik.handleSubmit}>
+        <form onSubmit={formik.handleSubmit} autoComplete="off">
+            {/* Dummy hidden fields to confuse browser autofill */}
+            <input
+                type="text"
+                name="fake-user-name"
+                autoComplete="username"
+                style={{ display: "none" }}
+                tabIndex={-1}
+            />
+            <input
+                type="password"
+                name="fake-password"
+                autoComplete="new-password"
+                style={{ display: "none" }}
+                tabIndex={-1}
+            />
+
             <div className="row">
                 <div className="col-md-6 form-group">
                     <label>
@@ -51,11 +69,12 @@ const HeaderForm = ({ setHoverService }: HeaderFormProps) => {
                         value={formik.values.fname}
                         onChange={formik.handleChange}
                         onBlur={formik.handleBlur}
-                        // autoComplete="off"
+                        autoComplete="chrome-off-fname"
                         autoCorrect="off"
                         autoCapitalize="none"
                         spellCheck={false}
-                        autoComplete="new-password"
+                        readOnly
+                        onFocus={(e) => e.currentTarget.removeAttribute("readonly")}
                     />
                     {formik.touched.fname && formik.errors.fname && (
                         <small className="text-danger text-sm">{formik.errors.fname}</small>
@@ -73,10 +92,12 @@ const HeaderForm = ({ setHoverService }: HeaderFormProps) => {
                         value={formik.values.lname}
                         onChange={formik.handleChange}
                         onBlur={formik.handleBlur}
-                        autoComplete="new-password"
+                        autoComplete="chrome-off-lname"
                         autoCorrect="off"
                         autoCapitalize="none"
                         spellCheck={false}
+                        readOnly
+                        onFocus={(e) => e.currentTarget.removeAttribute("readonly")}
                     />
                     {formik.touched.lname && formik.errors.lname && (
                         <small className="text-danger">{formik.errors.lname}</small>
@@ -95,11 +116,13 @@ const HeaderForm = ({ setHoverService }: HeaderFormProps) => {
                         className="form-control"
                         value={formik.values.email}
                         onChange={formik.handleChange}
-                        autoComplete="new-password"
+                        autoComplete="chrome-off-email"
                         autoCorrect="off"
                         autoCapitalize="none"
                         spellCheck={false}
                         onBlur={formik.handleBlur}
+                        readOnly
+                        onFocus={(e) => e.currentTarget.removeAttribute("readonly")}
                     />
                     {formik.touched.email && formik.errors.email && (
                         <small className="text-danger">{formik.errors.email}</small>
