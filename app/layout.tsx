@@ -55,7 +55,7 @@ export default function RootLayout({
         <Script
           id="cookieyes"
           src="https://cdn-cookieyes.com/client_data/0e730defc91657a6459d9c46/script.js"
-          strategy="beforeInteractive"
+          strategy="afterInteractive"
         />
         <noscript>
           <iframe
@@ -77,7 +77,7 @@ export default function RootLayout({
         </noscript>
 
         {/* Google Tag Manager - Container 1 */}
-        <Script id="gtm-tqvc5ns" strategy="beforeInteractive">
+        <Script id="gtm-tqvc5ns" strategy="afterInteractive">
           {`
             (function(w,d,s,l,i){
               w[l]=w[l]||[];
@@ -93,7 +93,7 @@ export default function RootLayout({
         </Script>
 
 
-        <Script id="gtm-wc2tss" strategy="beforeInteractive">
+        <Script id="gtm-wc2tss" strategy="afterInteractive">
           {`
             (function(w,d,s,l,i){
               w[l]=w[l]||[];
@@ -131,11 +131,11 @@ export default function RootLayout({
         <Script
           id="google-ads-gtag-src"
           src="https://www.googletagmanager.com/gtag/js?id=AW-1070943410"
-          strategy="afterInteractive"
+          strategy="lazyOnload"
         />
 
         {/* Optional gtag bootstrap for Ads if needed */}
-        <Script id="google-ads-gtag-init" strategy="afterInteractive">
+        <Script id="google-ads-gtag-init" strategy="lazyOnload">
           {`
             window.dataLayer = window.dataLayer || [];
             function gtag(){dataLayer.push(arguments);}
@@ -159,7 +159,7 @@ export default function RootLayout({
         </Script>
 
         {/* Microsoft Clarity */}
-        <Script id="microsoft-clarity" strategy="afterInteractive">
+        <Script id="microsoft-clarity" strategy="lazyOnload">
           {`
             (function(c,l,a,r,i,t,y){
               c[a]=c[a]||function(){ (c[a].q=c[a].q||[]).push(arguments) };
@@ -173,7 +173,7 @@ export default function RootLayout({
         </Script>
 
         {/* AdRoll */}
-        <Script id="adroll-init" strategy="afterInteractive">
+        <Script id="adroll-init" strategy="lazyOnload">
           {`
             window.adroll_adv_id = "IXSTBEWES5CEBBCQAA2O2T";
             window.adroll_pix_id = "FAZBXTQYPRE2LP6RVHDOLR";

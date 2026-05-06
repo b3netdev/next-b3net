@@ -44,10 +44,10 @@ const AiIntregation = async ({ params }: { params: { slug: string } }) => {
 
   return (
     <main className="page_content">
-       <StructuredData data={schemaData} />
+      <StructuredData data={schemaData} />
       <div className="ai-integration-page ai-landing-wrap">
         <AiSlider />
-        
+
         <div className="ai-col-1">
           <div className="container">
             <div className="row align-items-center gy-3">
@@ -57,15 +57,21 @@ const AiIntregation = async ({ params }: { params: { slug: string } }) => {
                     Leverage the Transformative Power of{" "}
                     <span>AI Integration to Reshape Your Business</span>
                   </h1>
-                  <p>
+                  <p className="primary-bodyText font-bold">
                     At{" "}
-                    <Link className="site-logo" href="/">
+                    <Link className="site-logo font-bold" href="/">
                       B3NET Inc.
                     </Link>
                     , we understand the unique challenges faced by small and
-                    medium-sized businesses in the digital age...
+                    medium-sized businesses in the digital age. The business world moves quickly, but with our AI solutions, you can stay ahead of the curve. We provide sophisticated, easy-to-implement AI tools such as
                   </p>
-                  <Link href={getServicePath("ai-integration")} className="unq-free-cons">
+                  <p className="primary-bodyText font-bold">
+                    <span className="site-logo" >
+                      ChatGPT,{" "}
+                    </span>
+                    designed to streamline your operations, improve customer engagement, and propel your business towards exponential growth.
+                  </p>
+                  <Link href={getServicePath("ai-integration-services")} className="unq-free-cons">
                     Get a FREE Consultation{" "}
                     <i
                       className="fa-arrow-right fa-solid"
@@ -93,7 +99,7 @@ const AiIntregation = async ({ params }: { params: { slug: string } }) => {
               <h2>
                 <span>AI Solutions</span> Customized for You
               </h2>
-              <p className="nitro-offscreen">
+              <p className="nitro-offscreen primary-bodyText">
                 At{" "}
                 <Link className="site-logo" href="/">
                   B3NET Inc.
@@ -120,7 +126,7 @@ const AiIntregation = async ({ params }: { params: { slug: string } }) => {
                       </h3>
                     </div>
                   </div>
-                  <p>
+                  <p className="primary-bodyText">
                     With our Al, your marketing efforts become more efficient
                     and effective. From lead generation to customer retention,
                     our Al systems can automate and optimize each stage of your
@@ -144,7 +150,7 @@ const AiIntregation = async ({ params }: { params: { slug: string } }) => {
                       </h3>
                     </div>
                   </div>
-                  <p>
+                  <p className="primary-bodyText">
                     Upgrade your customer service with AI-driven chat solutions.
                     From answering queries to providing personalized support,
                     our AI chats are available 24/7, increasing customer
@@ -167,7 +173,7 @@ const AiIntregation = async ({ params }: { params: { slug: string } }) => {
                       </h3>
                     </div>
                   </div>
-                  <p>
+                  <p className="primary-bodyText">
                     Leverage AI to deeply understand customer behavior and
                     preferences. Use predictive insights to refine marketing
                     strategies and personalize offerings for higher conversions.
@@ -189,7 +195,7 @@ const AiIntregation = async ({ params }: { params: { slug: string } }) => {
                       </h3>
                     </div>
                   </div>
-                  <p>
+                  <p className="primary-bodyText">
                     Every business has unique needs. Our experts integrate AI
                     seamlessly into your existing systems, ensuring smooth
                     functionality tailored specifically for you.
@@ -199,7 +205,7 @@ const AiIntregation = async ({ params }: { params: { slug: string } }) => {
             </div>
 
             <div className="text-center ai-content-3 nitro-offscreen">
-              <p>
+              <p className="primary-bodyText">
                 Whether you're looking to enhance customer interaction,
                 streamline your operations, or unlock new avenues for growth,
                 our tailor-made AI solutions have got you covered. Transform
@@ -221,7 +227,7 @@ const AiIntregation = async ({ params }: { params: { slug: string } }) => {
                 <h2>
                   <span>Generative AI</span> Development Services
                 </h2>
-                <p>
+                <p className="primary-bodyText">
                   Our team of experts specializes in creating advanced AI tools
                   to support your digital projects. If you&#8217;re seeking
                   top-notch generative AI services, we provide customized
@@ -241,7 +247,7 @@ const AiIntregation = async ({ params }: { params: { slug: string } }) => {
                 </div>
 
                 <div className="col-md-6">
-                  <div className="development-col">
+                  <div className="development-col primary-bodyText">
                     <h3>
                       <span>AI</span> Deployment
                     </h3>
@@ -297,7 +303,7 @@ const AiIntregation = async ({ params }: { params: { slug: string } }) => {
               <h2>
                 Unlock the <span>Power of AI</span>
               </h2>
-              <p>
+              <p className="primary-bodyText">
                 Imagine a business model delivering precision, agility, and
                 intelligence simultaneously. At
                 <br />
@@ -316,21 +322,31 @@ const AiIntregation = async ({ params }: { params: { slug: string } }) => {
           </div>
         </section>
 
-        <div className="ai-col-4 nitro-offscreen">
-          <div className="container">
-            <div className="row align-items-center gy-5">
+        <div className="ai-col-4 nitro-offscreen"
+          style={{ backgroundImage: `url(${BASE_URL}/wp-content/themes/perfecti/assets/assets-ai-landing/images/ai-bg-2.jpg)` }}
+        >
+          <div className="container"
+
+          >
+            <div className="row align-items-center gy-5"
+
+            >
               <div className="col-md-5">
                 <div className="advantages-img">
                   <img src={`${BASE_URL}/wp-content/uploads/2025/03/img-3.png`} />
                 </div>
               </div>
-              <div className="col-md-7">
+              <div className="col-md-7"
+
+              >
                 <div className="ai-content-6">
                   <h2>
                     Advantages of <span>B3NET's AI Solutions</span>
                   </h2>
                 </div>
-                <div className="advantages-lists">
+                <div className="advantages-lists"
+
+                >
                   <div className="d-flex">
                     <div className="icon">
                       <img src={`${BASE_URL}/wp-content/uploads/2025/03/icon-add-1.png`} />
@@ -397,11 +413,11 @@ const AiIntregation = async ({ params }: { params: { slug: string } }) => {
                 </div>
               </div>
               <div className="col-md-6 order-md-first">
-                <div className="ai-content-7">
-                  <h2>
+                <div className="ai-content-7 ">
+                  <h2 className="primary-bodyText">
                     Ready to Take the <span>Next Step?</span>
                   </h2>
-                  <p>
+                  <p className="primary-bodyText">
                     Your journey towards digital transformation begins here. Get
                     in touch with our team of experts today for a free
                     consultation. Let&#8217;s explore the incredible potential

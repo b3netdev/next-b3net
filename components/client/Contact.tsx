@@ -134,7 +134,7 @@ const Contact: React.FC<ContactProps> = ({ data = false }) => {
               <div className="col-lg-8 text-center">
                 <div className="heading-title">
                   <p>Request for a Service</p>
-                  <h2>Get Your Free Proposal</h2>
+                  <h2 className="primary-bodyText">Get Your Free Proposal</h2>
                 </div>
               </div>
             )}

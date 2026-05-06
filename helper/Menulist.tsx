@@ -363,6 +363,7 @@ export const serviceMegaMenuColumns: ServiceMegaMenuColumn[] = [
                     { label: "AI Integration Services", slug: "ai-integration-services" },
                     { label: "Marketing Automation", slug: "marketing-automation-services-company" },
                     { label: "AI Video", slug: "ai-video" },
+                    { label: "AI Chatbot", slug: "ai-chatbot-development-services" },
                     // { label: "Customer Sentiment Analysis", slug: "customer-sentiment-analysis" },
                     // { label: "AI-Powered PPC Campaign Tool", slug: "/ai-tools/ppc-campaign/" },
                 ],
@@ -475,5 +476,4 @@ export const sluglist = [
     { slug: "southlake-website-design-development" },
     { slug: "digital-marketing-tustin" },
     { slug: "website-design-tustin" },
-
 ]
