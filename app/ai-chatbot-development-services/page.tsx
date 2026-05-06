@@ -52,9 +52,8 @@ const page = () => {
             <section className="hero site_header_1">
                 <div className="container">
                     <div className="hero-content">
-                        <h1>AI Chatbot
-                            <span className="accent">Development</span>
-                            <br /> Services
+                        <h1>AI Chatbot <span className="accent ml-1"> Development</span>
+                            <br/> Services
                         </h1>
                         <p>B3NET builds custom AI chatbot solutions that transform customer support, capture leads, automate sales, and streamline business workflows — tailored to your unique needs.</p>
                         <div className="hero-btns">
@@ -99,8 +98,7 @@ const page = () => {
                 <div className="container position-relative">
                     <div className="text-center mb-4 mb-lg-5">
                         <h2 className="section-title">
-                            Your Technology Partner for
-                            <span className="accent">Intelligent Automation</span>
+                            Your Technology Partner for <span className="accent">Intelligent Automation</span>
                         </h2>
                         <p className="section-subtitle">B3NET is a technology and digital solutions company with deep expertise in web development, AI integrations, business automation, and data-driven strategies. We help businesses leverage the power of artificial intelligence to stay competitive and efficient.</p>
                     </div>
@@ -153,8 +151,7 @@ const page = () => {
                 <div className="container position-relative">
                     <div className="text-center mb-4 mb-lg-5">
                         <h2 className="section-title white-title">
-                            AI Chatbot Development
-                            <span className="accent">Services</span>
+                            AI Chatbot Development <span className="accent">Services</span>
                         </h2>
                         <p className="section-subtitle white-subtitle">From customer-facing support bots to internal workflow assistants, we deliver end-to-end
                             chatbot solutions that drive measurable results.</p>
@@ -279,8 +276,7 @@ const page = () => {
                 <div className="container">
                     <div className="text-center mb-4 mb-lg-5">
                         <h2 className="section-title">
-                            Why Businesses Need
-                            <span className="accent">AI Chatbots</span>
+                            Why Businesses Need <span className="accent">AI Chatbots</span>
                         </h2>
                         <p className="section-subtitle">AI chatbots are no longer optional — they're a competitive advantage that directly
                             impacts revenue, efficiency, and customer satisfaction.</p>
@@ -365,8 +361,7 @@ const page = () => {
                 <div className="container">
                     <div className="text-center mb-4 mb-lg-5">
                         <h2 className="section-title">
-                            Our Development
-                            <span className="accent">Process</span>
+                            Our Development <span className="accent">Process</span>
                         </h2>
                         <p className="section-subtitle">A structured, transparent approach from discovery to deployment — so you always know
                             what's happening and what's next.</p>
@@ -452,8 +447,7 @@ const page = () => {
                 <div className="container position-relative">
                     <div className="text-center mb-4 mb-lg-5">
                         <h2 className="section-title">
-                            Industries We
-                            <span className="accent">Serve</span>
+                            Industries We <span className="accent">Serve</span>
                         </h2>
                         <p className="section-subtitle">We've built AI chatbot solutions for businesses across diverse sectors — each with its <br />own unique challenges and opportunities.
                         </p>
@@ -531,8 +525,7 @@ const page = () => {
                 <div className="container position-relative">
                     <div className="text-center mb-4 mb-lg-5">
                         <h2 className="section-title white-title">
-                            Powerful Chatbot
-                            <span className="accent">Features</span>
+                            Powerful Chatbot <span className="accent">Features</span>
                         </h2>
                         <p className="section-subtitle white-subtitle text-white">Every chatbot we build is packed with enterprise-grade features designed for
                             real business impact.</p>
@@ -658,8 +651,7 @@ const page = () => {
                 <div className="container position-relative">
                     <div className="text-center mb-4 mb-lg-5">
                         <h2 className="section-title">
-                            Why Choose
-                            <span className="accent">B3NET</span>
+                            Why Choose <span className="accent">B3NET</span>
                         </h2>
                         <p className="section-subtitle primary-bodyText">We combine technical excellence with business strategy to deliver AI chatbot solutions
                             that actually work.</p>
@@ -733,8 +725,7 @@ const page = () => {
                 <div className="container">
                     <div className="text-center mb-4 mb-lg-5">
                         <h2 className="section-title">
-                            Real Impact, Measurable
-                            <span className="accent">Results</span>
+                            Real Impact, Measurable <span className="accent">Results</span>
                         </h2>
                         <p className="section-subtitle primary-bodyText">Our AI chatbot solutions deliver tangible business outcomes. Here's what our clients have achieved</p>
                     </div>
@@ -783,8 +774,7 @@ const page = () => {
                     <div className="section-divider"></div>
                     <div className="text-center my-4 my-lg-5">
                         <h2 className="section-title">
-                            Frequently Asked
-                            <span className="accent">Questions</span>
+                            Frequently Asked <span className="accent">Questions</span>
                         </h2>
                     </div>
                     <div className="row g-lg-4">
@@ -807,7 +797,7 @@ const page = () => {
                                 <h2 className="section-title">
                                     Ready to Build a Smarter
                                     <br />
-                                    <span className="accent">AI Chatbot</span>
+                                    <span className="accent">AI Chatbot </span>
                                     for Your Business?
                                 </h2>
                                 <p className="section-subtitle primary-bodyText">
