@@ -38,18 +38,13 @@ const HeaderForm = ({ setHoverService }: HeaderFormProps) => {
         },
         validationSchema,
         onSubmit: async (values) => {
-            if (!recaptchaToken) {
-                setRecaptchaError("Please verify that you are not a robot.");
-                return;
-            }
-
+           
             try {
                 setLoading(true);
                 setRecaptchaError("");
 
                 const formData = {
                     ...values,
-                    recaptchaToken,
                 };
 
                 const data = await submitcontact(formData, 12739);
@@ -159,25 +154,7 @@ const HeaderForm = ({ setHoverService }: HeaderFormProps) => {
                 </div>
             </div>
 
-            <div className="row">
-                <div className="col-md-12 form-group">
-                    <ReCAPTCHA
-                        ref={recaptchaRef}
-                        sitekey={process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY || ""}
-                        onChange={(token) => {
-                            setRecaptchaToken(token);
-                            setRecaptchaError("");
-                        }}
-                        onExpired={() => {
-                            setRecaptchaToken(null);
-                        }}
-                    />
-
-                    {recaptchaError && (
-                        <small className="text-danger">{recaptchaError}</small>
-                    )}
-                </div>
-            </div>
+           
 
             <div className="mb-0 text-center pt-md-3">
                 <button type="submit" className="btn btn-primary" disabled={loading}>
