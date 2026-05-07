@@ -143,7 +143,7 @@ export default async function Home() {
 
                 <div className="overlay-content text-center">
                     <h1>
-                      Adapt. Succeed with <strong>B3NET</strong>
+                        Innovate. Adapt. Succeed with <strong>B3NET</strong>
                     </h1>
 
                     <p style={{ color: "white", fontSize: "1em", }}>
