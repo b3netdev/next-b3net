@@ -4,12 +4,14 @@ import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 interface HoverState {
     abouthover: boolean;
     wesolvehover: boolean;
+    servicehover: boolean;
 }
 
 
 const initialState: HoverState = {
     abouthover: false,
-    wesolvehover: false
+    wesolvehover: false,
+    servicehover: false
 }
 
 const hoverSlice = createSlice({
@@ -21,12 +23,15 @@ const hoverSlice = createSlice({
         },
         setWesolveHover: (state, action: PayloadAction<boolean>) => {
             state.wesolvehover = action.payload
+        },
+        setServiceHover: (state, action: PayloadAction<boolean>) => {
+            state.wesolvehover = action.payload
         }
     }
 })
 
 // Export actions
-export const { setAboutHover, setWesolveHover } = hoverSlice.actions;
+export const { setAboutHover, setWesolveHover,setServiceHover } = hoverSlice.actions;
 
 
 export default hoverSlice.reducer;

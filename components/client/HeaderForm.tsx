@@ -1,18 +1,25 @@
-"use client"
-import React from 'react'
+"use client";
+
+import React, { useRef, useState } from "react";
 import { useFormik } from "formik";
 import * as Yup from "yup";
 import { useForm } from "@/hooks/useForm";
 import { useRouter } from "next/navigation";
-import CircularProgress from '@mui/material/CircularProgress';
+import CircularProgress from "@mui/material/CircularProgress";
+import ReCAPTCHA from "react-google-recaptcha";
 
 type HeaderFormProps = {
     setHoverService: React.Dispatch<React.SetStateAction<boolean>>;
 };
 
 const HeaderForm = ({ setHoverService }: HeaderFormProps) => {
-    const { submitcontact, loading } = useForm()
-    const router = useRouter()
+    const { submitcontact } = useForm();
+    const router = useRouter();
+
+    const recaptchaRef = useRef<ReCAPTCHA>(null);
+    const [loading, setLoading] = useState(false);
+    const [recaptchaToken, setRecaptchaToken] = useState<string | null>(null);
+    const [recaptchaError, setRecaptchaError] = useState("");
 
     const validationSchema = Yup.object({
         fname: Yup.string().trim().required("First name is required"),
@@ -31,10 +38,32 @@ const HeaderForm = ({ setHoverService }: HeaderFormProps) => {
         },
         validationSchema,
         onSubmit: async (values) => {
-            const data = await submitcontact(formik?.values, 12739)
-            if (data?.status === "mail_sent") {
-                router.push("/thankyou");
-                setHoverService(false)
+            if (!recaptchaToken) {
+                setRecaptchaError("Please verify that you are not a robot.");
+                return;
+            }
+
+            try {
+                setLoading(true);
+                setRecaptchaError("");
+
+                const formData = {
+                    ...values,
+                    recaptchaToken,
+                };
+
+                const data = await submitcontact(formData, 12739);
+
+                if (data?.status === "mail_sent") {
+                    setHoverService(false);
+                    router.push("/thankyou");
+                }
+            } catch (error) {
+                console.error(error);
+            } finally {
+                setLoading(false);
+                recaptchaRef.current?.reset();
+                setRecaptchaToken(null);
             }
         },
     });
@@ -130,8 +159,28 @@ const HeaderForm = ({ setHoverService }: HeaderFormProps) => {
                 </div>
             </div>
 
+            <div className="row">
+                <div className="col-md-12 form-group">
+                    <ReCAPTCHA
+                        ref={recaptchaRef}
+                        sitekey={process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY || ""}
+                        onChange={(token) => {
+                            setRecaptchaToken(token);
+                            setRecaptchaError("");
+                        }}
+                        onExpired={() => {
+                            setRecaptchaToken(null);
+                        }}
+                    />
+
+                    {recaptchaError && (
+                        <small className="text-danger">{recaptchaError}</small>
+                    )}
+                </div>
+            </div>
+
             <div className="mb-0 text-center pt-md-3">
-                <button type="submit" className="btn btn-primary">
+                <button type="submit" className="btn btn-primary" disabled={loading}>
                     {loading ? (
                         <CircularProgress size={20} sx={{ color: "#fff" }} className="mx-16" />
                     ) : (
@@ -142,7 +191,7 @@ const HeaderForm = ({ setHoverService }: HeaderFormProps) => {
                 </button>
             </div>
         </form>
-    )
-}
+    );
+};
 
-export default HeaderForm
+export default HeaderForm;

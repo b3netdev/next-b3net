@@ -6,7 +6,7 @@ import { getServicePath } from "../../lib/servicePath";
 import { useAppDispatch, useAppSelector } from "@/redux/hooks";
 import { setId } from "@/redux/slicers/idSlicer";
 import HeaderForm from "./HeaderForm";
-import { setAboutHover, setWesolveHover } from "@/redux/slicers/hoverSlicer";
+import { setAboutHover, setWesolveHover,setServiceHover } from "@/redux/slicers/hoverSlicer";
 
 
 
@@ -64,7 +64,7 @@ type ServiceMegaMenuColumn = {
 export default function Navbar() {
 
     const { showDefault, showLayout } = useAppSelector((state) => state.menu);
-    const { abouthover, wesolvehover } = useAppSelector((state) => state.hoverMenu);
+    const { abouthover, wesolvehover,servicehover } = useAppSelector((state) => state.hoverMenu);
     const [hoverService, setHoverService] = useState(false);
 
 
