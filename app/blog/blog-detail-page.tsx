@@ -149,7 +149,7 @@ const BlogDetail = async ({ params }: { params: { slug: string } }) => {
               <div className="col-lg-8 col-xl-9">
 
                 <div
-                  className="blog-container primary-bodyText"
+                  className="blog-container primary-bodyText blog-detailpage-content"
                   dangerouslySetInnerHTML={{
                     __html: contentData,
                   }}
@@ -238,7 +238,7 @@ const BlogDetail = async ({ params }: { params: { slug: string } }) => {
                             </Link>
 
                             <div
-                            className="primary-bodyText"
+                            className="primary-bodyText "
                               dangerouslySetInnerHTML={{
                                 __html: data?.excerpt?.rendered || " ",
                               }}

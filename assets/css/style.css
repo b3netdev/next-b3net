@@ -8234,3 +8234,10 @@ div#signature-pad {
     width: 35px;
   }
 }
+.blog-detailpage-content img{
+  padding: 0 40px 0 0;
+}
+
+.blog-detailpage-content .size-full{
+ width: 100%;
+}
