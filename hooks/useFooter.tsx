@@ -1,25 +1,31 @@
 "use client";
 
-import { useState } from "react";
+import { useCallback, useState } from "react";
 import api from "@/api/axios";
 
 export const useFooter = () => {
   const [loading, setLoading] = useState<boolean>(false);
   const [error, setError] = useState<any>(null);
 
-  const getFooterData = async ()=>{
-    try{
-        const data : any = await api.get('wp-json/custom/v1/menus')
-      
-        if(data?.status==200 ) return data?.data
-        else return []
+  const getFooterData = useCallback(async () => {
+    try {
+      setLoading(true);
+      setError(null);
 
+      const response: any = await api.get("wp-json/custom/v1/menus");
+
+      if (response?.status === 200) {
+        return response?.data;
+      }
+
+      return [];
+    } catch (err) {
+      setError(err);
+      return [];
+    } finally {
+      setLoading(false);
     }
-    catch(error){
+  }, []);
 
-    }
-  }
-
-
-  return { getFooterData,loading, error };
+  return { getFooterData, loading, error };
 };

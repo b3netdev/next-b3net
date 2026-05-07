@@ -151,8 +151,7 @@ const AiIntregation = async ({ params }: { params: { slug: string } }) => {
                     </div>
                   </div>
                   <p className="primary-bodyText">
-                    Upgrade your customer service with AI-driven chat solutions.
-                    From answering queries to providing personalized support,
+                    Upgrade your customer service with <Link href="ai-chatbot-development-services" >AI-driven chat solutions.</Link> From answering queries to providing personalized support,
                     our AI chats are available 24/7, increasing customer
                     satisfaction.
                   </p>

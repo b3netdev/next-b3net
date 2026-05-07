@@ -17,7 +17,7 @@ const ContactForm = () => {
 
   const formik = useFormik({
     initialValues: {
-      name: "",
+      fname: "",
       company: "",
       email: "",
       phone: "",
@@ -26,15 +26,15 @@ const ContactForm = () => {
 
     validate: (values) => {
       const errors: {
-        name?: string;
+        fname?: string;
         company?: string;
         email?: string;
         phone?: string;
         message?: string;
       } = {};
 
-      if (!values.name.trim()) {
-        errors.name = "Name is required";
+      if (!values.fname.trim()) {
+        errors.fname = "Name is required";
       }
 
       if (!values.company.trim()) {
@@ -75,7 +75,7 @@ const ContactForm = () => {
             ...values,
             recaptcha_token: captchaToken,
           },
-          12066
+          14015
         );
 
         if (data?.status === "mail_sent") {
@@ -106,15 +106,15 @@ const ContactForm = () => {
           <label>Name *</label>
           <input
             type="text"
-            name="name"
+            name="fname"
             className="form-control"
             placeholder="John Smith"
-            value={formik.values.name}
+            value={formik.values.fname}
             onChange={formik.handleChange}
             onBlur={formik.handleBlur}
           />
-          {formik.touched.name && formik.errors.name && (
-            <div className="text-danger small mt-1">{formik.errors.name}</div>
+          {formik.touched.fname && formik.errors.fname && (
+            <div className="text-danger small mt-1">{formik.errors.fname}</div>
           )}
         </div>
 

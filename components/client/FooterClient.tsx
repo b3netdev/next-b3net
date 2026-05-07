@@ -253,7 +253,7 @@ export default function FooterClient() {
       const data = await getFooterData();
       setFooterMenus(Array.isArray(data) ? data : []);
     };
-
+  
     getData();
   }, [getFooterData]);
 

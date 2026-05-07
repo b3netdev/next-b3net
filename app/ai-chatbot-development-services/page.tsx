@@ -3,6 +3,7 @@ import CountUp from '@/components/client/CountUp';
 import Accordian from './Accordian';
 import ContactForm from './ContactForm';
 import ScrollLink from '@/components/client/ScrollLink';
+import Link from 'next/link';
 
 const page = () => {
     const faqLeft = [
@@ -63,10 +64,10 @@ const page = () => {
                                 Request a Free Consultation
                                 <i className="fa-solid fa-arrow-right"></i>
                             </ScrollLink>
-                            <a href="#" className="hero-btn secondary">
+                            <Link href="ai-integration-services" className="hero-btn secondary">
                                 See Our AI Solutions
                                 <i className="fa-solid fa-arrow-right"></i>
-                            </a>
+                            </Link>
                         </div>
                         <div className="hero-stats">
                             <div className="stat-item">
