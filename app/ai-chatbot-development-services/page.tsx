@@ -4,6 +4,49 @@ import Accordian from './Accordian';
 import ContactForm from './ContactForm';
 import ScrollLink from '@/components/client/ScrollLink';
 import Link from 'next/link';
+import { Metadata } from 'next';
+
+
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://b3net.com";
+const pageUrl = `${siteUrl}/ai-chatbot-development-services`;
+
+export const metadata: Metadata = {
+  metadataBase: new URL(siteUrl),
+
+  title: {
+    default: "AI Chatbot Development Services | Custom AI Chatbot Solutions - B3NET",
+    template: "%s | B3NET",
+  },
+
+  description:
+    "Build intelligent AI chatbots for customer support, lead generation, automation, and engagement. B3NET develops custom AI chatbot solutions tailored to your business needs.",
+
+  alternates: {
+    canonical: pageUrl,
+  },
+
+  openGraph: {
+    title: "AI Chatbot Development Services | Custom AI Chatbot Solutions - B3NET",
+    description:
+      "Build intelligent AI chatbots for customer support, lead generation, automation, and engagement. B3NET develops custom AI chatbot solutions tailored to your business needs.",
+    url: pageUrl,
+    siteName: "B3NET",
+    type: "website",
+    locale: "en_US",
+  },
+
+  twitter: {
+    card: "summary_large_image",
+    title: "AI Chatbot Development Services | Custom AI Chatbot Solutions - B3NET",
+    description:
+      "Build intelligent AI chatbots for customer support, lead generation, automation, and engagement. B3NET develops custom AI chatbot solutions tailored to your business needs.",
+  },
+
+  robots: {
+    index: true,
+    follow: true,
+  },
+};
 
 const page = () => {
     const faqLeft = [
