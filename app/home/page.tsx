@@ -21,7 +21,7 @@ import StructuredData from "@/components/server/StructuredData";
 
 
 export default async function Home() {
-
+   
 
     const homeSchemaData = {
         "@context": "https://schema.org",

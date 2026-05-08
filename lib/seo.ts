@@ -85,10 +85,10 @@ export function buildMetadata(seo?: any): Metadata {
 
     robots: seo?.robots
       ? {
-        index: seo.robots.index !== "noindex",
+        index: seo.robots.index !== "index",
         follow: seo.robots.follow !== "nofollow",
         googleBot: {
-          index: seo.robots.index !== "noindex",
+          index: seo.robots.index !== "index",
           follow: seo.robots.follow !== "nofollow",
           "max-snippet": seo.robots["max-snippet"],
           "max-image-preview": seo.robots["max-image-preview"],

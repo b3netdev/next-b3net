@@ -31,19 +31,87 @@ const poppins = Poppins({
 
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000";
 
+
+
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
+
   title: {
     default: "Top Web Design & AI Digital Marketing Company | B3NET",
     template: "%s | B3NET",
   },
+
   description:
     "B3NET offers cutting-edge web design, AI-powered digital marketing, mobile app development, and OpenAI integration services. Transform your brand with our expert solutions.",
+
   alternates: {
     canonical: siteUrl,
   },
-};
 
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-snippet": -1,
+      "max-image-preview": "large",
+      "max-video-preview": -1,
+    },
+  },
+
+  openGraph: {
+    locale: "en_US",
+    type: "article",
+    title: "Home",
+    description:
+      "B3NET offers cutting-edge web design, AI-powered digital marketing, mobile app development, and OpenAI integration services. Transform your brand with our expert solutions.",
+    url: siteUrl,
+    siteName: "B3net",
+    images: [
+      {
+        url: "https://backend.b3net.com/wp-content/uploads/2025/11/B3NET-New-Logo-for-Yaost.jpg",
+        width: 1200,
+        height: 675,
+        type: "image/jpeg",
+        alt: "B3NET",
+      },
+    ],
+    modifiedTime: "2026-03-16T08:48:52+00:00",
+  },
+
+  twitter: {
+    card: "summary_large_image",
+    site: "@b3net",
+    title: "Home",
+    description:
+      "B3NET offers cutting-edge web design, AI-powered digital marketing, mobile app development, and OpenAI integration services. Transform your brand with our expert solutions.",
+    images: [
+      "https://backend.b3net.com/wp-content/uploads/2025/11/B3NET-New-Logo-for-Yaost.jpg",
+    ],
+  },
+
+  other: {
+    "article:publisher": "https://www.facebook.com/B3NET",
+    "article:modified_time": "2026-03-16T08:48:52+00:00",
+
+    "og:locale": "en_US",
+    "og:type": "article",
+    "og:title": "Home",
+    "og:description":
+      "B3NET offers cutting-edge web design, AI-powered digital marketing, mobile app development, and OpenAI integration services. Transform your brand with our expert solutions.",
+    "og:url": siteUrl,
+    "og:site_name": "B3net",
+    "og:image":
+      "https://backend.b3net.com/wp-content/uploads/2025/11/B3NET-New-Logo-for-Yaost.jpg",
+    "og:image:width": "1200",
+    "og:image:height": "675",
+    "og:image:type": "image/jpeg",
+
+    "twitter:card": "summary_large_image",
+    "twitter:site": "@b3net",
+  },
+};
 export default function RootLayout({
   children,
 }: {
@@ -76,7 +144,7 @@ export default function RootLayout({
           />
         </noscript>
 
-        {/* Google Tag Manager - Container 1 */}
+      
         <Script id="gtm-tqvc5ns" strategy="afterInteractive">
           {`
             (function(w,d,s,l,i){
@@ -108,7 +176,7 @@ export default function RootLayout({
           `}
         </Script>
 
-        {/* Legacy Universal Analytics - usually remove unless you truly still need UA */}
+        
         <Script id="legacy-ua" strategy="afterInteractive">
           {`
             (function(i,s,o,g,r,a,m){
@@ -127,14 +195,14 @@ export default function RootLayout({
           `}
         </Script>
 
-        {/* Google Ads / gtag.js loader */}
+        
         <Script
           id="google-ads-gtag-src"
           src="https://www.googletagmanager.com/gtag/js?id=AW-1070943410"
           strategy="lazyOnload"
         />
 
-        {/* Optional gtag bootstrap for Ads if needed */}
+       
         <Script id="google-ads-gtag-init" strategy="lazyOnload">
           {`
             window.dataLayer = window.dataLayer || [];
@@ -144,7 +212,7 @@ export default function RootLayout({
           `}
         </Script>
 
-        {/* Heatmap tracking */}
+     
         <Script id="b3net-heatmap" strategy="afterInteractive">
           {`
             if (typeof hmtracker == 'undefined') {
