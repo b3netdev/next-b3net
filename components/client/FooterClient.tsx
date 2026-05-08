@@ -310,6 +310,16 @@ export default function FooterClient() {
   };
   const pathname = usePathname()
   const showContactfooter = pathname != "/request-for-proposal" && !isMobile
+  const handleHomeClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
+    if (pathname === "/") {
+      e.preventDefault();
+
+      window.scrollTo({
+        top: 0,
+        behavior: "smooth",
+      });
+    }
+  };
 
   return (
     <main className="page_content-1">
@@ -555,8 +565,8 @@ export default function FooterClient() {
           <div className="copyright-part">
             <p>
               <span>Copyright © 1999-2026, </span>
-              <Link href="/home">
-                <strong>B3net</strong> inc.
+              <Link href="/" onClick={handleHomeClick}>
+                <strong>B3NET Inc</strong>
               </Link>
             </p>
             <p>
