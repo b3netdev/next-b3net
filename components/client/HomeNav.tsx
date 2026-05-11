@@ -17,7 +17,7 @@ const HomeNav = () => {
                 </ScrollLink>
 
                 <ScrollLink targetId="ai-integration-model" className="font-bold text-base"   >
-                    Ai Integration Model
+                    AI Integration Model
                 </ScrollLink>
 
                 <ScrollLink targetId="portfolio" className="font-bold text-base"   >
