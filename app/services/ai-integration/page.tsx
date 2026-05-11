@@ -288,8 +288,8 @@ const AiIntregation = async ({ params }: { params: { slug: string } }) => {
           </div>
         </div>
 
-        <section className="row align-items-center gy-5">
-          <div className="col-md-6 order-md-last">
+        <section className="row align-items-center gy-5 ">
+          <div className="col-md-6 order-md-last mb-20">
             <img
               src={`${BASE_URL}/wp-content/uploads/2025/03/left-img2.png`}
               alt="AI Solutions"
