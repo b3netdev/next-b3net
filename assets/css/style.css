@@ -5314,8 +5314,9 @@ li {
 .clearfix {
   width: 100vw;
   position: absolute;
-  background-color: #fff;
-  height: 100vh;
+  /* background-color: #fff; */
+  min-height: 100vh;
+  height: auto; 
 }
 
 .OutletClass {
@@ -5480,18 +5481,18 @@ li {
 } */
 
 .hoverService {
-  position: absolute;
+  position: absolute !important;
   top: 100%;
   left: 0;
   width: 100%;
   z-index: 99999;
+  /* background-color: #000; */
 }
 
 .clearfix {
   width: 100vw;
   position: relative;
   background-color: #fff;
-  height: auto;
 }
 
 .megaMenuBackdrop {
@@ -5506,7 +5507,8 @@ li {
   top: 100%;
   left: 0;
   width: 100vw;
-  z-index: 99999;
+  z-index: 999;
+  
 }
 
 .service-menu-item {
@@ -5697,6 +5699,7 @@ li {
   transform: translateY(0);
   background: transparent;
   box-shadow: none;
+  /* background-color: #000000; */
 }
 
 /* On scroll: fixed + slide down from top */

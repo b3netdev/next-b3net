@@ -1,12 +1,13 @@
 "use client";
 
 import React, { useEffect, useRef, useState } from "react";
+import { createPortal } from "react-dom";
 import Link from "next/link";
 import { getServicePath } from "../../lib/servicePath";
 import { useAppDispatch, useAppSelector } from "@/redux/hooks";
 import { setId } from "@/redux/slicers/idSlicer";
 import HeaderForm from "./HeaderForm";
-import { setAboutHover, setWesolveHover,setServiceHover } from "@/redux/slicers/hoverSlicer";
+import { setAboutHover, setWesolveHover, setServiceHover } from "@/redux/slicers/hoverSlicer";
 
 
 
@@ -64,8 +65,11 @@ type ServiceMegaMenuColumn = {
 export default function Navbar() {
 
     const { showDefault, showLayout } = useAppSelector((state) => state.menu);
-    const { abouthover, wesolvehover,servicehover } = useAppSelector((state) => state.hoverMenu);
+    const { abouthover, wesolvehover, servicehover } = useAppSelector((state) => state.hoverMenu);
     const [hoverService, setHoverService] = useState(false);
+
+    const [serviceMenuTop, setServiceMenuTop] = useState(0);
+    const closeServiceTimer = useRef<NodeJS.Timeout | null>(null);
 
 
     const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -86,7 +90,7 @@ export default function Navbar() {
             if (showDefault === false) {
                 if (window.scrollY > 10) setIsSticky(true);
                 else setIsSticky(false);
-                setHoverService(false);
+                // setHoverService(false);
             }
         };
 
@@ -114,6 +118,33 @@ export default function Navbar() {
     if (showLayout == false) {
         return null;
     }
+
+    const openServiceMenu = () => {
+        if (closeServiceTimer.current) {
+            clearTimeout(closeServiceTimer.current);
+            closeServiceTimer.current = null;
+        }
+
+        const navHeight = navRef.current?.getBoundingClientRect().height || 90;
+
+        setServiceMenuTop(window.scrollY + navHeight);
+        setHoverService(true);
+    };
+
+    const closeServiceMenu = () => {
+        closeServiceTimer.current = setTimeout(() => {
+            setHoverService(false);
+        }, 0);
+    };
+
+    const keepServiceMenuOpen = () => {
+        if (closeServiceTimer.current) {
+            clearTimeout(closeServiceTimer.current);
+            closeServiceTimer.current = null;
+        }
+
+        setHoverService(true);
+    };
 
 
     const ServiceMenuGroup = ({ group }: { group: any }) => {
@@ -147,11 +178,14 @@ export default function Navbar() {
             </div>
         );
     };
-
-    const ServiceSubMenu = () => {
+    const ServiceSubMenu = ({ top }: { top: number }) => {
         return (
-            <div className="hoverService position-absolute start-0 top-100 sub-menu">
-                <div className="position-absolute start-0 top-100">
+            <div className="hoverService sub-menu "
+                style={{ top: `${top}px` }}
+                onMouseEnter={keepServiceMenuOpen}
+                onMouseLeave={closeServiceMenu}
+            >
+                <div className="position-absolute start-0 top-100 shadow-xl">
                     <div className="wsmegamenu clearfix">
                         <div className="typography-text clearfix">
                             <div className="container">
@@ -311,8 +345,8 @@ export default function Navbar() {
                                     return (
                                         <li
                                             key={item.id}
-                                            onMouseEnter={() => setHoverService(true)}
-                                            onMouseLeave={() => setHoverService(false)}
+                                            onMouseEnter={openServiceMenu}
+                                            onMouseLeave={closeServiceMenu}
                                         >
                                             <span style={{ opacity: "1", color: labelColor }}>
                                                 <Link
@@ -431,11 +465,12 @@ export default function Navbar() {
                 </div>
             </div>
 
-            {hoverService && (
-                <div onMouseEnter={() => setHoverService(true)} onMouseLeave={() => setHoverService(false)}>
-                    <ServiceSubMenu />
-                </div>
-            )}
+            {hoverService &&
+                typeof document !== "undefined" &&
+                createPortal(
+                    <ServiceSubMenu top={serviceMenuTop} />,
+                    document.body
+                )}
 
             <SideMenu
                 open={mobileMenuOpen}
