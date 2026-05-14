@@ -22,8 +22,8 @@ const page = () => {
     return (
         <>
             <ShowNav />
-            <div className=" wdw-container ">
-                <div className="wrapper_main">
+            <div className="wdw-container ">
+                <div className="container">
                     <div className="wdw_txtbox1">
                         <div className="wdw-txt primary-bodyText">
                             Thank you for choosing B3NET. We appreciate your business.
@@ -68,7 +68,7 @@ const page = () => {
                                     </a>
                                 </li>
 
-                                <li style={{ margin: '10px 20px 0 0' }}>
+                                <li >
                                     <a
                                         href="https://docs.google.com/a/b3net.org/forms/d/1rSodxBBRGQFSz2_SnEg7auJNFuAZ51TdHnFBHEzr89k/viewform"
                                         target="_blank"
@@ -77,7 +77,7 @@ const page = () => {
                                         <img src={`${BASE_URL}/wp-content/uploads/2026/05/wdw4.png`} />
                                     </a>
                                 </li>
-                                <li style={{ margin: '10px 20px 0 0' }}>
+                                <li>
                                     <a
                                         href="https://docs.google.com/forms/d/e/1FAIpQLSfpRxeWuHK-88WjzFrjgGNcZCW1nN3XZtXckpRC9Co1TX2jMA/viewform"
                                         target="_blank"
@@ -87,6 +87,9 @@ const page = () => {
                                     </a>
                                 </li>
                             </ul>
+                            <div>
+                                
+                            </div>
                         </div>
                     </div>
                 </div>
