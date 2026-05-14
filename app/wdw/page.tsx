@@ -1,7 +1,17 @@
 import ShowNav from '@/components/client/ShowNav'
 import { BASE_URL } from '@/lib/url'
-import Link from 'next/link'
+import type { Metadata } from "next";
 
+
+
+
+export const metadata: Metadata = {
+    title: "Wdw | B3NET",
+    robots: {
+      index: false,
+      follow: false,
+    },
+  };
 
 const page = () => {
 
