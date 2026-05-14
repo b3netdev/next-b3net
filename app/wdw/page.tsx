@@ -77,6 +77,15 @@ const page = () => {
                                         <img src={`${BASE_URL}/wp-content/uploads/2026/05/wdw4.png`} />
                                     </a>
                                 </li>
+                                <li style={{ margin: '10px 20px 0 0' }}>
+                                    <a
+                                        href="https://docs.google.com/forms/d/e/1FAIpQLSfpRxeWuHK-88WjzFrjgGNcZCW1nN3XZtXckpRC9Co1TX2jMA/viewform"
+                                        target="_blank"
+                                        rel="noreferrer"
+                                    >
+                                        <img src={`${BASE_URL}/wp-content/uploads/2026/05/wdw5.png`} />
+                                    </a>
+                                </li>
                             </ul>
                         </div>
                     </div>
