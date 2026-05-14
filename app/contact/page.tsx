@@ -58,7 +58,7 @@ export default async function ContactUs() {
   Austin, TX 78702`,
         },
       ],
-      phone: "(214) 586-0650",
+      phone: "877-890-8986",
       email: "info@b3net.com",
     },
     {

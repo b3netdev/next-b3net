@@ -253,7 +253,7 @@ export default function FooterClient() {
       const data = await getFooterData();
       setFooterMenus(Array.isArray(data) ? data : []);
     };
-  
+
     getData();
   }, [getFooterData]);
 
@@ -309,7 +309,10 @@ export default function FooterClient() {
     }
   };
   const pathname = usePathname()
-  const showContactfooter = pathname != "/request-for-proposal" && !isMobile
+  const showContactfooter =
+    pathname !== "/request-for-proposal" &&
+    pathname !== "/wdw" &&
+    !isMobile;
   const handleHomeClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
     if (pathname === "/") {
       e.preventDefault();

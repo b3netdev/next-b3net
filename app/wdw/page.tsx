@@ -6,7 +6,7 @@ import type { Metadata } from "next";
 
 
 export const metadata: Metadata = {
-    title: "Wdw | B3NET",
+    title: "WDW",
     robots: {
       index: false,
       follow: false,
@@ -44,7 +44,7 @@ const page = () => {
                                         target="_blank"
                                         rel="noreferrer"
                                     >
-                                        <img src={`${BASE_URL}/wdw/images/wdw1.png`} alt="wdw" />
+                                        <img src={`${BASE_URL}/wp-content/uploads/2026/05/wdw1.png`} alt="wdw" />
                                     </a>
                                 </li>
 
@@ -54,7 +54,7 @@ const page = () => {
                                         target="_blank"
                                         rel="noreferrer"
                                     >
-                                        <img src={`${BASE_URL}/wdw/images/wdw2.png`} alt="wdw2" />
+                                        <img src={`${BASE_URL}/wp-content/uploads/2026/05/wdw2.png`} alt="wdw2" />
                                     </a>
                                 </li>
 
@@ -64,7 +64,7 @@ const page = () => {
                                         target="_blank"
                                         rel="noreferrer"
                                     >
-                                        <img src={`${BASE_URL}/wdw/images/wdw3.png`} alt="wdw3" />
+                                        <img src={`${BASE_URL}/wp-content/uploads/2026/05/wdw3.png`} alt="wdw3" />
                                     </a>
                                 </li>
 
@@ -74,7 +74,7 @@ const page = () => {
                                         target="_blank"
                                         rel="noreferrer"
                                     >
-                                        <img src={`${BASE_URL}/wdw/images/im.png`} />
+                                        <img src={`${BASE_URL}/wp-content/uploads/2026/05/wdw4.png`} />
                                     </a>
                                 </li>
                             </ul>
