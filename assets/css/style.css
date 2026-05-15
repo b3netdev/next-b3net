@@ -7617,12 +7617,12 @@ textarea.error {
   display: flex;
   display: -webkit-flex;
   display: -moz-flex;
-  justify-content: center;
-  -webkit-justify-content: center;
-  -moz-justify-content: center;
+  /* justify-content: center; */
+  /* -webkit-justify-content: center; */
+  /* -moz-justify-content: center; */
   align-items: center;
-  -webkit-align-items: center;
-  -moz-align-items: center;
+  /* -webkit-align-items: center; */
+  /* -moz-align-items: center; */
   flex-direction: row-reverse;
   -webkit-flex-direction: row-reverse;
   -moz-flex-direction: row-reverse;
@@ -8301,4 +8301,50 @@ border-radius: 5px;
   .wdw-pic1 ul li {
     width: 90%;
   }
+}
+
+
+/* cca */
+.m-signature-pad--body{
+  width: 40vmax;
+}
+
+@media (max-width: 500px) {
+  .m-signature-pad--body{
+    width: 35vmax;
+  }
+}
+@media (max-width: 350px) {
+  .m-signature-pad--body{
+    width: 30vmax;
+  }
+}
+
+
+.thankyou-payment-sec {
+  width: 100%;
+  float: left;
+  padding: 100px 0 160px; 
+  text-align: center;
+}
+.thank-ttle {
+   font-size: 60px;
+  color: #333;
+  font-weight: 600;
+  text-transform: uppercase;
+  font-family: Source Sans Pro, sans-serif;
+  margin: 0 0 37px;
+}
+.thankyou-payment-sec p {
+  font-family: Source Sans Pro, sans-serif;
+  font-size: 16px;
+  font-weight: normal;
+  color: #333;
+}
+.errorsign{
+  color:#f00;
+}
+.cardsec-logo img {
+  max-width: 300px;
+  width: 100%;
 }

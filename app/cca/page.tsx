@@ -1,12 +1,15 @@
 "use client";
 
-import React, { useEffect } from "react";
+import React, { useEffect, useRef } from "react";
 import { Formik } from "formik";
 import * as Yup from "yup";
 import Link from "next/link";
 import { BASE_URL } from "@/lib/url";
 import { useAppDispatch } from "@/redux/hooks";
 import { SetshowLayout } from "@/redux/slicers/menuSlicer";
+import SignaturePad from "signature_pad";
+import axios from "axios";
+
 
 const stateOptions = [
   { value: "", label: "Select State" },
@@ -62,12 +65,53 @@ const stateOptions = [
   { value: "WY", label: "Wyoming" },
 ];
 
+const luhnCheck = (cardNumber: string) => {
+  const digitsOnly = cardNumber.replace(/\D/g, "");
+
+  let sum = 0;
+  let shouldDouble = false;
+
+  for (let i = digitsOnly.length - 1; i >= 0; i--) {
+    let digit = parseInt(digitsOnly.charAt(i), 10);
+
+    if (shouldDouble) {
+      digit *= 2;
+
+      if (digit > 9) {
+        digit -= 9;
+      }
+    }
+
+    sum += digit;
+    shouldDouble = !shouldDouble;
+  }
+
+  return sum % 10 === 0;
+};
+
 const validationSchema = Yup.object({
   txtdomain: Yup.string().required("Customer Domain Name(s) is required"),
   txtcardtype: Yup.string().required("Card Type is required"),
   txtcardnumber: Yup.string()
-    .required("Card Number is required")
-    .matches(/^[0-9\s]+$/, "Card Number must contain only numbers"),
+    .required("Card number is required")
+    .test("card-length", "Invalid card number length", function (value) {
+      if (!value) return false;
+
+      const { txtcardtype } = this.parent;
+      const digitsOnly = value.replace(/\D/g, "");
+
+      if (txtcardtype === "American Express") {
+        return digitsOnly.length === 15;
+      }
+
+      return digitsOnly.length === 16;
+    })
+    .test("luhn-check", "Invalid card number", function (value) {
+      if (!value) return false;
+
+      return luhnCheck(value);
+    }),
+
   txtexpirationmonth: Yup.string().required("Expiration month is required"),
   txtexpirationyr: Yup.string().required("Expiration year is required"),
   txtsecuritycode: Yup.string()
@@ -83,8 +127,8 @@ const validationSchema = Yup.object({
     .email("Enter a valid email address")
     .required("Contact Email is required"),
   txtamount: Yup.string().required("Amount is required"),
-  applicantsign_image: Yup.string().required("Signature is required"),
   checkme: Yup.boolean().oneOf([true], "You must accept the authorization"),
+  applicantsign_image: Yup.string().required("Applicant signature is required"),
 });
 
 const Page = () => {
@@ -111,14 +155,48 @@ const Page = () => {
 
   const dispatch = useAppDispatch();
 
-
-  useEffect(()=>{
+  useEffect(() => {
     dispatch(SetshowLayout(false));
 
-    return()=>{
-        dispatch(SetshowLayout(true));
-    }
-  },[])
+    return () => {
+      dispatch(SetshowLayout(true));
+    };
+  }, []);
+
+  const canvasRef = useRef<HTMLCanvasElement | null>(null);
+  const signaturePadRef = useRef<SignaturePad | null>(null);
+
+  useEffect(() => {
+    if (!canvasRef.current) return;
+
+    const canvas = canvasRef.current;
+
+    const resizeCanvas = () => {
+      const ratio = Math.max(window.devicePixelRatio || 1, 1);
+
+      canvas.width = canvas.offsetWidth * ratio;
+      canvas.height = canvas.offsetHeight * ratio;
+
+      const context = canvas.getContext("2d");
+      context?.scale(ratio, ratio);
+
+      signaturePadRef.current?.clear();
+    };
+
+    resizeCanvas();
+
+    signaturePadRef.current = new SignaturePad(canvas, {
+      backgroundColor: "rgb(255, 255, 255)",
+      penColor: "rgb(0, 0, 0)",
+    });
+
+    window.addEventListener("resize", resizeCanvas);
+
+    return () => {
+      window.removeEventListener("resize", resizeCanvas);
+      signaturePadRef.current?.off();
+    };
+  }, []);
 
   const renderError = (touched: any, errors: any, field: string) =>
     touched[field] && errors[field] ? (
@@ -127,12 +205,99 @@ const Page = () => {
       </div>
     ) : null;
 
+  const formatCardNumber = (value: string) => {
+    const digitsOnly = value.replace(/\D/g, "");
+
+    const limitedDigits = digitsOnly.slice(0, 16);
+
+    return limitedDigits.replace(/(.{4})/g, "$1 ").trim();
+  };
+
+  const luhnCheck = (cardNumber: string) => {
+    const digitsOnly = cardNumber.replace(/\D/g, "");
+
+    let sum = 0;
+    let shouldDouble = false;
+
+    for (let i = digitsOnly.length - 1; i >= 0; i--) {
+      let digit = parseInt(digitsOnly.charAt(i), 10);
+
+      if (shouldDouble) {
+        digit *= 2;
+
+        if (digit > 9) {
+          digit -= 9;
+        }
+      }
+
+      sum += digit;
+      shouldDouble = !shouldDouble;
+    }
+
+    return sum % 10 === 0;
+  };
+
+
+
+const submitCreditCardForm = async (values: any) => {
+  try {
+    const formData = new URLSearchParams();
+
+    formData.append("txtdomain", values.txtdomain);
+    formData.append("company_name", values.company_name);
+    formData.append("txtcardtype", values.txtcardtype);
+    formData.append("txtcardnumber", values.txtcardnumber);
+    formData.append("txtexpirationmonth", values.txtexpirationmonth);
+    formData.append("txtexpirationyr", values.txtexpirationyr);
+    formData.append("txtsecuritycode", values.txtsecuritycode);
+    formData.append("txtcardname", values.txtcardname);
+    formData.append("txtstrtadd", values.txtstrtadd);
+    formData.append("city", values.city);
+    formData.append("state", values.state);
+    formData.append("zip", values.zip);
+    formData.append("txtphone", values.txtphone);
+    formData.append("txtemail", values.txtemail);
+    formData.append("txtamount", values.txtamount);
+    formData.append("comments", values.comments);
+    formData.append("applicantsign_image", values.applicantsign_image);
+    formData.append("checkme", values.checkme ? "1" : "0");
+
+    const response = await axios.post(
+      `${BASE_URL}/cca/ajax.php`,
+      formData,
+      {
+        headers: {
+          "Content-Type": "application/x-www-form-urlencoded",
+        },
+      }
+    );
+    if(response.data.success){
+      window.location.href = "/cca/thankyou";
+    }
+    return response.data;
+  } catch (error: any) {
+    console.error("API Error:", error.response?.data || error.message);
+    throw error;
+  }
+};
+
+
   return (
     <Formik
       initialValues={initialValues}
       validationSchema={validationSchema}
-      onSubmit={(values) => {
-        console.log("Form Submitted:", values);
+      onSubmit={async (values, { setSubmitting, resetForm }) => {
+        try {
+          const response = await submitCreditCardForm(values);
+      
+          console.log("Submitted successfully:", response);
+      
+          resetForm();
+        } catch (error) {
+          console.log("Something went wrong while submitting the form");
+        } finally {
+          setSubmitting(false);
+        }
       }}
     >
       {({
@@ -143,28 +308,27 @@ const Page = () => {
         handleBlur,
         handleSubmit,
         setFieldValue,
+        setFieldError,
       }) => (
-        <div className="container">
+        <div className="container px-3 sm:px-4 primary-bodyText">
           <div className="contentBox row">
             <div className="w-full flex flex-col">
               {/* header area open */}
               <div className="header_area text-center">
-                
                 <div className="cardsec-logo">
-                  <img 
-                   src={`${BASE_URL}/wp-content/uploads/2025/06/logo-2.png`}
-                  alt="B3NET Logo" />
+                  <img
+                    src={`${BASE_URL}/wp-content/uploads/2025/06/logo-2.png`}
+                    alt="B3NET Logo"
+                  />
                 </div>
-                
+
                 <div className="cardsec-address">
                   8992 Preston Rd, Ste 110 -114 Frisco, TX 75034, Ph: (714)
                   936-0208, Ph: (214) 586-0650
                 </div>
                 <ul className="list-inline">
                   <li>
-                    <Link href="/" >
-                      www.b3net.com
-                    </Link>
+                    <Link href="/">www.b3net.com</Link>
                   </li>
                   <li>|</li>
                   <li>
@@ -174,26 +338,32 @@ const Page = () => {
               </div>
               {/* header area closed */}
 
-              <h2 className="text-center card-title-sec">Credit Card Authorization Form</h2>
+              <h2 className="text-center card-title-sec">
+                Credit Card Authorization Form
+              </h2>
 
               {/* full form area open */}
               <div className="form_full_area">
                 {/* form box 1 open */}
-                <div id="ccbox1" className="flex  justify-center">
-                  <form className="form-horizonta w-[90%] flex flex-col gap-4 justify-center items-center" id="creditcardfrm" onSubmit={handleSubmit}>
+                <div id="ccbox1" className="flex justify-center">
+                  <form
+                    className="form-horizonta w-full md:w-[90%] max-w-[1100px] flex flex-col gap-4 justify-center items-center"
+                    id="creditcardfrm"
+                    onSubmit={handleSubmit}
+                  >
                     <input className="hidden" type="text" />
                     <input className="hidden" type="password" />
 
-                    <div className="flex w-full gap-3">
-                      <label className="font-bold">
+                    <div className="flex flex-col md:flex-row md:flex-wrap w-full gap-2">
+                      <label className="font-bold w-full md:w-auto">
                         <span id="cdn" className="star">*</span>
                         Customer Domain Name(s)
                       </label>
-                      <div className="col-md-9 col-sm-8 col-xs-12">
+                      <div className="col-md-9 col-sm-8 col-xs-12 w-full md:flex-1">
                         <input
                           name="txtdomain"
                           type="text"
-                          className="form-control"
+                          className="form-control w-full"
                           value={values.txtdomain}
                           onChange={handleChange}
                           onBlur={handleBlur}
@@ -202,15 +372,15 @@ const Page = () => {
                       </div>
                     </div>
 
-                    <div className="flex w-full gap-3">
-                      <label className="font-bold w-[20%]">
+                    <div className="flex flex-col md:flex-row md:flex-wrap w-full gap-2">
+                      <label className="font-bold w-full md:w-auto">
                         Company Name
                       </label>
-                      <div className="col-md-9 col-sm-8 col-xs-12">
+                      <div className="col-md-9 col-sm-8 col-xs-12 w-full md:flex-1">
                         <input
                           name="company_name"
                           type="text"
-                          className="form-control"
+                          className="form-control w-full"
                           value={values.company_name}
                           onChange={handleChange}
                           onBlur={handleBlur}
@@ -218,12 +388,12 @@ const Page = () => {
                       </div>
                     </div>
 
-                    <div className="flex w-full gap-3">
-                      <label className="font-bold w-[20%]">
+                    <div className="flex flex-col md:flex-row w-full gap-2 md:gap-3">
+                      <label className="font-bold w-full md:w-[20%]">
                         <span id="ctype" className="star">*</span>
                         Card Type:
                       </label>
-                      <div className="flex gap-6">
+                      <div className="flex flex-col sm:flex-row sm:flex-wrap gap-2 sm:gap-6 w-full md:flex-1">
                         <label className="radio-inline">
                           <input
                             type="radio"
@@ -272,35 +442,54 @@ const Page = () => {
                       </div>
                     </div>
 
-                    <div className="flex w-full gap-3">
-                      <label className="font-bold w-[20%]">
+                    <div className="flex flex-col md:flex-row w-full gap-2 md:gap-3">
+                      <label className="font-bold w-full md:w-[20%]">
                         <span id="cnumber" className="star">*</span>
                         Card Number
                       </label>
-                      <div className="flex flex-col">
+
+                      <div className="col-md-8 col-sm-6 col-xs-10 w-full md:flex-1">
                         <input
                           name="txtcardnumber"
                           type="text"
                           id="txtcardnumber"
-                          className="form-control"
+                          className="form-control w-full"
                           value={values.txtcardnumber}
-                          onChange={handleChange}
-                          onBlur={handleBlur}
+                          onChange={(e) => {
+                            const formattedValue = formatCardNumber(e.target.value);
+                            setFieldValue("txtcardnumber", formattedValue);
+                          }}
+                          onBlur={(e) => {
+                            handleBlur(e);
+
+                            const cardNumber = e.target.value;
+                            const isValidCard = luhnCheck(cardNumber);
+
+                            if (!isValidCard) {
+                              setFieldError("txtcardnumber", "Invalid card number");
+                            } else {
+                              setFieldError("txtcardnumber", "");
+                            }
+                          }}
+                          placeholder=""
+                          inputMode="numeric"
+                          autoComplete="cc-number"
+                          maxLength={22}
                         />
                         {renderError(touched, errors, "txtcardnumber")}
                       </div>
                     </div>
 
-                    <div className="flex w-full gap-3">
-                      <label className="font-bold w-[20%]">
+                    <div className="flex flex-col md:flex-row w-full gap-2 md:gap-3">
+                      <label className="font-bold w-full md:w-[20%]">
                         <span id="exp" className="star">*</span>
                         Expiration Date
                       </label>
 
-                      <div className="col-md-2 col-xs-12">
+                      <div className="col-md-2 col-xs-12 w-full md:w-auto md:min-w-[120px]">
                         <select
                           name="txtexpirationmonth"
-                          className="form-control"
+                          className="form-control w-full"
                           id="txtexpirationmonth"
                           value={values.txtexpirationmonth}
                           onChange={handleChange}
@@ -323,10 +512,10 @@ const Page = () => {
                         {renderError(touched, errors, "txtexpirationmonth")}
                       </div>
 
-                      <div className="col-md-2 col-xs-12">
+                      <div className="col-md-2 col-xs-12 w-full md:w-auto md:min-w-[120px]">
                         <select
                           name="txtexpirationyr"
-                          className="form-control"
+                          className="form-control w-full"
                           id="txtexpirationyr"
                           value={values.txtexpirationyr}
                           onChange={handleChange}
@@ -368,20 +557,20 @@ const Page = () => {
                         {renderError(touched, errors, "txtexpirationyr")}
                       </div>
 
-                      <div className="col-md-5 col-xs-12">
-                        <div className="row">
-                          <div className="col-md-5">
+                      <div className="col-md-5 col-xs-12 w-full md:flex-1">
+                        <div className="row flex flex-col sm:flex-row gap-2 sm:gap-0 items-start sm:items-center">
+                          <div className="col-md-5 w-full sm:w-auto">
                             <label className="control-label">
                               <span id="security" className="star">*</span>
                               Security Code
                             </label>
                           </div>
-                          <div className="col-md-5">
+                          <div className="col-md-5 w-full sm:flex-1">
                             <input
                               name="txtsecuritycode"
                               type="password"
                               id="txtsecuritycode"
-                              className="form-control"
+                              className="form-control w-full"
                               value={values.txtsecuritycode}
                               onChange={handleChange}
                               onBlur={handleBlur}
@@ -396,32 +585,34 @@ const Page = () => {
                               title=""
                               data-content={`<img src='${BASE_URL}/cca/images/card_help.png' height='80' />`}
                               data-placement="top"
-                             
                             >
                               <img
                                 src={`${BASE_URL}/cca/images/help.png`}
                                 width="25"
                                 height="25"
                                 alt="help"
-                                
                               />
-                              <img src={`${BASE_URL}/cca/images/card_help.png`} className="hidden" alt="card_help" />
+                              <img
+                                src={`${BASE_URL}/cca/images/card_help.png`}
+                                className="hidden"
+                                alt="card_help"
+                              />
                             </a>
                           </div>
                         </div>
                       </div>
                     </div>
 
-                    <div className="flex w-full gap-3">
-                      <label className="font-bold w-[20%]">
+                    <div className="flex flex-col md:flex-row w-full gap-2 md:gap-3">
+                      <label className="font-bold w-full md:w-[20%]">
                         <span className="star">*</span>
                         Name on Credit Card
                       </label>
-                      <div className="flex flex-col">
+                      <div className="flex flex-col w-full md:flex-1">
                         <input
                           name="txtcardname"
                           type="text"
-                          className="form-control"
+                          className="form-control w-full"
                           value={values.txtcardname}
                           onChange={handleChange}
                           onBlur={handleBlur}
@@ -430,20 +621,20 @@ const Page = () => {
                       </div>
                     </div>
 
-                    <h4 className="page-header">
+                    <h4 className="page-header w-full text-base sm:text-lg">
                       Billing Address for Card Holder (as shown on credit card statement)
                     </h4>
 
-                    <div className="flex w-full gap-3">
-                      <label className="font-bold w-[20%]">
+                    <div className="flex flex-col md:flex-row w-full gap-2 md:gap-3">
+                      <label className="font-bold w-full md:w-[20%]">
                         <span className="star">*</span>
                         Street Address <br />
                         (incl. unit # or Suite #)
                       </label>
-                      <div className="flex flex-col" >
+                      <div className="col-md-8 col-sm-6 col-xs-10 w-full md:flex-1">
                         <textarea
                           name="txtstrtadd"
-                          className="form-control"
+                          className="form-control w-full"
                           cols={5}
                           rows={2}
                           value={values.txtstrtadd}
@@ -454,16 +645,16 @@ const Page = () => {
                       </div>
                     </div>
 
-                    <div className="flex w-full gap-3">
-                      <label className="font-bold w-[5%]">
+                    <div className="flex flex-col lg:flex-row w-full gap-2 lg:gap-3">
+                      <label className="font-bold w-full lg:w-[5%]">
                         <span className="star">*</span>
                         City
                       </label>
-                      <div className="flex flex-col" >
+                      <div className="flex flex-col w-full lg:flex-1">
                         <input
                           name="city"
                           type="text"
-                          className="form-control"
+                          className="form-control w-full"
                           value={values.city}
                           onChange={handleChange}
                           onBlur={handleBlur}
@@ -471,14 +662,14 @@ const Page = () => {
                         {renderError(touched, errors, "city")}
                       </div>
 
-                      <label className="font-bold w-[10%]">
+                      <label className="font-bold w-full lg:w-[10%]">
                         <span className="star">*</span>
                         State
                       </label>
-                      <div className="flex flex-col" >
+                      <div className="flex flex-col w-full lg:flex-1">
                         <select
                           name="state"
-                          className="form-control"
+                          className="form-control w-full"
                           value={values.state}
                           onChange={handleChange}
                           onBlur={handleBlur}
@@ -492,15 +683,15 @@ const Page = () => {
                         {renderError(touched, errors, "state")}
                       </div>
 
-                      <label className="font-bold w-[10%]">
+                      <label className="font-bold w-full lg:w-[10%]">
                         <span className="star">*</span>
                         Zip code
                       </label>
-                      <div className="flex flex-col">
+                      <div className="flex flex-col w-full lg:flex-1">
                         <input
                           name="zip"
                           type="text"
-                          className="form-control"
+                          className="form-control w-full"
                           value={values.zip}
                           onChange={handleChange}
                           onBlur={handleBlur}
@@ -509,16 +700,16 @@ const Page = () => {
                       </div>
                     </div>
 
-                    <div className="flex w-full gap-3">
-                      <label className="font-bold w-[20%]">
+                    <div className="flex flex-col md:flex-row w-full gap-2 md:gap-3">
+                      <label className="font-bold w-full md:w-[20%]">
                         <span className="star">*</span>
                         Phone Number
                       </label>
-                      <div className="flex flex-col">
+                      <div className="col-md-8 col-sm-6 col-xs-10 w-full md:flex-1">
                         <input
                           name="txtphone"
                           type="text"
-                          className="form-control"
+                          className="form-control w-full"
                           value={values.txtphone}
                           onChange={handleChange}
                           onBlur={handleBlur}
@@ -527,16 +718,16 @@ const Page = () => {
                       </div>
                     </div>
 
-                    <div className="flex w-full gap-3">
-                      <label className="font-bold w-[20%]">
+                    <div className="flex flex-col md:flex-row w-full gap-2 md:gap-3">
+                      <label className="font-bold w-full md:w-[20%]">
                         <span className="star">*</span>
                         Contact Email
                       </label>
-                      <div className="flex flex-col">
+                      <div className="col-md-8 col-sm-6 col-xs-10 w-full md:flex-1">
                         <input
                           name="txtemail"
                           type="text"
-                          className="form-control"
+                          className="form-control w-full"
                           value={values.txtemail}
                           onChange={handleChange}
                           onBlur={handleBlur}
@@ -545,18 +736,16 @@ const Page = () => {
                       </div>
                     </div>
 
-                    
-
-                    <div className="flex w-full gap-3">
-                      <label className="font-bold w-[20%]">
+                    <div className="flex flex-col md:flex-row w-full gap-2 md:gap-3">
+                      <label className="font-bold w-full md:w-[20%]">
                         <span className="star">*</span>
                         Amount $
                       </label>
-                      <div className="flex flex-col">
+                      <div className="col-md-8 col-sm-6 col-xs-10 w-full md:flex-1">
                         <input
                           name="txtamount"
                           type="text"
-                          className="form-control"
+                          className="form-control w-full"
                           value={values.txtamount}
                           onChange={handleChange}
                           onBlur={handleBlur}
@@ -565,17 +754,17 @@ const Page = () => {
                       </div>
                     </div>
 
-                    <div className="flex w-full gap-3">
-                      <label className="font-bold w-[20%]">
+                    <div className="flex flex-col md:flex-row w-full gap-2 md:gap-3">
+                      <label className="font-bold w-full md:w-[20%]">
                         Comments
                       </label>
-                      <div className="flex gap-6">
+                      <div className="col-md-8 col-sm-6 col-xs-10 w-full md:flex-1">
                         <textarea
                           id="w3review"
                           name="comments"
                           rows={4}
                           cols={50}
-                          className="form-control"
+                          className="form-control w-full"
                           value={values.comments}
                           onChange={handleChange}
                           onBlur={handleBlur}
@@ -583,47 +772,92 @@ const Page = () => {
                       </div>
                     </div>
 
-                    <div className="flex w-full gap-3">
-                      <div className="row sign-pad-sec">
-                        <div className="col-md-7 col-xs-12">
-                          
-
-                          <div id="signature-pad" className="m-signature-pad">
-                            <div className="m-signature-pad--body">
-                              <canvas id="applicant_signature"></canvas>
+                    <div className="flex flex-col md:flex-row w-full gap-2 md:gap-3">
+                      <div className="row sign-pad-sec w- full ">
+                        <div className="col-md-7 col-xs-12 w-full ">
+                          <div id="signature-pad" className="m-signature-pad w-full">
+                            <div className="m-signature-pad--body w-full">
+                              <canvas
+                                ref={canvasRef}
+                                id="applicant_signature"
+                                style={{
+                                  width: "100%",
+                                  height: "220px",
+                                  border: "1px solid #ccc",
+                                  borderRadius: "6px",
+                                  background: "#fff",
+                                }}
+                              />
                             </div>
+
                             <div className="m-signature-pad--footer">
                               <div
                                 className="description"
-                                style={{ fontSize: "16px", margin: "7px 0 15px 0" }}
+                                style={{
+                                  fontSize: "16px",
+                                  margin: "7px 0 15px 0",
+                                }}
                               >
                                 Sign above{" "}
                                 <span style={{ fontWeight: "normal" }}>
                                   (after sign save it to use)
                                 </span>
                               </div>
+
                               <button
                                 type="button"
                                 id="clear_applicant"
                                 className="button clear"
                                 data-action="clear"
-                                onClick={() => setFieldValue("applicantsign_image", "")}
+                                onClick={() => {
+                                  signaturePadRef.current?.clear();
+                                  setFieldValue("applicantsign_image", "");
+                                }}
                               >
                                 Clear
                               </button>
+
                               <button
                                 type="button"
                                 id="save_applicant"
                                 className="button save"
                                 data-action="save"
                                 onClick={() => {
-                                  const fakeBase64Signature = "signature-saved";
-                                  setFieldValue("applicantsign_image", fakeBase64Signature);
+                                  if (!signaturePadRef.current) return;
+
+                                  if (signaturePadRef.current.isEmpty()) {
+                                    setFieldValue("applicantsign_image", "");
+                                    return;
+                                  }
+
+                                  const signatureBase64 =
+                                    signaturePadRef.current.toDataURL("image/png");
+                                  setFieldValue(
+                                    "applicantsign_image",
+                                    signatureBase64
+                                  );
                                 }}
                               >
                                 Save
                               </button>
                             </div>
+
+                            {values.applicantsign_image && (
+                              <div style={{ marginTop: "15px" }}>
+                                <p>Saved Signature:</p>
+                                <img
+                                  src={values.applicantsign_image}
+                                  alt="Applicant Signature"
+                                  style={{
+                                    maxWidth: "100%",
+                                    width: "300px",
+                                    border: "1px solid #ddd",
+                                    background: "#fff",
+                                  }}
+                                />
+                              </div>
+                            )}
+
                             <input
                               data-rule-signature="true"
                               type="hidden"
@@ -632,24 +866,27 @@ const Page = () => {
                               value={values.applicantsign_image}
                               readOnly
                             />
+
                             {renderError(touched, errors, "applicantsign_image")}
                           </div>
                         </div>
 
-                        <div className="col-md-5 col-xs-12 text-right">
+                        <div className="col-md-5 col-xs-12 text-left md:text-right mt-3 md:mt-0">
                           <span className="control-label">Date: </span>03/19/2026
                         </div>
                       </div>
                     </div>
 
-                    <div className="checkbox">
+                    <div className="checkbox w-full text-sm sm:text-base leading-relaxed">
                       <label>
                         <input
                           type="checkbox"
                           name="checkme"
                           value="1"
                           checked={values.checkme}
-                          onChange={(e) => setFieldValue("checkme", e.target.checked)}
+                          onChange={(e) =>
+                            setFieldValue("checkme", e.target.checked)
+                          }
                           onBlur={handleBlur}
                         />{" "}
                         I understand that this is a service, and the fees are
@@ -667,12 +904,12 @@ const Page = () => {
                     </div>
 
                     <div
-                      className="form-group text-center"
+                      className="form-group text-center w-full"
                       style={{ margin: "34px 0 0 0" }}
                     >
                       <button
                         type="submit"
-                        className="btn btn-info-gradiant btn-md btn-arrow m-t-20"
+                        className="btn btn-info-gradiant btn-md btn-arrow m-t-20 w-full sm:w-auto"
                       >
                         <span>
                           Submit Information <i className="fa fa-arrow-right"></i>
@@ -681,9 +918,7 @@ const Page = () => {
                     </div>
                   </form>
                 </div>
-                
               </div>
-              
             </div>
           </div>
         </div>
