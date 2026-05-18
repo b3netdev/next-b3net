@@ -83,7 +83,7 @@ const page = () => {
                                         target="_blank"
                                         rel="noreferrer"
                                     >
-                                        <img src={`${BASE_URL}/wp-content/uploads/2026/05/wdw5.png`} />
+                                        <img src={`${BASE_URL}/wp-content/uploads/2026/05/wdw5-1.png`} />
                                     </a>
                                 </li>
                             </ul>
