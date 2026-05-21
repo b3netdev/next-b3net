@@ -476,5 +476,6 @@ export const sluglist = [
     { slug: "southlake-website-design-development" },
     { slug: "digital-marketing-tustin" },
     { slug: "website-design-tustin" },
-     { slug: "hbot-marketing" },
+    { slug: "hbot-marketing" },
+    { slug: "healthcare-web-design" },
 ]
