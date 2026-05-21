@@ -174,10 +174,6 @@ const Services = async () => {
                             {pageData?.acf?.data?.service_page_section_7_card?.map(
                                 (item: any, index: any) => {
 
-
-
-
-
                                     return (
                                         <div
                                             className="item"
