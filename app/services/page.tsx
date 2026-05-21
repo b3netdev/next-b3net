@@ -83,13 +83,13 @@ const Services = async () => {
                         {pageData?.acf?.data?.services_page_section_3_card?.map(
                             (service: any, i: any) => (
                                 <div className=" col-md-6 col-lg-4 col-sm-6 " key={i}>
-                                    <div className="Servicecard">
+                                    <div className="Servicecard rounded-xl " style={{height:"630px"}}>
                                         <img
                                             src={service.image}
                                             alt={service.title}
                                             className="serviceImages"
                                         />
-                                        <div className="card-body">
+                                        <div className="card-body !justify-start gap-2">
                                             <h4>{service.title}</h4>
                                             <div
                                             className="primary-bodyText"
@@ -126,7 +126,7 @@ const Services = async () => {
                     <div className="servicetestimonial">
                         {pageData?.acf?.data?.service_page_section_6_testimonial?.map(
                             (item: any, index: any) => (
-                                <div className="item clientTesticard " key={index}>
+                                <div className="item clientTesticard " key={index} style={{height:"344px"}}>
                                     <div className="border-testi">
                                         <div className="testimonial-wrapper lazyloaded">
                                             <div className="quote-icon">
@@ -138,7 +138,7 @@ const Services = async () => {
                                             <span className="primary-bodyText">
                                                 {item?.post_content}
                                                 <Link
-                                                    href="/"
+                                                    href="/testimonial"
                                                     className="ms-1" style={{ color: "#FF4F02" }}>
                                                     Read More
                                                 </Link>
