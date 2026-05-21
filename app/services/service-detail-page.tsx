@@ -95,6 +95,7 @@ const ServiceSubpage = async ({ params }: { params: { slug: string } }) => {
                         @media (min-width: 451px) {
                         .service-landing-wrap {
                             background-image: url("${pageData?.acf?.data?.banner_image}") !important;
+                            background-color: darkblue;
                             background-size: cover;
                             background-position: center;
                             background-repeat: no-repeat;
@@ -228,6 +229,7 @@ const ServiceSubpage = async ({ params }: { params: { slug: string } }) => {
             }
 
 
+        
 
             {pageData?.acf?.data?.common_repeater_heading_1 && (
 
@@ -416,7 +418,7 @@ const ServiceSubpage = async ({ params }: { params: { slug: string } }) => {
 
 
 
-            {pageData?.acf?.data?.services_page_section_3_title && (
+            {(pageData?.acf?.data?.services_page_section_3_title || pageData?.acf?.data?.services_page_section_3_card ) && (
                 <div className="related-post py-5  ">
                     <div className="container flex w-full flex-col items-center justify-center">
                         <div className="heading5 text-center services-card-solution  ">
