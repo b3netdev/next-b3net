@@ -5,6 +5,7 @@ import { Autoplay } from "swiper/modules";
 
 import "swiper/css";
 import { BASE_URL } from "@/lib/url";
+import Link from "next/link";
 
 type ServiceTestimonialProps = {
     pageData: any;
@@ -29,24 +30,21 @@ export default function ServiceTestimonial({
                         </p>
                     </div>
 
-                    <div className="new-slider-2 d-flex flex-wrap gap-5 justify-center">
+                    <div className="new-slider-2 d-flex flex-wrap gap-5 justify-center mx-auto">
                         <Swiper
-                            modules={[Autoplay]}
+                           modules={[Autoplay]}
                             spaceBetween={30}
                             slidesPerView={1}
-                            centeredSlides={testimonials.length <= 2}
                             autoplay={{
                                 delay: 3500,
                                 disableOnInteraction: false,
                             }}
                             breakpoints={{
                                 768: {
-                                    slidesPerView: 2,
-                                    centeredSlides: testimonials.length <= 2,
+                                    slidesPerView: testimonials.length <= 2 ? 2 : 2,
                                 },
                                 1024: {
-                                    slidesPerView: 3,
-                                    centeredSlides: testimonials.length <= 2,
+                                    slidesPerView: testimonials.length <= 2 ? 3 : 3,
                                 },
                             }}
                             centerInsufficientSlides={true}
@@ -66,10 +64,16 @@ export default function ServiceTestimonial({
                                                     </div>
 
                                                     <p className="clamp-3 primary-bodyText">
-                                                        {data?.post_content.slice(0, 180)}{" "}
+                                                        {data?.post_content.slice(0, 160)}{" "}
                                                         {data?.post_content?.length > 180 && (
                                                             <span>...</span>
                                                         )}
+                                                        <Link
+                                                            href={`/testimonial`}
+                                                            className="read-more"
+                                                        >
+                                                            <span className="read-more"> Read More</span>
+                                                        </Link>
                                                     </p>
 
                                                     <div className="testi-icon-wrap">

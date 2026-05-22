@@ -111,60 +111,9 @@ const Services = async () => {
             <Workslider pageData={pageData} />
 
 
-             <div className="our-work-section  lazyloaded">
-                <div className="container">
-                    <div className="heading-blocks text-center mb-5">
-                        <h2 className="sec-heading">
-                            {pageData?.acf?.data?.service_page_section_6_title}
-                        </h2>
-                        <p className="primary-bodyText">
-                            We are immensely grateful for our clients’ kind words. Here is
-                            what they want to say about our overall services.
-                        </p>
-                    </div>
-
-                    <div className="servicetestimonial">
-                        {pageData?.acf?.data?.service_page_section_6_testimonial?.map(
-                            (item: any, index: any) => (
-                                <div className="item clientTesticard " key={index} style={{height:"344px"}}>
-                                    <div className="border-testi">
-                                        <div className="testimonial-wrapper lazyloaded">
-                                            <div className="quote-icon">
-                                                <img
-                                                    src={`${BASE_URL}/wp-content/themes/perfecti/assets/seo-assets/images/tetimonial-quote-icon.png`}
-                                                    alt="quotes"
-                                                />
-                                            </div>
-                                            <span className="primary-bodyText">
-                                                {item?.post_content}
-                                                <Link
-                                                    href="/testimonial"
-                                                    className="ms-1" style={{ color: "#FF4F02" }}>
-                                                    Read More
-                                                </Link>
-                                            </span>
-                                            <div
-                                                className="testi-icon-wrap"
-                                                style={{ paddingTop: "50px" }}
-                                            >
-                                                <div className="testi-icon">
-                                                    {" "}
-                                                    <img src={item?.featured_image?.url} />
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            )
-                        )}
-                    </div>
-                </div>
-            </div> 
-
-
-            {/* {pageData?.acf?.data?.service_page_section_6_title && (
+            {pageData?.acf?.data?.service_page_section_6_title && (
                 <ServiceTestimonial pageData={pageData} />
-            )} */}
+            )}
 
             <div className="our-work Challenges outerwrap related-post related-post-1 py-3 py-sm-5 mt-1 mt-sm-5">
                 <div className="our-work-section  lazyloaded">
