@@ -10,6 +10,8 @@ import { Metadata } from "next";
 import { buildMetadata, getSchemaFromPageData, getSeoFromPageData } from "@/lib/seo";
 import { notFound } from "next/navigation";
 import StructuredData from "@/components/server/StructuredData";
+import ServiceTestimonial from "./ServiceTestimonial";
+import { url } from "inspector/promises";
 
 
 
@@ -37,8 +39,6 @@ const Services = async () => {
 
 
     if (!pageData) notFound();
-
-
 
 
 
@@ -111,7 +111,7 @@ const Services = async () => {
             <Workslider pageData={pageData} />
 
 
-            <div className="our-work-section  lazyloaded">
+             <div className="our-work-section  lazyloaded">
                 <div className="container">
                     <div className="heading-blocks text-center mb-5">
                         <h2 className="sec-heading">
@@ -159,7 +159,12 @@ const Services = async () => {
                         )}
                     </div>
                 </div>
-            </div>
+            </div> 
+
+
+            {/* {pageData?.acf?.data?.service_page_section_6_title && (
+                <ServiceTestimonial pageData={pageData} />
+            )} */}
 
             <div className="our-work Challenges outerwrap related-post related-post-1 py-3 py-sm-5 mt-1 mt-sm-5">
                 <div className="our-work-section  lazyloaded">
@@ -173,7 +178,10 @@ const Services = async () => {
                         <div className="ServiceKeyChanges">
                             {pageData?.acf?.data?.service_page_section_7_card?.map(
                                 (item: any, index: any) => {
-
+                                    const slug = item?.cta?.url
+                                    .split("/")
+                                    .pop()
+                                    .replace(".html", "");
                                     return (
                                         <div
                                             className="item"
@@ -201,7 +209,7 @@ const Services = async () => {
 
                                                         <div className="mt-4">
                                                             <Link
-                                                                href={`/${item?.page_info}`}
+                                                                href={`/${slug}`}
                                                                 className="btn btn-orange"
                                                             >
                                                                 <span className="btn_label_1">
