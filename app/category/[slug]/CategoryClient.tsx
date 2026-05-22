@@ -109,12 +109,11 @@ const CategoryClient = ({ slug }: CategoryClientProps) => {
     return (
         <div>
             <ShowNav />
-            <div className="port-landing-wrap details-page default-img">
-                <div className="menu-design"></div>
-                <div className="banner-img">
-                    <img src="https://b3net.info/2025/b3net/b3netdev/wp-content/themes/b3net/assets/images/portfolio/port-details-banner.jpg" alt="" />
+            <div style={{marginTop:"90px"}} />
+            <div className="default-img flex justify-center items-center" style={{background:"darkblue"}}>
+                <div className="banner-img" >
                     <div className="container">
-                        <div className="banner-caption">
+                        <div className="banner-caption category-banner-sec" style={{height:"200px", display:"flex", justifyContent:"center", alignItems:"center"}}>
                             <h2>Categories</h2>
                         </div>
                     </div>
@@ -164,7 +163,6 @@ const CategoryClient = ({ slug }: CategoryClientProps) => {
                                                 <Link href={`/${post?.slug}`}
                                                     onClick={() => setCategoryID(post?.categories)}
                                                 >
-
                                                     <img
                                                         src={post?.featured_image_url || ""}
                                                         className="card-img-top"
