@@ -22,7 +22,7 @@ type CategoryClientProps = {
 const CategoryClient = ({ slug }: CategoryClientProps) => {
 
 
-    const { getBlogItems, loading } = useBlog();
+    const { getBlogItems, loading, getBlogCategories } = useBlog();
     const dispatch = useDispatch()
 
 
@@ -34,12 +34,28 @@ const CategoryClient = ({ slug }: CategoryClientProps) => {
     const [blogItems, setBlogItems] = useState<any>([]);
     const [pagenumber, setPageNumber] = useState<any>(1);
 
+    const [categoryloading, setCategoryLoading] = useState(false)
+    const [categoryid, setCategoryid] = useState<any>()
 
+    useEffect(() => {
+        const getPageData = async () => {
+            setCategoryLoading(true)
+            const data = await getBlogCategories();
+            console.log(data, "DATA")
+            for (let i in data) {
+                console.log(data[i].slug)
+                if (data[i].slug == slug) setCategoryid(data[i].id)
+            }
 
+            setCategoryLoading(false)
+        };
 
+        getPageData();
+    }, [slug]);
 
 
     useEffect(() => {
+        if (!categoryid) return
 
         const getblogitems = async () => {
             const params = new URLSearchParams({
@@ -47,7 +63,7 @@ const CategoryClient = ({ slug }: CategoryClientProps) => {
                 page: String(pagenumber),
             });
 
-            params.append("category", String(slug));
+            params.append("categories", categoryid);
 
             const res: any = await getBlogItems(params);
             setBlogItems(res.data);
@@ -55,7 +71,7 @@ const CategoryClient = ({ slug }: CategoryClientProps) => {
         };
 
         getblogitems();
-    }, [slug, pagenumber]);
+    }, [pagenumber, categoryid]);
 
 
 
@@ -105,15 +121,15 @@ const CategoryClient = ({ slug }: CategoryClientProps) => {
     };
 
 
-    const showNoData = !loading && blogItems?.length === 0;
+    const showNoData = !loading && !categoryloading && blogItems?.length === 0;
     return (
         <div>
             <ShowNav />
-            <div style={{marginTop:"90px"}} />
-            <div className="default-img flex justify-center items-center" style={{background:"darkblue"}}>
+            <div style={{ marginTop: "90px" }} />
+            <div className="default-img flex justify-center items-center" style={{ background: "darkblue" }}>
                 <div className="banner-img" >
                     <div className="container">
-                        <div className="banner-caption category-banner-sec" style={{height:"200px", display:"flex", justifyContent:"center", alignItems:"center"}}>
+                        <div className="banner-caption category-banner-sec" style={{ height: "200px", display: "flex", justifyContent: "center", alignItems: "center" }}>
                             <h2>Categories</h2>
                         </div>
                     </div>
@@ -128,7 +144,7 @@ const CategoryClient = ({ slug }: CategoryClientProps) => {
                 >
                     <div className="portfolio-imgs blog-data " id="content-section">
                         <div className="blog-container-box" id="jar1">
-                            {loading ? (
+                            {loading || categoryloading ? (
                                 Array.from({ length: 6 }, (_, index) => (
                                     <div className="blogItem" key={index}>
                                         <div className="card-parts-1 blog-box">

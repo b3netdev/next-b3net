@@ -49,6 +49,7 @@ export default function BlogClient() {
       setCategoryLoading(true)
       const data = await getBlogCategories();
 
+
       const allobj = {
         id: [],
         target: "#pills-home",
@@ -90,11 +91,11 @@ export default function BlogClient() {
   useEffect(() => {
     if (blogItems?.length > 0 && scroll === false) {
       const isMobile = window.innerWidth <= 768;
-  
+
       setTimeout(() => {
         if (isMobile) {
           const el = document.getElementById("blog-category-section");
-  
+
           if (el) {
             el.scrollIntoView({
               behavior: "smooth",
@@ -103,12 +104,12 @@ export default function BlogClient() {
           }
         } else if (tabsRef?.current) {
           const yOffset = -220;
-  
+
           const y =
             tabsRef.current.getBoundingClientRect().top +
             window.pageYOffset +
             yOffset;
-  
+
           window.scrollTo({
             top: y,
             behavior: "smooth",
@@ -127,7 +128,7 @@ export default function BlogClient() {
 
 
   const HandleSelectnumbox = (num: number) => {
-    setScroll(false) 
+    setScroll(false)
     setPageNumber(num);
   };
 
@@ -225,13 +226,13 @@ export default function BlogClient() {
           ))}
         </Swiper>
       </div>
-      <div 
-       id="blog-category-section"
-      ref={tabsRef}
-      className="blog-banner-slide owl-carousel owl-theme mt-10 pb-10">
-        <ul 
-        
-        className="nav nav-pills mb-3 justify-content-center gap-2">
+      <div
+        id="blog-category-section"
+        ref={tabsRef}
+        className="blog-banner-slide owl-carousel owl-theme mt-10 pb-10">
+        <ul
+
+          className="nav nav-pills mb-3 justify-content-center gap-2">
           {categoryloading
             ? Array.from({ length: 15 }).map((_, index) => (
               <li key={index}>
@@ -364,7 +365,7 @@ export default function BlogClient() {
               const totalPages = Math.ceil(pageCount / 6) || 0;
               const pages = [];
 
-              const addPage = (i:any) => {
+              const addPage = (i: any) => {
                 pages.push(
                   <div
                     key={i}
@@ -406,7 +407,7 @@ export default function BlogClient() {
                 }
               } else {
                 if (pagenumber <= 3) {
-               
+
                   addPage(1);
                   addPage(2);
                   addPage(3);
@@ -436,7 +437,7 @@ export default function BlogClient() {
                   addPage(totalPages - 1);
                   addPage(totalPages);
                 } else {
-                  
+
                   addPage(1);
 
                   pages.push(
