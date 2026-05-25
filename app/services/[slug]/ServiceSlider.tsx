@@ -33,11 +33,11 @@ const ServiceSlider: React.FC<Props> = ({ pageData }) => {
               spaceBetween: 16,
             },
             480: {
-              slidesPerView: 2,
+              slidesPerView: 1,
               spaceBetween: 18,
             },
             640: {
-              slidesPerView: 2,
+              slidesPerView: 1,
               spaceBetween: 20,
             },
             768: {
@@ -53,7 +53,7 @@ const ServiceSlider: React.FC<Props> = ({ pageData }) => {
               spaceBetween: 32,
             },
             1440: {
-              slidesPerView: 4,
+              slidesPerView: 3,
               spaceBetween: 34,
             },
           }}
