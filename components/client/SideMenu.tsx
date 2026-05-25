@@ -3,6 +3,7 @@
 import React, { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import { getServicePath } from "@/lib/servicePath";
+import { useRouter } from 'next/navigation'
 
 type Props = {
     open: any;
@@ -19,6 +20,7 @@ export default function SideMenu({
 }: Props) {
     const [openMap, setOpenMap] = useState<any>({});
     const drawerRef = useRef<any>(null);
+    const router = useRouter()
     useEffect(() => {
         const onKeyDown = (e: any) => {
             if (e.key === "Escape") onClose?.();
@@ -56,11 +58,17 @@ export default function SideMenu({
     };
 
     const toggle = (id: any) => {
+
         setOpenMap((prev: any) => {
             const nextOpen = !prev[id];
             return nextOpen ? { [id]: true } : {};
         });
     };
+
+    const redirect=(item:any)=>{
+        router.push(item?.page?.slug)
+         onClose?.();
+    }
 
 
     const ServiceMenuGroup = ({ group }: { group: any }) => {
@@ -133,13 +141,14 @@ export default function SideMenu({
                                                 style={{
                                                     width: "100%",
                                                     display: "flex",
+                                                    alignItems: "center",
                                                     justifyContent: "space-between",
                                                 }}
                                             >
                                                 <button
                                                     type="button"
                                                     className="sideMenuParentBtn"
-                                                    onClick={() => toggle(item.id)}
+                                                    onClick={() => redirect(item)}
                                                 >
                                                     {item.title}
                                                 </button>
