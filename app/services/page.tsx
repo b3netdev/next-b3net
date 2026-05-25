@@ -12,6 +12,7 @@ import { notFound } from "next/navigation";
 import StructuredData from "@/components/server/StructuredData";
 import ServiceTestimonial from "./ServiceTestimonial";
 import { url } from "inspector/promises";
+import ServiceSlider from "./[slug]/ServiceSlider";
 
 
 
@@ -124,62 +125,7 @@ const Services = async () => {
                             </h2>
                             <p className="primary-bodyText"> {pageData?.acf?.data?.service_page_section_7_title}</p>
                         </div>
-                        <div className="ServiceKeyChanges">
-                            {pageData?.acf?.data?.service_page_section_7_card?.map(
-                                (item: any, index: any) => {
-                                    const slug = item?.cta?.url
-                                    .split("/")
-                                    .pop()
-                                    .replace(".html", "");
-                                    return (
-                                        <div
-                                            className="item"
-                                            style={{ cursor: "pointer" }}
-                                            key={index}
-                                        >
-                                            <div className="card-parts-1 card-parts-2">
-                                                <div className="card">
-
-                                                    <img
-                                                        src={item?.image}
-                                                        className="card-img-top"
-                                                        alt="..."
-                                                    />
-
-                                                    <div className="card-body heading5 p-4">
-
-                                                        <h4 className="card-title mb-2">
-                                                            {item?.title}
-                                                        </h4>
-
-                                                        <p className="card-text primary-bodyText">
-                                                            {item?.description}
-                                                        </p>
-
-                                                        <div className="mt-4">
-                                                            <Link
-                                                                href={`/${slug}`}
-                                                                className="btn btn-orange"
-                                                            >
-                                                                <span className="btn_label_1">
-                                                                    {item?.cta?.title}
-                                                                </span>
-
-                                                                <span className="btn_icon">
-                                                                    <i className="fa-solid fa-arrow-right"></i>
-                                                                </span>
-
-                                                            </Link>
-                                                        </div>
-
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    );
-                                }
-                            )}
-                        </div>
+                        <ServiceSlider pageData={pageData} />
 
                     </div>
                 </div>
