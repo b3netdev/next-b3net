@@ -4612,6 +4612,22 @@ i.fa-solid.fa-arrow-right {
   min-width: 350px;
 }
 
+.serviceCardSlider .card {
+background: #f0f2f7;
+  padding: 20px;
+  border: none;
+  border-radius: 15px;
+  height: 100%;
+  max-width: 350px;
+  min-width: 350px;
+}
+
+@media(max-width:350px) {
+  .serviceCardSlider .card {
+    max-width: 100%;
+    min-width: 100%;
+  }
+}
 .card-parts-2 .card {
   padding: initial;
 }

@@ -28,9 +28,34 @@ const ServiceSlider: React.FC<Props> = ({ pageData }) => {
           loop={false}
           grabCursor={true}
           breakpoints={{
-            0: { slidesPerView: 1 },
-            768: { slidesPerView: 2 },
-            1024: { slidesPerView: 3 },
+            0: {
+              slidesPerView: 1,
+              spaceBetween: 16,
+            },
+            480: {
+              slidesPerView: 2,
+              spaceBetween: 18,
+            },
+            640: {
+              slidesPerView: 2,
+              spaceBetween: 20,
+            },
+            768: {
+              slidesPerView: 2,
+              spaceBetween: 24,
+            },
+            1024: {
+              slidesPerView: 3,
+              spaceBetween: 30,
+            },
+            1280: {
+              slidesPerView: 3,
+              spaceBetween: 32,
+            },
+            1440: {
+              slidesPerView: 4,
+              spaceBetween: 34,
+            },
           }}
           style={{ width: "100%", }}
         >
@@ -39,7 +64,7 @@ const ServiceSlider: React.FC<Props> = ({ pageData }) => {
               <SwiperSlide key={index}>
                 <div className="item">
                   <div
-                    className="card-parts-1 card-parts-2"
+                    className="card-parts-1 card-parts-2 serviceCardSlider"
                     style={{ height: "550px" }}
                   >
                     <div className="card h-100">
