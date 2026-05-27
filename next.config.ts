@@ -399,6 +399,11 @@ const nextConfig: NextConfig = {
         destination: "/california/website-design-tustin",
         permanent: true,
       },
+      {
+        source: "/zoho-consultant",
+        destination: "/zoho-crm-consultant-integration-service",
+        permanent: true,
+      },
     ];
   },
   async rewrites() {
