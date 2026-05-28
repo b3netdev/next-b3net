@@ -36,7 +36,7 @@ const HeaderForm = ({ setHoverService }: HeaderFormProps) => {
             fname: "",
             lname: "",
             email: "",
-            yourConsent: "I consent to being contacted by B3NET regarding my inquiry, services, and relevant updates via email, phone, or SMS. I may unsubscribe at any time.",
+            yourConsent: "I agree to be contacted by B3NET via email, phone, or SMS. I can opt out anytime.",
         },
         validationSchema,
         onSubmit: async (values) => {
@@ -163,7 +163,7 @@ const HeaderForm = ({ setHoverService }: HeaderFormProps) => {
                       />
                       <span className="required">*</span>
                     </div>
-                    I consent to being contacted by B3NET regarding my inquiry, services, and relevant updates via email, phone, or SMS. I may unsubscribe at any time.
+                    I agree to be contacted by B3NET via email, phone, or SMS. I can opt out anytime.
                   </label>
                 </div>
 
