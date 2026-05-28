@@ -28,6 +28,7 @@ const HeaderForm = ({ setHoverService }: HeaderFormProps) => {
             .trim()
             .email("Please enter a valid email address")
             .required("Email is required"),
+        yourConsent: Yup.string().required("Consent is required").defined(),
     });
 
     const formik = useFormik({
@@ -35,10 +36,11 @@ const HeaderForm = ({ setHoverService }: HeaderFormProps) => {
             fname: "",
             lname: "",
             email: "",
+            yourConsent: "I consent to being contacted by B3NET regarding my inquiry, services, and relevant updates via email, phone, or SMS. I may unsubscribe at any time.",
         },
         validationSchema,
         onSubmit: async (values) => {
-           
+
             try {
                 setLoading(true);
                 setRecaptchaError("");
@@ -154,7 +156,18 @@ const HeaderForm = ({ setHoverService }: HeaderFormProps) => {
                 </div>
             </div>
 
-           
+            <div className="form-group mt-3">
+                  <label className="consent-checkbox">
+                    <div className="flex gap-1" >
+                      <input type="checkbox" name="consent" required
+                      />
+                      <span className="required">*</span>
+                    </div>
+                    I consent to being contacted by B3NET regarding my inquiry, services, and relevant updates via email, phone, or SMS. I may unsubscribe at any time.
+                  </label>
+                </div>
+
+
 
             <div className="mb-0 text-center pt-md-3">
                 <button type="submit" className="btn btn-primary" disabled={loading}>
