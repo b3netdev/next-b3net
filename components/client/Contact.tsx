@@ -7,9 +7,6 @@ import ReCAPTCHA from "react-google-recaptcha";
 import { useRouter } from "next/navigation";
 import { useForm } from "@/hooks/useForm";
 import CircularProgress from "@mui/material/CircularProgress";
-import Checkbox from "@mui/material/Checkbox";
-import ContactFooter from "../server/ContactFooter";
-import FormControlLabel from "@mui/material/FormControlLabel";
 
 type ContactProps = {
   data?: boolean;

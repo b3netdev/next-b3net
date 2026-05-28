@@ -14,6 +14,7 @@ const ServiceContact1 = () => {
     const [captchaToken, setCaptchaToken] = useState("");
     const [captchaError, setCaptchaError] = useState("");
     const recaptchaRef = useRef<ReCAPTCHA | null>(null);
+    const [checked, setChecked] = useState(false);
 
     const formik = useFormik({
         initialValues: {
@@ -24,6 +25,7 @@ const ServiceContact1 = () => {
             email: "",
             subject: "",
             Message: "",
+            yourConsent: "I consent to being contacted by B3NET regarding my inquiry, services, and relevant updates via email, phone, or SMS. I may unsubscribe at any time.",
         },
         validationSchema: Yup.object({
             fname: Yup.string().trim().required("Your name is required"),
@@ -55,6 +57,7 @@ const ServiceContact1 = () => {
                 .required("Email is required"),
             subject: Yup.string().trim().required("Subject is required"),
             Message: Yup.string().trim().required("Message is required"),
+            yourConsent: Yup.string().required("Consent is required").defined(),
         }),
         onSubmit: async (values, { resetForm, setSubmitting }) => {
             try {
@@ -87,7 +90,7 @@ const ServiceContact1 = () => {
     });
     return (
 
-        <form onSubmit={formik.handleSubmit} noValidate >
+        <form onSubmit={formik.handleSubmit}  >
             <div className="quote-form">
                 <div className="inputrow">
                     <div className="inputcol">
@@ -398,6 +401,20 @@ const ServiceContact1 = () => {
                             )}
                         </div>  
                     </div>
+                </div>
+
+                <div className="form-group mt-3">
+                  <label className="consent-checkbox">
+                    <div className="flex gap-1" >
+                      <input type="checkbox" name="consent"
+                       checked={checked}
+                        onChange={() => setChecked(!checked)}  
+                        required
+                      />
+                      <span className="required">*</span>
+                    </div>
+                    I consent to being contacted by B3NET regarding my inquiry, services, and relevant updates via email, phone, or SMS. I may unsubscribe at any time.
+                  </label>
                 </div>
 
                 <div className="inputrow nitro-offscreen">
