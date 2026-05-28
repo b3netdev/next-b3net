@@ -16,6 +16,7 @@ type FormValues = {
   companyName: string;
   companyWebsite: string;
   message: string;
+  yourConsent:string
 };
 
 type ServiceContactProps = {
@@ -33,6 +34,7 @@ const ServiceContact: React.FC<ServiceContactProps> = ({
   const [captchaToken, setCaptchaToken] = useState("");
   const [captchaError, setCaptchaError] = useState("");
   const recaptchaRef = useRef<ReCAPTCHA | null>(null);
+   const [checked, setChecked] = useState(false);
 
   const formik = useFormik<FormValues>({
     initialValues: {
@@ -43,6 +45,7 @@ const ServiceContact: React.FC<ServiceContactProps> = ({
       companyName: "",
       companyWebsite: "",
       message: "",
+      yourConsent:"I consent to being contacted by B3NET regarding my inquiry, services, and relevant updates via email, phone, or SMS. I may unsubscribe at any time."
     },
     validationSchema: Yup.object({
       first_name: Yup.string().trim().required("First Name is required"),
@@ -50,7 +53,7 @@ const ServiceContact: React.FC<ServiceContactProps> = ({
       email: Yup.string().trim().email("Invalid email").required("Email is required"),
       phone: Yup.string().trim().required("Phone No is required"),
       companyName: Yup.string().trim().required("Company name required"),
-      companyWebsite: Yup.string().trim().required("Message is required"),
+      companyWebsite: Yup.string().trim().required("Copany website is required"),
     }),
     onSubmit: async (values, { setSubmitting, resetForm }) => {
       try {
@@ -246,7 +249,7 @@ const ServiceContact: React.FC<ServiceContactProps> = ({
                   <br />
                   <span className="wpcf7-form-control-wrap" data-name="company-website">
                     <input
-                      type="url"
+                      type="text"
                       name="companyWebsite"
                       value={formik.values.companyWebsite}
                       onChange={formik.handleChange}
@@ -290,6 +293,20 @@ const ServiceContact: React.FC<ServiceContactProps> = ({
                   </small>
                 )}
               </div>
+
+              <div className="form-group mt-3">
+                  <label className="consent-checkbox">
+                    <div className="flex gap-1" >
+                      <input type="checkbox" name="consent"
+                       checked={checked}
+                        onChange={() => setChecked(!checked)}  
+                        required
+                      />
+                      <span className="required">*</span>
+                    </div>
+                    I consent to being contacted by B3NET regarding my inquiry, services, and relevant updates via email, phone, or SMS. I may unsubscribe at any time.
+                  </label>
+                </div>  
 
               <div className="mt-3 d-flex flex-column align-items-center">
                 <div className="scale-100 sm:scale-100 max-[400px]:scale-90 max-[350px]:scale-75 origin-center">
