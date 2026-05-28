@@ -14,6 +14,7 @@ const ContactForm = () => {
   const [captchaToken, setCaptchaToken] = useState("");
   const [captchaError, setCaptchaError] = useState("");
   const recaptchaRef = useRef<ReCAPTCHA | null>(null);
+  const [checked, setChecked] = useState(false);
 
   const formik = useFormik({
     initialValues: {
@@ -22,6 +23,8 @@ const ContactForm = () => {
       email: "",
       phone: "",
       message: "",
+      yourConsent: "I consent to being contacted by B3NET regarding my inquiry, services, and relevant updates via email, phone, or SMS. I may unsubscribe at any time.",
+
     },
 
     validate: (values) => {
@@ -184,6 +187,20 @@ const ContactForm = () => {
               {formik.errors.message}
             </div>
           )}
+        </div>
+
+        <div className="form-group mt-3">
+          <label className="consent-checkbox">
+            <div className="flex gap-1" >
+              <input type="checkbox" name="consent"
+                checked={checked}
+                onChange={() => setChecked(!checked)}
+                required
+              />
+              <span className="required">*</span>
+            </div>
+            I consent to being contacted by B3NET regarding my inquiry, services, and relevant updates via email, phone, or SMS. I may unsubscribe at any time.
+          </label>
         </div>
 
         <div className="inputrow nitro-offscreen">
