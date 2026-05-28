@@ -8386,3 +8386,20 @@ border-radius: 5px;
 }
 }
 
+
+.consent-checkbox {
+    display: flex;
+    align-items: flex-start;
+    gap: 8px;
+    font-size: 14px;
+    line-height: 1.4;
+  }
+
+  .consent-checkbox input[type="checkbox"] {
+    accent-color: #185fa5;
+    margin-top: 3px;
+  }
+
+  .required {
+    color: red;
+  }

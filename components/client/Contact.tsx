@@ -7,7 +7,9 @@ import ReCAPTCHA from "react-google-recaptcha";
 import { useRouter } from "next/navigation";
 import { useForm } from "@/hooks/useForm";
 import CircularProgress from "@mui/material/CircularProgress";
+import Checkbox from "@mui/material/Checkbox";
 import ContactFooter from "../server/ContactFooter";
+import FormControlLabel from "@mui/material/FormControlLabel";
 
 type ContactProps = {
   data?: boolean;
@@ -28,6 +30,8 @@ type ContactFormValues = {
   cwebsite: string;
   message: string;
   services: string[];
+  consent: boolean;
+  yourConsent: string;
 };
 
 const servicesList: ServiceItem[] = [
@@ -51,10 +55,14 @@ const validationSchema: Yup.ObjectSchema<ContactFormValues> = Yup.object({
   cname: Yup.string().required("Company name is required"),
   cwebsite: Yup.string().required("Website link is required"),
   message: Yup.string().required("Message is required"),
+  consent: Yup.boolean().required("Consent is required").oneOf([true], "Consent is required"),
   services: Yup.array()
     .of(Yup.string().required())
     .min(1, "Please select at least one service")
     .required()
+    .defined(),
+  yourConsent: Yup.string()
+    .required("Consent is required")
     .defined(),
 });
 
@@ -77,6 +85,8 @@ const Contact: React.FC<ContactProps> = ({ data = false }) => {
       cwebsite: "",
       message: "",
       services: [],
+      consent: false,
+      yourConsent: "I consent to being contacted by B3NET regarding my inquiry, services, and relevant updates via email, phone, or SMS. I may unsubscribe at any time.",
     },
     validationSchema,
     onSubmit: async (values) => {
@@ -96,6 +106,9 @@ const Contact: React.FC<ContactProps> = ({ data = false }) => {
       formData.append("cwebsite", values.cwebsite);
       formData.append("message", values.message);
       formData.append("recaptcha_token", captchaToken);
+      formData.append("yourConsent", values.yourConsent);
+
+
 
       values.services.forEach((service) => {
         formData.append("services[]", service);
@@ -314,6 +327,25 @@ const Contact: React.FC<ContactProps> = ({ data = false }) => {
                     </small>
                   )}
                 </div>
+
+                <div className="form-group mt-3">
+                  <label className="consent-checkbox">
+                    <div className="flex gap-1" >
+                      <input type="checkbox" name="consent" checked={formik.values.consent} required
+                        onChange={formik.handleChange}
+                        onBlur={formik.handleBlur}
+                      />
+                      <span className="required">*</span>
+                    </div>
+                    I consent to being contacted by B3NET regarding my inquiry, services, and relevant updates via email, phone, or SMS. I may unsubscribe at any time.
+                  </label>
+                  {formik.touched.consent && formik.errors.consent && (
+                    <small className="text-danger font-semibold text-lg d-block">
+                      {formik.errors.consent}
+                    </small>
+                  )}
+                </div>
+
                 <div className="flex  items-center justify-between flex-wrap contactButton  ">
                   <div className="d-flex flex-column align-items-center ">
                     <div className="scale-100 sm:scale-100 max-[400px]:scale-90 max-[350px]:scale-75 origin-center">

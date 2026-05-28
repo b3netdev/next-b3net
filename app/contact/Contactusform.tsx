@@ -13,7 +13,8 @@ type ContactUsFormValues = {
   email: string;
   phone: string;
   Message: string;
-  subject: string
+  subject: string;
+  yourConsent: string;
 };
 
 const validationSchema: any = Yup.object({
@@ -21,6 +22,9 @@ const validationSchema: any = Yup.object({
   email: Yup.string().email("Invalid email").required("Email is required"),
   phone: Yup.string().required("Mobile number is required"),
   Message: Yup.string().required("Message is required"),
+  yourConsent: Yup.string()
+    .required("Consent is required")
+    .defined(),
 });
 
 export default function ContactUsForm() {
@@ -37,7 +41,8 @@ export default function ContactUsForm() {
       email: "",
       phone: "",
       Message: "",
-      subject: ""
+      subject: "",
+      yourConsent: "I consent to being contacted by B3NET regarding my inquiry, services, and relevant updates via email, phone, or SMS. I may unsubscribe at any time.",
     },
     validationSchema,
     onSubmit: async (values) => {
@@ -170,6 +175,21 @@ export default function ContactUsForm() {
                   <small className="text-danger">{formik.errors.Message}</small>
                 )}
               </div>
+            </div>
+
+            <div className="form-group mt-3">
+              <label className="consent-checkbox">
+                <div className="flex gap-1" >
+                  <input type="checkbox" name="yourConsent" required />
+                  <span className="required">*</span>
+                </div>
+                I consent to being contacted by B3NET regarding my inquiry, services, and relevant updates via email, phone, or SMS. I may unsubscribe at any time.
+              </label>
+              {formik.touched.yourConsent && formik.errors.yourConsent && (
+                <small className="text-danger font-semibold text-lg d-block">
+                  {formik.errors.yourConsent}
+                </small>
+              )}
             </div>
 
 
