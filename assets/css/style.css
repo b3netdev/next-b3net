@@ -8403,3 +8403,38 @@ border-radius: 5px;
   .required {
     color: red;
   }
+
+
+
+
+  /* case-study page  */
+
+  .case-study-page-container{
+    margin-top: 120px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 50px;
+  }
+  .case-study-page-container .item div{
+  width: 500px;
+  }
+  
+  @media(max-width:500px){
+    .case-study-page-container .item div{
+    width: 400px;
+    }
+
+  }
+  @media(max-width:400px){
+    .case-study-page-container .item div{
+    width: 300px;
+    }
+
+  }
+  @media(max-width:300px){
+    .case-study-page-container .item div{
+    width: 250px;
+    }
+
+  }
