@@ -65,9 +65,9 @@ export default function SideMenu({
         });
     };
 
-    const redirect=(item:any)=>{
+    const redirect = (item: any) => {
         router.push(item?.page?.slug)
-         onClose?.();
+        onClose?.();
     }
 
 
@@ -156,9 +156,9 @@ export default function SideMenu({
                                                 <span onClick={() => toggle(item.id)}>
                                                     {
                                                         expanded ?
-                                                        <i className="fa-solid fa-angle-up"></i>
-                                                        :
-                                                        <i className="fa-solid fa-angle-down"></i>  
+                                                            <i className="fa-solid fa-angle-up"></i>
+                                                            :
+                                                            <i className="fa-solid fa-angle-down"></i>
                                                     }
                                                 </span>
                                             </div>
@@ -187,16 +187,19 @@ export default function SideMenu({
                                                                 <li key={index} className="sideMenuSubItem">
                                                                     {child.parent_id == 13477 ? (
                                                                         child.id == 13477 ? (
-                                                                            <i className="fa-solid fa-bullhorn"></i>
+                                                                            <i className="fa-solid fa-bullhorn  sideMenuSubItem" style={{ color: "#3B58A2" }}></i>
                                                                         ) : child.id == 13484 ? (
-                                                                            <i className="fa-solid fa-circle-question"></i>
+                                                                            <i className="fa-solid fa-circle-question sideMenuSubItem"></i>
                                                                         ) : child.id == 13485 ? (
-                                                                            <i className="fa-regular fa-pen-to-square"></i>
+                                                                            <i className="fa-regular fa-pen-to-square sideMenuSubItem"></i>
                                                                         ) : (
-                                                                            <i className="fa-solid fa-users-viewfinder"></i>
+                                                                            <i className="fa-solid fa-users-viewfinder sideMenuSubItem"></i>
                                                                         )
                                                                     ) : child.parent_id == 13479 ? (
-                                                                        <i className="fa-solid fa-circle !text-[6px]"></i>
+                                                                        <i
+                                                                            className="fa-solid fa-angles-right"
+                                                                            style={{ color: "#FF4F0C" }}
+                                                                        ></i>
                                                                     ) : (
                                                                         null
                                                                     )}

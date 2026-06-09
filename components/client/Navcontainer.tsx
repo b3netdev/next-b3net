@@ -227,21 +227,20 @@ export default function Navbar() {
 
 
     const AboutSubmenu = ({ data }: { data: any }) => {
+        const MENU_CONFIG: Record<number, { iconClass: string; colorClass: string }> = {
+            13477: { iconClass: "fa-solid fa-bullhorn", colorClass: "about-item-blue" },
+            13484: { iconClass: "fa-solid fa-circle-question", colorClass: "about-item-orange" },
+            13485: { iconClass: "fa-solid fa-pen-to-square", colorClass: "about-item-blue" },
+            13486: { iconClass: "fa-solid fa-users-viewfinder", colorClass: "about-item-orange" },
+        };
 
+        const DEFAULT_CONFIG = { iconClass: "fa-solid fa-users-viewfinder", colorClass: "about-item-blue" };
 
 
         return (
             <div className="aboutSubMenu" key={data.id}>
-                <span className="about-item force-black">
-                    {data.id === 13477 ? (
-                        <i className="fa-solid fa-bullhorn"></i>
-                    ) : data.id === 13484 ? (
-                        <i className="fa-solid fa-circle-question"></i>
-                    ) : data.id === 13485 ? (
-                        <i className="fa-solid fa-pen-to-square"></i>
-                    ) : (
-                        <i className="fa-solid fa-users-viewfinder"></i>
-                    )}
+                <span className={`about-item ${(MENU_CONFIG[data.id] ?? DEFAULT_CONFIG).colorClass}`}>
+                    <i className={(MENU_CONFIG[data.id] ?? DEFAULT_CONFIG).iconClass} />
                     <Link
                         href={
                             data?.page?.slug === "/about-company/"
@@ -262,6 +261,10 @@ export default function Navbar() {
         return (
             <div className="aboutSubMenu WesolveBox" key={data.id}>
                 <span className="about-item">
+                    <i
+                        className="fa-solid fa-angles-right"
+                        style={{ color: "#FF4F0C" }}
+                    ></i>
                     <Link href={`/${data?.page?.slug}`}
                         onClick={() => {
                             dispatch(setWesolveHover(false))

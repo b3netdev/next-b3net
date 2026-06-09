@@ -5625,7 +5625,7 @@ li {
 
 .aboutSubMenu .about-item a,
 .aboutSubMenu .about-item i {
-  color: #020842 !important;
+
   opacity: 1 !important;
   /* font-family: "Poppins", serif; */
 }
@@ -5637,23 +5637,29 @@ li {
 }
 
 .aboutSubMenu .about-item i {
-  color: #000000 !important;
   opacity: 1 !important;
   /* font-family: "Font Awesome 6 Free" !important; */
   font-style: normal;
   font-weight: 900;
 }
 
-.about-item:hover {
-  color: #ff6600 !important;
-}
+
+
+
+.about-item-blue   i { color:rgb(59, 88, 162); }
+.about-item-orange i { color: #FF4F0C; }
+
+
 
 .aboutSubMenu .about-item:hover a {
   color: #ff4f0c !important;
 }
+.aboutSubMenu .about-item:hover i {
+  color: #ff4f0c !important;
+}
 
 .aboutSubMenu .about-item i {
-  color: currentColor !important;
+  /* color: currentColor !important; */
 }
 
 .wsmegamenu .link-list li {
@@ -5697,6 +5703,13 @@ li {
 
 .WesolveBox {
   min-width: 300px;
+}
+.WesolveBox .about-item{
+
+  align-items: flex-start;
+}
+.WesolveBox .about-item i{
+  margin-top: 5px;
 }
 
 .NavHeading.nav-floating {
@@ -6105,9 +6118,25 @@ li {
 }
 
 .sideMenuSubItem i {
-  color: black;
+  color:#3B58A2 ;
   font-size: 14px;
   flex-shrink: 0;
+}
+
+.sideMenuSubList .sideMenuSubItem:nth-child(1) i {
+  color: #3B58A2 ;
+}
+
+.sideMenuSubList .sideMenuSubItem:nth-child(2) i {
+  color: #FF4F0C ;
+}
+
+.sideMenuSubList .sideMenuSubItem:nth-child(3) i {
+  color: #3B58A2 ;
+}
+
+.sideMenuSubList .sideMenuSubItem:nth-child(4) i {
+  color: #FF4F0C ;
 }
 
 .sideMenuSubLink {
