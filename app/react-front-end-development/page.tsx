@@ -150,7 +150,7 @@ const structuredData = {
 
         {
             "@type": "WebSite",
-            "@id": `${siteUrl}/#website`,
+            "@id": `${siteUrl}/`,
             url: siteUrl,
             name: "B3NET",
             publisher: {
@@ -181,7 +181,7 @@ const structuredData = {
                 "React development",
             ],
             isPartOf: {
-                "@id": `${siteUrl}/#website`,
+                "@id": `${siteUrl}/`,
             },
             about: {
                 "@id": `${pageUrl}/#service`,
