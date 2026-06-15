@@ -35,6 +35,7 @@ const Contact = () => {
   const [captchaToken, setCaptchaToken] = useState("");
   const [captchaError, setCaptchaError] = useState("");
   const recaptchaRef = useRef<ReCAPTCHA | null>(null);
+  const [error, setError] = useState("")
 
   const formik = useFormik<ContactFormValues>({
     initialValues: {
@@ -63,7 +64,7 @@ const Contact = () => {
         website_url: values.websiteUrl,
       };
 
-      const data = await submitcontact(formData, 12474);
+      const data = await submitcontact(formData, 12739);
 
       if (data?.status === "mail_sent") {
         recaptchaRef.current?.reset();
@@ -73,7 +74,8 @@ const Contact = () => {
       } else {
         recaptchaRef.current?.reset();
         setCaptchaToken("");
-        setCaptchaError("Captcha expired. Please verify again.");
+        setError(data.message)
+        // setCaptchaError("Captcha expired. Please verify again.");
       }
     },
   });
@@ -83,7 +85,7 @@ const Contact = () => {
       id="react-page-contact"
       className="py-24 bg-gradient-to-b from-slate-50 to-white relative overflow-hidden"
     >
-      
+
       <div className="absolute top-0 right-0 w-64 h-64 bg-blue-100 rounded-full mix-blend-multiply filter blur-3xl opacity-70 translate-x-1/2 -translate-y-1/2"></div>
       <div className="absolute bottom-0 left-0 w-64 h-64 bg-cyan-100 rounded-full mix-blend-multiply filter blur-3xl opacity-70 -translate-x-1/2 translate-y-1/2"></div>
 
@@ -259,6 +261,10 @@ const Contact = () => {
                   )}
                 </div>
               </div>
+              {
+                error && error?.length > 0 &&
+                <p className="text-red-800 font-bold-" >{error}</p>
+              }
 
               <button
                 type="submit"
