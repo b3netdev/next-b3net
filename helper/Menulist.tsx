@@ -301,6 +301,7 @@ export const serviceMegaMenuColumns: ServiceMegaMenuColumn[] = [
                     { label: "Opencart Development", slug: "opencart-website-development-service" },
                     { label: "Shopify Development", slug: "shopify-store-development-servce" },
                     { label: "Laravel Development", slug: "laravel-development-company" },
+                    { label: "React Front-End Development", slug: "react-front-end-development" },
                 ],
             },
             {

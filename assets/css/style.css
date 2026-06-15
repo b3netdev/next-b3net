@@ -8467,3 +8467,37 @@ border-radius: 5px;
     }
 
   }
+
+  .react-devPage-heading{
+    font-weight: 900;
+    color: white  ;
+    font-size: 40px;
+  }
+
+  .react-page-contactheading{
+    font-weight: 800;
+    color: white;
+  }
+  .react-page-quoteheading{
+    font-weight: 600;
+  }
+.react-page-contactButton{
+border-radius: 10px;
+cursor: pointer !important;
+}
+.react-page-contactButton:hover {
+  background-color: #262626;
+  transform: translateY(-2px);
+}
+.react-page-contactButton span{
+  color: white;
+  font-weight: 600;
+  font-size: 18px;
+}
+  @media(max-wdth:400px){
+    .react-devPage-heading{
+      font-weight: 900;
+      color: white  ;
+      font-size: 30px;
+    }
+  }
