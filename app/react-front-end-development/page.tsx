@@ -18,6 +18,290 @@ import {
 import type { LucideIcon } from "lucide-react";
 import Contact from './Contact';
 import ScrollLink from '@/components/client/ScrollLink';
+import { Metadata } from 'next';
+
+
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000";;
+
+export const metadata: Metadata = {
+    metadataBase: new URL(siteUrl),
+    title: {
+        default: "WordPress to React Upgrade Services | B3NET",
+        template: "%s | B3NET",
+    },
+
+    description:
+        "Upgrade your WordPress site with a fast, secure, modern React front end. Keep WordPress admin unchanged while improving speed, UX, SEO, and future scalability.",
+
+    keywords: [
+        "WordPress to React upgrade",
+        "WordPress React frontend",
+        "headless WordPress development",
+        "React front end development",
+        "WordPress performance upgrade",
+        "modern WordPress website",
+        "headless WordPress services",
+        "WordPress API React",
+        "React website development",
+        "WordPress speed optimization",
+        "React development",
+    ],
+
+    alternates: {
+        canonical: `${siteUrl}/wordpress-to-react-upgrade`,
+    },
+
+    openGraph: {
+        locale: "en_US",
+        type: "article",
+        title: "Home",
+        description:
+            "B3NET offers cutting-edge web design, AI-powered digital marketing, mobile app development, and OpenAI integration services. Transform your brand with our expert solutions.",
+        url: siteUrl,
+        siteName: "B3net",
+        images: [
+            {
+                url: "https://backend.b3net.com/wp-content/uploads/2025/11/B3NET-New-Logo-for-Yaost.jpg",
+                width: 1200,
+                height: 675,
+                type: "image/jpeg",
+                alt: "B3NET",
+            },
+        ],
+        modifiedTime: "2026-03-16T08:48:52+00:00",
+    },
+
+
+    twitter: {
+        card: "summary_large_image",
+        site: "@b3net",
+        title: "Home",
+        description:
+            "B3NET offers cutting-edge web design, AI-powered digital marketing, mobile app development, and OpenAI integration services. Transform your brand with our expert solutions.",
+        images: [
+            "https://backend.b3net.com/wp-content/uploads/2025/11/B3NET-New-Logo-for-Yaost.jpg",
+        ],
+    },
+
+    other: {
+        "article:publisher": "https://www.facebook.com/B3NET",
+        "article:modified_time": "2026-03-16T08:48:52+00:00",
+
+        "og:locale": "en_US",
+        "og:type": "article",
+        "og:title": "Home",
+        "og:description":
+            "B3NET offers cutting-edge web design, AI-powered digital marketing, mobile app development, and OpenAI integration services. Transform your brand with our expert solutions.",
+        "og:url": siteUrl,
+        "og:site_name": "B3net",
+        "og:image":
+            "https://backend.b3net.com/wp-content/uploads/2025/11/B3NET-New-Logo-for-Yaost.jpg",
+        "og:image:width": "1200",
+        "og:image:height": "675",
+        "og:image:type": "image/jpeg",
+
+        "twitter:card": "summary_large_image",
+        "twitter:site": "@b3net",
+    },
+
+    robots: {
+        index: true,
+        follow: true,
+        googleBot: {
+            index: true,
+            follow: true,
+            "max-snippet": -1,
+            "max-image-preview": "large",
+            "max-video-preview": -1,
+        },
+    },
+};
+const pageUrl = `${siteUrl}/wordpress-to-react-upgrade`;
+
+const logoUrl =
+    "https://backend.b3net.com/wp-content/uploads/2025/11/B3NET-New-Logo-for-Yaost.jpg";
+
+const modifiedTime = "2026-03-16T08:48:52+00:00";
+
+const structuredData = {
+    "@context": "https://schema.org",
+    "@graph": [
+        {
+            "@type": "Organization",
+            "@id": `${siteUrl}/#organization`,
+            name: "B3NET",
+            url: siteUrl,
+            logo: {
+                "@type": "ImageObject",
+                url: logoUrl,
+                width: 1200,
+                height: 675,
+            },
+            image: {
+                "@type": "ImageObject",
+                url: logoUrl,
+                width: 1200,
+                height: 675,
+            },
+            sameAs: ["https://www.facebook.com/B3NET"],
+            description:
+                "B3NET offers cutting-edge web design, AI-powered digital marketing, mobile app development, and OpenAI integration services.",
+        },
+
+        {
+            "@type": "WebSite",
+            "@id": `${siteUrl}/#website`,
+            url: siteUrl,
+            name: "B3NET",
+            publisher: {
+                "@id": `${siteUrl}/#organization`,
+            },
+            inLanguage: "en-US",
+        },
+
+        {
+            "@type": "WebPage",
+            "@id": `${pageUrl}/#webpage`,
+            url: pageUrl,
+            name: "WordPress to React Upgrade Services | B3NET",
+            headline: "WordPress to React Upgrade Services",
+            description:
+                "Upgrade your WordPress site with a fast, secure, modern React front end. Keep WordPress admin unchanged while improving speed, UX, SEO, and future scalability.",
+            keywords: [
+                "WordPress to React upgrade",
+                "WordPress React frontend",
+                "headless WordPress development",
+                "React front end development",
+                "WordPress performance upgrade",
+                "modern WordPress website",
+                "headless WordPress services",
+                "WordPress API React",
+                "React website development",
+                "WordPress speed optimization",
+                "React development",
+            ],
+            isPartOf: {
+                "@id": `${siteUrl}/#website`,
+            },
+            about: {
+                "@id": `${pageUrl}/#service`,
+            },
+            mainEntity: {
+                "@id": `${pageUrl}/#service`,
+            },
+            primaryImageOfPage: {
+                "@type": "ImageObject",
+                url: logoUrl,
+                width: 1200,
+                height: 675,
+            },
+            image: {
+                "@type": "ImageObject",
+                url: logoUrl,
+                width: 1200,
+                height: 675,
+            },
+            publisher: {
+                "@id": `${siteUrl}/#organization`,
+            },
+            dateModified: modifiedTime,
+            inLanguage: "en-US",
+        },
+
+        {
+            "@type": "Service",
+            "@id": `${pageUrl}/#service`,
+            name: "WordPress to React Upgrade Services",
+            alternateName: [
+                "WordPress to React Upgrade",
+                "WordPress React Frontend",
+                "Headless WordPress Development",
+                "React Front End Development",
+                "WordPress Performance Upgrade",
+            ],
+            serviceType: "WordPress to React Front-End Upgrade",
+            category: "Web Development",
+            url: pageUrl,
+            description:
+                "Upgrade your WordPress site with a fast, secure, modern React front end. Keep WordPress admin unchanged while improving speed, UX, SEO, and future scalability.",
+            provider: {
+                "@id": `${siteUrl}/#organization`,
+            },
+            areaServed: {
+                "@type": "Country",
+                name: "United States",
+            },
+            audience: {
+                "@type": "BusinessAudience",
+                audienceType:
+                    "Businesses using WordPress that want faster performance, better security, modern user experience, SEO improvements, and future-ready React development.",
+            },
+            offers: {
+                "@type": "Offer",
+                "@id": `${pageUrl}/#offer`,
+                url: pageUrl,
+                name: "Request a Free Quote",
+                description:
+                    "Request a free quote to upgrade your WordPress site with a modern React front end.",
+                price: "0",
+                priceCurrency: "USD",
+                availability: "https://schema.org/InStock",
+                seller: {
+                    "@id": `${siteUrl}/#organization`,
+                },
+            },
+            hasOfferCatalog: {
+                "@type": "OfferCatalog",
+                name: "WordPress to React Upgrade Benefits",
+                itemListElement: [
+                    {
+                        "@type": "Offer",
+                        name: "Fast React Front End",
+                        description:
+                            "Upgrade your WordPress site with a faster, modern React front end.",
+                    },
+                    {
+                        "@type": "Offer",
+                        name: "Secure WordPress Architecture",
+                        description:
+                            "Keep the WordPress admin unchanged while separating the public-facing React frontend.",
+                    },
+                    {
+                        "@type": "Offer",
+                        name: "Improved UX and SEO",
+                        description:
+                            "Improve speed, user experience, SEO, and future scalability.",
+                    },
+                    {
+                        "@type": "Offer",
+                        name: "Future-Ready React Development",
+                        description:
+                            "Prepare your WordPress website for future integrations, APIs, and modern front-end development.",
+                    },
+                ],
+            },
+        },
+
+        {
+            "@type": "BreadcrumbList",
+            "@id": `${pageUrl}/#breadcrumb`,
+            itemListElement: [
+                {
+                    "@type": "ListItem",
+                    position: 1,
+                    name: "Home",
+                    item: siteUrl,
+                },
+                {
+                    "@type": "ListItem",
+                    position: 2,
+                    name: "WordPress to React Upgrade Services",
+                    item: pageUrl,
+                },
+            ],
+        },
+    ],
+};
 
 const Hero = () => {
     return (
@@ -352,6 +636,12 @@ export default function App() {
 
     return (
         <div className="font-sans text-slate-900  antialiased selection:bg-blue-200 selection:text-blue-900">
+            <script
+                type="application/ld+json"
+                dangerouslySetInnerHTML={{
+                    __html: JSON.stringify(structuredData),
+                }}
+            />
             <Hero />
             <Features />
             <ProcessSection />

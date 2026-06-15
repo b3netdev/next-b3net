@@ -44,6 +44,27 @@ export const metadata: Metadata = {
   description:
     "B3NET offers cutting-edge web design, AI-powered digital marketing, mobile app development, and OpenAI integration services. Transform your brand with our expert solutions.",
 
+
+  keywords: [
+    "React development",
+    "Next js development",
+    "Node js development",
+    "MERN stack development",
+    "Full stack development",
+    "Mobile App development",
+    "React native  development",
+    "WordPress to React upgrade",
+    "WordPress React frontend",
+    "headless WordPress development",
+    "React front end development",
+    "WordPress performance upgrade",
+    "modern WordPress website",
+    "headless WordPress services",
+    "WordPress API React",
+    "React website development",
+    "WordPress speed optimization",
+  ],
+
   alternates: {
     canonical: siteUrl,
   },
@@ -144,7 +165,7 @@ export default function RootLayout({
           />
         </noscript>
 
-      
+
         <Script id="gtm-tqvc5ns" strategy="afterInteractive">
           {`
             (function(w,d,s,l,i){
@@ -176,7 +197,7 @@ export default function RootLayout({
           `}
         </Script>
 
-        
+
         <Script id="legacy-ua" strategy="afterInteractive">
           {`
             (function(i,s,o,g,r,a,m){
@@ -195,14 +216,14 @@ export default function RootLayout({
           `}
         </Script>
 
-        
+
         <Script
           id="google-ads-gtag-src"
           src="https://www.googletagmanager.com/gtag/js?id=AW-1070943410"
           strategy="lazyOnload"
         />
 
-       
+
         <Script id="google-ads-gtag-init" strategy="lazyOnload">
           {`
             window.dataLayer = window.dataLayer || [];
@@ -212,7 +233,7 @@ export default function RootLayout({
           `}
         </Script>
 
-     
+
         <Script id="b3net-heatmap" strategy="afterInteractive">
           {`
             if (typeof hmtracker == 'undefined') {
