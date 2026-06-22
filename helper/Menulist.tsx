@@ -229,7 +229,7 @@ export const menulist = [
                     "id": 8210,
                     "type": "post",
                     "title": "Why Is Your Website Not Making Sales?",
-                    "slug": "why-is-your-website-not-making-sales-and-how-to-fix-it",
+                    "slug": "website-not-making-sales",
                     "status": "publish",
 
                     "acf": [],

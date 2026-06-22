@@ -20,7 +20,7 @@ const sluglist = [
     slug: "9-reasons-why-my-website-traffic-not-converting",
   },
   {
-    slug: "why-is-your-website-not-making-sales-and-how-to-fix-it",
+    slug: "website-not-making-sales",
   },
 ];
 
