@@ -95,6 +95,11 @@ const nextConfig: NextConfig = {
         permanent: true,
       },
       {
+        source: "/austin-digital-marketing-agency",
+        destination: "/texas/digital-marketing-austin",
+        permanent: true,
+      },
+      {
         source: "/website-design-development-carrollton",
         destination: "/texas/carrollton-website-design-development",
         permanent: true,
@@ -130,6 +135,11 @@ const nextConfig: NextConfig = {
         permanent: true,
       },
       {
+        source: "/dallas-digital-marketing-agency",
+        destination: "/texas/dallas-digital-marketing-company",
+        permanent: true,
+      },
+      {
         source: "/dallas-ppc-management",
         destination: "/texas/dallas-ppc-management-company",
         permanent: true,
@@ -161,6 +171,11 @@ const nextConfig: NextConfig = {
       },
       {
         source: "/website-maintenance-service-dallas",
+        destination: "/texas/website-maintenance-services-dallas",
+        permanent: true,
+      },
+      {
+        source: "/website-maintenance-services",
         destination: "/texas/website-maintenance-services-dallas",
         permanent: true,
       },
@@ -300,7 +315,22 @@ const nextConfig: NextConfig = {
         permanent: true,
       },
       {
+        source: "/orange-county-seo",
+        destination: "/california/orange-county-digital-marketing-company",
+        permanent: true,
+      },
+      {
+        source: "/digital-marketing-agency-orange-county",
+        destination: "/california/orange-county-digital-marketing-company",
+        permanent: true,
+      },
+      {
         source: "/orange-county-web-design-2",
+        destination: "/california/orange-county-web-design",
+        permanent: true,
+      },
+      {
+        source: "/website-design-orange-county",
         destination: "/california/orange-county-web-design",
         permanent: true,
       },
@@ -402,6 +432,61 @@ const nextConfig: NextConfig = {
       {
         source: "/zoho-consultant",
         destination: "/zoho-crm-consultant-integration-service",
+        permanent: true,
+      },
+      {
+        source: "/orange-county-iphone-app-developer",
+        destination: "/iphone-app-development-services",
+        permanent: true,
+      },
+      {
+        source: "/orange-county-email-marketing",
+        destination: "/email-marketing-services-company",
+        permanent: true,
+      },
+      {
+        source: "/orange-county-android-app-development",
+        destination: "/android-app-development",
+        permanent: true,
+      },
+      {
+        source: "/how-to-create-a-content-strategy-that-works-a-step-by-step-guide",
+        destination: "/5-simple-steps-to-create-effective-content-strategy",
+        permanent: true,
+      },
+      {
+        source: "/healthcare-web-design-dallas-tx",
+        destination: "/healthcare-web-design",
+        permanent: true,
+      },
+      {
+        source: "/email-marketing-services-dallas",
+        destination: "/email-marketing-services-company",
+        permanent: true,
+      },
+      {
+        source: "/dallas-mobile-app-marketing",
+        destination: "/mobile-app-marketing-services",
+        permanent: true,
+      },
+      {
+        source: "/dallas-ecommerce-development",
+        destination: "/ecommerce-web-development-service",
+        permanent: true,
+      },
+      {
+        source: "/dallas-content-marketing-services",
+        destination: "/content-marketing-services",
+        permanent: true,
+      },
+      {
+        source: "/app-store-optimization-orange-county",
+        destination: "/app-store-optimization",
+        permanent: true,
+      },
+      {
+        source: "/website-design-dallas-tx",
+        destination: "/texas/dallas-web-development-agency",
         permanent: true,
       },
     ];
