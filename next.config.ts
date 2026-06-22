@@ -489,6 +489,11 @@ const nextConfig: NextConfig = {
         destination: "/texas/dallas-web-development-agency",
         permanent: true,
       },
+      {
+        source: "/orange-county-ecommerce-developer",
+        destination: "/ecommerce-web-development-service",
+        permanent: true,
+      },
     ];
   },
   async rewrites() {
