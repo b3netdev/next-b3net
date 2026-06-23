@@ -17,6 +17,9 @@ const sluglist = [
     slug: "7-reasons-why-your-website-is-not-showing-up-how-to-fix-it",
   },
   {
+    slug: "why-ai-search-engines-are-ignoring-your-brand-and-how-to-fix-it",
+  },
+  {
     slug: "9-reasons-why-my-website-traffic-not-converting",
   },
   {

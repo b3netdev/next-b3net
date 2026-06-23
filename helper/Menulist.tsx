@@ -204,6 +204,21 @@ export const menulist = [
             {
                 "id": 13570,
                 "parent_id": 13479,
+                "title": "Why AI Search Engines are Ignoring Your Brand ",
+                "object_id": 7811,
+                "target": "",
+                "classes": [],
+                "page": {
+                    "id": 7810,
+                    "type": "post",
+                    "title": "Why AI Search Engines are Ignoring Your Brand",
+                    "slug": "why-ai-search-engines-are-ignoring-your-brand-and-how-to-fix-it",
+                },
+                "children": []
+            },
+            {
+                "id": 13570,
+                "parent_id": 13479,
                 "title": "Why is My Website Traffic Not Converting? ",
                 "object_id": 7863,
                 "target": "",
