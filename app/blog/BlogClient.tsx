@@ -209,7 +209,9 @@ export default function BlogClient() {
                   <div className="col-lg-6 ">
                     <div className="left-side">
                       <h4 className="!text-[#8c92a1]">{item?.category}</h4>
-                      <Link href={`/${item?.slug}`}><h2 className="blogbannerheading">{item.title}</h2></Link>
+                      <Link href={`/${item?.slug}`}><h2 className="blogbannerheading"
+                        dangerouslySetInnerHTML={{ __html: item.title || " " }}
+                      /></Link>
                       <p className="primary-bodyText">{item?.excerpt}</p>
                       <div className="mb-0 text-lg-start pt-md-4 " data-aos="fade-up" data-aos-duration="800">
                         <Link href={`/${item?.slug}`} className="btn btn-primary orange-1">
@@ -324,10 +326,9 @@ export default function BlogClient() {
                               className="card-title mb-2 card-text-Link "
                               onClick={() => setCategoryID(post?.categories)}
                             >
-                              <span className="text-[#3b58a2] font-extrabold">
-                                {post?.title?.rendered}
-
-                              </span>
+                              <span className="text-[#3b58a2] font-extrabold"
+                                dangerouslySetInnerHTML={{ __html: post?.title?.rendered }}
+                              />
                             </Link>
 
                             <div

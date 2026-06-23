@@ -91,7 +91,11 @@ const BlogDetail = async ({ params }: { params: { slug: string } }) => {
                   />
                 </div>
                 <div className="col-md-6 mt-4 mt-md-0">
-                  <h1>{pageData?.title?.rendered}</h1>
+                  <h1
+                    dangerouslySetInnerHTML={{
+                      __html: pageData?.title?.rendered || "",
+                    }}
+                  />
                   <h4>
                     <span>{formattedDate}</span>
                     {authordata?.name ? ` | ${authordata.name}` : ""}
@@ -238,7 +242,7 @@ const BlogDetail = async ({ params }: { params: { slug: string } }) => {
                             </Link>
 
                             <div
-                            className="primary-bodyText "
+                              className="primary-bodyText "
                               dangerouslySetInnerHTML={{
                                 __html: data?.excerpt?.rendered || " ",
                               }}
