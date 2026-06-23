@@ -494,6 +494,11 @@ const nextConfig: NextConfig = {
         destination: "/ecommerce-web-development-service",
         permanent: true,
       },
+      {
+        source: "/voice-first-writing-6",
+        destination: "/voice-first-writing",
+        permanent: true,
+      },
     ];
   },
   async rewrites() {
