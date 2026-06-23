@@ -504,6 +504,16 @@ const nextConfig: NextConfig = {
         destination: "/navigating-googles-ai-mode",
         permanent: true,
       },
+      {
+        source: "/the-future-of-search-navigating-googles-ai-driven-evolution",
+        destination: "/navigating-googles-ai-mode",
+        permanent: true,
+      },
+      {
+        source: "/online-reputation-management",
+        destination: "/online-reputation-management-services",
+        permanent: true,
+      },
     ];
   },
   async rewrites() {
