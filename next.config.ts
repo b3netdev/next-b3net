@@ -499,6 +499,11 @@ const nextConfig: NextConfig = {
         destination: "/voice-first-writing",
         permanent: true,
       },
+      {
+        source: "/the-future-of-search-navigating-googles-ai-driven-evolution",
+        destination: "/navigating-googles-ai-mode",
+        permanent: true,
+      },
     ];
   },
   async rewrites() {
