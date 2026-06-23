@@ -20,7 +20,9 @@ export async function generateMetadata({ params }: { params: { slug: string } })
     const { slug } = await params;
 
     const pageData = await getBlogPageData(slug);
-    const seo = getSeoFromPageData(pageData);
+  
+        const seo = getSeoFromPageData(pageData);
+      
 
     return buildMetadata(seo);
 }
@@ -29,7 +31,9 @@ const page = async ({ params }: { params: { slug: any } }) => {
     const { slug } = await params
 
     const pageData = await getBlogPageData(slug);
+
     const schemaData = getSchemaFromPageData(pageData);
+    
 
     const relatedpost = await getPortFloioRelatedPost(pageData?.portfolio_category, pageData?.id)
 

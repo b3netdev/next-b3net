@@ -50,8 +50,10 @@ export async function generateMetadata({ params }: any): Promise<Metadata> {
     const { slug } = await params;
 
     const pageData = await getServicePageData(slug);
+   
     const seo = getSeoFromPageData(pageData);
-
+    
+ 
     return buildMetadata(seo);
 }
 const ServiceSubpage = async ({ params }: { params: { slug: string } }) => {
