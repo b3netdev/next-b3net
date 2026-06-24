@@ -20,10 +20,7 @@ export async function generateMetadata({ params }: { params: { slug: string } })
     const { slug } = await params;
 
     const pageData = await getBlogPageData(slug);
-  
         const seo = getSeoFromPageData(pageData);
-      
-
     return buildMetadata(seo);
 }
 
@@ -97,7 +94,7 @@ const page = async ({ params }: { params: { slug: any } }) => {
                                 <div className="heading5 services-flexiable-width  ">
                                     <div
                                         dangerouslySetInnerHTML={{
-                                            __html: pageData?.content?.rendered || "",
+                                            __html: pageData?.content || "",
                                         }}
                                     />
 

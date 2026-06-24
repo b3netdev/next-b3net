@@ -43,12 +43,13 @@ export async function GetAuthorData(slug: any) {
 
 export const getportfoliodetail = async (slug:string) => {
 
-  const data = await fetcher(`/wp-json/wp/v2/portfolio?slug=${slug}&_embed`,
+  const data = await fetcher(`/wp-json/custom/v1/content/${slug}?_embed=1`,
     {
       revalidate: 60,
     }
   );
-  return Array.isArray(data) ? data[0] ?? null : data[0] ?? null;
+
+  return data
 
 };
 
