@@ -3818,7 +3818,7 @@ section.product-details-sec.shop-sec.page_content.default_content_class ol.bread
     display: flex;
     align-items: center;
     overflow: hidden;
-    background: url("/assets/images/hero-banner.jpg") center right -200px / cover no-repeat;
+    background: url("/assets/images/hero-banner.jpg") center  / cover no-repeat;
   }
   
   .ai-chatbot-container .hero-content {
