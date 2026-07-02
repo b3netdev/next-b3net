@@ -514,6 +514,11 @@ const nextConfig: NextConfig = {
         destination: "/online-reputation-management-services",
         permanent: true,
       },
+      {
+        source: "/texas/dallas-web-design-development",
+        destination: "/texas/dallas-web-development-agency",
+        permanent: true,
+      },
     ];
   },
   async rewrites() {
