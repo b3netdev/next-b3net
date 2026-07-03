@@ -8501,3 +8501,35 @@ cursor: pointer !important;
       font-size: 30px;
     }
   }
+
+
+
+  /* blog detail css */
+  .blog-detailpage-content figure,
+.blog-detailpage-content .wp-caption {
+  width: 100% !important;
+  max-width: 100% !important;
+  margin: 25px 0;
+}
+
+.blog-detailpage-content .wp-caption a {
+  display: block;
+  width: 100%;
+}
+
+.blog-detailpage-content img,
+.blog-detailpage-content .wp-caption img {
+  width: 100% !important;
+  max-width: 100% !important;
+  height: auto !important;
+  display: block;
+}
+
+.blog-detailpage-content .wp-caption-text,
+.blog-detailpage-content figcaption {
+  font-size: 14px;
+  line-height: 1.5;
+  color: #666;
+  margin-top: 8px;
+  text-align: center;
+}

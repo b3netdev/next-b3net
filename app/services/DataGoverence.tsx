@@ -7,7 +7,7 @@ const DataGoverence = () => {
         <main className="page_content">
             <div className="data-goveranance">
                 <div className="seo-landing-wrap"
-                    style={{ background: `url(${BASE_URL}//wp-content/uploads/2024/09/data-governance-and-data-strategy.jpg)` }}
+                    style={{ background: `url(${BASE_URL}/wp-content/uploads/2026/06/Data-Strategy-Services.webp)` }}
                 >
                     <div className="container">
                         <div className="banner-caption">

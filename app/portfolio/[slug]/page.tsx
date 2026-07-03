@@ -31,8 +31,7 @@ const page = async ({ params }: { params: { slug: any } }) => {
 
     const schemaData = getSchemaFromPageData(pageData);
     
-
-    const relatedpost = await getPortFloioRelatedPost(pageData?.portfolio_category, pageData?.id)
+const relatedpost = await getPortFloioRelatedPost(pageData?.portfolio_category, pageData?.id)
 
 
 
