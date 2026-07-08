@@ -17,7 +17,7 @@ const CaseStudy2 = async ({ pageData }: any) => {
         <section
           className={styles.casebannerSection}
           style={{
-            backgroundImage: `url(${BASE_URL}/wp-content/themes/perfecti/case-4-assets/images/banner-bg.jpg)`,
+            backgroundImage: `url(${BASE_URL}/wp-content/uploads/2026/07/moto-cycle-arc-2.jpg)`,
           }}
         >
           <div className={styles.bannerwrap}>
@@ -196,7 +196,7 @@ const CaseStudy2 = async ({ pageData }: any) => {
           <div className="container">
             <div className={styles.caseImgWrap}>
               <img
-                src={`${BASE_URL}/wp-content/uploads/2023/08/old-website-design.jpg`}
+                src={`${BASE_URL}/wp-content/uploads/2026/07/old-website-design-2.jpg`}
                 alt="Old website design"
               />
             </div>
@@ -245,7 +245,7 @@ const CaseStudy2 = async ({ pageData }: any) => {
                 {pageData?.acf?.data?.ifth_section_heading_between_images}
               </h4>
               <img
-                src={`${BASE_URL}/wp-content/uploads/2023/08/new-website-design2.png`}
+                src={`${BASE_URL}/wp-content/uploads/2026/07/new-website-design2-2arc.png`}
                 alt="New website design improvements"
               />
             </div>

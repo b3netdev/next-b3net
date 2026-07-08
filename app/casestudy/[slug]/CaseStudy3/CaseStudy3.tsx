@@ -51,13 +51,13 @@ const CaseStudy3 = async ({ pageData }: any) => {
                   </div>
                 </div>
                 <div className="bnr-img">
-                  <img src={`${BASE_URL}/wp-content/themes/b3net/assets/images/banner-tree-care-logo.png`}
+                  {/* <img src={`${BASE_URL}/wp-content/themes/b3net/assets/images/banner-tree-care-logo.png`}
                     alt="bnr-img"
-                  />
+                  /> */}
                   <p>
-                    <a href="https://treecarearborists.com/">
+                    {/* <a href="https://treecarearborists.com/">
                       www.treecarearborists.com
-                    </a>
+                    </a> */}
                   </p>
                 </div>
               </div>
@@ -101,7 +101,7 @@ const CaseStudy3 = async ({ pageData }: any) => {
               previous site of TreeCare Arborists.
             </p>
             <div className="case-img-wrap">
-              <img src={`${BASE_URL}/wp-content/themes/b3net/assets/images/old-website-design.png`}
+              <img src={`${BASE_URL}/wp-content/uploads/2026/07/old-website-design-2-tree-1.png`}
                 alt="case-img-wrap"
               />
             </div>
@@ -240,7 +240,7 @@ const CaseStudy3 = async ({ pageData }: any) => {
               and nutrition and fertilization.
             </p>
             <div className="case-img-wrap">
-              <img src={`${BASE_URL}/wp-content/themes/b3net/assets/images/new-website-design.png`}
+              <img src={`${BASE_URL}/wp-content/uploads/2026/07/new-website-design-2-tree.png`}
                 alt="case-img-wrap"
               />
             </div>
@@ -262,7 +262,7 @@ const CaseStudy3 = async ({ pageData }: any) => {
               later. Isn't it really user-friendly?
             </p>
             <div className="case-img-wrap">
-              <img src={`${BASE_URL}/wp-content/themes/b3net/assets/images/form-design.png`}
+              <img src={`${BASE_URL}/wp-content/uploads/2026/07/form-design-2-1.png`}
                 alt="case-img-wrap"
               />
             </div>
