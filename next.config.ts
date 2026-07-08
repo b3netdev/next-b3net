@@ -519,6 +519,16 @@ const nextConfig: NextConfig = {
         destination: "/texas/dallas-web-development-agency",
         permanent: true,
       },
+      {
+        source: "/portfolio/arc-levers",
+        destination: "/portfolio/arc-levers-store",
+        permanent: true,
+      },
+      {
+        source: "/portfolio/arrendaria-real-estate-service",
+        destination: "/portfolio/arrendaria",
+        permanent: true,
+      },
     ];
   },
   async rewrites() {
