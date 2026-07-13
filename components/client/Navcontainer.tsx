@@ -290,7 +290,7 @@ export default function Navbar() {
                         <Link className="site_link" href="/">
 
                             <img
-                                src={`${BASE_URL}/wp-content/uploads/2025/06/logo-2.png`}
+                                src={`${BASE_URL}/wp-content/uploads/2026/07/B3net-logo.png`}
                                 alt="logo"
                                 className="logo_img"
                                 style={{ filter: !isSticky ? "brightness(0) invert(1)" : "none" }}

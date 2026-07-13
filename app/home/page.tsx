@@ -133,7 +133,7 @@ export default async function Home() {
 
             <div className="video-container relative">
                 <Image
-                    src={heroBg}
+                    src={`${BASE_URL}/wp-content/uploads/2026/07/B3net-Home-Banner.webp`}
                     alt="Background"
                     fill
                     priority
@@ -142,8 +142,8 @@ export default async function Home() {
                 />
 
                 <div className="overlay-content text-center">
-                    <h1>
-                        Innovate. Adapt. Succeed with <strong>B3NET</strong>
+                    <h1 className="!font-medium !text-md">
+                        Innovate. Adapt. Succeed with <strong className="" >B3NET</strong>
                     </h1>
 
                     <p style={{ color: "white", fontSize: "1em", }}>

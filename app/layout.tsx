@@ -4,6 +4,9 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import "swiper/css";
 import "@fortawesome/fontawesome-free/css/all.min.css";
 
+import { Exo_2 } from "next/font/google";
+
+
 import BootstrapClient from "./BootstrapClient";
 import "./globals.css";
 import "../assets/css/style.css";
@@ -27,6 +30,12 @@ const poppins = Poppins({
   weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"],
   style: ["normal", "italic"],
   display: "swap",
+});
+
+const exo2 = Exo_2({
+  subsets: ["latin"],
+  weight: ["400", "600", "700", "800", "900"],
+  variable: "--font-exo-2",
 });
 
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000";
@@ -139,7 +148,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className={poppins.className}>
+    <html lang="en" className={`${poppins.className} ${exo2.variable}`}>
       <body>
         <Script
           id="cookieyes"

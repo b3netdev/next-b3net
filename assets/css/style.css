@@ -1,4 +1,5 @@
-@import url("https://fonts.googleapis.com/css2?family=Exo+2:ital,wght@0,100..900;1,100..900&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Exo+2:ital,wght@0,100..900;1,100..900&display=swap');
+
 
 body,
 body.body,
@@ -14,6 +15,7 @@ html {
 a {
   color: #3b58a1;
 }
+
 
 .text-white h2,
 .text-white p {
@@ -1461,7 +1463,6 @@ h2 span {
 
 .logo-text {
   font-family: "Exo 2", sans-serif;
-  color: #3c58a1;
   font-weight: normal;
 }
 
@@ -2323,9 +2324,9 @@ body:has(.page_banner_section + .intro_about_section) .page_banner_section {
 }
 
 .overlay-content h1 strong {
-  font-family: "Exo 2", sans-serif;
-  font-weight: 700;
-  color: #4462ad;
+ font-family: var(--font-exo-2), sans-serif;
+  color: #ff4f02;
+  font-weight: 700 !important;
 }
 
 .overlay-content .btn {
