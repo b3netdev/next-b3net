@@ -9,6 +9,8 @@ import Select3 from "../../assets/images/select-3.webp";
 import Select4 from "../../assets/images/select-4.webp";
 import Select5 from "../../assets/images/select-5.webp";
 import Select0 from "../../assets/images/select-0.webp";
+import ProcessStep from "../../assets/images/process-icon-1.png";
+import ProcessStepSelect from "../../assets/images/process-icon-2.png";
 
 type ProcessStep = {
   id: string;
@@ -62,8 +64,8 @@ const Process: React.FC = () => {
   );
   const [contentHeights, setContentHeights] = useState<Record<string, number>>(
     {}
-  );
-
+  )
+  const [processHover, setProcessHover] = useState<string | null>(null);
   const contentRefs = useRef<Record<string, HTMLDivElement | null>>({});
 
   useLayoutEffect(() => {
@@ -75,6 +77,7 @@ const Process: React.FC = () => {
         heights[step.id] = el.scrollHeight;
       }
     });
+
 
     setContentHeights(heights);
 
@@ -97,6 +100,7 @@ const Process: React.FC = () => {
       window.removeEventListener("resize", handleResize);
     };
   }, []);
+
 
   const toggle = (step: ProcessStep) => {
 
@@ -137,13 +141,28 @@ const Process: React.FC = () => {
                         type="button"
                         onClick={() => toggle(step)}
                         aria-expanded={isOpen}
+                        onMouseEnter={() => setProcessHover(step.id)}
+                        onMouseLeave={() => setProcessHover(null)}
                       >
-                        <div className={`${index==3?"process-sm-text":""}`}>
+                        <div
+                          className={`${index === 3 ? "process-sm-text" : ""} flex gap-2 items-center`}
+                        >
+                          {isOpen || processHover === step.id ? (
+                            <Image
+                              src={ProcessStep}
+                              alt="ProcessStep"
+                              className="size-8"
+                            />
+                          ) : (
+                            <Image
+                              src={ProcessStepSelect}
+                              alt="ProcessStepSelect"
+                              className="size-8"
+                            />
+                          )}
 
-                          <span className="icon-1">
-                            <i className="fa-solid fa-check"></i>
-                          </span>
-                          {index + 1}.{step.title}
+                          {index + 1}. {step.title}
+
                           <span className="icon-2">
                             <i className="fa-solid fa-chevron-down"></i>
                           </span>
