@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&display=swap');
 
 
 html {
@@ -2369,7 +2369,7 @@ li.breadcrumb-item {
 
 
 .footer-smaill {
-    margin-bottom: 25px;
+    /* margin-bottom: 25px; */
 }
 
 section.product-details-sec.shop-sec.page_content.default_content_class ul li {
@@ -3807,9 +3807,9 @@ section.product-details-sec.shop-sec.page_content.default_content_class ol.bread
   }
   
   .contact-sec {
-    background: #f2fcfd;
+    /* background: #f2fcfd; */
     padding: 5px 0 40px 0;
-    background-image: none;
+    /* background-image: none; */
   }
   
   .ai-chatbot-container .hero {

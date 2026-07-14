@@ -57,8 +57,8 @@ export default async function Portfolio() {
           </div>
         </div>
 
-        <div className="bg-color-part">
-          <div className="breadcrum py-3 py-4 py-sm-5">
+        <div className="">
+          <div className="breadcrum py-4 py-sm-5">
             <div className="container">
               <nav aria-label="breadcrumb ">
                 <ol className="breadcrumb d-flex align-items-center ">

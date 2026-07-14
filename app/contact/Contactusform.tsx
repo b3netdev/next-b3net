@@ -72,7 +72,7 @@ export default function ContactUsForm() {
   });
 
   return (
-    <section className="contact-sec bg-white sp">
+    <section className="contact-sec sp">
       <div className="container px-4">
         <div className="row justify-content-center mb-2 mb-md-4">
           <div className="col-lg-12 text-start">

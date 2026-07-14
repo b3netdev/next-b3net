@@ -74,8 +74,13 @@ li {
   color: #ffffff;
 }
 
+
 .page_content-1 .top-footer {
-  padding-top: 230px;
+  padding-top: 330px;
+}
+
+.footer-smaill-1{
+  /* position: absolute; */
 }
 
 .top-footer.new-footer {
