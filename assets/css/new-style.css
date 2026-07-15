@@ -1215,7 +1215,7 @@ a.d-flex.align-items-center.gap-2.clr-blk {
 }
 
 .accordion-button:not(.collapsed) {
-    background-color: #e3f2fd;
+    /* background-color: #e3f2fd; */
 }
 
 .accordion-button:focus {
@@ -1262,7 +1262,7 @@ a.d-flex.align-items-center.gap-2.clr-blk {
 }
 
 .accordion-button:not(.collapsed) {
-    background-color: #e3f2fd;
+    /* background-color: #e3f2fd; */
     /* color: #007bff; */
 }
 

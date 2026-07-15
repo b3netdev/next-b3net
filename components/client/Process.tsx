@@ -134,7 +134,7 @@ const Process: React.FC = () => {
                 const isOpen = activeId === step.id;
 
                 return (
-                  <div className="accordion-item" key={step.id}>
+                  <div className="accordion-item accordian-processitem" key={step.id}>
                     <h2 className="accordion-header">
                       <button
                         className={`accordion-button ${!isOpen ? "collapsed" : ""}`}
@@ -182,11 +182,12 @@ const Process: React.FC = () => {
                     >
                       <div
                         className="acc-anim-inner"
+                        
                         ref={(node) => {
                           contentRefs.current[step.id] = node;
                         }}
                       >
-                        <div className="accordion-body">
+                        <div className="accordion-body " style={{background: "#F7FEFE"}}>
                           <p className="primary-bodyText">{step.description}</p>
                         </div>
                       </div>

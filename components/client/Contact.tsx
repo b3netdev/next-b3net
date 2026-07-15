@@ -137,7 +137,7 @@ const Contact: React.FC<ContactProps> = ({ data = false }) => {
 
   return (
     <>
-      <div id="contact" style={{ paddingTop: data ? "" : "50px" }}>
+      <div id="contact" style={{ paddingTop: data ? "" : "50px" , background:'none' }}>
         <div className="container">
           <div className="row justify-content-center mb-5">
             {!data && (

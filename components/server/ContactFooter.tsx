@@ -3,7 +3,7 @@ import Link from "next/link";
 
 const ContactFooter = () => {
   return (
-    <div className="footer-smaill">
+    <div className="footer-smaill ">
       <div className="container">
         <div className="start-now-col d-sm-flex align-items-center justify-content-between mt-md-5 px-4 py-3 px-md-5 py-md-5">
           <div

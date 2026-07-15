@@ -142,7 +142,7 @@ export default async function Portfolio() {
           </div>
         </div>
 
-        <section className="contact-sec bg-grey sp py-5">
+        <section className="contact-sec  sp py-5">
           <div className="container">
             <div className="row justify-content-center mb-5">
               <div className="col-lg-8 text-center">
