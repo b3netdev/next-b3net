@@ -3287,9 +3287,6 @@ end last css */
 
 /* Hover effect */
 
-.error-page {
-    padding: 200px 0;
-}
 
 .error-page h1 {
     font-size: 130px;
@@ -3351,12 +3348,6 @@ section.product-details-sec.shop-sec.page_content.default_content_class ol.bread
 }
 
 
-@media (max-width: 1400px) {
-
-    .error-page {
-        padding: 150px 0;
-    }
-}
 
 @media (max-width: 1199px) {
 
