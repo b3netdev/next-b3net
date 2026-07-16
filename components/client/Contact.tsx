@@ -24,7 +24,7 @@ type ContactFormValues = {
   phone: string;
   email: string;
   cname: string;
-  cwebsite: string;
+  cwebsite?: string;
   message: string;
   services: string[];
   consent: boolean;
@@ -50,7 +50,7 @@ const validationSchema: Yup.ObjectSchema<ContactFormValues> = Yup.object({
   phone: Yup.string().required("Phone number is required"),
   email: Yup.string().email("Invalid email").required("Email is required"),
   cname: Yup.string().required("Company name is required"),
-  cwebsite: Yup.string().required("Website link is required"),
+  cwebsite: Yup.string(),
   message: Yup.string().required("Message is required"),
   consent: Yup.boolean().required("Consent is required").oneOf([true], "Consent is required"),
   services: Yup.array()
@@ -100,7 +100,7 @@ const Contact: React.FC<ContactProps> = ({ data = false }) => {
       formData.append("phone", values.phone);
       formData.append("email", values.email);
       formData.append("cname", values.cname);
-      formData.append("cwebsite", values.cwebsite);
+      formData.append("cwebsite", values.cwebsite || "");
       formData.append("message", values.message);
       formData.append("recaptcha_token", captchaToken);
       formData.append("yourConsent", values.yourConsent);
@@ -110,7 +110,6 @@ const Contact: React.FC<ContactProps> = ({ data = false }) => {
       values.services.forEach((service) => {
         formData.append("services[]", service);
       });
-
       const res: any = await submitcontact(formData, 12634);
 
       if (res?.status === "mail_sent") {
@@ -253,7 +252,7 @@ const Contact: React.FC<ContactProps> = ({ data = false }) => {
 
                   <div className="col-md-4 form-group">
                     <label className="font-normal text-lg">
-                      Company Website <span>*</span>
+                      Company Website 
                     </label>
                     <input
                       type="text"
