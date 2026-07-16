@@ -14,7 +14,7 @@ type FormValues = {
   email: string;
   phone: string;
   companyName: string;
-  companyWebsite: string;
+  companyWebsite?: string;
   message: string;
   yourConsent:string
 };
@@ -53,7 +53,7 @@ const ServiceContact: React.FC<ServiceContactProps> = ({
       email: Yup.string().trim().email("Invalid email").required("Email is required"),
       phone: Yup.string().trim().required("Phone No is required"),
       companyName: Yup.string().trim().required("Company name required"),
-      companyWebsite: Yup.string().trim().required("Copany website is required"),
+      companyWebsite: Yup.string().trim(),
     }),
     onSubmit: async (values, { setSubmitting, resetForm }) => {
       try {
@@ -222,7 +222,9 @@ const ServiceContact: React.FC<ServiceContactProps> = ({
 
               <div className="row mb-3">
                 <div className="col-md-6 form-group">
-                  <label>Company Name</label>
+                  <label>
+                    Company Name <span>*</span>
+                  </label>
                   <br />
                   <span className="wpcf7-form-control-wrap" data-name="company-name">
                     <input

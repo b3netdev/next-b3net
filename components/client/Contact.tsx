@@ -50,7 +50,7 @@ const validationSchema: Yup.ObjectSchema<ContactFormValues> = Yup.object({
   phone: Yup.string().required("Phone number is required"),
   email: Yup.string().email("Invalid email").required("Email is required"),
   cname: Yup.string().required("Company name is required"),
-  cwebsite: Yup.string(),
+  cwebsite: Yup.string(), 
   message: Yup.string().required("Message is required"),
   consent: Yup.boolean().required("Consent is required").oneOf([true], "Consent is required"),
   services: Yup.array()
