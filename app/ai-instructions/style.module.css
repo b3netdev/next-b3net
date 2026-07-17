@@ -1,0 +1,173 @@
+.page {
+  min-height: 100vh;
+  margin: 0;
+  background: #ffffff;
+  color: #3c4257;
+  font-family: "Poppins", sans-serif;
+  font-size: 16px;
+  line-height: 1.7;
+
+}
+
+
+.page a {
+  color: #1863dc;
+}
+
+.page a:hover {
+  text-decoration: underline;
+}
+
+.page p {
+  margin: 0 0 12px;
+}
+
+.page ul,
+.page ol {
+  margin: 0 0 12px;
+  padding-left: 22px;
+}
+
+.page li {
+  margin-bottom: 4px;
+}
+
+.wrap {
+  width: 100%;
+  max-width: 860px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.header {
+  padding: 18px 0;
+  border-bottom: 1px solid #e3e7ef;
+}
+
+.headerInner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.logo {
+  display: block;
+  width: auto;
+  max-width: 100%;
+  height: 32px;
+}
+
+.nav {
+  display: flex;
+  align-items: center;
+  gap: 22px;
+}
+
+.nav a {
+  color: #0e1a3a;
+  font-size: 14px;
+  text-decoration: none;
+}
+
+.nav a:hover {
+  color: #1863dc;
+  text-decoration: none;
+}
+
+.main {
+  padding: 40px 0 60px;
+}
+
+.title {
+  margin: 0 0 12px;
+  color: #0e1a3a;
+  font-size: 28px;
+  line-height: 1.3;
+}
+
+.sectionTitle {
+  margin: 36px 0 10px;
+  padding-top: 28px;
+  border-top: 1px solid #e3e7ef;
+  color: #0e1a3a;
+  font-size: 20px;
+  line-height: 1.4;
+}
+
+.firstSectionTitle {
+  padding-top: 0;
+  border-top: 0;
+}
+
+.service h3 {
+  margin: 18px 0 6px;
+  color: #0e1a3a;
+  font-size: 16px;
+}
+
+.meta {
+  margin-bottom: 28px !important;
+  color: #8c92a1;
+  font-size: 13.5px;
+}
+
+.tableWrapper {
+  width: 100%;
+  overflow-x: auto;
+}
+
+.table {
+  width: 100%;
+  margin: 12px 0 20px;
+  border-collapse: collapse;
+  font-size: 14.5px;
+}
+
+.table th,
+.table td {
+  padding: 8px 10px;
+  border-bottom: 1px solid #e3e7ef;
+  text-align: left;
+  vertical-align: top;
+}
+
+.table th {
+  color: #1863dc;
+  font-size: 12.5px;
+  font-weight: 600;
+  letter-spacing: 0.4px;
+  text-transform: uppercase;
+}
+
+.footer {
+  padding: 24px 0;
+  border-top: 1px solid #e3e7ef;
+  color: #8c92a1;
+  font-size: 13px;
+}
+
+.footerInner {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+.footer a {
+  color: #8c92a1;
+}
+
+@media (max-width: 600px) {
+  .nav {
+    display: none;
+  }
+
+  .title {
+    font-size: 24px;
+  }
+
+  .table {
+    min-width: 560px;
+  }
+}
+

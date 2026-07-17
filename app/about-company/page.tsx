@@ -18,7 +18,7 @@ type PageProps = {
 };
 
 const getPageData = cache(async () => {
-  
+
   const data = await GetPageData("about-company", "page");
   return data?.page ?? data;
 });
@@ -36,7 +36,7 @@ export default async function AboutUsPage({ params }: PageProps) {
   const data = await getPageData();
 
   const pageData = data?.page ?? data;
-    const schemaData = getSchemaFromPageData(pageData);
+  const schemaData = getSchemaFromPageData(pageData);
 
 
   if (!pageData) notFound();
@@ -79,7 +79,7 @@ export default async function AboutUsPage({ params }: PageProps) {
             <div className="col-lg-9 pe-lg-4">
               <div className="heading-title heading-big-uppercase int-className">
                 <h2
-                className="!leading-none"
+                  className="!leading-none"
                   dangerouslySetInnerHTML={{
                     __html: pageData?.acf?.data?.heading ?? "",
                   }}
@@ -100,7 +100,7 @@ export default async function AboutUsPage({ params }: PageProps) {
 
             <div className="col-lg-8 col-md-6 mb-4 common-content new-colr">
               <div
-              className="primary-bodyText"
+                className="primary-bodyText"
                 dangerouslySetInnerHTML={{
                   __html: pageData?.acf?.data?.content ?? "",
                 }}
@@ -134,7 +134,7 @@ export default async function AboutUsPage({ params }: PageProps) {
 
                       <div className="video-card-text">
                         <div
-                        className="primary-bodyText"
+                          className="primary-bodyText"
                           dangerouslySetInnerHTML={{
                             __html: data?.second_section_content || " ",
                           }}
@@ -178,7 +178,7 @@ export default async function AboutUsPage({ params }: PageProps) {
                         </div>
                         <div className="testi-text pt-2 pt-md-4"></div>
                         <div
-                        className="primary-bodyText"
+                          className="primary-bodyText"
                           dangerouslySetInnerHTML={{
                             __html: leader?.leader_content || "",
                           }}
