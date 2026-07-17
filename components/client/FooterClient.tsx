@@ -574,7 +574,8 @@ export default function FooterClient() {
             </p>
             <p>
               <Link href="/privacy-policy">Privacy Policy </Link> |{" "}
-              <Link href="/terms-of-use">Terms of Use</Link>
+              <Link href="/terms-of-use">Terms of Use</Link> |{" "}
+              <Link  href="/ai-instructions">AI Instructions</Link>
             </p>
           </div>
         </div>
