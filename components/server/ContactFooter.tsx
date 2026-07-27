@@ -11,11 +11,12 @@ const ContactFooter = () => {
             data-aos="fade-right"
             data-aos-duration="800"
           >
-            <h2>
-              Boost Your Revenue with
-              <span> AI-Powered</span>
-            </h2>
-            <h3>Digital Transformation</h3>
+            <div className="font-semibold text-5xl text-white mb-3">
+              
+                Boost Your Revenue with
+              <span className="font-bold" > AI-Powered</span>
+            </div>
+            <div className="font-semibold text-5xl text-white mb-3 bg-[#FF4F03] p-1">Digital Transformation</div>
           </div>
 
           <div
