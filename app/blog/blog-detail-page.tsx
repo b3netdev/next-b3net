@@ -113,8 +113,8 @@ const BlogDetail = async ({ params }: { params: { slug: string } }) => {
               <div className="col-lg-4 col-xl-3">
                 <div id="blog-sidebar" className="sidebar">
                   <div className="newsletter-blog">
-                    <div className="toc-text">
-                      <h3>Table of Contents</h3>
+                    <div className="toc-text blogdetail-sidebar">
+                      <div>Table of Contents</div>
                     </div>
 
 
@@ -135,7 +135,7 @@ const BlogDetail = async ({ params }: { params: { slug: string } }) => {
                   </div> */}
 
                   <div className="solutions">
-                    <h3>Explore Our Solutions</h3>
+                    <div>Explore Our Solutions</div>
                     <p>
                       From stunning websites to smart AI solutions and
                       top-ranking SEO — we bring your vision to life.
@@ -161,7 +161,7 @@ const BlogDetail = async ({ params }: { params: { slug: string } }) => {
 
 
                 <div className="blog-details-social-icons my-4">
-                  <h3>Share With Friends</h3>
+                  <div className="font-semibold text-black text-3xl mr-3">Share With Friends</div>
                   <div className="social-icons">
                     <ul className="d-flex align-items-center justify-content-start">
                       <li>
@@ -191,7 +191,7 @@ const BlogDetail = async ({ params }: { params: { slug: string } }) => {
                       alt={authordata?.name}
                     />
                     <div>
-                      <h3>{authordata?.name}</h3>
+                      <span className="text-black font-semibold text-2xl">{authordata?.name}</span>
                       <p>{authordata?.description}</p>
                     </div>
                   </Link>

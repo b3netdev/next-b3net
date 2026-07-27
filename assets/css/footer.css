@@ -74,7 +74,10 @@ li {
   color: #ffffff;
 }
 
-
+.footer-headingmenu {
+  box-shadow: 0 1px 0 0 rgba(255, 255, 255, 0.1);
+  padding-bottom: 15px;
+}
 .page_content-1 .top-footer {
   padding-top: 230px;
 }

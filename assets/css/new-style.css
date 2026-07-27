@@ -1541,6 +1541,16 @@ a.d-flex.align-items-center.gap-2.clr-blk {
     font-size: 18px;
 }
 
+.blogdetail-sidebar div{
+  background: #3b58a1 !important;
+color: #fff;
+    padding: 10px;
+    border-radius: 5px;
+    font-weight: '600' !important;
+    text-align: center;
+    font-size: 18px;
+}
+
 .newsletter-blog input {
     width: 100%;
     padding: 10px 10px 10px 15px;

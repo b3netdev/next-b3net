@@ -339,8 +339,8 @@ export default function FooterClient() {
           }}
         >
           <div className="container">
-            <div className="menu-list">
-              <h3>Serving Your Location</h3>
+            <div className="menu-list mb-3">
+              <div className="text-white mb-2 font-semibold footer-headingmenu">Serving Your Location</div>
             </div>
 
             <div
@@ -357,7 +357,7 @@ export default function FooterClient() {
                   <div className="accordion-item"
                     id={`tab-section-${loc.id}`}
                     key={loc.id}>
-                    <h2 className="accordion-header">
+                    <div className="accordion-header">
                       <button
                         className={`accordion-button !flex !justify-between ${open ? "" : "collapsed"}`}
                         type="button"
@@ -368,7 +368,7 @@ export default function FooterClient() {
                         {loc.title}
                         <span className="text-white font-bold">{open ? "−" : "+"}</span>
                       </button>
-                    </h2>
+                    </div>
 
                     {/* ///mobile devices */}
                     <div
@@ -490,7 +490,7 @@ export default function FooterClient() {
             <div className="row">
               <div className="col-12">
                 <div className="menu-list new-menu-list new-lst">
-                  <h3>Explore</h3>
+                  <div className="text-white mb-2 font-semibold footer-headingmenu">Explore</div>
                   <ExploreList items={exploreMenu?.items ?? []} />
                 </div>
               </div>
@@ -501,7 +501,7 @@ export default function FooterClient() {
                 <div className="row">
                   <div className="col-sm-6">
                     <div className="menu-list new-menu-list">
-                      <h3 className="">Find us on Social Media</h3>
+                     <div className="text-white mb-2 font-semibold footer-headingmenu">Find us on Social Media</div>
                       <ul className="footer-social">
                         <li>
                           <Link href="https://www.facebook.com/B3NET">
@@ -528,7 +528,7 @@ export default function FooterClient() {
                   </div>
                   <div className="col-sm-6">
                     <div className="menu-list">
-                      <h3>Partners</h3>
+                     <div className="text-white mb-2 font-semibold footer-headingmenu">Partners</div>
                       <ul className="partners">
                         <li>
                           <a
@@ -575,7 +575,7 @@ export default function FooterClient() {
             <p>
               <Link href="/privacy-policy">Privacy Policy </Link> |{" "}
               <Link href="/terms-of-use">Terms of Use</Link> |{" "}
-              <Link  href="/ai-instructions">AI Instructions</Link>
+              <Link href="/ai-instructions">AI Instructions</Link>
             </p>
           </div>
         </div>
