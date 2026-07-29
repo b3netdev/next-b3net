@@ -74,9 +74,9 @@ export default function SideMenu({
     const ServiceMenuGroup = ({ group }: { group: any }) => {
         return (
             <div className="menu-inner-col">
-                <h4>
+                <div className="flex items-center gap-2 text-lg font-semibold text-black">
                     <img src={group.icon?.src ?? group.icon} alt="" /> {group.title}
-                </h4>
+                </div>
 
                 <div className="d-flex flex-column gap-0">
                     {group.items.map((item: any, idx: any) => (
