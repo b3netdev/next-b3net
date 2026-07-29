@@ -72,15 +72,19 @@ function cleanSchema(data: any): any {
 }
 
 
+function cleanFrontendUrl(url?: string): string {
+  if (!url) return "";
+
+  return normalizeFrontendUrl(url)
+    .replace(/\.html(?=\/?(?:[?#]|$))/i, "")
+    .replace(/\/(?=[?#]|$)/, "");
+}
+
 export function buildMetadata(seo?: any): Metadata {
   if (!seo) return {};
-  const normalizedUrl = normalizeFrontendUrl(
-    seo.og_url || seo.canonical
-  );
 
-  const finalUrl = normalizedUrl?.replace(
-    /\.html(?=\/?(?:[?#]|$))/i,
-    ""
+   const finalUrl = cleanFrontendUrl(
+    seo.og_url || seo.canonical
   );
   return {
     title: seo.title || "",
