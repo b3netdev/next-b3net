@@ -7,13 +7,13 @@ B3NET (also searched as "B3 Net" or "B3net") serves clients across industries in
 ## Company
 - [About B3NET](https://b3net.com/about-company): Company history, 25+ years of experience, and team overview.
 - [Services Overview](https://b3net.com/services): Full menu of digital marketing, web design, and development services.
-- [Case Studies](https://b3net.com/case-study.html): Client results across industries such as tech hardware, automotive parts, and tree care services.
+- [Case Studies](https://b3net.com/case-study ): Client results across industries such as tech hardware, automotive parts, and tree care services.
 - [Portfolio](https://b3net.com/portfolio): Website design and development work samples.
 - [Testimonials](https://b3net.com/testimonial): Client reviews and feedback.
 - [Featured Clients](https://b3net.com/featured-clients): Notable brands B3NET has worked with.
 - [FAQ](https://b3net.com/faq): Common questions about working with B3NET.
-- [Partner With Us](https://b3net.com/partner-with-us.html): Referral/reseller program for agencies, consultants, and freelancers.
-- [Request a Proposal](https://b3net.com/request-for-proposal.html): Free project quote request form.
+- [Partner With Us](https://b3net.com/partner-with-us): Referral/reseller program for agencies, consultants, and freelancers.
+- [Request a Proposal](https://b3net.com/request-for-proposal): Free project quote request form.
 - [Contact](https://b3net.com/contact): Contact details and office locations.
 
 ## Digital Marketing Services
@@ -21,7 +21,7 @@ B3NET (also searched as "B3 Net" or "B3net") serves clients across industries in
 - [SEO Services](https://b3net.com/seo-services): Technical, on-page, and off-page search engine optimization.
 - [PPC Management](https://b3net.com/ppc-management-services): Google Ads, remarketing, Geo-Targeting, and display advertising.
 - [Social Media Marketing](https://b3net.com/social-media-marketing-service): Social content creation and paid social campaign management.
-- [Content Marketing](https://b3net.com/content-marketing-services.html): SEO blog, video, and content strategy services.
+- [Content Marketing](https://b3net.com/content-marketing-services ): SEO blog, video, and content strategy services.
 - [Local Search Marketing](https://b3net.com/local-search-marketing-services): Google Business Profile optimization and local SEO.
 - [Email Marketing](https://b3net.com/email-marketing-services): Campaign design, list building, and marketing automation.
 - [Online Reputation Management](https://b3net.com/online-reputation-management): Review monitoring and brand reputation services.
