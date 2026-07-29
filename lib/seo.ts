@@ -74,7 +74,14 @@ function cleanSchema(data: any): any {
 
 export function buildMetadata(seo?: any): Metadata {
   if (!seo) return {};
-  const finalUrl = normalizeFrontendUrl(seo.og_url || seo.canonical);
+  const normalizedUrl = normalizeFrontendUrl(
+    seo.og_url || seo.canonical
+  );
+
+  const finalUrl = normalizedUrl?.replace(
+    /\.html(?=\/?(?:[?#]|$))/i,
+    ""
+  );
   return {
     title: seo.title || "",
     description: seo.description || "",
