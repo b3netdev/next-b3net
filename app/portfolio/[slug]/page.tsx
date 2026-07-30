@@ -8,6 +8,7 @@ import { Metadata } from "next";
 import { buildMetadata, getSchemaFromPageData, getSeoFromPageData } from "@/lib/seo";
 import { BASE_URL } from "@/lib/url";
 import StructuredData from "@/components/server/StructuredData";
+import { notFound } from "next/navigation";
 
 
 const getBlogPageData = cache(async (slug: string) => {
@@ -20,18 +21,31 @@ export async function generateMetadata({ params }: { params: { slug: string } })
     const { slug } = await params;
 
     const pageData = await getBlogPageData(slug);
-        const seo = getSeoFromPageData(pageData);
+    const seo = getSeoFromPageData(pageData);
     return buildMetadata(seo);
 }
 
+function isInvalidSlug(slug?: string) {
+    if (!slug) return true;
+
+    return ["undefined", "null", "false"].includes(
+        slug.trim().toLowerCase()
+    );
+}
+
+
 const page = async ({ params }: { params: { slug: any } }) => {
+
     const { slug } = await params
 
+    if (isInvalidSlug(slug)) {
+        notFound()
+    }
     const pageData = await getBlogPageData(slug);
 
     const schemaData = getSchemaFromPageData(pageData);
-    
-const relatedpost = await getPortFloioRelatedPost(pageData?.portfolio_category, pageData?.id)
+
+    const relatedpost = await getPortFloioRelatedPost(pageData?.portfolio_category, pageData?.id)
 
 
 
