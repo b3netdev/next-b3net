@@ -529,6 +529,11 @@ const nextConfig: NextConfig = {
         destination: "/portfolio/arrendaria",
         permanent: true,
       },
+      {
+        source: "/the-rise-of-ai-generated-search-results-how-to-compete-as-a-human-creator",
+        destination: "/how-to-compete-with-ai-generated-content-as-a-human-creator",
+        permanent: true,
+      },
     ];
   },
   async rewrites() {
