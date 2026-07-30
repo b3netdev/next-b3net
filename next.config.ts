@@ -529,11 +529,6 @@ const nextConfig: NextConfig = {
         destination: "/portfolio/arrendaria",
         permanent: true,
       },
-      {
-        source: "/california/web-design-development-company-riverside",
-        destination: "/healthcare-web-design",
-        permanent: true,
-      },
     ];
   },
   async rewrites() {
