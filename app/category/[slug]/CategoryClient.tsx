@@ -41,9 +41,7 @@ const CategoryClient = ({ slug }: CategoryClientProps) => {
         const getPageData = async () => {
             setCategoryLoading(true)
             const data = await getBlogCategories();
-            console.log(data, "DATA")
             for (let i in data) {
-                console.log(data[i].slug)
                 if (data[i].slug == slug) setCategoryid(data[i].id)
             }
 
