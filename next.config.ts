@@ -534,6 +534,11 @@ const nextConfig: NextConfig = {
         destination: "/how-to-compete-with-ai-generated-content-as-a-human-creator",
         permanent: true,
       },
+      {
+        source: "/portfolio/ace-alignerswordpress",
+        destination: "/portfolio/ace-aligner",
+        permanent: true,
+      },
     ];
   },
   async rewrites() {
