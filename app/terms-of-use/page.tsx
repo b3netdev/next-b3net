@@ -32,8 +32,8 @@ const page = async () => {
                 <div className="menu-design"></div>
                 <div className="banner-img">
                     <div className="container proposalBanner">
-                        <div className="banner-caption">
-                            <h2>{pageData?.title?.rendered}</h2>
+                        <div className="banner-caption flex justify-center">
+                            <h1 className='!text-4xl'>{pageData?.title?.rendered}</h1>
                         </div>
                     </div>
                 </div>
