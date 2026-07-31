@@ -33,8 +33,8 @@ const page = async () => {
                 <div className="banner-img proposalBanner">
 
                     <div className="container">
-                        <div className="banner-caption">
-                            <h2>{pageData?.title?.rendered}</h2>
+                        <div className="banner-caption  flex justify-center">
+                            <h1 className='!text-4xl'>{pageData?.title?.rendered}</h1>
                         </div>
                     </div>
                 </div>

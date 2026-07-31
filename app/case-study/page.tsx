@@ -2,9 +2,10 @@ import React, { cache } from 'react'
 
 import { GetPageData } from '@/lib/getdata';
 import { Metadata } from 'next';
-import { buildMetadata, getSeoFromPageData } from '@/lib/seo';
+import { buildMetadata, getSchemaFromPageData, getSeoFromPageData } from '@/lib/seo';
 import ShowNav from '@/components/client/ShowNav';
 import Link from 'next/link';
+import StructuredData from '@/components/server/StructuredData';
 
 
 const getPageData = cache(async () => {
@@ -31,10 +32,23 @@ const page = async () => {
   const data = await getPageData();
 
   const pageData = data?.page ?? data;
+  const schemaData = getSchemaFromPageData(pageData);
 
   return (
     <div>
       <ShowNav />
+      <StructuredData data={schemaData} />
+      <div className="port-landing-wrap details-page default-img commonbannercontainer">
+        <div className="menu-design"></div>
+        <div className="banner-img proposalBanner">
+
+          <div className="container">
+            <div className="banner-caption  flex justify-center">
+              <h1 className='!text-4xl'>Case Study</h1>
+            </div>
+          </div>
+        </div>
+      </div>
       <div className='case-study-page-container' >
         {
           pageData?.acf?.data?.case_studies_repeater?.map((item: any, index: any) => {
