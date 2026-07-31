@@ -8545,3 +8545,76 @@ cursor: pointer !important;
 .accordian-processitem:first-child {
   border-top: 1px solid #d0d0d0 !important;
 }
+.errorPageContainer{
+  margin-top: 100px;
+  color: #000000;
+}
+.errorPageContainer h1{
+  margin-top: 100px;
+  color: #000000 !important;
+}
+.errorpagebtn{
+  background-color: #3C58A1 !important;
+  padding: 40px;
+  color: white !important;
+  border-radius: 40px;
+}
+
+.errrorpagebtn{
+  /* background-color: #3C58A1; */
+  width: 340px;
+  padding: 20;
+  border-width: 1px;
+  border-color: #3C58A1;
+  border-radius: 40px;
+  color: white !important;
+  cursor: pointer;
+  font-weight: 500 !important ;
+  color: black !important;
+}
+/* .errpageHeading{
+  margin-top: 20% !important;
+} */
+.errrorpagebtn:hover{
+  background-color: #3C58A1;
+  color: white !important;
+}
+@media (max-width:360px){
+  .errrorpagebtn{
+    width: 280px;
+  }
+}
+
+.errpagecontainer{
+  height: 60dvh;
+  gap: 10;
+}
+@media (max-width:280px){
+  .errrorpagebtn{
+    width: 230px;
+  }
+}
+.errpageHeading{
+font-size: 90px !important;
+text-transform: uppercase !important;
+}
+@media (max-width:435px){
+  .errpagecontainer{
+  height: 80dvh;
+  gap: 10;
+}
+ 
+}
+
+@media (max-width:476px){
+  .errpageHeading{
+    font-size: 50px !important;
+  }
+  .errpagecontainer div{
+
+    font-size: medium;
+
+
+
+  }
+}
