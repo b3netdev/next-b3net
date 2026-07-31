@@ -118,7 +118,7 @@ const PortfolioDetailPage = async ({
                         />
                         <div className="container">
                             <div className="banner-caption">
-                                <h2>{pageData?.title?.rendered}</h2>
+                                <h2 className="!text-3xl">{pageData?.title?.rendered}</h2>
                             </div>
                         </div>
                     </div>
