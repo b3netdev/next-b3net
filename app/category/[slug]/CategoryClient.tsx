@@ -128,7 +128,7 @@ const CategoryClient = ({ slug }: CategoryClientProps) => {
                 <div className="banner-img" >
                     <div className="container">
                         <div className="banner-caption category-banner-sec" style={{ height: "200px", display: "flex", justifyContent: "center", alignItems: "center" }}>
-                            <h2>Categories</h2>
+                            <h1 className="!text-4xl" >Categories</h1>
                         </div>
                     </div>
                 </div>
