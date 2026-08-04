@@ -12,6 +12,7 @@ import useBlog from "@/hooks/useBlog";
 import { BASE_URL } from "@/lib/url";
 import { useDispatch } from "react-redux";
 import { setCategoryId, addPageCount } from "@/redux/slicers/idSlicer";
+import { Search, X } from "lucide-react";
 type TabItem = {
   id: any;
   target: string;
@@ -30,6 +31,7 @@ export default function BlogClient() {
   const [categoryloading, setCategoryLoading] = useState(false)
   const [pageCount, setPageCount] = useState<any>(null)
   const [scroll, setScroll] = useState(true)
+  const [searchText, setSearchtext] = useState("")
 
   const [selectTab, setSelectTab] = useState<any>({
     id: "",
@@ -227,6 +229,27 @@ export default function BlogClient() {
             </SwiperSlide>
           ))}
         </Swiper>
+      </div>
+      <div className="w-full flex  mt-5 justify-center gap-2" >
+        <div className="search-box">
+          <i className="fa-brands fa-sistrix"></i>
+          <input
+            type="search"
+            value={searchText}
+            placeholder="Search..."
+            className="search-input"
+            aria-label="Search"
+            onChange={(e) => setSearchtext(e.target.value)}
+          />
+
+          <button type="button" className="clear-search" aria-label="Clear search" onClick={()=>setSearchtext("")}>
+            <X size={18} />
+          </button>
+        </div>
+        <div className={`flex justify-center items-center searchButton ${searchText?.length>0?"cursor-pointer opacity-100":"cursor-auto opacity-50"} 
+        `}>
+          SEARCH
+        </div>
       </div>
       <div
         id="blog-category-section"
