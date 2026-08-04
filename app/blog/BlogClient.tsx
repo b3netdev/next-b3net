@@ -236,7 +236,7 @@ export default function BlogClient() {
           <input
             type="search"
             value={searchText}
-            placeholder="Search..."
+            placeholder="Search blog..."
             className="search-input"
             aria-label="Search"
             onChange={(e) => setSearchtext(e.target.value)}
