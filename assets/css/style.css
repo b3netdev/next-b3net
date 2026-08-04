@@ -8686,4 +8686,15 @@ text-transform: uppercase !important;
   border-radius: 15;
   color: white;
   padding: 10;
+  font-weight: 500;
 }
+
+.paginationDots {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 30px;
+  color: #667085;
+  cursor: default;
+}
+
