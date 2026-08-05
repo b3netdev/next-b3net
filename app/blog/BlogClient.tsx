@@ -13,6 +13,7 @@ import { BASE_URL } from "@/lib/url";
 import { useDispatch } from "react-redux";
 import { setCategoryId, addPageCount } from "@/redux/slicers/idSlicer";
 import { Search, X } from "lucide-react";
+import api from "@/api/axios";
 type TabItem = {
   id: any;
   target: string;
@@ -23,7 +24,7 @@ type TabItem = {
 };
 
 export default function BlogClient() {
-  const { getBlogCategories, getBlogItems, loading } = useBlog();
+  const { getBlogCategories, getBlogItems, loading, searchBlog } = useBlog();
   const dispatch = useDispatch()
 
   const [category, setCategory] = useState<any>([]);
@@ -32,6 +33,8 @@ export default function BlogClient() {
   const [pageCount, setPageCount] = useState<any>(null)
   const [scroll, setScroll] = useState(true)
   const [searchText, setSearchtext] = useState("")
+  const [searchclick, setSearchClick] = useState(false)
+  const [showcategoryNav, setShowCategoryNav] = useState(true)
 
   const [selectTab, setSelectTab] = useState<any>({
     id: "",
@@ -70,7 +73,7 @@ export default function BlogClient() {
 
 
   useEffect(() => {
-    if (!selectTab?.id) return;
+    if (!selectTab?.id || searchText?.length > 0) return;
     const getblogitems = async () => {
       const params = new URLSearchParams({
         per_page: "6",
@@ -82,12 +85,39 @@ export default function BlogClient() {
       const res: any = await getBlogItems(params);
       setBlogItems(res.data);
       setPageCount(res.totalPosts)
+      setShowCategoryNav(true)
     };
 
     getblogitems();
-  }, [selectTab, pagenumber]);
+  }, [selectTab, pagenumber, searchText]);
 
 
+  useEffect(() => {
+    if (searchclick == false) return;
+    console.log(searchclick, "INside use effect")
+
+    const fetchBlogs = async () => {
+      try {
+        const response = await searchBlog(searchText, pagenumber);
+
+        if (
+          response?.totalPosts != null &&
+          response?.data != null
+        ) {
+          setBlogItems(response.data);
+          setPageCount(response.totalPosts);
+        }
+      } catch (error) {
+        console.error("Blog search failed:", error);
+      }
+      finally {
+        setSearchClick(false)
+
+      }
+    };
+
+    fetchBlogs();
+  }, [searchclick, pagenumber]);
 
 
   useEffect(() => {
@@ -137,6 +167,7 @@ export default function BlogClient() {
   const HandleSelectTab = (tab: TabItem) => {
     setSelectTab(tab);
     setPageNumber(1);
+
   };
 
 
@@ -186,6 +217,15 @@ export default function BlogClient() {
   const showNoData = !loading && blogItems?.length === 0;
 
 
+  const HandleSearch = async () => {
+    setShowCategoryNav(false)
+    if (!searchText.trim()) return;
+    setSearchClick(true)
+    setPageNumber(1)
+
+  }
+
+
   return (
     <>
       <div className="blog-banner-slide ">
@@ -230,58 +270,83 @@ export default function BlogClient() {
           ))}
         </Swiper>
       </div>
-      {/* <div className="w-full flex  mt-5 justify-center gap-2" >
+      <div className="w-full flex  mt-5 justify-center flex-wrap gap-2" >
         <div className="search-box">
-          <i className="fa-brands fa-sistrix"></i>
           <input
             type="search"
             value={searchText}
             placeholder="Search blog..."
             className="search-input"
-            aria-label="Search"
+            aria-label="Search blog"
             onChange={(e) => setSearchtext(e.target.value)}
+            onKeyDown={(e) => {
+              if (e.key === "Enter") {
+                e.preventDefault();
+                HandleSearch();
+              }
+            }}
           />
 
-          <button type="button" className="clear-search" aria-label="Clear search" onClick={() => setSearchtext("")}>
-            <X size={18} />
+          {searchText.length > 0 && (
+            <button
+              type="button"
+              className="clear-search"
+              aria-label="Clear search"
+              onClick={() => {
+                setSearchtext("");
+                setSearchClick(false);
+                setPageNumber(1);
+              }}
+            >
+              <X size={18} />
+            </button>
+          )}
+
+          <button
+            type="button"
+            className="searchButton"
+            aria-label="Search"
+            disabled={!searchText.trim()}
+            onClick={HandleSearch}
+          >
+            <i className="fa-solid fa-magnifying-glass"></i>
           </button>
         </div>
-        <div className={`flex justify-center items-center searchButton ${searchText?.length > 0 ? "cursor-pointer opacity-100" : "cursor-auto opacity-50"} 
-        `}>
-          SEARCH
-        </div>
-      </div> */}
+      </div>
       <div
         id="blog-category-section"
         ref={tabsRef}
         className="blog-banner-slide owl-carousel owl-theme mt-10 pb-10">
-        <ul
+        {
+          showcategoryNav &&
+          <ul
 
-          className="nav nav-pills mb-3 justify-content-center gap-2">
-          {categoryloading
-            ? Array.from({ length: 15 }).map((_, index) => (
-              <li key={index}>
-                <Skeleton
-                  variant="rounded"
-                  height={45}
-                  width={150}
-                  animation="wave"
-                  sx={{ borderRadius: "7px" }}
-                />
-              </li>
-            ))
-            : category.map((tab: any, index: number) => (
-              <li key={index}>
-                <button
-                  className={`nav-link category-navlink ${selectTab.id == tab.id ? "active" : ""
-                    }`}
-                  onClick={() => HandleSelectTab(tab)}
-                >
-                  {tab.name}
-                </button>
-              </li>
-            ))}
-        </ul>
+            className="nav nav-pills mb-3 justify-content-center gap-2">
+            {categoryloading
+              ? Array.from({ length: 15 }).map((_, index) => (
+                <li key={index}>
+                  <Skeleton
+                    variant="rounded"
+                    height={45}
+                    width={150}
+                    animation="wave"
+                    sx={{ borderRadius: "7px" }}
+                  />
+                </li>
+              ))
+              : category.map((tab: any, index: number) => (
+                <li key={index}>
+                  <button
+                    className={`nav-link category-navlink ${selectTab.id == tab.id ? "active" : ""
+                      }`}
+                    onClick={() => HandleSelectTab(tab)}
+                  >
+                    {tab.name}
+                  </button>
+                </li>
+              ))}
+          </ul>
+        }
 
 
 
@@ -430,7 +495,7 @@ export default function BlogClient() {
                 );
               };
 
-              // First button
+  
               if (pagenumber > 1) {
                 pages.push(
                   <button
@@ -444,7 +509,7 @@ export default function BlogClient() {
                 );
               }
 
-              // Previous button
+             
               if (pagenumber > 1) {
                 pages.push(
                   <button
@@ -461,12 +526,12 @@ export default function BlogClient() {
                 );
               }
 
-             
+
               for (let page = startPage; page <= endPage; page++) {
                 addPage(page);
               }
 
-              
+
               if (endPage < totalPages) {
                 if (endPage < totalPages - 1) {
                   pages.push(
@@ -482,7 +547,7 @@ export default function BlogClient() {
                 addPage(totalPages);
               }
 
-              
+
               if (pagenumber < totalPages) {
                 pages.push(
                   <button
@@ -499,7 +564,7 @@ export default function BlogClient() {
                 );
               }
 
-             
+
               if (pagenumber < totalPages) {
                 pages.push(
                   <button
