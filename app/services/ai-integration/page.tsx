@@ -332,7 +332,9 @@ const AiIntregation = async ({ params }: { params: { slug: string } }) => {
             >
               <div className="col-md-5">
                 <div className="advantages-img">
-                  <img src={`${BASE_URL}wp-content/uploads/2025/03/img-3.png`} />
+                  <img src={`${BASE_URL}wp-content/uploads/2025/03/img-3.png`}
+                    alt="AI microchip icon connected to a digital network"
+                  />
                 </div>
               </div>
               <div className="col-md-7"
@@ -408,7 +410,9 @@ const AiIntregation = async ({ params }: { params: { slug: string } }) => {
             <div className="row align-items-center gy-5">
               <div className="col-md-6 order-md-last mb-sm-30">
                 <div className="ready-img">
-                  <img src={`${BASE_URL}wp-content/uploads/2025/03/img-4.jpg`} />
+                  <img src={`${BASE_URL}wp-content/uploads/2025/03/img-4.jpg`}
+                    alt="Robotic hand and human hand pointing at glowing AI interface icons"
+                  />
                 </div>
               </div>
               <div className="col-md-6 order-md-first">
