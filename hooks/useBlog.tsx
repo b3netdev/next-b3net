@@ -46,9 +46,13 @@ export type BlogItemsParams =
 const useBlog = () => {
   const [loading, setLoading] = useState<boolean>(false);
 
-  const getBlogCategories = async (): Promise<WPCategory[]> => {
+  const getBlogCategories = async (per_page:number): Promise<WPCategory[]> => {
     try {
-      const res: AxiosResponse<WPCategory[]> = await api.get("/wp-json/wp/v2/categories");
+      const res: AxiosResponse<WPCategory[]> = await api.get("/wp-json/wp/v2/categories",{
+        params:{
+          per_page
+        }
+      });
 
       return res.data;
     } catch (error) {

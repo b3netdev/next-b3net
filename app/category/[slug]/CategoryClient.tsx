@@ -40,7 +40,8 @@ const CategoryClient = ({ slug }: CategoryClientProps) => {
     useEffect(() => {
         const getPageData = async () => {
             setCategoryLoading(true)
-            const data = await getBlogCategories();
+            const data = await getBlogCategories(100);
+            console.log(data)
             for (let i in data) {
                 if (data[i].slug == slug) setCategoryid(data[i].id)
             }
@@ -64,6 +65,7 @@ const CategoryClient = ({ slug }: CategoryClientProps) => {
             params.append("categories", categoryid);
 
             const res: any = await getBlogItems(params);
+            console.log(res)
             setBlogItems(res.data);
             setPageCount(res.totalPosts)
         };

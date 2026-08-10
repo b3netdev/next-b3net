@@ -5,8 +5,6 @@ const CategoryPage = async ({ params }: { params: { slug: string } }) => {
   return (
     <div>
       <CategoryClient slug={slug} />
-     
-      
     </div>
   )
 }

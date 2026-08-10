@@ -52,7 +52,7 @@ export default function BlogClient() {
   useEffect(() => {
     const getPageData = async () => {
       setCategoryLoading(true)
-      const data = await getBlogCategories();
+      const data = await getBlogCategories(15);
 
 
       const allobj = {

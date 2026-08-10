@@ -501,7 +501,7 @@ export default function FooterClient() {
                 <div className="row">
                   <div className="col-sm-6">
                     <div className="menu-list new-menu-list">
-                     <div className="text-white mb-2 font-semibold footer-headingmenu">Find us on Social Media</div>
+                      <div className="text-white mb-2 font-semibold footer-headingmenu">Find us on Social Media</div>
                       <ul className="footer-social">
                         <li>
                           <Link href="https://www.facebook.com/B3NET">
@@ -528,18 +528,22 @@ export default function FooterClient() {
                   </div>
                   <div className="col-sm-6">
                     <div className="menu-list">
-                     <div className="text-white mb-2 font-semibold footer-headingmenu">Partners</div>
+                      <div className="text-white mb-2 font-semibold footer-headingmenu">Partners</div>
                       <ul className="partners">
                         <li>
                           <a
                             href="https://www.zoho.com/partners/find-partner-profile.html?partnerid=d1b91bec8996f03d23320e2caa316b72">
-                            <img src={`${BASE_URL}wp-content/themes/b3net/assets/images/zoho.png` }/>
+                            <img src={`${BASE_URL}wp-content/themes/b3net/assets/images/zoho.png`}
+                              alt="Zoho Authorized Partner badge"
+                            />
                           </a>
                         </li>
                         <li>
                           <a href="#">
                             <img
-                              src={`${BASE_URL}wp-content/themes/b3net/assets/images/google-authorised.png`} />
+                              src={`${BASE_URL}wp-content/themes/b3net/assets/images/google-authorised.png`}
+                              alt="Google Cloud Partner badge"
+                            />
                           </a>
                         </li>
                       </ul>
