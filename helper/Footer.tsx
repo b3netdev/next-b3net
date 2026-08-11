@@ -785,12 +785,12 @@ export const footerData: FooterData = {
     {
       img: `${BASE_URL}/wp-content/themes/b3net/assets/images/zoho.png`,
       url: "https://www.zoho.com/partners/find-partner-profile.html?partnerid=d1b91bec8996f03d23320e2caa316b72",
-      alt: "Zoho",
+      alt: "Zoho Authorized Partner badge",
     },
     {
       img: `${BASE_URL}/wp-content/themes/b3net/assets/images/google-authorised.png`,
       url: "#",
-      alt: "Google Authorised",
+      alt: "Google Cloud Partner badge",
     },
   ],
 

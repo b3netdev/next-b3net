@@ -12,14 +12,16 @@ import { BASE_URL } from "@/lib/url";
 import { useDispatch } from "react-redux";
 import { setCategoryId, addPageCount } from "@/redux/slicers/idSlicer";
 import ShowNav from "@/components/client/ShowNav";
+import { getSchemaFromPageData } from "@/lib/seo";
+import StructuredData from "@/components/server/StructuredData";
 
 
 type CategoryClientProps = {
-    slug: string;
+    categoryid : string
 };
 
 
-const CategoryClient = ({ slug }: CategoryClientProps) => {
+const CategoryClient = ({ categoryid }: CategoryClientProps) => {
 
 
     const { getBlogItems, loading, getBlogCategories } = useBlog();
@@ -33,26 +35,13 @@ const CategoryClient = ({ slug }: CategoryClientProps) => {
 
     const [blogItems, setBlogItems] = useState<any>([]);
     const [pagenumber, setPageNumber] = useState<any>(1);
+   
+    const [schemadata, setSchemadata] = useState<any>(null)
 
     const [categoryloading, setCategoryLoading] = useState(false)
-    const [categoryid, setCategoryid] = useState<any>()
+  
 
-    useEffect(() => {
-        const getPageData = async () => {
-            setCategoryLoading(true)
-            const data = await getBlogCategories(100);
-            console.log(data)
-            for (let i in data) {
-                if (data[i].slug == slug) setCategoryid(data[i].id)
-            }
-
-            setCategoryLoading(false)
-        };
-
-        getPageData();
-    }, [slug]);
-
-
+console.log(categoryid,"CATEGORY ID")
     useEffect(() => {
         if (!categoryid) return
 
@@ -109,6 +98,7 @@ const CategoryClient = ({ slug }: CategoryClientProps) => {
 
 
 
+
     const setCategoryID = (id: any) => {
         dispatch(setCategoryId(id))
 
@@ -121,20 +111,10 @@ const CategoryClient = ({ slug }: CategoryClientProps) => {
     };
 
 
-    const showNoData = !loading && !categoryloading && blogItems?.length === 0;
+    const showNoData = !loading  && blogItems?.length === 0;
     return (
         <div>
-            <ShowNav />
-            <div style={{ marginTop: "90px" }} />
-            <div className="default-img flex justify-center items-center" style={{ background: "darkblue" }}>
-                <div className="banner-img" >
-                    <div className="container">
-                        <div className="banner-caption category-banner-sec" style={{ height: "200px", display: "flex", justifyContent: "center", alignItems: "center" }}>
-                            <h1 className="!text-4xl" >Categories</h1>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            
             <div className="tab-content mt-10  d-flex justify-center" id="pills-tabContent">
                 <div
                     className="tab-pane fade show active"

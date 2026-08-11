@@ -70,7 +70,8 @@ export default function AboutUsClient({ pageData }: Props) {
                   }}
                 />
                 <a href="https://www.youtube.com/watch?v=video3">
-                  <img src={pageData?.acf?.data?.image} alt="Video" />
+                  <img src={pageData?.acf?.data?.image} alt="Video" 
+                  />
                 </a>
               </div>
             </div>

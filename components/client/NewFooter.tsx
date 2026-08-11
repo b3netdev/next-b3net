@@ -619,13 +619,13 @@ const footerData = {
       {
         url: "https://www.zoho.com/partners/find-partner-profile.html?partnerid=d1b91bec8996f03d23320e2caa316b72",
         img: "https://www.b3net.com/wp-content/themes/b3net/assets/images/zoho.png",
-        alt: "Zoho",
+        alt: "Zoho Authorized Partner badge",
         targetBlank: false,
       },
       {
         url: "#",
         img: "https://www.b3net.com/wp-content/themes/b3net/assets/images/google-authorised.png",
-        alt: "Google authorised",
+        alt: "Google Cloud Partner badge",
         targetBlank: false,
       },
     ],

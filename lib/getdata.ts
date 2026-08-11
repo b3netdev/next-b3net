@@ -1,5 +1,7 @@
 // lib/post.ts
 import { fetcher } from "@/api/fether";
+import { WPCategory } from "@/hooks/useBlog";
+import { AxiosResponse } from "axios";
 
 export async function GetPageData(slug: string, type?: string) {
 
@@ -91,4 +93,34 @@ export const getcaseStudiesData = async (id: number) => {
       return Array.isArray(data) ? data ?? null : data ?? null;
    
   };
+
+
+
+
+    export const getBlogCategories = async (per_page:number): Promise<any[]> => {
+      try {
+        const res:any = await fetcher("/wp-json/wp/v2/categories",{
+          params:{
+            per_page
+          }
+        });
+
+        console.log(res)
+        return res;
+      } catch (error) {
+        console.error("Failed to fetch header menu:", error);
+        throw error;
+      }
+    };
+    export const getCategoryData = async (slug :string): Promise<any[]> => {
+      try {
+        const res:any = await fetcher(`wp-json/wp/v2/categories?slug=${slug}`,{
+          
+        });
+        return res[0];
+      } catch (error) {
+        console.error("Failed to fetch header menu:", error);
+        throw error;
+      }
+    };
 

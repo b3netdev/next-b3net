@@ -97,6 +97,7 @@ type AiImageItem = {
 type ClientLogoItem = {
   id: number;
   image: StaticImageData;
+  alt?:string,
 };
 
 const TechStacks: React.FC = () => {
@@ -153,7 +154,7 @@ const TechStacks: React.FC = () => {
   ];
 
   const clientLogos: ClientLogoItem[] = [
-    { id: 1, image: CLIENT1 },
+    { id: 1, image: CLIENT1 ,alt:""  },
     { id: 2, image: CTCGLOBAL },
     { id: 3, image: CLIENT2 },
     { id: 4, image: MP },
@@ -279,7 +280,10 @@ const TechStacks: React.FC = () => {
                 {clientLogos.map((item) => (
                   <div className="item" key={item.id}>
                     <div className="tech-list-col">
-                      <Image src={item.image} alt={`Client ${item.id}`} unoptimized className="h-20" />
+                      <Image
+                        src={item.image} alt={`Client ${item.id}`}
+                        unoptimized className="h-20"
+                      />
                     </div>
                   </div>
                 ))}
