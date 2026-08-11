@@ -150,11 +150,7 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${poppins.className} ${exo2.variable}`}>
       <body>
-        <Script
-          id="cookieyes"
-          src="https://cdn-cookieyes.com/client_data/0e730defc91657a6459d9c46/script.js"
-          strategy="afterInteractive"
-        />
+         <Script id="cookieyes" type="text/javascript" src="https://cdn-cookieyes.com/client_data/1e1642a0c5b048500cfb3a3c83be46cf/script.js" />
         <noscript>
           <iframe
             src="https://www.googletagmanager.com/ns.html?id=GTM-TQVC5NS"

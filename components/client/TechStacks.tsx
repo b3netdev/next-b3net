@@ -97,7 +97,7 @@ type AiImageItem = {
 type ClientLogoItem = {
   id: number;
   image: StaticImageData;
-  alt?:string,
+  alt?: string,
 };
 
 const TechStacks: React.FC = () => {
@@ -154,24 +154,24 @@ const TechStacks: React.FC = () => {
   ];
 
   const clientLogos: ClientLogoItem[] = [
-    { id: 1, image: CLIENT1 ,alt:""  },
+    { id: 1, image: CLIENT1, alt: "Allergan client logo" },
     { id: 2, image: CTCGLOBAL },
-    { id: 3, image: CLIENT2 },
+    { id: 3, image: CLIENT2, alt: "First American Title Insurance Company client logo" },
     { id: 4, image: MP },
-    { id: 5, image: CLIENT3 },
-    { id: 6, image: CLIENT4 },
+    { id: 5, image: CLIENT3, alt: "Korea Ginseng Corp client logo" },
+    { id: 6, image: CLIENT4, alt: 'Flint Group client logo' },
     { id: 7, image: MEDMAPS },
     { id: 8, image: CABINET },
     { id: 9, image: CLIENT5 },
     { id: 10, image: IHA },
     { id: 11, image: CLIENT6 },
     { id: 12, image: DOCKBOXES },
-    { id: 13, image: CLIENT7 },
+    { id: 13, image: CLIENT7, alt:"Fast 5 Xpress Car Wash client logo" },
     { id: 14, image: USDOT },
-    { id: 15, image: CLIENT8 },
-    { id: 16, image: CLIENT9 },
-    { id: 17, image: CLIENT11 },
-    { id: 18, image: CLIENT12 },
+    { id: 15, image: CLIENT8, alt:"Viage Solutions client logo" },
+    { id: 16, image: CLIENT9,alt:"American Regenerative Clinic client logo" },
+    { id: 17, image: CLIENT11, alt:"Client logo with a stylized tree and people icon in pink" },
+    { id: 18, image: CLIENT12,  },
     { id: 19, image: CLIENT13 },
     { id: 20, image: CLIENT16 },
     { id: 21, image: CLIENT17 },
