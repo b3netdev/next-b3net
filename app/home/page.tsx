@@ -168,14 +168,14 @@ export default async function Home() {
             <div className="industry-sec sp pb-0">
                 <div className="container">
                     <div className="row  justify-content-center rating-section gy-md-4 gy-xl-0">
-
                         {[
                             { img: "/images/google-logo.png", rating: "4.9 Out of 5", stars: 5 },
                             { img: "/images/facebook-logo.png", rating: "4.4 Out of 5", stars: 4.5 },
                             { img: "/images/dbest-logo.png", rating: "Our Rating: B+", stars: 4.5 },
                             { img: `${BASE_URL}/wp-content/uploads/2025/11/goodfirms-logo.png`, height: 60, width: 60, rating: "Our Rating: B+", stars: 4.5 },
+                            { img: `${BASE_URL}/wp-content/uploads/2026/08/Clutch_idM2mb6_Cx_1.png`, height: 60, width: 60, rating: "5 out of 5", stars: 5 },
                         ].map((item, i) => (
-                            <div key={i} className="col-lg-3 col-sm-6  rating-box ">
+                            <div key={i} className="col-lg-3 col-sm-6  rating-box mt-5">
                                 <div className="d-flex justify-center rating-box-contain ">
                                     <div className="rating-logo pe-3">
                                         <Image src={item.img} unoptimized alt="rating" width={item?.width || 100} height={item?.height || 100} />
