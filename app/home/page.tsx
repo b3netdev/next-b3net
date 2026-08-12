@@ -167,33 +167,33 @@ export default async function Home() {
             {/* RATINGS */}
             <div className="industry-sec sp pb-0 w-full">
                 <div className="container">
-                   <div className="grid w-full grid-cols-1 gap-6 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5">
+                    <div className="grid w-full grid-cols-1 gap-6 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5">
                         {[
                             { img: "/images/google-logo.png", rating: "4.9 Out of 5" },
                             { img: "/images/facebook-logo.png", rating: "4.4 Out of 5" },
-                            { img: "/images/dbest-logo.png", rating: "Our Rating: B+" },
-                            {
-                                img: `${BASE_URL}/wp-content/uploads/2025/11/goodfirms-logo.png`,
-                                height: 60,
-                                width: 60,
-                                rating: "Our Rating: B+",
-                            },
                             {
                                 img: `${BASE_URL}/wp-content/uploads/2026/08/Clutch_idM2mb6_Cx_1.png`,
                                 height: 60,
                                 width: 60,
                                 rating: "5 out of 5",
                             },
+                            {
+                                img: `${BASE_URL}/wp-content/uploads/2025/11/goodfirms-logo.png`,
+                                height: 60,
+                                width: 60,
+                                rating: "Our Rating: B+",
+                            },
+                            { img: "/images/dbest-logo.png", rating: "Our Rating: B+" },
                         ].map((item, i) => (
                             <div key={i} className="min-w-0">
-                                <div className="flex items-center justify-center gap-3">
+                                <div className="flex items-center justify-center gap-3 ">
                                     <div className="shrink-0">
                                         <Image
                                             src={item.img}
                                             unoptimized
                                             alt="rating"
-                                            width={item.width || 100}
-                                            height={item.height || 100}
+                                            width={item.width || 90}
+                                            height={item.height || 90}
                                             className="h-auto max-w-[60px] sm:max-w-[75px]"
                                         />
                                     </div>
