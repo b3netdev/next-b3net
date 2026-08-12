@@ -21,7 +21,7 @@ import StructuredData from "@/components/server/StructuredData";
 
 
 export default async function Home() {
-   
+
 
     const homeSchemaData = {
         "@context": "https://schema.org",
@@ -165,36 +165,54 @@ export default async function Home() {
             </div>
 
             {/* RATINGS */}
-            <div className="industry-sec sp pb-0">
+            <div className="industry-sec sp pb-0 w-full">
                 <div className="container">
-                    <div className="row  justify-content-center rating-section gy-md-4 gy-xl-0">
+                   <div className="grid w-full grid-cols-1 gap-6 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5">
                         {[
-                            { img: "/images/google-logo.png", rating: "4.9 Out of 5", stars: 5 },
-                            { img: "/images/facebook-logo.png", rating: "4.4 Out of 5", stars: 4.5 },
-                            { img: "/images/dbest-logo.png", rating: "Our Rating: B+", stars: 4.5 },
-                            { img: `${BASE_URL}/wp-content/uploads/2025/11/goodfirms-logo.png`, height: 60, width: 60, rating: "Our Rating: B+", stars: 4.5 },
-                            { img: `${BASE_URL}/wp-content/uploads/2026/08/Clutch_idM2mb6_Cx_1.png`, height: 60, width: 60, rating: "5 out of 5", stars: 5 },
+                            { img: "/images/google-logo.png", rating: "4.9 Out of 5" },
+                            { img: "/images/facebook-logo.png", rating: "4.4 Out of 5" },
+                            { img: "/images/dbest-logo.png", rating: "Our Rating: B+" },
+                            {
+                                img: `${BASE_URL}/wp-content/uploads/2025/11/goodfirms-logo.png`,
+                                height: 60,
+                                width: 60,
+                                rating: "Our Rating: B+",
+                            },
+                            {
+                                img: `${BASE_URL}/wp-content/uploads/2026/08/Clutch_idM2mb6_Cx_1.png`,
+                                height: 60,
+                                width: 60,
+                                rating: "5 out of 5",
+                            },
                         ].map((item, i) => (
-                            <div key={i} className="col-lg-3 col-sm-6  rating-box mt-5">
-                                <div className="d-flex justify-center rating-box-contain ">
-                                    <div className="rating-logo pe-3">
-                                        <Image src={item.img} unoptimized alt="rating" width={item?.width || 100} height={item?.height || 100} />
+                            <div key={i} className="min-w-0">
+                                <div className="flex items-center justify-center gap-3">
+                                    <div className="shrink-0">
+                                        <Image
+                                            src={item.img}
+                                            unoptimized
+                                            alt="rating"
+                                            width={item.width || 100}
+                                            height={item.height || 100}
+                                            className="h-auto max-w-[60px] sm:max-w-[75px]"
+                                        />
                                     </div>
-                                    <div className="rating-content ps-3 text-left">
-                                        <div className="stars">
-                                            <i className="fa-solid fa-star"></i>
-                                            <i className="fa-solid fa-star"></i>
-                                            <i className="fa-solid fa-star"></i>
-                                            <i className="fa-solid fa-star"></i>
-                                            <i className="fa-solid fa-star"></i>
+
+                                    <div className="min-w-0 text-left">
+                                        <div className="whitespace-nowrap text-yellow-400">
+                                            <i className="fa-solid fa-star" />
+                                            <i className="fa-solid fa-star" />
+                                            <i className="fa-solid fa-star" />
+                                            <i className="fa-solid fa-star" />
+                                            <i className="fa-solid fa-star" />
                                         </div>
-                                        <p className="rating-text">{item.rating}</p>
+                                        <p className="rating-text whitespace-nowrap">
+                                            {item.rating}
+                                        </p>
                                     </div>
                                 </div>
                             </div>
                         ))}
-
-
                     </div>
                 </div>
                 <div className="container mt-md-5">
