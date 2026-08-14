@@ -70,7 +70,7 @@ export default function TestimonialsClientsSlider({ pageData }: { pageData: any 
             {pageData?.acf?.data?.image_repeater_2?.map((item: any, index: number) => (
               <SwiperSlide key={index} className="item">
                 <div className="tech-list-col">
-                  <img src={item.image} alt={item.alt} />
+                  <img src={item.image} alt={item?.image_alt} />
                 </div>
               </SwiperSlide>
             ))}

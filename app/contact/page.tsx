@@ -159,12 +159,8 @@ export default async function ContactUs() {
                     </ul>
                   </div>
                 </div>
-
-                
               </div>
             </div>
-
-            
             <div className="contct-img my-5 my-md-5">
               <img
                 src={`${BASE_URL}/wp-content/uploads/2025/06/logo-2.png`}

@@ -126,8 +126,6 @@ const ServiceSubpage = async ({ params }: Props) => {
                 )
 
             }
-
-
             {
                 pageData?.acf?.data?.services_page_section_2_heading &&
 

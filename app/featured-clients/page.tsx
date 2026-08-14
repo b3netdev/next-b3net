@@ -67,9 +67,6 @@ export default async function FeaturedClients() {
                                     className="card-img-top"
                                     alt="card-img-top"
                                 />
-
-
-
                             </div>
                         </div>
                         <div className="col-lg-2 col-md-3 col-sm-4 col-6">
