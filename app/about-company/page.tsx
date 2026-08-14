@@ -40,6 +40,7 @@ export default async function AboutUsPage({ params }: PageProps) {
 
 
   if (!pageData) notFound();
+  console.log(pageData)
 
   return (
     <div className="about-page portfolio-page">
@@ -128,7 +129,7 @@ export default async function AboutUsPage({ params }: PageProps) {
                       <div className="video-thumbnail">
                         <img
                           src={data?.second_section_image}
-                          alt={data?.image?.id}
+                          alt={data?.second_section_image_alt}
                         />
                       </div>
 
@@ -227,7 +228,6 @@ export default async function AboutUsPage({ params }: PageProps) {
                 <div className="mt-4">
                   <Link href="/portfolio"
                     className="btn btn-orange"
-
 
                   >
                     <span className="btn_label" data-text="Discover More">
