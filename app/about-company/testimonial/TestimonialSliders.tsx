@@ -8,7 +8,7 @@ import { Autoplay } from "swiper/modules";
 import "swiper/css";
 
 export default function TestimonialsClientsSlider({ pageData }: { pageData: any }) {
-  console.log(pageData,"PAGE DATA")
+
   return (
     <>
       <div className="full-tech-list-1 ps-4">
