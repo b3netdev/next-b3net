@@ -8,6 +8,7 @@ import { Autoplay } from "swiper/modules";
 import "swiper/css";
 
 export default function TestimonialsClientsSlider({ pageData }: { pageData: any }) {
+  console.log(pageData,"PAGE DATA")
   return (
     <>
       <div className="full-tech-list-1 ps-4">
@@ -35,7 +36,7 @@ export default function TestimonialsClientsSlider({ pageData }: { pageData: any 
             {pageData?.acf?.data?.image_repeater_1?.map((item: any, index: number) => (
               <SwiperSlide key={index} className="item">
                 <div className="tech-list-col">
-                  <img src={item.image} alt={item.alt} />
+                  <img src={item.image} alt={item?.image_alt} />
                 </div>
               </SwiperSlide>
             ))}
