@@ -40,7 +40,7 @@ export default async function AboutUsPage({ params }: PageProps) {
 
 
   if (!pageData) notFound();
-  console.log(pageData)
+
 
   return (
     <div className="about-page portfolio-page">
