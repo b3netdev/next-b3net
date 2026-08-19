@@ -495,4 +495,5 @@ export const sluglist = [
     { slug: "hbot-marketing" },
     { slug: "healthcare-web-design" },
     { slug: "mobile-app-marketing-services" },
+    { slug: "react-front-end-development" },
 ]
