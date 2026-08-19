@@ -90,11 +90,6 @@ const nextConfig: NextConfig = {
         permanent: true,
       },
       {
-        source: "/tustin-digital-marketing-company",
-        destination: "/texas/digital-marketing-austin",
-        permanent: true,
-      },
-      {
         source: "/austin-digital-marketing-agency",
         destination: "/texas/digital-marketing-austin",
         permanent: true,

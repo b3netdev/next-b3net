@@ -430,7 +430,7 @@ export const sluglist = [
     { slug: "arlington-web-design" },
     { slug: "digital-marketing-arlington" },
     { slug: "austin-website-design-development" },
-    { slug: "digital-marketing-austin" },
+    { slug: "austin-digital-marketing-agency" },
     { slug: "carrollton-website-design-development" },
     { slug: "digital-marketing-carrollton" },
     { slug: "cedar-hill-website-design-development" },

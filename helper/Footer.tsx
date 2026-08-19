@@ -104,7 +104,7 @@ export const footerData: FooterData = {
               },
               {
                 label: "Digital Marketing Austin",
-                url: "/services/tustin-digital-marketing-company",
+                url: "/services/austin-digital-marketing-agency",
               },
             ],
           },
