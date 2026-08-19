@@ -534,6 +534,11 @@ const nextConfig: NextConfig = {
         destination: "/portfolio/ace-aligner",
         permanent: true,
       },
+      {
+        source: "/nonprofit-web-design-digital-marketing",
+        destination: "/",
+        permanent: true,
+      },
     ];
   },
   async rewrites() {
