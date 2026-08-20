@@ -344,7 +344,7 @@ export default function FooterClient() {
             </div>
 
             <div
-              className="accordion accordion-flush footer-accordian "
+              className="accordion accordion-flush footer-accordian d-md-none"
               id="accordionFlushExample"
             >
               {footerTabs.map((loc: any) => {
@@ -408,7 +408,7 @@ export default function FooterClient() {
               })}
             </div>
 
-            <div className=" d-md-block">
+            <div className="d-none d-md-block">
               <ul
                 className="nav nav-tabs d-flex justify-content-between"
                 id="myTab"
