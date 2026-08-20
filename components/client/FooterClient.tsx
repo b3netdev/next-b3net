@@ -585,7 +585,7 @@ export default function FooterClient() {
         </div>
       </div>
 
-      <ChatBot />
+      {/* <ChatBot /> */}
     </main>
   );
 }

@@ -22,11 +22,11 @@ export default function ChatBot() {
         show-consent-checkbox="true"
       ></chat-widget>
 
-      {/* <Script src="https://widgets.leadconnectorhq.com/loader.js" 
+      <Script src="https://widgets.leadconnectorhq.com/loader.js" 
       data-resources-url="https://widgets.leadconnectorhq.com/chat-widget/loader.js" 
       data-widget-id="67a1ec7aaa9ec2f9718ffab2"
       strategy="afterInteractive"
-      ></Script> */}
+      ></Script>
 
     </div>
   );
