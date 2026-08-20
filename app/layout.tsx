@@ -171,7 +171,7 @@ export default function RootLayout({
         </noscript>
 
 
-        <Script id="gtm-tqvc5ns" strategy="afterInteractive">
+        {/* <Script id="gtm-tqvc5ns" strategy="afterInteractive">
           {`
             (function(w,d,s,l,i){
               w[l]=w[l]||[];
@@ -184,7 +184,7 @@ export default function RootLayout({
               f.parentNode.insertBefore(j,f);
             })(window,document,'script','dataLayer','GTM-TQVC5NS');
           `}
-        </Script>
+        </Script> */}
 
 
         <Script id="gtm-wc2tss" strategy="afterInteractive">

@@ -4,10 +4,10 @@ import Script from "next/script";
 
 export default function ChatBot() {
   return (
-    <div suppressHydrationWarning>
+    <div >
       {/*
         @ts-ignore */}
-      <chat-widget
+      {/* <chat-widget
         location-id="7rTUeIEjjhHPyxUd7uk7"
         heading="Welcome to B3NET!"
         sub-heading="Hello I am AI Vera, an AI assistant. I am to provide you general information and answers."
@@ -20,13 +20,13 @@ export default function ChatBot() {
         live-chat-feedback-note="Thank you, for taking your time."
         show-live-chat-welcome-msg="false"
         show-consent-checkbox="true"
-      ></chat-widget>
+      ></chat-widget> */}
 
-      <Script src="https://widgets.leadconnectorhq.com/loader.js" 
+      {/* <Script src="https://widgets.leadconnectorhq.com/loader.js" 
       data-resources-url="https://widgets.leadconnectorhq.com/chat-widget/loader.js" 
       data-widget-id="67a1ec7aaa9ec2f9718ffab2"
       strategy="afterInteractive"
-      ></Script>
+      ></Script> */}
 
     </div>
   );
