@@ -33,7 +33,7 @@ const PortFolio: React.FC = () => {
     },
     {
       "image": `${BASE_URL}/wp-content/uploads/2025/03/portfolio-img-4.jpg`,
-      "title": "Tim Henson’s Unique Lighting",
+      "title": "Tim’s Unique Lighting",
       "slug" :"tim-hensons-unique-lighting-wordpress"
     },
     {
