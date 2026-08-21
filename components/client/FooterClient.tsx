@@ -547,6 +547,13 @@ export default function FooterClient() {
                           </a>
                         </li>
                       </ul>
+                      <div>
+                        <img
+                          className="size-36"
+                          src={`${BASE_URL}wp-content/uploads/2026/08/Badge_light_640×240.webp`}
+                          alt="Google Cloud Partner badge"
+                        />
+                      </div>
                     </div>
                   </div>
                 </div>
