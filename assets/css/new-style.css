@@ -1447,6 +1447,19 @@ a.d-flex.align-items-center.gap-2.clr-blk {
     flex-direction: column;
     gap: 20px;
 }
+.table-content-heading{
+    background-color: #3C58A1;
+    color: white;
+    padding: 10px;
+    border-radius: 10px;
+    margin: 10px;
+
+}
+
+.blog-detail-menu{
+    border: 1px solid #b8c0d4 ;
+    padding: 10px;
+}
 
 /* Table of Contents */
 .toc {

@@ -15,7 +15,7 @@ export default function NotFound() {
                                 <h1 className="errpageHeading">Whoops<span>!</span></h1>
                                 <div className="text-xl md:text-2xl  font-semibold">
                                     Something didn't go as planned, but no worries-we're here to <br /> help. Visit the <Link href="/"><span> homepage </span></Link>
-                                     or reach out to us anytime
+                                     <> or reach out to us anytime</> 
                                 </div>
 
                                 <div className="flex justify-center mt-15 font-semibold">

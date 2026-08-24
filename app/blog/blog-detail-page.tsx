@@ -4,21 +4,25 @@ import ShowNav from "@/components/client/ShowNav";
 import { load } from "cheerio";
 import { cache } from "react";
 import { notFound } from "next/navigation";
-import { buildMetadata, getSchemaFromPageData, getSeoFromPageData } from "@/lib/seo";
+import {
+  buildMetadata,
+  getSchemaFromPageData,
+  getSeoFromPageData,
+} from "@/lib/seo";
 import { Metadata } from "next";
 import StructuredData from "@/components/server/StructuredData";
 import ScrollLink from "@/components/client/ScrollLink";
 
-
-
-
 const getBlogPageData = cache(async (slug: string) => {
-
   const data = await getBlogdetail(slug);
   return data[0];
 });
 
-export async function generateMetadata({ params }: { params: { slug: string } }): Promise<Metadata> {
+export async function generateMetadata({
+  params,
+}: {
+  params: { slug: string };
+}): Promise<Metadata> {
   const { slug } = await params;
   const pageData = await getBlogPageData(slug);
   const seo = getSeoFromPageData(pageData);
@@ -26,30 +30,26 @@ export async function generateMetadata({ params }: { params: { slug: string } })
   return buildMetadata(seo);
 }
 
-
 const BlogDetail = async ({ params }: { params: { slug: string } }) => {
   const { slug } = await params;
-  const pageData = await getBlogPageData(slug)
+  const pageData = await getBlogPageData(slug);
 
   if (!pageData) notFound();
 
   const schemaData = getSchemaFromPageData(pageData);
-
-
-  const authordata = pageData?._embedded?.author[0]
+  const authordata = pageData?._embedded?.author[0];
 
   const relatedpost = await GetRelatedPost(
     pageData?.categories,
     pageData?.id
   );
 
-
   const formattedDate = pageData?.date
     ? new Date(pageData.date).toLocaleDateString("en-US", {
-      year: "numeric",
-      month: "long",
-      day: "numeric",
-    })
+        year: "numeric",
+        month: "long",
+        day: "numeric",
+      })
     : "";
 
   let sideNav: { id: string; text: string }[] = [];
@@ -73,14 +73,66 @@ const BlogDetail = async ({ params }: { params: { slug: string } }) => {
     contentData = $.html();
   }
 
+  const decodeHtml = (html: string = "") => {
+    const $ = load(`<div>${html}</div>`);
+    return $("div").text();
+  };
+
   return (
     <>
+      <style>{`
+        .blog-details .blog-detail-menu.blog-sidebar-scroll {
+          position: sticky;
+          top: 150px;
+          align-self: flex-start;
+          max-height: calc(100vh - 170px);
+          overflow-y: auto;
+          overscroll-behavior: contain;
+          scrollbar-width: thin;
+          scrollbar-color: #6B6B6B;
+        }
+
+        .blog-details .blog-detail-menu.blog-sidebar-scroll::-webkit-scrollbar {
+          width: 7px;
+        }
+
+        .blog-details .blog-detail-menu.blog-sidebar-scroll::-webkit-scrollbar-track {
+           background: #6B6B6B;
+          border-radius: 10px;
+        }
+
+        .blog-details .blog-detail-menu.blog-sidebar-scroll::-webkit-scrollbar-thumb {
+          background: #6B6B6B;
+          border-radius: 10px;
+        }
+        .blog-details .blog-detail-menu.blog-sidebar-scroll .sidebar {
+          position: static !important;
+          top: auto !important;
+          height: auto !important;
+          min-height: auto !important;
+          max-height: none !important;
+          overflow: visible !important;
+          scrollbar-width: auto !important;
+        }
+
+        @media screen and (max-width: 998px) {
+          .blog-details .blog-detail-menu.blog-sidebar-scroll {
+            position: static;
+            top: auto;
+            max-height: none;
+            overflow: visible;
+            overscroll-behavior: auto;
+          }
+        }
+      `}</style>
+
       <ShowNav />
       <StructuredData data={schemaData} />
 
       <div className="portfolio-detail portfoli-padd portfolio-page-1 blog-details">
         <div className="port-landing-wrap details-page-1">
           <div className="menu-design"></div>
+
           <div className="banner-img">
             <div className="container">
               <div className="row gy-4 d-flex align-items-center justify-content-center">
@@ -90,16 +142,19 @@ const BlogDetail = async ({ params }: { params: { slug: string } }) => {
                     alt={pageData?.title?.rendered || ""}
                   />
                 </div>
+
                 <div className="col-md-6 mt-4 mt-md-0">
                   <h1
                     dangerouslySetInnerHTML={{
                       __html: pageData?.title?.rendered || "",
                     }}
                   />
+
                   <h4>
                     <span>{formattedDate}</span>
                     {authordata?.name ? ` | ${authordata.name}` : ""}
                   </h4>
+
                   <div className="icones"></div>
                 </div>
               </div>
@@ -110,36 +165,33 @@ const BlogDetail = async ({ params }: { params: { slug: string } }) => {
         <div className="blog-detalis-content py-0 pt-4 pt-lg-0 py-lg-5">
           <div className="container">
             <div className="row gy-5">
-              <div className="col-lg-4 col-xl-3">
+              <div className="col-lg-4 col-xl-3 blog-detail-menu blog-sidebar-scroll">
+                <div className="flex justify-center items-center table-content-heading">
+                  Table of Contents
+                </div>
+
                 <div id="blog-sidebar" className="sidebar">
-                  <div className="newsletter-blog">
-                    <div className="toc-text blogdetail-sidebar">
-                      <div>Table of Contents</div>
-                    </div>
-
-
-                    <div className="navListMenu">
-                      {sideNav?.map((item, index) => (
-                        <div className="blogSidenavitemBox" key={index}>
-                          <ScrollLink targetId={`${item.id}`} className="blogSidenavitem primary-bodyText p-2">
-                            {item.text}
-                          </ScrollLink>
-                        </div>
-                      ))}
-                    </div>
+                  <div className="navListMenu">
+                    {sideNav?.map((item, index) => (
+                      <div className="blogSidenavitemBox" key={index}>
+                        <ScrollLink
+                          targetId={`${item.id}`}
+                          className="blogSidenavitem primary-bodyText p-2"
+                        >
+                          {item.text}
+                        </ScrollLink>
+                      </div>
+                    ))}
                   </div>
-
-                  {/* <div className="newsletter-blog">
-                    <h3>Join Our Newsletter</h3>
-                    <BlogDetailForm />
-                  </div> */}
 
                   <div className="solutions">
                     <div>Explore Our Solutions</div>
+
                     <p>
                       From stunning websites to smart AI solutions and
                       top-ranking SEO — we bring your vision to life.
                     </p>
+
                     <div className="mb-0 text-center pt-md-4 aos-init aos-animate">
                       <Link href="/" className="btn btn-primary orange-1">
                         VIEW ALL SOLUTIONS{" "}
@@ -151,7 +203,6 @@ const BlogDetail = async ({ params }: { params: { slug: string } }) => {
               </div>
 
               <div className="col-lg-8 col-xl-9">
-
                 <div
                   className="blog-container primary-bodyText blog-detailpage-content"
                   dangerouslySetInnerHTML={{
@@ -159,23 +210,33 @@ const BlogDetail = async ({ params }: { params: { slug: string } }) => {
                   }}
                 />
 
-
                 <div className="blog-details-social-icons my-4">
-                  <div className="font-semibold text-black text-3xl mr-3">Share With Friends</div>
+                  <div className="font-semibold text-black text-3xl mr-3">
+                    Share With Friends
+                  </div>
+
                   <div className="social-icons">
                     <ul className="d-flex align-items-center justify-content-start">
                       <li>
-                        <a href="https://www.linkedin.com/company/b3net-inc/" target="_blank">
+                        <a
+                          href="https://www.linkedin.com/company/b3net-inc/"
+                          target="_blank"
+                        >
                           <i className="fa-brands fa-linkedin-in"></i>
                         </a>
                       </li>
+
                       <li>
                         <a href="https://x.com/b3net" target="_blank">
                           <i className="fa-brands fa-x-twitter"></i>
                         </a>
                       </li>
+
                       <li>
-                        <a href="https://www.facebook.com/B3NET" target="_blank">
+                        <a
+                          href="https://www.facebook.com/B3NET"
+                          target="_blank"
+                        >
                           <i className="fa-brands fa-facebook-f"></i>
                         </a>
                       </li>
@@ -183,16 +244,19 @@ const BlogDetail = async ({ params }: { params: { slug: string } }) => {
                   </div>
                 </div>
 
-
                 <div className="author-section">
                   <Link href={`/author/${authordata?.slug}`}>
                     <img
                       src={authordata?.mpp_avatar?.[96]}
                       alt={authordata?.name}
                     />
+
                     <div>
-                      <span className="text-black font-semibold text-2xl">{authordata?.name}</span>
-                      <p>{authordata?.description}</p>
+                      <span className="text-black font-semibold text-2xl">
+                        {authordata?.name}
+                      </span>
+
+                      <p>{decodeHtml(authordata?.description || "")}</p>
                     </div>
                   </Link>
                 </div>
@@ -205,11 +269,15 @@ const BlogDetail = async ({ params }: { params: { slug: string } }) => {
           <div className="portfolio-imgs blog-data pb-4">
             <div className="container">
               <h2 className="text-center mb-4 mb-lg-5">RELATED POST</h2>
-              <div className="row ">
+
+              <div className="row">
                 <div className="blog-container-box">
                   {relatedpost?.map((data: any, index: number) => {
                     return (
-                      <div className="card-parts-1 blog-box" key={data?.id || index}>
+                      <div
+                        className="card-parts-1 blog-box"
+                        key={data?.id || index}
+                      >
                         <div className="card blog-box-card">
                           <img
                             src={data?.featured_image_url}
@@ -242,7 +310,7 @@ const BlogDetail = async ({ params }: { params: { slug: string } }) => {
                             </Link>
 
                             <div
-                              className="primary-bodyText "
+                              className="primary-bodyText"
                               dangerouslySetInnerHTML={{
                                 __html: data?.excerpt?.rendered || " ",
                               }}

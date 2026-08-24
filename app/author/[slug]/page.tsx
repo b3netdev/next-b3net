@@ -9,6 +9,7 @@ import { buildMetadata, getSchemaFromPageData, getSeoFromPageData } from "@/lib/
 import { notFound } from "next/navigation";
 import { Metadata } from "next";
 import StructuredData from "@/components/server/StructuredData";
+import { load } from "cheerio";
 
 
 const getAuthorPageData = cache(async (slug: string) => {
@@ -34,7 +35,10 @@ export default async function Author({ params }: { params: { slug: string } }) {
     const schemaData = getSchemaFromPageData(pageData);
 
 
-
+const decodeHtml = (html: string = "") => {
+    const $ = load(`<div>${html}</div>`);
+    return $("div").text();
+  };
 
     return (
         <main className="page_content">
@@ -61,7 +65,7 @@ export default async function Author({ params }: { params: { slug: string } }) {
 
                                         <h1>{pageData?.name}</h1>
 
-                                        <p className="font-medium text-[16px] primary-bodyText">{pageData?.description}</p>
+                                        <p className="font-medium text-[16px] primary-bodyText">{decodeHtml(pageData?.description)}</p>
 
                                         <div
                                             className="mb-0 text-start pt-md-4 aos-init aos-animate"

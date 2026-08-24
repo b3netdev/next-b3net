@@ -535,6 +535,11 @@ const nextConfig: NextConfig = {
         permanent: true,
       },
       {
+        source: "/dark-mode-in-web-design-the-complete-ux-implementation-guide",
+        destination: "/the-complete-ux-implementation-guide-to-dark-mode-in-web-design",
+        permanent: true,
+      },
+      {
         source: "/nonprofit-web-design-digital-marketing",
         destination: "/",
         permanent: true,
