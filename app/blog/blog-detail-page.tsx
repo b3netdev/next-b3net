@@ -90,6 +90,7 @@ const BlogDetail = async ({ params }: { params: { slug: string } }) => {
           overscroll-behavior: contain;
           scrollbar-width: thin;
           scrollbar-color: #6B6B6B;
+          border-radius: 15px;
         }
 
         .blog-details .blog-detail-menu.blog-sidebar-scroll::-webkit-scrollbar {
