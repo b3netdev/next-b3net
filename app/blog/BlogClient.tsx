@@ -94,7 +94,6 @@ export default function BlogClient() {
 
   useEffect(() => {
     if (searchclick == false) return;
-    console.log(searchclick, "INside use effect")
 
     const fetchBlogs = async () => {
       try {
@@ -110,10 +109,7 @@ export default function BlogClient() {
       } catch (error) {
         console.error("Blog search failed:", error);
       }
-      finally {
-        setSearchClick(false)
-
-      }
+      
     };
 
     fetchBlogs();
@@ -149,6 +145,7 @@ export default function BlogClient() {
         }
       }, 300);
     }
+
   }, [blogItems]);
 
 
