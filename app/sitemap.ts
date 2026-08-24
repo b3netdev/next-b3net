@@ -69,7 +69,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     .map((entry) => ({
       url: entry.url.replace(/\/+$/, ""),
       lastModified: new Date(entry.lastmod),
-      changeFrequency: "monthly" as const,
+      changeFrequency: "weekly" as const,
       priority: 0.6,
     }));
 
