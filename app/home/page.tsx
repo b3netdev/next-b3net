@@ -123,6 +123,124 @@ export default async function Home() {
                 "email": "info@b3net.com",
                 "telephone": "(214) 586-0650",
                 "legalName": "B3NET Inc."
+            },
+            {
+                "@context": "https://schema.org",
+                "@type": "FAQPage",
+                "mainEntity": [
+                    {
+                        "@type": "Question",
+                        "name": "What industries does B3NET work with?",
+                        "acceptedAnswer": {
+                            "@type": "Answer",
+                            "text": "At B3NET, we collaborate with businesses across a wide range of industries, including healthcare, eCommerce, fintech, education, logistics, SaaS, real estate, travel, and startups. Our team adapts technology and strategy based on each industry’s unique challenges, ensuring scalable and future-ready digital solutions."
+                        }
+                    },
+                    {
+                        "@type": "Question",
+                        "name": "What web development services does B3NET provide?",
+                        "acceptedAnswer": {
+                            "@type": "Answer",
+                            "text": "B3NET offers end-to-end web development services, including custom website development, responsive web applications, CMS-based websites, eCommerce platforms, and enterprise web solutions. Our focus is on building secure, scalable, and high-performance websites tailored to your business goals."
+                        }
+                    },
+                    {
+                        "@type": "Question",
+                        "name": "What makes B3NET different from other digital agencies?",
+                        "acceptedAnswer": {
+                            "@type": "Answer",
+                            "text": "B3NET stands out through a consultative, results-driven approach. We don’t just build solutions—we understand your business goals, analyze user behavior, and align technology with growth outcomes. Transparent communication, agile execution, and long-term partnership mindset set us apart from traditional agencies."
+                        }
+                    },
+                    {
+                        "@type": "Question",
+                        "name": "How does B3NET ensure project quality?",
+                        "acceptedAnswer": {
+                            "@type": "Answer",
+                            "text": "Quality is built into every stage of our process. We follow proven development standards, conduct regular code reviews, perform multi-level testing, and maintain continuous client feedback loops. Our dedicated QA team ensures every solution meets performance, security, and usability benchmarks before launch."
+                        }
+                    },
+                    {
+                        "@type": "Question",
+                        "name": "How does B3NET approach website design?",
+                        "acceptedAnswer": {
+                            "@type": "Answer",
+                            "text": "Our web design process is user-first and data-driven. We combine modern UI/UX principles with brand strategy to create visually appealing, intuitive, and conversion-focused designs. Every design is optimized for usability, accessibility, and consistent performance across all devices."
+                        }
+                    },
+                    {
+                        "@type": "Question",
+                        "name": "Do you provide support after project completion?",
+                        "acceptedAnswer": {
+                            "@type": "Answer",
+                            "text": "Yes. B3NET offers post-launch support and maintenance to ensure your product runs smoothly. Depending on your needs, this may include performance monitoring, security updates, feature enhancements, and technical support—so your digital solution continues to evolve with your business."
+                        }
+                    },
+                    {
+                        "@type": "Question",
+                        "name": "How long does a typical project take?",
+                        "acceptedAnswer": {
+                            "@type": "Answer",
+                            "text": "Project timelines depend on scope, complexity, and requirements. A standard website may take 4 to 6 weeks, while larger web or software solutions may take several months. We provide a detailed timeline and milestones before the project begins to ensure clear expectations."
+                        }
+                    },
+                    {
+                        "@type": "Question",
+                        "name": "What software development services does B3NET offer?",
+                        "acceptedAnswer": {
+                            "@type": "Answer",
+                            "text": "We provide end-to-end software development services, including custom software development, web and mobile application development, SaaS product development, API integration and system modernization, and cloud solutions and DevOps support. Each solution is tailored to meet your operational and scalability requirements."
+                        }
+                    },
+                    {
+                        "@type": "Question",
+                        "name": "Does B3NET offer web development services?",
+                        "acceptedAnswer": {
+                            "@type": "Answer",
+                            "text": "Absolutely. B3NET specializes in high-performance, user-centric web development, including corporate websites, enterprise platforms, custom portals, and eCommerce solutions. Our websites are designed for speed, security, SEO, and seamless user experience across all devices."
+                        }
+                    },
+                    {
+                        "@type": "Question",
+                        "name": "Can B3NET work with startups as well as enterprises?",
+                        "acceptedAnswer": {
+                            "@type": "Answer",
+                            "text": "Yes. We partner with early-stage startups, growing businesses, and large enterprises alike. Whether you’re validating an idea, building an MVP, or scaling an existing platform, we tailor our engagement model to fit your stage and budget."
+                        }
+                    },
+                    {
+                        "@type": "Question",
+                        "name": "How do you manage communication during a project?",
+                        "acceptedAnswer": {
+                            "@type": "Answer",
+                            "text": "We maintain clear and consistent communication through regular updates, scheduled meetings, and collaboration tools. A dedicated project manager acts as your single point of contact, ensuring transparency, accountability, and timely delivery."
+                        }
+                    },
+                    {
+                        "@type": "Question",
+                        "name": "Does B3NET offer custom solutions or ready-made packages?",
+                        "acceptedAnswer": {
+                            "@type": "Answer",
+                            "text": "B3NET primarily focuses on custom-built solutions designed around your specific business goals. However, we also leverage proven frameworks and accelerators where appropriate to reduce development time without compromising quality."
+                        }
+                    },
+                    {
+                        "@type": "Question",
+                        "name": "Does B3NET build SEO-friendly and performance-optimized websites?",
+                        "acceptedAnswer": {
+                            "@type": "Answer",
+                            "text": "Yes. All websites developed by B3NET follow SEO best practices and performance optimization standards. We ensure clean code structure, fast load times, mobile responsiveness, and technical SEO readiness—helping your website rank better and deliver a seamless user experience."
+                        }
+                    },
+                    {
+                        "@type": "Question",
+                        "name": "How do I get started with B3NET?",
+                        "acceptedAnswer": {
+                            "@type": "Answer",
+                            "text": "Getting started is simple. Share your requirements with us, and our experts will analyze your needs, suggest the right approach, and provide a clear roadmap with timelines and cost estimates—no obligations, just clarity."
+                        }
+                    }
+                ]
             }
         ]
     };
