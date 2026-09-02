@@ -12,6 +12,7 @@ import {
 import { Metadata } from "next";
 import StructuredData from "@/components/server/StructuredData";
 import ScrollLink from "@/components/client/ScrollLink";
+import BlogContent from "@/components/client/BlogContent";
 
 const getBlogPageData = cache(async (slug: string) => {
   const data = await getBlogdetail(slug);
@@ -204,12 +205,7 @@ const BlogDetail = async ({ params }: { params: { slug: string } }) => {
               </div>
 
               <div className="col-lg-8 col-xl-9">
-                <div
-                  className="blog-container primary-bodyText blog-detailpage-content"
-                  dangerouslySetInnerHTML={{
-                    __html: contentData,
-                  }}
-                />
+                <BlogContent contentData={contentData} />
 
                 <div className="blog-details-social-icons my-4">
                   <div className="font-semibold text-black text-3xl mr-3">
