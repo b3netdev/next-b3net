@@ -47,10 +47,10 @@ const BlogDetail = async ({ params }: { params: { slug: string } }) => {
 
   const formattedDate = pageData?.date
     ? new Date(pageData.date).toLocaleDateString("en-US", {
-        year: "numeric",
-        month: "long",
-        day: "numeric",
-      })
+      year: "numeric",
+      month: "long",
+      day: "numeric",
+    })
     : "";
 
   let sideNav: { id: string; text: string }[] = [];
@@ -126,6 +126,52 @@ const BlogDetail = async ({ params }: { params: { slug: string } }) => {
             overscroll-behavior: auto;
           }
         }
+          .blog-detailpage-content table {
+  width: 100%;
+  margin: 28px 0;
+  border-collapse: collapse;
+  border: 1px solid #dbe3ee;
+  background: #ffffff;
+  color: #0b1f3a;
+}
+
+.blog-detailpage-content th,
+.blog-detailpage-content td {
+  padding: 16px 18px;
+  border: 1px solid #dbe3ee;
+  text-align: left;
+  vertical-align: top;
+}
+
+.blog-detailpage-content th {
+  background: #0b1f3a;
+  color: #ffffff;
+  font-weight: 700;
+}
+
+.blog-detailpage-content tbody tr:nth-child(even) {
+  background: #f6f9fc;
+}
+
+.blog-detailpage-content td.month {
+  width: 22%;
+  font-weight: 700;
+}
+
+.blog-detailpage-content td.focus {
+  color: #334155;
+  line-height: 1.65;
+}
+
+@media (max-width: 640px) {
+  .blog-detailpage-content {
+    overflow-x: auto;
+  }
+
+  .blog-detailpage-content table {
+    min-width: 620px;
+  }
+}
       `}</style>
 
       <ShowNav />
