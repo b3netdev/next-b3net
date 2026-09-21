@@ -548,7 +548,7 @@ const footerData = {
           { label: "Magento Web Design", url: "https://www.b3net.com/magento-ecommerce-development.html" },
           { label: "Woocommerce", url: "https://www.b3net.com/woocommerce-development-company.html" },
           { label: "Opencart Development", url: "https://www.b3net.com/opencart-website-development-service.html" },
-          { label: "Shopify Development", url: "https://www.b3net.com/shopify-store-development-servce.html" },
+          { label: "Shopify Development", url: "https://www.b3net.com/shopify-store-development-service.html" },
           { label: "Laravel Development", url: "https://www.b3net.com/laravel-development-company.html" },
         ],
       },
