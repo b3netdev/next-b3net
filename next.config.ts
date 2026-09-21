@@ -544,6 +544,12 @@ const nextConfig: NextConfig = {
         destination: "/",
         permanent: true,
       },
+      {
+        source: "/shopify-store-development-servce",
+        destination: "/shopify-store-development-service",
+        permanent: true,
+
+      },
     ];
   },
   async rewrites() {
