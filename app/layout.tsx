@@ -150,6 +150,7 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${poppins.className} ${exo2.variable}`}>
       <body>
+        <Script src="https://analytics.ahrefs.com/analytics.js" data-key="Q6m+qa1IAhRJXbrRv/gTNA"  strategy="beforeInteractive"></Script>
          <Script id="cookieyes" type="text/javascript" src="https://cdn-cookieyes.com/client_data/1e1642a0c5b048500cfb3a3c83be46cf/script.js" />
         <noscript>
           <iframe
@@ -201,6 +202,8 @@ export default function RootLayout({
             })(window,document,'script','dataLayer','GTM-WC2TSS');
           `}
         </Script>
+
+
 
 
         <Script id="legacy-ua" strategy="afterInteractive">
