@@ -1,173 +1,672 @@
 .page {
+  width: 100%;
   min-height: 100vh;
   margin: 0;
+  padding: 48px 0 80px;
   background: #ffffff;
-  color: #3c4257;
+  color: #465066;
   font-family: "Poppins", sans-serif;
-  font-size: 16px;
-  line-height: 1.7;
-
+  font-size: 17px;
+  line-height: 1.78;
 }
 
+.page * {
+  box-sizing: border-box;
+}
+
+/* ---------------------------------
+   Links
+---------------------------------- */
 
 .page a {
-  color: #1863dc;
+  color: #3b58a1;
+  text-decoration: none;
+  transition:
+    color 0.2s ease,
+    text-decoration-color 0.2s ease;
 }
 
 .page a:hover {
+  color: #ff4f0c;
   text-decoration: underline;
+  text-underline-offset: 3px;
 }
+
+/* ---------------------------------
+   Typography
+---------------------------------- */
 
 .page p {
-  margin: 0 0 12px;
+  margin: 0 0 18px;
 }
 
-.page ul,
-.page ol {
-  margin: 0 0 12px;
-  padding-left: 22px;
+.page strong {
+  color: #16213f;
+  font-weight: 600;
 }
 
-.page li {
-  margin-bottom: 4px;
-}
+/* ---------------------------------
+   Main Container
+---------------------------------- */
 
 .wrap {
-  width: 100%;
-  max-width: 860px;
+  width: calc(100% - 40px);
+  max-width: 1320px;
   margin: 0 auto;
-  padding: 0 20px;
+  padding: 0 15px;
 }
 
-.header {
-  padding: 18px 0;
-  border-bottom: 1px solid #e3e7ef;
+/* ---------------------------------
+   Document Header
+---------------------------------- */
+
+.documentHeader {
+  margin-bottom: 10px;
+  padding: 0 0 40px;
+  border-bottom: 1px solid #e6e9f0;
 }
 
-.headerInner {
-  display: flex;
+.documentLabel {
+  display: inline-flex;
   align-items: center;
-  justify-content: space-between;
-}
-
-.logo {
-  display: block;
-  width: auto;
-  max-width: 100%;
-  height: 32px;
-}
-
-.nav {
-  display: flex;
-  align-items: center;
-  gap: 22px;
-}
-
-.nav a {
-  color: #0e1a3a;
-  font-size: 14px;
-  text-decoration: none;
-}
-
-.nav a:hover {
-  color: #1863dc;
-  text-decoration: none;
-}
-
-.main {
-  padding: 40px 0 60px;
+  margin-bottom: 14px;
+  padding: 6px 11px;
+  border: 1px solid #d9e1f3;
+  border-radius: 4px;
+  background: #f5f7fc;
+  color: #3b58a1;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.8px;
+  line-height: 1.4;
+  text-transform: uppercase;
 }
 
 .title {
-  margin: 0 0 12px;
+  max-width: 1000px;
+  margin: 0 0 16px;
   color: #0e1a3a;
-  font-size: 28px;
-  line-height: 1.3;
-}
-
-.sectionTitle {
-  margin: 36px 0 10px;
-  padding-top: 28px;
-  border-top: 1px solid #e3e7ef;
-  color: #0e1a3a;
-  font-size: 20px;
-  line-height: 1.4;
-}
-
-.firstSectionTitle {
-  padding-top: 0;
-  border-top: 0;
-}
-
-.service h3 {
-  margin: 18px 0 6px;
-  color: #0e1a3a;
-  font-size: 16px;
+  font-size: clamp(36px, 4vw, 48px);
+  font-weight: 700;
+  letter-spacing: -0.8px;
+  line-height: 1.2;
 }
 
 .meta {
-  margin-bottom: 28px !important;
-  color: #8c92a1;
-  font-size: 13.5px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 9px;
+  margin: 0 0 28px;
+  color: #7b8497;
+  font-size: 15px;
+  line-height: 1.6;
 }
+
+.meta strong {
+  color: #586174;
+  font-weight: 500;
+}
+
+.metaDivider {
+  color: #b6bdca;
+}
+
+.intro {
+  max-width: 1000px;
+  padding: 24px 26px;
+  border-left: 4px solid #3b58a1;
+  background: #f8f9fc;
+  color: #3e485d;
+  font-size: 18px;
+  line-height: 1.8;
+}
+
+.intro p:last-child {
+  margin-bottom: 0;
+}
+
+/* ---------------------------------
+   Sections
+---------------------------------- */
+
+.section {
+  padding: 48px 0;
+  border-bottom: 1px solid #e6e9f0;
+}
+
+.firstSection {
+  padding-top: 38px;
+}
+
+.sectionTitle {
+  position: relative;
+  margin: 0 0 24px;
+  padding-bottom: 13px;
+  color: #0e1a3a;
+  font-size: 30px;
+  font-weight: 650;
+  letter-spacing: -0.4px;
+  line-height: 1.35;
+}
+
+.sectionTitle::after {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 48px;
+  height: 3px;
+  border-radius: 3px;
+  background: #ff4f0c;
+  content: "";
+}
+
+.sectionContent {
+  width: 100%;
+}
+
+/* ---------------------------------
+   Table
+---------------------------------- */
 
 .tableWrapper {
   width: 100%;
   overflow-x: auto;
+  border: 1px solid #e1e6ef;
+  border-radius: 8px;
 }
 
 .table {
   width: 100%;
-  margin: 12px 0 20px;
+  margin: 0;
   border-collapse: collapse;
-  font-size: 14.5px;
+  background: #ffffff;
+  font-size: 17px;
 }
 
 .table th,
 .table td {
-  padding: 8px 10px;
-  border-bottom: 1px solid #e3e7ef;
+  padding: 15px 18px;
+  border-bottom: 1px solid #e7eaf0;
   text-align: left;
   vertical-align: top;
 }
 
-.table th {
-  color: #1863dc;
-  font-size: 12.5px;
+.table tr:last-child th,
+.table tr:last-child td {
+  border-bottom: 0;
+}
+
+.table thead th {
+  background: #f6f8fc;
+  color: #657087;
+  font-size: 14px;
   font-weight: 600;
-  letter-spacing: 0.4px;
+  letter-spacing: 0.5px;
   text-transform: uppercase;
 }
 
-.footer {
-  padding: 24px 0;
-  border-top: 1px solid #e3e7ef;
-  color: #8c92a1;
-  font-size: 13px;
+.table tbody th {
+  width: 240px;
+  background: #fbfcfe;
+  color: #26324c;
+  font-size: 16px;
+  font-weight: 600;
+  text-transform: none;
 }
 
-.footerInner {
+.table td {
+  color: #4a556b;
+}
+
+.table tbody tr:hover td,
+.table tbody tr:hover th {
+  background: #f9fbff;
+}
+
+/* ---------------------------------
+   Capability Cards
+---------------------------------- */
+
+.capabilityGrid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 20px;
+}
+
+.capabilityCard {
+  padding: 25px;
+  border: 1px solid #e2e6ee;
+  border-radius: 8px;
+  background: #ffffff;
+}
+
+.capabilityCard h3 {
+  position: relative;
+  margin: 0 0 16px;
+  padding-bottom: 12px;
+  color: #17213c;
+  font-size: 21px;
+  font-weight: 600;
+  line-height: 1.45;
+}
+
+.capabilityCard h3::after {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 38px;
+  height: 2px;
+  background: #ff4f0c;
+  content: "";
+}
+
+.capabilityCard p {
+  font-size: 17px;
+  line-height: 1.78;
+}
+
+.capabilityWide {
+  grid-column: 1 / -1;
+}
+
+.listIntro {
+  margin-bottom: 11px !important;
+  color: #26324c;
+  font-weight: 600;
+}
+
+/* ---------------------------------
+   Bullet Lists
+---------------------------------- */
+
+.bulletList {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.bulletList li {
+  position: relative;
+  margin: 0 0 11px;
+  padding-left: 23px;
+  font-size: 17px;
+  line-height: 1.78;
+}
+
+.bulletList li:last-child {
+  margin-bottom: 0;
+}
+
+.bulletList li::before {
+  position: absolute;
+  top: 13px;
+  left: 3px;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #3b58a1;
+  content: "";
+}
+
+.listPanel {
+  margin-top: 20px;
+  padding: 24px 26px;
+  border: 1px solid #e3e8f1;
+  border-radius: 8px;
+  background: #fafbfe;
+}
+
+/* ---------------------------------
+   Market Cards
+---------------------------------- */
+
+.marketGrid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 18px;
+  margin: 26px 0;
+}
+
+.marketCard {
+  padding: 22px;
+  border: 1px solid #e3e7ef;
+  border-radius: 8px;
+  background: #ffffff;
+}
+
+.marketCard h3 {
+  margin: 0 0 10px;
+  color: #16213f;
+  font-size: 20px;
+  font-weight: 600;
+  line-height: 1.45;
+}
+
+.marketCard p {
+  margin: 0;
+  color: #596377;
+  font-size: 16.5px;
+  line-height: 1.78;
+}
+
+/* ---------------------------------
+   Industry Tags
+---------------------------------- */
+
+.tagList {
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-between;
-  gap: 8px;
+  gap: 10px;
+  margin: 20px 0 25px;
 }
 
-.footer a {
-  color: #8c92a1;
+.tag {
+  display: inline-flex;
+  align-items: center;
+  padding: 9px 15px;
+  border: 1px solid #dde3ed;
+  border-radius: 999px;
+  background: #f8f9fc;
+  color: #3f4a60;
+  font-size: 15px;
+  font-weight: 500;
+  line-height: 1.4;
 }
 
-@media (max-width: 600px) {
-  .nav {
-    display: none;
+/* ---------------------------------
+   Note
+---------------------------------- */
+
+.note {
+  margin-top: 22px;
+  padding: 19px 21px;
+  border-left: 4px solid #3b58a1;
+  background: #f6f8fc;
+  color: #4a5569;
+  font-size: 16.5px;
+  line-height: 1.78;
+}
+
+/* ---------------------------------
+   Warning
+---------------------------------- */
+
+.warning {
+  margin-top: 26px;
+  padding: 19px 21px;
+  border-left: 4px solid #ff4f0c;
+  background: #fff8f5;
+  color: #55463f;
+  font-size: 16.5px;
+  line-height: 1.78;
+}
+
+.warning strong {
+  color: #d83f06;
+}
+
+/* ---------------------------------
+   Relationship
+---------------------------------- */
+
+.relationshipBox {
+  margin: 25px 0;
+  padding: 23px;
+  border: 1px solid #dfe5ef;
+  border-radius: 8px;
+  background: #f7f9fd;
+}
+
+.relationshipBox a {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px;
+  color: #24324f;
+  font-size: 15.5px;
+  font-weight: 500;
+  line-height: 1.5;
+  text-decoration: none;
+}
+
+.relationshipBox a:hover {
+  color: #24324f;
+  text-decoration: none;
+}
+
+.relationshipBox span {
+  padding: 8px 12px;
+  border-radius: 4px;
+  background: #ffffff;
+  box-shadow: inset 0 0 0 1px #e0e5ee;
+}
+
+.relationshipBox i {
+  color: #3b58a1;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 700;
+}
+
+/* ---------------------------------
+   AI Instruction List
+---------------------------------- */
+
+.instructionList {
+  margin: 22px 0 0;
+  padding: 0;
+  list-style: none;
+  counter-reset: instructions;
+}
+
+.instructionList li {
+  position: relative;
+  min-height: 44px;
+  margin-bottom: 14px;
+  padding: 11px 12px 13px 56px;
+  counter-increment: instructions;
+  border-bottom: 1px solid #edf0f4;
+  font-size: 17px;
+  line-height: 1.78;
+}
+
+.instructionList li::before {
+  position: absolute;
+  top: 8px;
+  left: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: #eef2fb;
+  color: #3b58a1;
+  content: counter(instructions);
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.instructionList li:last-child {
+  margin-bottom: 0;
+  border-bottom: 0;
+}
+
+/* ---------------------------------
+   Contact
+---------------------------------- */
+
+.contactGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 15px;
+  margin-bottom: 28px;
+}
+
+.contactItem {
+  padding: 20px;
+  border: 1px solid #e1e6ef;
+  border-radius: 8px;
+  background: #fafbfe;
+}
+
+.contactLabel {
+  display: block;
+  margin-bottom: 7px;
+  color: #7a8497;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.7px;
+  text-transform: uppercase;
+}
+
+.contactItem a {
+  font-size: 17px;
+  font-weight: 600;
+}
+
+/* ---------------------------------
+   Tablet
+---------------------------------- */
+
+@media (max-width: 900px) {
+  .page {
+    padding: 40px 0 65px;
+  }
+
+  .wrap {
+    width: calc(100% - 32px);
+    padding: 0;
+  }
+
+  .capabilityGrid,
+  .marketGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .capabilityWide {
+    grid-column: auto;
+  }
+
+  .contactGrid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ---------------------------------
+   Mobile
+---------------------------------- */
+
+@media (max-width: 700px) {
+  .page {
+    padding: 34px 0 55px;
+    font-size: 16px;
+    line-height: 1.75;
+  }
+
+  .documentHeader {
+    padding-bottom: 30px;
   }
 
   .title {
-    font-size: 24px;
+    font-size: 31px;
+    line-height: 1.28;
+  }
+
+  .meta {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 4px;
+    font-size: 14px;
+  }
+
+  .metaDivider {
+    display: none;
+  }
+
+  .intro {
+    padding: 18px;
+    font-size: 16px;
+  }
+
+  .section {
+    padding: 37px 0;
+  }
+
+  .firstSection {
+    padding-top: 30px;
+  }
+
+  .sectionTitle {
+    margin-bottom: 21px;
+    font-size: 25px;
   }
 
   .table {
-    min-width: 560px;
+    min-width: 620px;
+  }
+
+  .capabilityCard h3 {
+    font-size: 19px;
+  }
+
+  .capabilityCard p,
+  .bulletList li,
+  .instructionList li {
+    font-size: 16px;
+  }
+
+  .relationshipBox a {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .relationshipBox i {
+    margin-left: 14px;
+    transform: rotate(90deg);
   }
 }
 
+/* ---------------------------------
+   Small Mobile
+---------------------------------- */
+
+@media (max-width: 480px) {
+  .page {
+    padding-top: 28px;
+  }
+
+  .wrap {
+    width: calc(100% - 24px);
+  }
+
+  .title {
+    font-size: 28px;
+  }
+
+  .sectionTitle {
+    font-size: 23px;
+  }
+
+  .intro,
+  .listPanel,
+  .relationshipBox,
+  .note,
+  .warning {
+    padding: 16px;
+  }
+
+  .capabilityCard {
+    padding: 18px;
+  }
+
+  .tag {
+    width: 100%;
+    border-radius: 5px;
+  }
+
+  .instructionList li {
+    padding-left: 49px;
+  }
+}
