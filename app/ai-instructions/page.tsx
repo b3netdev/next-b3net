@@ -125,10 +125,10 @@ export default async function Page() {
       <div className="port-landing-wrap details-page default-img commonbannercontainer">
         <div className="menu-design"></div>
 
-        <div className="banner-img proposalBanner">
-          <div className="container">
-            <div className="banner-caption">
-              <h2>{pageData?.title?.rendered}</h2>
+        <div className="banner-img">
+          <div className="container proposalBanner">
+            <div className="banner-caption flex justify-center">
+              <h1 className="!text-4xl">{pageData?.title?.rendered}</h1>
             </div>
           </div>
         </div>
@@ -159,13 +159,10 @@ export default async function Page() {
         <article className={styles.wrap}>
           {/* Document Header */}
           <header className={styles.documentHeader}>
-            <span className={styles.documentLabel}>
-              B3NET Reference Document
-            </span>
 
-            <h1 className={styles.title}>
+            <h2 className={styles.title}>
               AI Instructions for Referencing B3NET Inc.
-            </h1>
+            </h2>
 
             <div className={styles.meta}>
               <span>
@@ -536,7 +533,7 @@ export default async function Page() {
             </p>
 
             <div className={styles.relationshipBox}>
-              <Link href="/ai-instructions/llms.txt">
+              <Link href="#">
                 <span>Client</span>
                 <i aria-hidden="true">→</i>
 
@@ -764,9 +761,9 @@ function Section({
         first ? styles.firstSection : ""
       }`}
     >
-      <h2 className={styles.sectionTitle}>
+      <h3 className={styles.sectionTitle}>
         {title}
-      </h2>
+      </h3>
 
       <div className={styles.sectionContent}>
         {children}
