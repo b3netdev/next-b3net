@@ -1,0 +1,39 @@
+.header {
+  width: 100%;
+  background: #fff;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.inner {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  margin: 0 auto;
+  max-width: 1200px;
+  min-height: 64px;
+  padding: 10px 24px;
+}
+
+.logoLink {
+  align-items: center;
+  display: inline-flex;
+  line-height: 0;
+}
+
+.logo {
+  display: block;
+  height: auto;
+  max-width: 100%;
+  width: 140px;
+}
+
+@media (max-width: 600px) {
+  .inner {
+    min-height: 56px;
+    padding: 8px 16px;
+  }
+
+  .logo {
+    width: 128px;
+  }
+}

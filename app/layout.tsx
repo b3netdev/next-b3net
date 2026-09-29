@@ -17,9 +17,9 @@ import "../assets/css/caseStudy-inner.css";
 import "../assets/css/caseStudy-inner-3.css";
 import "../assets/css/caseStudy-inner-2.css";
 import "../assets/css/fade-down.css";
-import Navbar from "@/components/client/Navcontainer";
+import RouteHeader from "@/components/client/RouteHeader";
 import Providers from "@/redux/Provider";
-import Footer from "@/components/server/Footer";
+import RouteFooter from "@/components/client/RouteFooter";
 import { Poppins } from "next/font/google";
 import ToastProvider from "@/components/client/Toast";
 import ScrollToTop from "@/components/client/ScrollToTop";
@@ -309,11 +309,11 @@ export default function RootLayout({
         </Script>
 
         <Providers>
-          <Navbar />
+          <RouteHeader />
           <BootstrapClient />
           <ScrollToTop />
           {children}
-          <Footer />
+          <RouteFooter />
           <ToastProvider />
         </Providers>
       </body>

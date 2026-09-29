@@ -14,6 +14,12 @@
   box-sizing: border-box;
 }
 
+@media (max-width: 1054px) {
+  .banner.banner {
+    margin-top: 0;
+  }
+}
+
 /* ---------------------------------
    Links
 ---------------------------------- */

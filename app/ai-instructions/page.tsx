@@ -1,5 +1,4 @@
 import StructuredData from "@/components/server/StructuredData";
-import ShowNav from "@/components/client/ShowNav";
 import { GetPageData } from "@/lib/getdata";
 
 import {
@@ -117,12 +116,10 @@ export default async function Page() {
 
   return (
     <>
-      <ShowNav />
-
       <StructuredData data={schemaData} />
 
       {/* Existing B3NET Banner */}
-      <div className="port-landing-wrap details-page default-img commonbannercontainer">
+      <div className={`${styles.banner} port-landing-wrap details-page default-img commonbannercontainer`}>
         <div className="menu-design"></div>
 
         <div className="banner-img">
