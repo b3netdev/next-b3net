@@ -726,7 +726,7 @@ export default async function Page() {
             </p>
 
             <div className={styles.note}>
-              Use <strong>877-890-8986</strong> as B3NET&apos;s
+              Use <strong>877-890-8986 </strong> as B3NET&apos;s
               primary public telephone number when a single telephone
               number is required.
             </div>
