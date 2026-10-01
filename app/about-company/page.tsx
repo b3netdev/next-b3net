@@ -48,7 +48,7 @@ export default async function AboutUsPage({ params }: PageProps) {
       <div className="port-landing-wrap gpp">
         <div className="banner-img">
           <img
-            src={`${BASE_URL}wp-content/uploads/2025/12/about-banner.webp`}
+            src={`${BASE_URL}/wp-content/uploads/2025/12/about-banner.webp`}
             alt="about-banner"
           />
           <div className="container">
@@ -94,7 +94,7 @@ export default async function AboutUsPage({ params }: PageProps) {
           <div className="row">
             <div className="col-lg-4 col-md-6 mb-4">
               <img
-                src={`${BASE_URL}wp-content/uploads/2025/12/ai-image.webp`}
+                src={`${BASE_URL}/wp-content/uploads/2025/12/ai-image.webp`}
                 alt="ai-image"
               />
             </div>

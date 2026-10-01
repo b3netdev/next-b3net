@@ -533,7 +533,7 @@ export default function FooterClient() {
                         <li>
                           <a
                             href="https://www.zoho.com/partners/find-partner-profile.html?partnerid=d1b91bec8996f03d23320e2caa316b72">
-                            <img src={`${BASE_URL}wp-content/themes/b3net/assets/images/zoho.png`}
+                            <img src={`${BASE_URL}/wp-content/themes/b3net/assets/images/zoho.png`}
                               alt="Zoho Authorized Partner badge"
                             />
                           </a>
@@ -541,7 +541,7 @@ export default function FooterClient() {
                         <li>
                           <a href="#">
                             <img
-                              src={`${BASE_URL}wp-content/themes/b3net/assets/images/google-authorised.png`}
+                              src={`${BASE_URL}/wp-content/themes/b3net/assets/images/google-authorised.png`}
                               alt="Google Cloud Partner badge"
                             />
                           </a>
@@ -550,7 +550,7 @@ export default function FooterClient() {
                       <div>
                         <img
                           className="size-36"
-                          src={`${BASE_URL}wp-content/uploads/2026/08/Badge_light_640×240.webp`}
+                          src={`${BASE_URL}/wp-content/uploads/2026/08/Badge_light_640×240.webp`}
                           alt="Google Cloud Partner badge"
                         />
                       </div>

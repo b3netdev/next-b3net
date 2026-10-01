@@ -83,7 +83,7 @@ const CaseStudy = async ({ pageData }: any) => {
                             )}
                         </div>
                         <div className="hire-us-section casestudy-tech-hardware-hire-us-section "
-                            style={{ background: `url(${BASE_URL}//wp-content/themes/b3net/assets/images/case-studies/hire-us-bg-c3.png)` }}
+                            style={{ background: `url(${BASE_URL}/wp-content/themes/b3net/assets/images/case-studies/hire-us-bg-c3.png)` }}
                         >
                             <div className="hire-left">
                                 <div
