@@ -132,10 +132,11 @@ const PortfolioDetailPage = async ({
                                     <Link href="/">Home</Link>
                                 </li>
                                 <li className="breadcrumb-item " aria-current="page">
-                                    portfolio
+                                    <Link href="/portfolio">Portfolio</Link>
+
                                 </li>
                                 <li className="breadcrumb-item active" aria-current="page">
-                                    portfolio-details
+                                    {pageData?.title?.rendered}
                                 </li>
                             </ol>
                         </nav>

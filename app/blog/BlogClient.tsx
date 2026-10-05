@@ -33,7 +33,7 @@ export default function BlogClient() {
   const [pageCount, setPageCount] = useState<any>(null)
   const [scroll, setScroll] = useState(true)
   const [searchText, setSearchtext] = useState("")
-  const [searchclick, setSearchClick] = useState(false)
+  const [searchQuery, setSearchQuery] = useState("")
   const [showcategoryNav, setShowCategoryNav] = useState(true)
 
   const [selectTab, setSelectTab] = useState<any>({
@@ -73,7 +73,7 @@ export default function BlogClient() {
 
 
   useEffect(() => {
-    if (!selectTab?.id || searchText?.length > 0) return;
+    if (!selectTab?.id || searchQuery.length > 0) return;
     const getblogitems = async () => {
       const params = new URLSearchParams({
         per_page: "6",
@@ -89,15 +89,15 @@ export default function BlogClient() {
     };
 
     getblogitems();
-  }, [selectTab, pagenumber, searchText]);
+  }, [selectTab, pagenumber, searchQuery]);
 
 
   useEffect(() => {
-    if (searchclick == false) return;
+    if (!searchQuery) return;
 
     const fetchBlogs = async () => {
       try {
-        const response = await searchBlog(searchText, pagenumber);
+        const response = await searchBlog(searchQuery, pagenumber);
 
         if (
           response?.totalPosts != null &&
@@ -113,7 +113,7 @@ export default function BlogClient() {
     };
 
     fetchBlogs();
-  }, [searchclick, pagenumber]);
+  }, [searchQuery, pagenumber]);
 
 
   useEffect(() => {
@@ -217,7 +217,7 @@ export default function BlogClient() {
   const HandleSearch = async () => {
     setShowCategoryNav(false)
     if (!searchText.trim()) return;
-    setSearchClick(true)
+    setSearchQuery(searchText.trim())
     setPageNumber(1)
 
   }
@@ -275,7 +275,14 @@ export default function BlogClient() {
             placeholder="Search blog..."
             className="search-input"
             aria-label="Search blog"
-            onChange={(e) => setSearchtext(e.target.value)}
+            onChange={(e) => {
+              setSearchtext(e.target.value);
+              if (!e.target.value.trim()) {
+                setSearchQuery("");
+                setPageNumber(1);
+                setShowCategoryNav(true);
+              }
+            }}
             onKeyDown={(e) => {
               if (e.key === "Enter") {
                 e.preventDefault();
@@ -291,8 +298,9 @@ export default function BlogClient() {
               aria-label="Clear search"
               onClick={() => {
                 setSearchtext("");
-                setSearchClick(false);
+                setSearchQuery("");
                 setPageNumber(1);
+                setShowCategoryNav(true);
               }}
             >
               <X size={18} />
@@ -449,133 +457,81 @@ export default function BlogClient() {
             {(() => {
               const itemsPerPage = 6;
               const totalPages = Math.ceil(pageCount / itemsPerPage);
-              const visiblePageCount = 5;
+              const current = Number(pagenumber);
               const pages: React.ReactNode[] = [];
-              let startPage = 1;
 
-              if (pagenumber >= visiblePageCount) {
-                startPage =
-                  4 +
-                  Math.floor(
-                    (pagenumber - visiblePageCount) / 3
-                  ) *
-                  3;
-              }
-              startPage = Math.min(
-                startPage,
-                Math.max(1, totalPages - visiblePageCount + 1)
+              /*
+               * < Prev  1  ...  7  8  9  [10]  11  12  13  ...  50  Next >
+               * First and last page always shown, 3 pages on each side of
+               * the current page, "..." for the gaps.
+               */
+              const pageItems: (number | "dots-start" | "dots-end")[] = [];
+              let windowStart = Math.max(2, current - 3);
+              let windowEnd = Math.min(totalPages - 1, current + 3);
+              // don't hide a single page behind "..."
+              if (windowStart === 3) windowStart = 2;
+              if (windowEnd === totalPages - 2) windowEnd = totalPages - 1;
+
+              pageItems.push(1);
+              if (windowStart > 2) pageItems.push("dots-start");
+              for (let p = windowStart; p <= windowEnd; p++) pageItems.push(p);
+              if (windowEnd < totalPages - 1) pageItems.push("dots-end");
+              if (totalPages > 1) pageItems.push(totalPages);
+
+              // Previous button
+              pages.push(
+                <button
+                  type="button"
+                  key="previous"
+                  className="paginationbox paginationNav"
+                  onClick={() => HandleSelectnumbox(current - 1)}
+                  disabled={current <= 1}
+                  aria-label="Previous page"
+                >
+                  {"< Prev"}
+                </button>
               );
 
-              const endPage = Math.min(
-                startPage + visiblePageCount - 1,
-                totalPages
-              );
-
-              const addPage = (page: number) => {
-                pages.push(
-                  <button
-                    type="button"
-                    key={`page-${page}`}
-                    className={
-                      pagenumber === page
-                        ? "paginationactive"
-                        : "paginationbox"
-                    }
-                    onClick={() => HandleSelectnumbox(page)}
-                    aria-label={`Go to page ${page}`}
-                    aria-current={
-                      pagenumber === page ? "page" : undefined
-                    }
-                  >
-                    {page}
-                  </button>
-                );
-              };
-
-  
-              if (pagenumber > 1) {
-                pages.push(
-                  <button
-                    type="button"
-                    key="first"
-                    className="paginationbox prev"
-                    onClick={() => HandleSelectnumbox(1)}
-                  >
-                    First
-                  </button>
-                );
-              }
-
-             
-              if (pagenumber > 1) {
-                pages.push(
-                  <button
-                    type="button"
-                    key="previous"
-                    className="paginationbox prev size-10"
-                    onClick={() =>
-                      HandleSelectnumbox(pagenumber - 1)
-                    }
-                    aria-label="Previous page"
-                  >
-                    {"<"}
-                  </button>
-                );
-              }
-
-
-              for (let page = startPage; page <= endPage; page++) {
-                addPage(page);
-              }
-
-
-              if (endPage < totalPages) {
-                if (endPage < totalPages - 1) {
+              pageItems.forEach((item) => {
+                if (typeof item === "number") {
                   pages.push(
-                    <span
-                      key="pagination-dots"
-                      className="paginationDots"
+                    <button
+                      type="button"
+                      key={`page-${item}`}
+                      className={
+                        current === item
+                          ? "paginationactive"
+                          : "paginationbox"
+                      }
+                      onClick={() => HandleSelectnumbox(item)}
+                      aria-label={`Go to page ${item}`}
+                      aria-current={current === item ? "page" : undefined}
                     >
+                      {item}
+                    </button>
+                  );
+                } else {
+                  pages.push(
+                    <span key={item} className="paginationDots">
                       ...
                     </span>
                   );
                 }
+              });
 
-                addPage(totalPages);
-              }
-
-
-              if (pagenumber < totalPages) {
-                pages.push(
-                  <button
-                    type="button"
-                    key="next"
-                    className="paginationbox prev"
-                    onClick={() =>
-                      HandleSelectnumbox(pagenumber + 1)
-                    }
-                    aria-label="Next page"
-                  >
-                    {">"}
-                  </button>
-                );
-              }
-
-
-              if (pagenumber < totalPages) {
-                pages.push(
-                  <button
-                    type="button"
-                    key="last"
-                    className="paginationbox prev"
-                    onClick={() =>
-                      HandleSelectnumbox(totalPages)
-                    }
-                  >
-                    Last
-                  </button>
-                );
-              }
+              // Next button
+              pages.push(
+                <button
+                  type="button"
+                  key="next"
+                  className="paginationbox paginationNav"
+                  onClick={() => HandleSelectnumbox(current + 1)}
+                  disabled={current >= totalPages}
+                  aria-label="Next page"
+                >
+                  {"Next >"}
+                </button>
+              );
 
               return pages;
             })()}

@@ -172,127 +172,81 @@ export default function Portfoliobox() {
       const itemsPerPage = 6;
       const totalItems = Number(selectTab?.count ?? 0);
       const totalPages = Math.ceil(totalItems / itemsPerPage);
-      const visiblePageCount = 5;
+      const current = Number(pagenumber);
       const pages: React.ReactNode[] = [];
 
       /*
-       * Page 1–4  → 1 2 3 4 5
-       * Page 5–7  → 4 5 6 7 8
-       * Page 8–10 → 7 8 9 10 11
+       * < Prev  1  ...  7  8  9  [10]  11  12  13  ...  50  Next >
+       * First and last page always shown, 3 pages on each side of
+       * the current page, "..." for the gaps.
        */
-      let startPage = 1;
+      const pageItems: (number | "dots-start" | "dots-end")[] = [];
+      let windowStart = Math.max(2, current - 3);
+      let windowEnd = Math.min(totalPages - 1, current + 3);
+      // don't hide a single page behind "..."
+      if (windowStart === 3) windowStart = 2;
+      if (windowEnd === totalPages - 2) windowEnd = totalPages - 1;
 
-      if (pagenumber >= visiblePageCount) {
-        startPage =
-          4 +
-          Math.floor((pagenumber - visiblePageCount) / 3) * 3;
-      }
-
-      // Keep the visible pages inside the available page range.
-      startPage = Math.min(
-        startPage,
-        Math.max(1, totalPages - visiblePageCount + 1)
-      );
-
-      const endPage = Math.min(
-        startPage + visiblePageCount - 1,
-        totalPages
-      );
-
-      const addPage = (page: number) => {
-        pages.push(
-          <button
-            type="button"
-            key={`page-${page}`}
-            className={
-              pagenumber === page
-                ? "paginationactive"
-                : "paginationbox"
-            }
-            onClick={() => HandleSelectnumbox(page)}
-            aria-label={`Go to page ${page}`}
-            aria-current={pagenumber === page ? "page" : undefined}
-          >
-            {page}
-          </button>
-        );
-      };
-
-      // First button
-      if (pagenumber > 1) {
-        pages.push(
-          <button
-            type="button"
-            key="first"
-            className="paginationbox prev"
-            onClick={() => HandleSelectnumbox(1)}
-          >
-            First
-          </button>
-        );
-      }
+      pageItems.push(1);
+      if (windowStart > 2) pageItems.push("dots-start");
+      for (let p = windowStart; p <= windowEnd; p++) pageItems.push(p);
+      if (windowEnd < totalPages - 1) pageItems.push("dots-end");
+      if (totalPages > 1) pageItems.push(totalPages);
 
       // Previous button
-      if (pagenumber > 1) {
-        pages.push(
-          <button
-            type="button"
-            key="previous"
-            className="paginationbox prev size-10"
-            onClick={() => HandleSelectnumbox(pagenumber - 1)}
-            aria-label="Previous page"
-          >
-            {"<"}
-          </button>
-        );
-      }
+      pages.push(
+        <button
+          type="button"
+          key="previous"
+          className="paginationbox paginationNav"
+          onClick={() => HandleSelectnumbox(current - 1)}
+          disabled={current <= 1}
+          aria-label="Previous page"
+        >
+          {"< Prev"}
+        </button>
+      );
 
-      // Five moving page numbers
-      for (let page = startPage; page <= endPage; page++) {
-        addPage(page);
-      }
-
-      // Dots and final page number
-      if (endPage < totalPages) {
-        if (endPage < totalPages - 1) {
+      pageItems.forEach((item) => {
+        if (typeof item === "number") {
           pages.push(
-            <span key="pagination-dots" className="paginationDots">
+            <button
+              type="button"
+              key={`page-${item}`}
+              className={
+                current === item
+                  ? "paginationactive"
+                  : "paginationbox"
+              }
+              onClick={() => HandleSelectnumbox(item)}
+              aria-label={`Go to page ${item}`}
+              aria-current={current === item ? "page" : undefined}
+            >
+              {item}
+            </button>
+          );
+        } else {
+          pages.push(
+            <span key={item} className="paginationDots">
               ...
             </span>
           );
         }
-
-        addPage(totalPages);
-      }
+      });
 
       // Next button
-      if (pagenumber < totalPages) {
-        pages.push(
-          <button
-            type="button"
-            key="next"
-            className="paginationbox prev"
-            onClick={() => HandleSelectnumbox(pagenumber + 1)}
-            aria-label="Next page"
-          >
-            {">"}
-          </button>
-        );
-      }
-
-      // Last button
-      if (pagenumber < totalPages) {
-        pages.push(
-          <button
-            type="button"
-            key="last"
-            className="paginationbox prev"
-            onClick={() => HandleSelectnumbox(totalPages)}
-          >
-            Last
-          </button>
-        );
-      }
+      pages.push(
+        <button
+          type="button"
+          key="next"
+          className="paginationbox paginationNav"
+          onClick={() => HandleSelectnumbox(current + 1)}
+          disabled={current >= totalPages}
+          aria-label="Next page"
+        >
+          {"Next >"}
+        </button>
+      );
 
       return pages;
     })()}

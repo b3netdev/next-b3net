@@ -126,6 +126,12 @@ const BlogDetail = async ({ params }: { params: { slug: string } }) => {
             overscroll-behavior: auto;
           }
         }
+        .blog-detailpage-content .toc-highlight {
+          background-color: #dcf4fc;
+          box-shadow: 0 0 0 10px #dcf4fc;
+          border-radius: 4px;
+          transition: background-color 0.3s ease, box-shadow 0.3s ease;
+        }
           .blog-detailpage-content table {
   width: 100%;
   margin: 28px 0;
@@ -207,6 +213,26 @@ const BlogDetail = async ({ params }: { params: { slug: string } }) => {
                 </div>
               </div>
             </div>
+          </div>
+        </div>
+
+        <div className="container new-bg-sec mt-4">
+          <div className="breadcrumb-left">
+            <nav aria-label="breadcrumb">
+              <ol className="breadcrumb">
+                <li className="breadcrumb-item">
+                  <Link href="/">Home</Link>
+                </li>
+
+                <li className="breadcrumb-item">
+                  <Link href="/blog">Blog</Link>
+                </li>
+
+                <li className="breadcrumb-item active" aria-current="page">
+                  {decodeHtml(pageData?.title?.rendered || "")}
+                </li>
+              </ol>
+            </nav>
           </div>
         </div>
 

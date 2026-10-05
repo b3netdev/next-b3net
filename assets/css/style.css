@@ -8769,3 +8769,14 @@ text-transform: uppercase !important;
   cursor: default;
 }
 
+
+.paginationbox.paginationNav {
+  width: auto;
+  padding: 5px 14px;
+  white-space: nowrap;
+}
+
+.paginationbox.paginationNav:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}

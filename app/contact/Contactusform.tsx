@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { useFormik } from "formik";
 import * as Yup from "yup";
 import { useForm } from "@/hooks/useForm";
@@ -21,6 +21,7 @@ const validationSchema: any = Yup.object({
   fname: Yup.string().required("Name is required"),
   email: Yup.string().email("Invalid email").required("Email is required"),
   phone: Yup.string().required("Mobile number is required"),
+  subject: Yup.string().required("Subject is required"),
   Message: Yup.string().required("Message is required"),
   yourConsent: Yup.string()
     .required("Consent is required")
@@ -28,12 +29,15 @@ const validationSchema: any = Yup.object({
 });
 
 export default function ContactUsForm() {
-  const { submitcontact, loading, error } = useForm()
+  const { submitcontact } = useForm()
   const router = useRouter()
 
   const [captchaToken, setCaptchaToken] = useState("");
   const [captchaError, setCaptchaError] = useState("");
   const recaptchaRef = useRef<ReCAPTCHA | null>(null);
+  const [consentChecked, setConsentChecked] = useState(false);
+  // Stays true from submit until the redirect to /thankyou finishes
+  const [submitting, setSubmitting] = useState(false);
 
   const formik = useFormik<ContactUsFormValues>({
     initialValues: {
@@ -53,23 +57,43 @@ export default function ContactUsForm() {
       }
 
       setCaptchaError("");
+      setSubmitting(true);
 
-      const data = await submitcontact(
-        { ...formik.values, recaptcha_token: captchaToken },
-        12474
-      );
+      try {
+        const data = await submitcontact(
+          { ...formik.values, recaptcha_token: captchaToken },
+          12474
+        );
 
-      if (data?.status === "mail_sent") {
-        recaptchaRef.current?.reset();
-        setCaptchaToken("");
-        router.push("/thankyou");
-      } else {
+        if (data?.status === "mail_sent") {
+          recaptchaRef.current?.reset();
+          setCaptchaToken("");
+          router.push("/thankyou");
+          return;
+        }
+
         recaptchaRef.current?.reset();
         setCaptchaToken("");
         setCaptchaError("Captcha expired. Please verify again.");
+      } catch {
+        recaptchaRef.current?.reset();
+        setCaptchaToken("");
+        setCaptchaError("Something went wrong. Please try again.");
       }
+      setSubmitting(false);
     },
   });
+
+  // Consent checkbox unlocks only after all required fields are valid
+  const requiredFields = ["fname", "email", "phone", "subject", "Message"] as const;
+  const requiredFilled = requiredFields.every(
+    (field) => formik.values[field].trim() !== "" && !formik.errors[field]
+  );
+
+  // Require consent to be given again if a required field is cleared
+  useEffect(() => {
+    if (!requiredFilled) setConsentChecked(false);
+  }, [requiredFilled]);
 
   return (
     <section className="contact-sec sp">
@@ -178,10 +202,23 @@ export default function ContactUsForm() {
             </div>
 
             <div className="form-group mt-3">
-              <label className="consent-checkbox">
+              <label
+                className="consent-checkbox"
+                style={{
+                  opacity: requiredFilled ? 1 : 0.5,
+                  cursor: requiredFilled ? "pointer" : "not-allowed",
+                }}
+                title={requiredFilled ? undefined : "Please fill in all required fields first"}
+              >
                 <div className="flex gap-1" >
-                  <input type="checkbox" name="yourConsent" required />
-                  <span className="required">*</span>
+                  <input
+                    type="checkbox"
+                    name="yourConsent"
+                    required
+                    disabled={!requiredFilled}
+                    checked={consentChecked}
+                    onChange={(e) => setConsentChecked(e.target.checked)}
+                  />
                 </div>
                 I consent to being contacted by B3NET regarding my inquiry, services, and relevant updates via email, phone, or SMS. I may unsubscribe at any time.
               </label>
@@ -215,9 +252,18 @@ export default function ContactUsForm() {
             </div>
 
             <div className="mb-0 text-center pt-md-3">
-              <button type="submit" className="btn btn-primary" disabled={loading}>
-                {loading ? (
-                  <CircularProgress size={20} sx={{ color: "#fff" }} className="mx-16" />
+              <button
+                type="submit"
+                className="btn btn-primary"
+                disabled={submitting}
+                aria-busy={submitting}
+                style={submitting ? { cursor: "wait", opacity: 0.85 } : undefined}
+              >
+                {submitting ? (
+                  <>
+                    <CircularProgress size={18} sx={{ color: "#fff" }} className="me-2" />
+                    Submitting...
+                  </>
                 ) : (
                   <>
                     Submit Now <i className="fa-solid fa-arrow-right-long"></i>

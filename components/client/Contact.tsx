@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { useFormik } from "formik";
 import * as Yup from "yup";
 import ReCAPTCHA from "react-google-recaptcha";
@@ -68,8 +68,10 @@ const Contact: React.FC<ContactProps> = ({ data = false }) => {
   const [captchaError, setCaptchaError] = useState("");
   const [captchaToken, setCaptchaToken] = useState("");
   const recaptchaRef = useRef<ReCAPTCHA | null>(null);
+  // Stays true from submit until the redirect to /thankyou finishes
+  const [submitting, setSubmitting] = useState(false);
 
-  const { submitcontact, loading } = useForm();
+  const { submitcontact } = useForm();
   const router = useRouter();
 
   const formik = useFormik<ContactFormValues>({
@@ -93,6 +95,7 @@ const Contact: React.FC<ContactProps> = ({ data = false }) => {
       }
 
       setCaptchaError("");
+      setSubmitting(true);
 
       const formData = new FormData();
       formData.append("fname", values.firstName);
@@ -110,19 +113,42 @@ const Contact: React.FC<ContactProps> = ({ data = false }) => {
       values.services.forEach((service) => {
         formData.append("services[]", service);
       });
-      const res: any = await submitcontact(formData, 12634);
+      try {
+        const res: any = await submitcontact(formData, 12634);
 
-      if (res?.status === "mail_sent") {
-        recaptchaRef.current?.reset();
-        setCaptchaToken("");
-        router.push("/thankyou");
-      } else {
+        if (res?.status === "mail_sent") {
+          recaptchaRef.current?.reset();
+          setCaptchaToken("");
+          router.push("/thankyou");
+          return;
+        }
+
         recaptchaRef.current?.reset();
         setCaptchaToken("");
         setCaptchaError("Captcha expired. Please verify again.");
+      } catch {
+        recaptchaRef.current?.reset();
+        setCaptchaToken("");
+        setCaptchaError("Something went wrong. Please try again.");
       }
+      setSubmitting(false);
     },
   });
+
+  // Consent checkbox unlocks only after all required fields are valid
+  const requiredFields = ["firstName", "lastName", "phone", "email", "cname", "message"] as const;
+  const requiredFilled =
+    requiredFields.every(
+      (field) => formik.values[field].trim() !== "" && !formik.errors[field]
+    ) && formik.values.services.length > 0;
+
+  // Require consent to be given again if a required field is cleared
+  useEffect(() => {
+    if (!requiredFilled && formik.values.consent) {
+      formik.setFieldValue("consent", false);
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [requiredFilled]);
 
   const handleSelectService = (value: string) => {
     const exists = selectService.includes(value);
@@ -325,13 +351,20 @@ const Contact: React.FC<ContactProps> = ({ data = false }) => {
                 </div>
 
                 <div className="form-group mt-3">
-                  <label className="consent-checkbox">
+                  <label
+                    className="consent-checkbox"
+                    style={{
+                      opacity: requiredFilled ? 1 : 0.5,
+                      cursor: requiredFilled ? "pointer" : "not-allowed",
+                    }}
+                    title={requiredFilled ? undefined : "Please fill in all required fields first"}
+                  >
                     <div className="flex gap-1" >
                       <input type="checkbox" name="consent" checked={formik.values.consent} required
+                        disabled={!requiredFilled}
                         onChange={formik.handleChange}
                         onBlur={formik.handleBlur}
                       />
-                      <span className="required">*</span>
                     </div>
                     I consent to being contacted by B3NET regarding my inquiry, services, and relevant updates via email, phone, or SMS. I may unsubscribe at any time.
                   </label>
@@ -368,13 +401,22 @@ const Contact: React.FC<ContactProps> = ({ data = false }) => {
                   </div>
 
                   <div className="mb-0  text-center  contact-submit-button">
-                    <button type="submit" className="btn btn-primary">
-                      {loading ? (
-                        <CircularProgress
-                          size={20}
-                          sx={{ color: "#fff" }}
-                          className="mx-16"
-                        />
+                    <button
+                      type="submit"
+                      className="btn btn-primary"
+                      disabled={submitting}
+                      aria-busy={submitting}
+                      style={submitting ? { cursor: "wait", opacity: 0.85 } : undefined}
+                    >
+                      {submitting ? (
+                        <>
+                          <CircularProgress
+                            size={18}
+                            sx={{ color: "#fff" }}
+                            className="me-2"
+                          />
+                          Submitting...
+                        </>
                       ) : (
                         <>
                           Submit Now <i className="fa-solid fa-arrow-right-long"></i>

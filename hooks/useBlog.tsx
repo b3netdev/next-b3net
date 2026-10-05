@@ -141,7 +141,9 @@ const useBlog = () => {
   const searchBlog = async (searchText: string, pagenumber: string) => {
     setLoading(true)
     try {
-      const response = await api.get(`/wp-json/custom/v1/blog-search?search=${searchText}&page=${pagenumber}&per_page=6`)
+      const response = await api.get("/wp-json/custom/v1/blog-search", {
+        params: { search: searchText, page: pagenumber, per_page: 6 },
+      })
       if (response?.data?.success == true) {
         return {
           totalPosts: response.data.pagination.total_posts,

@@ -4840,3 +4840,32 @@ section.product-details-sec.shop-sec.page_content.default_content_class ol.bread
 
 
 
+
+/* blog details: banner starts right under the 90px sticky header */
+.portfolio-detail.portfoli-padd.portfolio-page-1.blog-details {
+    padding-top: 90px;
+}
+
+.blog-details .details-page-1 {
+    padding-top: 50px;
+    padding-bottom: 50px;
+}
+
+@media screen and (max-width: 991px) {
+    .blog-details .details-page-1 {
+        padding-top: 40px;
+        padding-bottom: 40px;
+    }
+}
+
+@media screen and (max-width: 767px) {
+    .blog-details .details-page-1 {
+        padding-top: 30px;
+        padding-bottom: 30px;
+    }
+
+    /* last item in the stacked banner; its margin would add to the bottom space */
+    .blog-details .banner-img h4 {
+        margin-bottom: 0;
+    }
+}
