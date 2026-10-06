@@ -71,6 +71,35 @@ const BlogDetail = async ({ params }: { params: { slug: string } }) => {
       });
     });
 
+    // Old WP posts use relative image paths (e.g. "../wp-content/..."), resolve them against the backend
+    const backendUrl = process.env.NEXT_PUBLIC_BASE_URL || "";
+    const toAbsolute = (url: string) => {
+      try {
+        return new URL(url.trim(), backendUrl).href;
+      } catch {
+        return url;
+      }
+    };
+
+    $("img").each((_, el) => {
+      const src = $(el).attr("src");
+      if (src) $(el).attr("src", toAbsolute(src));
+
+      const srcset = $(el).attr("srcset");
+      if (srcset) {
+        $(el).attr(
+          "srcset",
+          srcset
+            .split(",")
+            .map((part) => {
+              const [url, ...rest] = part.trim().split(/\s+/);
+              return [toAbsolute(url), ...rest].join(" ");
+            })
+            .join(", ")
+        );
+      }
+    });
+
     contentData = $.html();
   }
 
