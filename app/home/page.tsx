@@ -299,9 +299,9 @@ export default async function Home() {
                                 img: `${BASE_URL}/wp-content/uploads/2025/11/goodfirms-logo.png`,
                                 height: 60,
                                 width: 60,
-                                rating: "Our Rating: B+",
+                                rating: "5 out of 5",
                             },
-                            { img: "/images/dbest-logo.png", rating: "Our Rating: B+" },
+                            { img: "/images/dbest-logo.png", rating: "Our Rating: A+" },
                         ].map((item, i) => (
                             <div key={i} className="min-w-0">
                                 <div className="flex items-center justify-center gap-3 ">
