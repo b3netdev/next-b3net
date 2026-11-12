@@ -1,5 +1,6 @@
 /* SVG icon sprite + helpers shared by the static location landing pages.
-   Ids are prefixed `hw-i-` so they never collide with icons elsewhere on the site. */
+   Ids are prefixed `hw-i-` so they never collide with icons elsewhere on the site.
+   Last updated: 2026-11-12 */
 
 export function IconSprite() {
   return (

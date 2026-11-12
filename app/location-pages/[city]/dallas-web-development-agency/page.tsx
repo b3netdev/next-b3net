@@ -12,6 +12,7 @@ import "../../_landing/landing.css";
  * Static landing page for /texas/dallas-web-development-agency
  * (rewritten to /location-pages/texas/dallas-web-development-agency in next.config.ts).
  * Content is hard-coded; only SEO metadata / schema are still read from WordPress.
+ * Last updated: 2026-11-12
  */
 
 const SLUG = "dallas-web-development-agency";

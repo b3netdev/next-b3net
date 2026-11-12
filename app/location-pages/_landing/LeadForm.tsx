@@ -9,6 +9,7 @@ import { useForm } from "@/hooks/useForm";
  * Lead form shared by the static location landing pages (Houston, Dallas…).
  * Fields: Name, Work email, Phone, one optional extra field (text input or select),
  * consent checkbox and reCAPTCHA. Submits to the Contact Form 7 form given in `cf7`.
+ * Last updated: 2026-11-12
  */
 
 const CONSENT_TEXT =

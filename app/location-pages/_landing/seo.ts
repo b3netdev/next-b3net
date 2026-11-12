@@ -7,6 +7,7 @@ import { buildMetadata, getSeoFromPageData } from "@/lib/seo";
 /*
  * Static landing pages keep their content in code, but still read SEO
  * (Yoast title/description/schema) from the matching WordPress page.
+ * Last updated: 2026-11-12
  */
 
 export const getLandingPageData = cache(async (slug: string) => {
