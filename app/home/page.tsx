@@ -272,13 +272,16 @@ export default async function Home() {
                     <div className="space30"></div>
 
                     <a className="btn" href="https://seoaudit.b3net.com">
-                        <span className="btn_label" data-text="Get Your Free Audit">
-                            Get Your Free Audit
+                        <span className="btn_label" data-text="GET YOUR FREE AI SEARCH AUDIT">
+                            GET YOUR FREE AI SEARCH AUDIT
                         </span>
                         <span className="btn_icon">
                             <i className="fa-solid fa-arrow-right"></i>
                         </span>
                     </a>
+                    <div className="space30"></div>
+
+                    <div style={{ color: "white", fontSize: "0.9em", }}>Find out how your business appears in ChatGPT, Gemini, and other AI search tools</div>
                 </div>
             </div>
 
