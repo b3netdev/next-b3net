@@ -271,7 +271,7 @@ export default async function Home() {
 
                     <div className="space30"></div>
 
-                    <a className="btn" href="https://seoaudit.b3net.com">
+                    <a className="btn" href="https://aisearch.b3net.com/">
                         <span className="btn_label" data-text="GET YOUR FREE AI SEARCH AUDIT">
                             GET YOUR FREE AI SEARCH AUDIT
                         </span>
