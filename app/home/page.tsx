@@ -281,7 +281,7 @@ export default async function Home() {
                     </a>
                     <div className="space30"></div>
 
-                    <div style={{ color: "white", fontSize: "0.9em", }}>Find out how your business appears in ChatGPT, Gemini, and other AI search tools</div>
+                    <div className="lg:whitespace-nowrap" style={{ color: "white", fontSize: "0.9em", }}>Find out how your business appears in ChatGPT, Gemini, and other AI search tools</div>
                 </div>
             </div>
 
