@@ -555,6 +555,7 @@ const nextConfig: NextConfig = {
         destination: "/magento-ecommerce-development",
         permanent: true,
       },
+      
     ];
   },
   async rewrites() {
