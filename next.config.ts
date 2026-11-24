@@ -551,11 +551,11 @@ const nextConfig: NextConfig = {
 
       },
       {
-        source: "/orange-county-magento-web-design.html",
+        source: "/orange-county-magento-web-design",
         destination: "/magento-ecommerce-development",
         permanent: true,
       },
-      
+
     ];
   },
   async rewrites() {
