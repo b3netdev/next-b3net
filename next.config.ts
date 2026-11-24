@@ -550,6 +550,11 @@ const nextConfig: NextConfig = {
         permanent: true,
 
       },
+      {
+        source: "/orange-county-magento-web-design.html",
+        destination: "/magento-ecommerce-development",
+        permanent: true,
+      },
     ];
   },
   async rewrites() {
